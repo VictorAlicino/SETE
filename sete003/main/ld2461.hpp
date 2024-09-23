@@ -9,6 +9,8 @@ FRAME HEADER - DATA LENGHT - COMMAND WORD - COMMAND VALUE - CHECKSUM - FRAME END
 #pragma once
 
 #include <stdint.h>
+#include "driver/gpio.h"
+#include "driver/uart.h"
 
 
 enum ld2461_baudrate_t
@@ -23,6 +25,7 @@ enum ld2461_baudrate_t
 
 enum ld2461_command_word_t : uint8_t
 {
+    LD2461_COMMAND_NULL = 0x00,
     LD2461_COMMAND_CHANGE_BAUDRATE = 0x01,
     LD2461_COMMAND_SET_RADAR = 0x02,
     LD2461_COMMAND_READ_RADAR = 0x03,
@@ -41,30 +44,45 @@ enum ld2461_frame_guard_t : uint32_t
     LD2461_FRAME_END = 0xDDEEFF
 };
 
-typedef union ld2461_version
+typedef struct ld2461_version
 {
+    uint16_t year;
     uint8_t month;
     uint8_t day;
     uint8_t major;
     uint8_t minor;
-    uint64_t id_number;
+    uint32_t id_number;
 }ld2461_version_t;
+
+typedef struct ld2461
+{
+    ld2461_version_t version;
+    uint64_t uid;
+    uart_port_t uart_num;
+}ld2461_t;
 
 typedef struct ld2461_frame
 {
-    ld2461_frame_guard_t header;  // 0xFFEEDD
-    uint16_t data_length;               // 2 bytes
+    uint8_t data_length;             // 2 bytes
     ld2461_command_word_t command_word; // 1 byte
-    uint8_t command_value[32];         // N bytes
+    uint8_t* command_value;             // N bytes
     uint8_t checksum;                   // 1 byte
-    ld2461_frame_guard_t end;     // 0xDDEEFF
 }ld2461_frame_t;
+
+esp_err_t setup_uart(
+    uart_port_t port_num,
+    int baudrate,
+    gpio_num_t tx_pin,
+    gpio_num_t rx_pin
+);
+
+ld2461_frame_t ld2461_setup_frame();
 
 void ld2461_generate_checksum(ld2461_frame_t* frame);
 
 ld2461_frame_t* change_baudrate();
 
-void get_version_number_and_id(ld2461_frame_t* frame);
+void get_version_number_and_uid(ld2461_frame_t* frame);
 
 void frame_to_string(ld2461_frame_t* frame);
 

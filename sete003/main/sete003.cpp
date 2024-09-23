@@ -54,7 +54,7 @@ void app_main(void)
     ESP_ERROR_CHECK(uart_driver_install(
         uart_num,           // UART Num
         uart_buffer_size,   // RX Buffer Size
-        0,   // TX Buffer Size
+        0,                  // TX Buffer Size
         10,                 // Queue Size
         &uart_queue,        // Pointer to Queue
         0                   // Flags to Interruptions
@@ -63,75 +63,35 @@ void app_main(void)
     // 4.Run UART Communication - Sending/receiving data
 
     // Sending
-    ld2461_frame_t frame = {
-        .header = LD2461_FRAME_HEADER,
-        .data_length = 2,
-        .command_word = LD2461_COMMAND_ID_AND_VERSION,
-        .command_value = {0},  // Inicialize com zeros ou valores específicos
-        .checksum = 0,
-        .end = LD2461_FRAME_END
-    };
-    get_version_number_and_id(&frame);
+    //get_version_number_and_uid(&frame);
     uint8_t datas[] = {0xFF, 0xEE, 0xDD, 0x00, 0x02, 0x09, 0x01, 0x0A, 0xDD, 0xEE, 0xFF};
     uart_write_bytes(uart_num, (const void*)datas, sizeof(datas));
-    //uart_write_bytes(uart_num, (void *)0xFFEEDD, sizeof(0xFFEEDD));
-    //uart_write_bytes(uart_num, (void *)0x0002, sizeof(0x0002));
-    //uart_write_bytes(uart_num, (void *)0x09, sizeof(0x09));
-    //uart_write_bytes(uart_num, (void *)0x01, sizeof(0x01));
-    //uart_write_bytes(uart_num, (void *)0x0A, sizeof(0x0A));
-    //uart_write_bytes(uart_num, (void *)0xFFEEDD, sizeof(0xFFEEDD));
-    //if(uart_wait_tx_done(uart_num, 100) == ESP_OK)
-    //{
-    //    printf("Data sent successfully\n");
-    //}
-    //else
-    //{
-    //    printf("Data not sent\n");
-    //}
-    //// Receiving
-    //uint8_t datar[128];
-    //int length = 0;
-    //ESP_ERROR_CHECK(uart_get_buffered_data_len(uart_num, (size_t*)&length));
-    //length = uart_read_bytes(uart_num, datar, length, 10);
-    //if (length < 0)
-    //{
-    //    printf("Error reading data\n");
-    //}
-    //printf("Received: ");
-    //for(int i=0; i < length; i++)
-    //{
-    //    printf("%02X", datar[i]);
-    //}
-    //printf("\n");
-    //uart_flush(uart_num);
-    // Loop printing the received data
-    
-    
+
+    // Receiving
+    uint8_t* readed_frame = (uint8_t*)malloc(100);
+    ld2461_frame_t frame = ld2461_setup_frame();
+
+
     uint8_t* data_length = (uint8_t*)malloc(2);
     uint8_t* command_word = (uint8_t*)malloc(100);
     uint8_t* checksum = (uint8_t*)malloc(100);
     uint8_t* data = (uint8_t*)malloc(100);
-    while(1)
+    while(*command_word != 0x09)
     {
         // Catch the Header
         uart_read_bytes(uart_num, data, 1, 100);
         if(*data != 0xFF) {continue;}
-        //printf("%02X", *data);
         uart_read_bytes(uart_num, data, 1, 100);
         if(*data != 0xEE) {continue;}
-        printf("FF%02X", *data);
         uart_read_bytes(uart_num, data, 1, 100);
         if(*data != 0xDD) {printf("\n");continue;}
-        printf("%02X ", *data);
 
         // Data Length - Command Word (1Byte) + Command Value
         uart_read_bytes(uart_num, data_length, 2, 100);
         *data_length = (data_length[0] << 8) | data_length[1];
-        printf("%02X ", *data_length);
 
         // Command Word
         uart_read_bytes(uart_num, command_word, 1, 100);
-        printf("%02X ", *command_word);
 
         // Command Value
         uint8_t* command_value = (uint8_t*)malloc(*data_length-1);
@@ -139,32 +99,73 @@ void app_main(void)
         {
             uart_read_bytes(uart_num, command_value+i, 1, 100);
         }
-        for(int i=0; i<(*data_length-1); i++)
-        {
-            printf("%02X", command_value[i]);
-        }
 
         // Checksum
         uart_read_bytes(uart_num, checksum, 1, 100);
-        printf(" %02X ", *checksum);
 
         // Catch the footer
         uart_read_bytes(uart_num, data, 1, 100);
         if(*data != 0xDD) {printf("\n");continue;}
-        printf("%02X", *data);
         uart_read_bytes(uart_num, data, 1, 100);
         if(*data != 0xEE) {printf("\n");continue;}
-        printf("%02X", *data);
         uart_read_bytes(uart_num, data, 1, 100);
         if(*data != 0xFF) {printf("\n");continue;}
-        printf("%02X ", *data);
-        printf("\n");
+        
+        // Building the frame
+        readed_frame[0] = 0xFF;
+        readed_frame[1] = 0xEE;
+        readed_frame[2] = 0xDD;
+        readed_frame[3] = *data_length;
+        readed_frame[4] = *command_word;
+        for(int i=0; i<(*data_length-1); i++)
+        {
+            readed_frame[5+i] = command_value[i];
+        }
+        readed_frame[5+(*data_length-1)] = *checksum;
+        readed_frame[6+(*data_length-1)] = 0xDD;
+        readed_frame[7+(*data_length-1)] = 0xEE;
+        readed_frame[8+(*data_length-1)] = 0xFF;
+
+        // Printing the frame
+        //for(int i=0; i<9+(*data_length-1); i++)
+        //{
+        //    printf("%02X", readed_frame[i]);
+        //}
+        //printf("\n");
+        //frame.data_length = *data_length;
+        //frame.command_word = (ld2461_command_word_t)(*command_word);
+        //frame.command_value = command_value;
+        //frame.checksum = *checksum;
         free(command_value);
     }
+    ld2461_version_t version = {
+        .year = (uint16_t)(2020+(readed_frame[5] >> 4)),
+        .month = (uint8_t)(readed_frame[5] & 0x0F),
+        .day = readed_frame[6],
+        .major = readed_frame[7],
+        .minor = readed_frame[8],
+        .id_number = (uint32_t)(
+            (readed_frame[9] << 24) |
+            (readed_frame[10] << 16) |
+            (readed_frame[11] << 8) |
+            (readed_frame[12])
+        )
+    };
+    printf("LD2461 Detected!\n");
+    printf("ID: ");for(int i=0; i<4; i++)
+    {
+        printf("%02X", (uint8_t)(version.id_number >> (8*(3-i))));
+    }printf("\n");
+    printf("Version: %d.%d\n", version.major, version.minor);
+    printf("Date: %02d/%02d/%02d\n", version.day, version.month, version.year);
+
     free(data_length);
     free(command_word);
     free(checksum);
     free(data);
     // 5.Use Interrupts - Triggering interrupts on specific communication events
+        // Nah ...
+    
     // 6.Deleting a Driver - Freeing allocated resources if a UART communication is no longer required
+    uart_driver_delete(uart_num);
 }
