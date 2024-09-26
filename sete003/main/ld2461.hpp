@@ -12,6 +12,7 @@ FRAME HEADER - DATA LENGHT - COMMAND WORD - COMMAND VALUE - CHECKSUM - FRAME END
 #include "driver/gpio.h"
 #include "driver/uart.h"
 
+#define MAX_TARGETS_DETECTION 5
 
 enum ld2461_baudrate_t
 {
@@ -63,27 +64,42 @@ typedef struct ld2461
 
 typedef struct ld2461_frame
 {
-    uint8_t data_length;             // 2 bytes
+    uint8_t data_length;                // 2 bytes
     ld2461_command_word_t command_word; // 1 byte
     uint8_t* command_value;             // N bytes
     uint8_t checksum;                   // 1 byte
 }ld2461_frame_t;
 
-esp_err_t setup_uart(
-    uart_port_t port_num,
-    int baudrate,
-    gpio_num_t tx_pin,
-    gpio_num_t rx_pin
-);
+typedef struct ld2461_coordinate
+{
+    uint8_t x;
+    uint8_t y;
+}ld2461_coordinate_t;
+
+typedef struct ld2461_detection
+{
+    struct ld2461_coordinate target[MAX_TARGETS_DETECTION];
+}ld2461_detection_t;
 
 ld2461_frame_t ld2461_setup_frame();
+ld2461_detection_t ld2461_setup_detection();
 
-void ld2461_generate_checksum(ld2461_frame_t* frame);
+class LD2461{
+private:
+    uart_port_t uart_num;
+    uint8_t ld2461_generate_checksum(ld2461_frame_t* frame);
+public:
+    LD2461(
+        uart_port_t uart_num,
+        gpio_num_t tx_pin,
+        gpio_num_t rx_pin,
+        int baudrate
+    );
 
-ld2461_frame_t* change_baudrate();
-
-void get_version_number_and_uid(ld2461_frame_t* frame);
-
-void frame_to_string(ld2461_frame_t* frame);
-
-void print_frame(ld2461_frame_t* frame);
+    void read_data(ld2461_frame_t* frame);
+    void change_baudrate(ld2461_baudrate_t baudrate);
+    ld2461_version_t get_version_and_id(ld2461_frame_t* frame);
+    void report_detections();
+    void frame_to_string(ld2461_frame_t* frame);
+    void print_frame(ld2461_frame_t* frame);
+};
