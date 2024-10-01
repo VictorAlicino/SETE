@@ -72,8 +72,8 @@ typedef struct ld2461_frame
 
 typedef struct ld2461_coordinate
 {
-    uint8_t x;
-    uint8_t y;
+    int8_t x;
+    int8_t y;
 }ld2461_coordinate_t;
 
 typedef struct ld2461_detection

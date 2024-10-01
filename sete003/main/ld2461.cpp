@@ -1,5 +1,10 @@
 #include <stdio.h>
+#include "esp_log.h"
 #include "ld2461.hpp"
+
+#define RED_LED GPIO_NUM_45
+#define GREEN_LED GPIO_NUM_38
+#define BLUE_LED GPIO_NUM_37
 
 ld2461_frame_t ld2461_setup_frame()
 {
@@ -73,11 +78,17 @@ void LD2461::read_data(ld2461_frame_t* frame)
     uint8_t* command_word = (uint8_t*)malloc(100);
     uint8_t* checksum = (uint8_t*)malloc(100);
     uint8_t* data = (uint8_t*)malloc(100);
+    int bytes_available = 0;
 
     while(!data_ready)
     {
         // Catch the Header
-        uart_read_bytes(this->uart_num, data, 1, 100);
+        bytes_available = uart_read_bytes(this->uart_num, data, 1, 100);
+        if(bytes_available <= 0){
+            gpio_set_level(RED_LED, 0);
+            ESP_LOGE("LD2461", "No data available");
+            continue;
+        }
         if(*data != 0xFF) {continue;}
         uart_read_bytes(this->uart_num, data, 1, 100);
         if(*data != 0xEE) {continue;}
@@ -140,6 +151,7 @@ void LD2461::read_data(ld2461_frame_t* frame)
         printf("\n");
         */
        data_ready = true;
+       gpio_set_level(RED_LED, 1);
     }
     free(data_length);
     free(command_word);
@@ -203,7 +215,13 @@ void LD2461::report_detections()
         detection.target[i].x = frame.command_value[2*i];
         detection.target[i].y = frame.command_value[2*i+1];
     }
-    
+    (frame.data_length/2 > 0) ? gpio_set_level(GREEN_LED, 1) : gpio_set_level(GREEN_LED, 0);
+    printf("Detected %d target(s): ", frame.data_length/2);
+    for(int i=0; i<frame.data_length/2; i++)
+    {
+        printf("Target[%d](X=%.1f, Y=%.1f) | ", i+1, (float)(detection.target[i].x)/10, (float)(detection.target[i].y)/10);
+    }
+    printf("\n");
 }
 
 void LD2461::frame_to_string(ld2461_frame_t* frame)
