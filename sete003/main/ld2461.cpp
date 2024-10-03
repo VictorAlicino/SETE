@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include "esp_log.h"
+#include "esp_task_wdt.h"
 #include "ld2461.hpp"
 
 #define RED_LED GPIO_NUM_45
 #define GREEN_LED GPIO_NUM_38
 #define BLUE_LED GPIO_NUM_37
+
+const char* TAG = "LD2461";
 
 ld2461_frame_t ld2461_setup_frame()
 {
@@ -75,18 +78,21 @@ void LD2461::read_data(ld2461_frame_t* frame)
 {
     bool data_ready = false;
     uint8_t* data_length = (uint8_t*)malloc(2);
-    uint8_t* command_word = (uint8_t*)malloc(100);
-    uint8_t* checksum = (uint8_t*)malloc(100);
-    uint8_t* data = (uint8_t*)malloc(100);
+    uint8_t* command_word = (uint8_t*)malloc(1);
+    uint8_t* checksum = (uint8_t*)malloc(1);
+    uint8_t* data = (uint8_t*)malloc(1);
     int bytes_available = 0;
+    //uint8_t retries_num = 0x0;
 
     while(!data_ready)
     {
+        //retries_num++;
+        //if(retries_num > 10){ESP_LOGE(TAG, "UART not in sync... Rebooting..."); esp_restart();}
         // Catch the Header
         bytes_available = uart_read_bytes(this->uart_num, data, 1, 100);
         if(bytes_available <= 0){
             gpio_set_level(RED_LED, 0);
-            ESP_LOGE("LD2461", "No data available");
+            ESP_LOGE(TAG, "No data available");
             continue;
         }
         if(*data != 0xFF) {continue;}
@@ -127,29 +133,6 @@ void LD2461::read_data(ld2461_frame_t* frame)
         }
         frame->checksum = *checksum;
         free(command_value);
-        /*
-        // Building the frame
-        uint8_t* readed_frame = (uint8_t*)malloc(100);
-        readed_frame[0] = 0xFF;
-        readed_frame[1] = 0xEE;
-        readed_frame[2] = 0xDD;
-        readed_frame[3] = *data_length;
-        readed_frame[4] = *command_word;
-        for(int i=0; i<(*data_length-1); i++)
-        {
-            readed_frame[5+i] = command_value[i];
-        }
-        readed_frame[5+(*data_length-1)] = *checksum;
-        readed_frame[6+(*data_length-1)] = 0xDD;
-        readed_frame[7+(*data_length-1)] = 0xEE;
-        readed_frame[8+(*data_length-1)] = 0xFF;
-        // Printing the frame
-        for(int i=0; i<9+(*data_length-1); i++)
-        {
-            printf("%02X", readed_frame[i]);
-        }
-        printf("\n");
-        */
        data_ready = true;
        gpio_set_level(RED_LED, 1);
     }
@@ -320,3 +303,5 @@ void LD2461::change_baudrate(ld2461_baudrate_t baudrate)
         printf("Baudrate change failed!\n");
     }
 }
+
+

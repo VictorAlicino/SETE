@@ -9,9 +9,11 @@
 #include "driver/uart.h"
 #include "freertos/ringbuf.h"
 #include "esp_log.h"
-#include "ld2461.hpp"
 
-#include <string.h>
+#pragma GCC diagnostic ignored "-Wmissing-field-initializers"
+
+#include "ld2461.hpp"
+#include "wifi.hpp"
 
 #define RED_LED GPIO_NUM_45
 #define GREEN_LED GPIO_NUM_38
@@ -52,7 +54,10 @@ void app_main(void)
         9600
     );
 
+    WiFi_STA wifi = WiFi_STA();
+
     ld2461_frame_t ld2461_frame = ld2461_setup_frame();
+
     while(true)
     {
         ld2461.read_data(&ld2461_frame);
