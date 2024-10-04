@@ -58,6 +58,14 @@ void app_main(void)
 
     ld2461_frame_t ld2461_frame = ld2461_setup_frame();
 
+    ld2461_version_t ld2461_version = ld2461.get_version_and_id(&ld2461_frame);
+
+    ESP_LOGI(TAG, "Detected LD2461 running on v%01X.%01X from %d/%d/%d",
+                    ld2461_version.major, ld2461_version.minor,
+                    ld2461_version.month,
+                    ld2461_version.day,
+                    ld2461_version.year);
+
     while(true)
     {
         ld2461.read_data(&ld2461_frame);

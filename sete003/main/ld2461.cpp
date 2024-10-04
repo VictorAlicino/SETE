@@ -82,12 +82,12 @@ void LD2461::read_data(ld2461_frame_t* frame)
     uint8_t* checksum = (uint8_t*)malloc(1);
     uint8_t* data = (uint8_t*)malloc(1);
     int bytes_available = 0;
-    //uint8_t retries_num = 0x0;
+    uint8_t retries_num = 0x0;
 
     while(!data_ready)
     {
-        //retries_num++;
-        //if(retries_num > 10){ESP_LOGE(TAG, "UART not in sync... Rebooting..."); esp_restart();}
+        retries_num++;
+        if(retries_num > 10){ESP_LOGE(TAG, "UART not in sync... Rebooting..."); esp_restart();}
         // Catch the Header
         bytes_available = uart_read_bytes(this->uart_num, data, 1, 100);
         if(bytes_available <= 0){
