@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "esp_log.h"
 #include "esp_task_wdt.h"
+#include <string.h>
 #include "ld2461.hpp"
 
 #define RED_LED GPIO_NUM_45
@@ -204,21 +205,24 @@ void LD2461::report_detections()
     {
         printf("Target[%d](X=%.1f, Y=%.1f) | ", i+1, (float)(detection.target[i].x)/10, (float)(detection.target[i].y)/10);
     }
-    printf("\n");
 }
 
-void LD2461::frame_to_string(ld2461_frame_t* frame)
+const char* LD2461::frame_to_string(ld2461_frame_t* frame)
 {
+    static char buffer[100];
+    buffer[0] = '\0';
+    memset(buffer, 0, sizeof(buffer));
     // Print frame in hexadecimal
-    printf("FFEEDD");
-    printf("%02X", frame->data_length);
-    printf("%02X", frame->command_word);
+    sprintf(buffer, "FFEEDD");
+    sprintf(buffer + strlen(buffer), "%02X", frame->data_length);
+    sprintf(buffer + strlen(buffer), "%02X", frame->command_word);
     for(uint16_t i=0; i < (frame->data_length-1); i++)
     {
-        printf("%02X", frame->command_value[i]);
+        sprintf(buffer + strlen(buffer), "%02X", frame->command_value[i]);
     }
-    printf("%02X", frame->checksum);
-    printf("DDEEFF");
+    sprintf(buffer + strlen(buffer), "%02X", frame->checksum);
+    sprintf(buffer + strlen(buffer), "DDEEFF");
+    return buffer;
 }
 
 void LD2461::print_frame(ld2461_frame_t* frame)
@@ -304,4 +308,19 @@ void LD2461::change_baudrate(ld2461_baudrate_t baudrate)
     }
 }
 
+const char* LD2461::detection_to_json(ld2461_frame_t* frame){
+    static char buffer[100];
+    buffer[0] = '\0';
+    sprintf(buffer, "{ \"detections\": [");
+    for(int i=0; i<frame->data_length/2; i++)
+    {
+        sprintf(buffer + strlen(buffer), "{ \"x\": %.1f, \"y\": %.1f }", (float)(int8_t)(frame->command_value[2*i])/10, (float)(int8_t)(frame->command_value[2*i+1])/10);
+        if(i < frame->data_length/2 - 1)
+        {
+            sprintf(buffer + strlen(buffer), ", ");
+        }
+    }
+    sprintf(buffer + strlen(buffer), "] }");
+    return buffer;
+}
 

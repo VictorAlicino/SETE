@@ -100,6 +100,7 @@ public:
     void change_baudrate(ld2461_baudrate_t baudrate);
     ld2461_version_t get_version_and_id(ld2461_frame_t* frame);
     void report_detections();
-    void frame_to_string(ld2461_frame_t* frame);
+    const char* frame_to_string(ld2461_frame_t* frame);
     void print_frame(ld2461_frame_t* frame);
+    const char* detection_to_json(ld2461_frame_t* frame);
 };

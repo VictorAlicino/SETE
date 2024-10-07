@@ -9,11 +9,14 @@
 #include "driver/uart.h"
 #include "freertos/ringbuf.h"
 #include "esp_log.h"
+#include <string>
 
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 
 #include "ld2461.hpp"
+#include "pir.hpp"
 #include "wifi.hpp"
+#include "mqtt.hpp"
 
 #define RED_LED GPIO_NUM_45
 #define GREEN_LED GPIO_NUM_38
@@ -54,7 +57,11 @@ void app_main(void)
         9600
     );
 
+    PIR pir = PIR(GPIO_NUM_48);
+
     WiFi_STA wifi = WiFi_STA();
+
+    MQTT mqtt = MQTT("mqtt://144.22.195.55:1883");
 
     ld2461_frame_t ld2461_frame = ld2461_setup_frame();
 
@@ -66,11 +73,31 @@ void app_main(void)
                     ld2461_version.day,
                     ld2461_version.year);
 
+    char* mac_str = (char*)malloc(18);
+    get_mac_address_str(mac_str);
+    std::string mac_str_s(mac_str);
+    mac_str_s = mac_str_s.substr(0, 2) + mac_str_s.substr(mac_str_s.length() - 2, 2);
+    free(mac_str);
+    
+    std::string ld2461_payload = "";
+    std::string pir_payload = "";
+    std::string payload = "";
+
     while(true)
     {
         ld2461.read_data(&ld2461_frame);
-        ld2461.frame_to_string(&ld2461_frame);
+        ld2461_payload = ld2461.detection_to_json(&ld2461_frame);
+        pir_payload = pir.read_to_json();
+        payload = ("{\"" + mac_str_s + "\":{\"ld2461\":" + ld2461_payload + ",\"pir\":" + pir_payload + "}}");
+        mqtt.publish("SETE/tech_demo", payload.c_str());
+        printf("%s", ld2461.frame_to_string(&ld2461_frame));
         printf(" -> ");
         ld2461.report_detections();
+        if(pir.read() == 1){
+            printf("## PIR: Detected |\n");
+        }
+        else{
+            printf("## PIR: Not Detected |\n");
+        }
     }
 }

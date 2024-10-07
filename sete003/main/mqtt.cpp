@@ -9,6 +9,8 @@
 #include "nvs_flash.h"
 #include "esp_event.h"
 #include "esp_netif.h"
+#include "esp_log.h"
+#include "driver/gpio.h"
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -25,6 +27,13 @@
 
 const char* MQTT_TAG = "MQTT";
 
+static void log_error_if_nonzero(const char *message, int error_code)
+{
+    if (error_code != 0) {
+        ESP_LOGE(MQTT_TAG, "Last error %s: 0x%x", message, error_code);
+    }
+}
+
 /*
  * @brief Event handler registered to receive MQTT events
  *
@@ -38,26 +47,16 @@ const char* MQTT_TAG = "MQTT";
 static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
 {
     ESP_LOGD(MQTT_TAG, "Event dispatched from event loop base=%s, event_id=%" PRIi32 "", base, event_id);
-    esp_mqtt_event_handle_t event = event_data;
+    esp_mqtt_event_handle_t event = (esp_mqtt_event_handle_t) event_data;
     esp_mqtt_client_handle_t client = event->client;
     int msg_id;
     switch ((esp_mqtt_event_id_t)event_id) {
     case MQTT_EVENT_CONNECTED:
-        ESP_LOGI(MQTT_TAG, "MQTT_EVENT_CONNECTED");
-        msg_id = esp_mqtt_client_publish(client, "/topic/qos1", "data_3", 0, 1, 0);
-        ESP_LOGI(MQTT_TAG, "sent publish successful, msg_id=%d", msg_id);
-
-        msg_id = esp_mqtt_client_subscribe(client, "/topic/qos0", 0);
-        ESP_LOGI(MQTT_TAG, "sent subscribe successful, msg_id=%d", msg_id);
-
-        msg_id = esp_mqtt_client_subscribe(client, "/topic/qos1", 1);
-        ESP_LOGI(MQTT_TAG, "sent subscribe successful, msg_id=%d", msg_id);
-
-        msg_id = esp_mqtt_client_unsubscribe(client, "/topic/qos1");
-        ESP_LOGI(MQTT_TAG, "sent unsubscribe successful, msg_id=%d", msg_id);
+        gpio_set_level(GPIO_NUM_37, 1);
         break;
     case MQTT_EVENT_DISCONNECTED:
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_DISCONNECTED");
+        gpio_set_level(GPIO_NUM_37, 0);
         break;
 
     case MQTT_EVENT_SUBSCRIBED:
@@ -94,23 +93,35 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
 MQTT::MQTT(const char* uri)
 {
-    esp_log_level_set("*", ESP_LOG_INFO);
-    esp_log_level_set("mqtt_client", ESP_LOG_VERBOSE);
-    esp_log_level_set("mqtt_example", ESP_LOG_VERBOSE);
-    esp_log_level_set("transport_base", ESP_LOG_VERBOSE);
-    esp_log_level_set("esp-tls", ESP_LOG_VERBOSE);
-    esp_log_level_set("transport", ESP_LOG_VERBOSE);
-    esp_log_level_set("outbox", ESP_LOG_VERBOSE);
-    
-    const esp_mqtt_client_config_t mqtt_cfg = {
-        .broker.address = uri,
-    };
+    esp_mqtt_client_config_t mqtt_cfg = {};
+    mqtt_cfg.broker.address.uri = uri;
     this->client = esp_mqtt_client_init(&mqtt_cfg);
+    if(this->client == NULL)
+    {
+        ESP_LOGE(MQTT_TAG, "Failed to initialize MQTT");
+        return;
+    }
     /* The last argument may be used to pass data to the event handler, in this example mqtt_event_handler */
     esp_mqtt_client_register_event(
         this->client,
-        ESP_EVENT_ANY_ID,
+        (esp_mqtt_event_id_t) ESP_EVENT_ANY_ID,
         mqtt_event_handler,
         NULL
         );
+    esp_mqtt_client_start(this->client);
 }
+
+esp_err_t MQTT::publish(const char* topic, const char* payload)
+{
+    int a = esp_mqtt_client_publish(
+        this->client,
+        topic,
+        payload,
+        0,
+        0,
+        0);
+    if(a<0) return ESP_FAIL;
+    return ESP_OK;
+}
+
+esp_mqtt_client_handle_t MQTT::get_client(){return this->client;}

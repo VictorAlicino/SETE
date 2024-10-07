@@ -40,14 +40,48 @@ static void event_handler(
     }
 }
 
-WiFi_STA::WiFi_STA(){
+void get_mac_address_str(char* mac_str)
+{
+    uint8_t mac[6];
+    esp_err_t err = esp_wifi_get_mac(WIFI_IF_STA, mac);
+    if (err != ESP_OK) {
+        ESP_LOGE(WIFI_TAG, "Failed to get MAC Address");
+        return;
+    }
+
+    snprintf(mac_str, 18, "%02X:%02X:%02X:%02X:%02X:%02X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+}
+
+void set_dynamic_hostname(esp_netif_t* netif)
+{
+    uint8_t mac[6];
+    char hostname[32];
+
+    esp_err_t err = esp_wifi_get_mac(WIFI_IF_STA, mac);
+    if (err != ESP_OK) {
+        ESP_LOGE(WIFI_TAG, "Failed to get MAC Address");
+        return;
+    }
+
+    snprintf(hostname, sizeof(hostname), "SETE-Sonare-%02X%02X", mac[0], mac[5]);
+
+    esp_netif_set_hostname(netif, hostname);
+
+    ESP_LOGI(WIFI_TAG, "Hostname set to: %s", hostname);
+}
+
+WiFi_STA::WiFi_STA()
+{
 
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
-    esp_netif_create_default_wifi_sta();
+
+    esp_netif_t *netif = esp_netif_create_default_wifi_sta();
 
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+
+    set_dynamic_hostname(netif);
 
     esp_event_handler_instance_t instance_any_id;
     esp_event_handler_instance_t instance_got_ip;

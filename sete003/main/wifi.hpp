@@ -17,6 +17,8 @@
 /* FreeRTOS event group to signal when we are connected*/
 static EventGroupHandle_t s_wifi_event_group  = xEventGroupCreate();
 
+void get_mac_address_str(char* mac_str);
+
 static void event_handler(
     void* arg,
     esp_event_base_t event_base,
