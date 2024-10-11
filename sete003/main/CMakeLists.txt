@@ -4,4 +4,5 @@ idf_component_register(
                     "wifi.cpp"
                     "mqtt.cpp"
                     "pir.cpp"
+                    "sensor.cpp"
                     INCLUDE_DIRS ".")

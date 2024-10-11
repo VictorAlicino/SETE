@@ -40,18 +40,6 @@ static void event_handler(
     }
 }
 
-void get_mac_address_str(char* mac_str)
-{
-    uint8_t mac[6];
-    esp_err_t err = esp_wifi_get_mac(WIFI_IF_STA, mac);
-    if (err != ESP_OK) {
-        ESP_LOGE(WIFI_TAG, "Failed to get MAC Address");
-        return;
-    }
-
-    snprintf(mac_str, 18, "%02X:%02X:%02X:%02X:%02X:%02X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
-}
-
 void set_dynamic_hostname(esp_netif_t* netif)
 {
     uint8_t mac[6];

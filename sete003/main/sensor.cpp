@@ -1,0 +1,69 @@
+#include "sensor.hpp"
+#include "mqtt.hpp"
+
+#include "esp_log.h"
+#include "esp_wifi.h"
+
+const char* SENSOR_TAG = "Sensor";
+
+extern MQTT* mqtt;
+
+// Variável para armazenar a função de log original
+vprintf_like_t original_log_function;
+
+// Função customizada de log que envia para MQTT e UART
+int mqtt_and_uart_log_vprintf(const char *fmt, va_list args) {
+    static char buffer[256];  // buffer para armazenar o log formatado
+    int len = vsnprintf(buffer, sizeof(buffer), fmt, args);
+
+    if (len >= 0 && len < sizeof(buffer)) {
+        // Publicar a mensagem de log no tópico MQTT
+        esp_mqtt_client_publish(mqtt->get_client(), "log/esp32", buffer, 0, 1, 0);
+
+        // Chamar a função de log original para enviar à UART0
+        if (original_log_function) {
+            original_log_function(fmt, args);
+        }
+    }
+    return len;
+}
+
+void get_mac_address_str(char* mac_str)
+{
+    uint8_t mac[6];
+    esp_err_t err = esp_wifi_get_mac(WIFI_IF_STA, mac);
+    if (err != ESP_OK) {
+        ESP_LOGE(SENSOR_TAG, "Failed to get MAC Address");
+        return;
+    }
+    snprintf(mac_str, 18, "%02X:%02X:%02X:%02X:%02X:%02X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+}
+
+
+Sensor::Sensor(){
+    char* mac_str = (char*)malloc(18);
+    get_mac_address_str(mac_str);
+    std::string mac_str_s(mac_str);
+    mac_str_s = mac_str_s.substr(0, 2) + mac_str_s.substr(mac_str_s.length() - 2, 2);
+    
+    this->name = "Sonare " + mac_str_s;
+    this->designator = mac_str_s;
+    this->mqtt_root_topic = "SETE/sensors/sete003/" + mac_str_s;
+
+    free(mac_str);
+    ESP_LOGI(SENSOR_TAG, "%s initialized with designator %s", this->name.c_str(), this->designator.c_str());
+}
+
+std::string Sensor::get_name(){return this->name;}
+std::string Sensor::get_designator(){return this->designator;}
+std::string Sensor::get_mqtt_root_topic(){return this->mqtt_root_topic;}
+
+void Sensor::transfer_log_to_mqtt(){
+    original_log_function = esp_log_set_vprintf(mqtt_and_uart_log_vprintf);
+    ESP_LOGW(SENSOR_TAG, "Log transfered to MQTT and UART");
+}
+
+void Sensor::rollback_log_to_uart(){
+    esp_log_set_vprintf(original_log_function);
+    ESP_LOGW(SENSOR_TAG, "Log rollbacked to UART");
+}

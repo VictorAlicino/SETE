@@ -8,7 +8,7 @@
 #define GREEN_LED GPIO_NUM_38
 #define BLUE_LED GPIO_NUM_37
 
-const char* TAG = "LD2461";
+const char* RADAR_TAG = "LD2461";
 
 ld2461_frame_t ld2461_setup_frame()
 {
@@ -88,12 +88,12 @@ void LD2461::read_data(ld2461_frame_t* frame)
     while(!data_ready)
     {
         retries_num++;
-        if(retries_num > 10){ESP_LOGE(TAG, "UART not in sync... Rebooting..."); esp_restart();}
+        if(retries_num > 10){ESP_LOGE(RADAR_TAG, "UART not in sync... Rebooting..."); esp_restart();}
         // Catch the Header
         bytes_available = uart_read_bytes(this->uart_num, data, 1, 100);
         if(bytes_available <= 0){
             gpio_set_level(RED_LED, 0);
-            ESP_LOGE(TAG, "No data available");
+            ESP_LOGE(RADAR_TAG, "No data available");
             continue;
         }
         if(*data != 0xFF) {continue;}

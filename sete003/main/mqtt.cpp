@@ -23,9 +23,11 @@
 
 #include "esp_log.h"
 #include "mqtt_client.h"
-
+#include "sensor.cpp"
 
 const char* MQTT_TAG = "MQTT";
+
+extern Sensor* sensor;
 
 static void log_error_if_nonzero(const char *message, int error_code)
 {
@@ -53,10 +55,12 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     switch ((esp_mqtt_event_id_t)event_id) {
     case MQTT_EVENT_CONNECTED:
         gpio_set_level(GPIO_NUM_37, 1);
+        //sensor->transfer_log_to_mqtt();
         break;
     case MQTT_EVENT_DISCONNECTED:
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_DISCONNECTED");
         gpio_set_level(GPIO_NUM_37, 0);
+        //sensor->rollback_log_to_uart();
         break;
 
     case MQTT_EVENT_SUBSCRIBED:
