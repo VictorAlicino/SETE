@@ -9,6 +9,7 @@
 #include "driver/uart.h"
 #include "freertos/ringbuf.h"
 #include "esp_log.h"
+#include "esp_timer.h"
 #include <string>
 
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
@@ -75,7 +76,7 @@ void app_main(void)
 
     // Initialize MQTT
     mqtt = new MQTT("mqtt://144.22.195.55:1883");
-    
+
 
 
     ld2461_frame_t ld2461_frame = ld2461_setup_frame();
@@ -107,16 +108,24 @@ void app_main(void)
             std::string(sensor->get_mqtt_root_topic() + "/json").c_str(),
             payload.c_str()
         );
-        printf("%s", ld2461.frame_to_string(&ld2461_frame));
-        printf(" -> ");
-        ld2461.report_detections();
-        if(pir.read() == 1){
-            printf("## PIR: Detected |\n");
-        }
-        else{
-            printf("## PIR: Not Detected |\n");
-        }
+        ESP_LOGI(TAG, 
+            "Internal Temperature: %.2f°C | Free memory: %" PRIu32 " bytes | RSSI: %d dBm | Uptime: %lld | Last boot reason: %d",
+            sensor->get_internal_temperature(),
+            esp_get_free_heap_size(),
+            wifi.get_rssi(),
+            esp_timer_get_time(),
+            esp_reset_reason()
+        );
+        //printf("%s", ld2461.frame_to_string(&ld2461_frame));
+        //printf(" -> ");
+        //ld2461.report_detections();
+        //if(pir.read() == 1){
+        //    printf("## PIR: Detected |\n");
+        //}
+        //else{
+        //    printf("## PIR: Not Detected |\n");
+        //}
         //ESP_LOGI(TAG, "[APP] Free memory: %" PRIu32 " bytes", esp_get_free_heap_size());
-        //vTaskDelay(1000 / portTICK_PERIOD_MS);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }

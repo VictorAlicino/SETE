@@ -41,6 +41,11 @@ void get_mac_address_str(char* mac_str)
 
 
 Sensor::Sensor(){
+    // Init internal temperature sensor
+    temperature_sensor_config_t temp_sensor_config = TEMPERATURE_SENSOR_CONFIG_DEFAULT(20, 100);
+    ESP_ERROR_CHECK(temperature_sensor_install(&temp_sensor_config, &this->temperature_sensor));
+
+    // Init Sensor name and designator
     char* mac_str = (char*)malloc(18);
     get_mac_address_str(mac_str);
     std::string mac_str_s(mac_str);
@@ -66,4 +71,12 @@ void Sensor::transfer_log_to_mqtt(){
 void Sensor::rollback_log_to_uart(){
     esp_log_set_vprintf(original_log_function);
     ESP_LOGW(SENSOR_TAG, "Log rollbacked to UART");
+}
+
+float Sensor::get_internal_temperature(){
+    float temperature;
+    ESP_ERROR_CHECK(temperature_sensor_enable(this->temperature_sensor));
+    ESP_ERROR_CHECK(temperature_sensor_get_celsius(this->temperature_sensor, &temperature));
+    ESP_ERROR_CHECK(temperature_sensor_disable(this->temperature_sensor));
+    return temperature;
 }

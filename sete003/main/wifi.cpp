@@ -124,3 +124,10 @@ WiFi_STA::WiFi_STA()
         ESP_LOGE(WIFI_TAG, "UNEXPECTED EVENT");
     }
 }
+
+int8_t WiFi_STA::get_rssi()
+{
+    wifi_ap_record_t ap_info;
+    ESP_ERROR_CHECK(esp_wifi_sta_get_ap_info(&ap_info));
+    return ap_info.rssi;
+}

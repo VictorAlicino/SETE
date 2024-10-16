@@ -19,15 +19,10 @@ static EventGroupHandle_t s_wifi_event_group  = xEventGroupCreate();
 
 void get_mac_address_str(char* mac_str);
 
-static void event_handler(
-    void* arg,
-    esp_event_base_t event_base,
-    int32_t event_id,
-    void* event_data
-    );
-
 class WiFi_STA{
 private:
 public:
     WiFi_STA();
+
+    int8_t get_rssi();
 };
