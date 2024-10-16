@@ -109,23 +109,22 @@ void app_main(void)
             payload.c_str()
         );
         ESP_LOGI(TAG, 
-            "Internal Temperature: %.2f°C | Free memory: %" PRIu32 " bytes | RSSI: %d dBm | Uptime: %lld | Last boot reason: %d",
+            "Internal Temperature: %.2f°C | Free memory: %" PRIu32 " bytes | RSSI: %d dBm | Uptime: %llds | Last boot reason: %d",
             sensor->get_internal_temperature(),
             esp_get_free_heap_size(),
             wifi.get_rssi(),
-            esp_timer_get_time(),
+            esp_timer_get_time() / 1000000,
             esp_reset_reason()
         );
-        //printf("%s", ld2461.frame_to_string(&ld2461_frame));
-        //printf(" -> ");
-        //ld2461.report_detections();
-        //if(pir.read() == 1){
-        //    printf("## PIR: Detected |\n");
-        //}
-        //else{
-        //    printf("## PIR: Not Detected |\n");
-        //}
-        //ESP_LOGI(TAG, "[APP] Free memory: %" PRIu32 " bytes", esp_get_free_heap_size());
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        printf("%s", ld2461.frame_to_string(&ld2461_frame));
+        printf(" -> ");
+        ld2461.report_detections();
+        if(pir.read() == 1){
+            printf("## PIR: Detected |\n");
+        }
+        else{
+            printf("## PIR: Not Detected |\n");
+        }
+        //vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }

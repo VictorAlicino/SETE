@@ -88,7 +88,8 @@ void LD2461::read_data(ld2461_frame_t* frame)
     while(!data_ready)
     {
         retries_num++;
-        if(retries_num > 10){ESP_LOGE(RADAR_TAG, "UART not in sync... Rebooting..."); esp_restart();}
+        if(retries_num > 10){ESP_LOGW(RADAR_TAG, "Be advised that the UART is not in sync...");}
+        if(retries_num > 20){ESP_LOGE(RADAR_TAG, "UART not in sync... Rebooting..."); esp_restart();}
         // Catch the Header
         bytes_available = uart_read_bytes(this->uart_num, data, 1, 100);
         if(bytes_available <= 0){
