@@ -28,6 +28,7 @@
 // GLobal Variables
 MQTT* mqtt;
 Sensor* sensor;
+extern bool mqtt_connected;
 
 // Local Variables
 static const char *TAG = "SET003";
@@ -77,7 +78,11 @@ void app_main(void)
     // Initialize MQTT
     mqtt = new MQTT("mqtt://144.22.195.55:1883");
 
-
+    //vTaskDelay(1000 / portTICK_PERIOD_MS);
+    // Transfer LOGs to MQTT
+    if(mqtt_connected){
+        sensor->transfer_log_to_mqtt();
+    }
 
     ld2461_frame_t ld2461_frame = ld2461_setup_frame();
     ld2461_version_t ld2461_version = ld2461.get_version_and_id(&ld2461_frame);
@@ -90,41 +95,46 @@ void app_main(void)
     std::string ld2461_payload = "";
     std::string pir_payload = "";
     std::string payload = "";
+    std::string sensor_state = "";
     while(true)
     {
         ld2461.read_data(&ld2461_frame);
         ld2461_payload = ld2461.detection_to_json(&ld2461_frame);
         pir_payload = pir.read_to_json();
-        payload = (
-            "{\"" +
-                sensor->get_designator() +
-                    "\":{\"ld2461\":" +
-                        ld2461_payload +
-                    ",\"pir\":" +
-                        pir_payload +
-            "}}"
-        );
-        mqtt->publish(
-            std::string(sensor->get_mqtt_root_topic() + "/json").c_str(),
-            payload.c_str()
-        );
-        ESP_LOGI(TAG, 
-            "Internal Temperature: %.2f°C | Free memory: %" PRIu32 " bytes | RSSI: %d dBm | Uptime: %llds | Last boot reason: %d",
-            sensor->get_internal_temperature(),
-            esp_get_free_heap_size(),
-            wifi.get_rssi(),
-            esp_timer_get_time() / 1000000,
-            esp_reset_reason()
-        );
-        printf("%s", ld2461.frame_to_string(&ld2461_frame));
-        printf(" -> ");
-        ld2461.report_detections();
+        // printf("%s", ld2461.frame_to_string(&ld2461_frame));
+        // printf(" -> ");
+        // ld2461.report_detections();
         if(pir.read() == 1){
-            printf("## PIR: Detected |\n");
+            //printf("## PIR: Detected |\n");
+            ESP_LOGI(TAG, "PIR: Detected");
         }
         else{
-            printf("## PIR: Not Detected |\n");
+            //printf("## PIR: Not Detected |\n");
         }
+
+        payload = (
+            "{"
+                "\"ld2461\": " + ld2461_payload + ","
+                "\"pir\": " + pir_payload +
+            "}"
+        );
+        sensor_state = (
+            "{"
+                "\"internal_temperature\": " + std::to_string(sensor->get_internal_temperature()) + ","
+                "\"free_memory\": " + std::to_string(esp_get_free_heap_size()) + ","
+                "\"rssi\": " + std::to_string(wifi.get_rssi()) + ","
+                "\"uptime\": " + std::to_string(esp_timer_get_time() / 1000000) + ","
+                "\"last_boot_reason\": " + std::to_string(esp_reset_reason()) +
+            "}"
+        );
+        mqtt->publish(
+            std::string(sensor->get_mqtt_root_topic() + "/data").c_str(),
+            payload.c_str()
+        );
+        mqtt->publish(
+            std::string(sensor->get_mqtt_root_topic() + "/info").c_str(),
+            sensor_state.c_str()
+        );
         //vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }

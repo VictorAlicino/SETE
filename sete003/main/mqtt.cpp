@@ -27,6 +27,8 @@
 
 const char* MQTT_TAG = "MQTT";
 
+bool mqtt_connected = false;
+
 extern Sensor* sensor;
 
 static void log_error_if_nonzero(const char *message, int error_code)
@@ -54,13 +56,21 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     int msg_id;
     switch ((esp_mqtt_event_id_t)event_id) {
     case MQTT_EVENT_CONNECTED:
+        ESP_LOGI(MQTT_TAG, "MQTT_EVENT_CONNECTED");
+        mqtt_connected = true;
+        sensor->transfer_log_to_mqtt();
         gpio_set_level(GPIO_NUM_37, 1);
-        //sensor->transfer_log_to_mqtt();
         break;
     case MQTT_EVENT_DISCONNECTED:
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_DISCONNECTED");
+        mqtt_connected = true;
+        sensor->rollback_log_to_uart();
         gpio_set_level(GPIO_NUM_37, 0);
-        //sensor->rollback_log_to_uart();
+        break;
+
+    case 7:
+        ESP_LOGI(MQTT_TAG, "MQTT_EVENT_BEFORE_CONNECT");
+        //sensor->transfer_log_to_mqtt();
         break;
 
     case MQTT_EVENT_SUBSCRIBED:
@@ -72,7 +82,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_UNSUBSCRIBED, msg_id=%d", event->msg_id);
         break;
     case MQTT_EVENT_PUBLISHED:
-        ESP_LOGI(MQTT_TAG, "MQTT_EVENT_PUBLISHED, msg_id=%d", event->msg_id);
+        //ESP_LOGI(MQTT_TAG, "MQTT_EVENT_PUBLISHED, msg_id=%d", event->msg_id);
         break;
     case MQTT_EVENT_DATA:
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_DATA");

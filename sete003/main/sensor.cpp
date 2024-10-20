@@ -3,10 +3,14 @@
 
 #include "esp_log.h"
 #include "esp_wifi.h"
+#include <string>
 
 const char* SENSOR_TAG = "Sensor";
 
 extern MQTT* mqtt;
+extern Sensor* sensor;
+
+std::string log_topic = "";
 
 // Variável para armazenar a função de log original
 vprintf_like_t original_log_function;
@@ -19,6 +23,7 @@ int mqtt_and_uart_log_vprintf(const char *fmt, va_list args) {
     if (len >= 0 && len < sizeof(buffer)) {
         // Publicar a mensagem de log no tópico MQTT
         esp_mqtt_client_publish(mqtt->get_client(), "log/esp32", buffer, 0, 1, 0);
+        printf("%s", buffer);
 
         // Chamar a função de log original para enviar à UART0
         if (original_log_function) {
@@ -38,7 +43,6 @@ void get_mac_address_str(char* mac_str)
     }
     snprintf(mac_str, 18, "%02X:%02X:%02X:%02X:%02X:%02X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
 }
-
 
 Sensor::Sensor(){
     // Init internal temperature sensor
@@ -64,6 +68,7 @@ std::string Sensor::get_designator(){return this->designator;}
 std::string Sensor::get_mqtt_root_topic(){return this->mqtt_root_topic;}
 
 void Sensor::transfer_log_to_mqtt(){
+    log_topic = this->mqtt_root_topic + "/log";
     original_log_function = esp_log_set_vprintf(mqtt_and_uart_log_vprintf);
     ESP_LOGW(SENSOR_TAG, "Log transfered to MQTT and UART");
 }
@@ -80,3 +85,5 @@ float Sensor::get_internal_temperature(){
     ESP_ERROR_CHECK(temperature_sensor_disable(this->temperature_sensor));
     return temperature;
 }
+
+void Sensor::count_detections(){}
