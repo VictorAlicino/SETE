@@ -99,7 +99,7 @@ public:
     void read_data(ld2461_frame_t* frame);
     void change_baudrate(ld2461_baudrate_t baudrate);
     ld2461_version_t get_version_and_id(ld2461_frame_t* frame);
-    void report_detections();
+    void report_detections(ld2461_detection_t* detection);
     const char* frame_to_string(ld2461_frame_t* frame);
     void print_frame(ld2461_frame_t* frame);
     const char* detection_to_json(ld2461_frame_t* frame);

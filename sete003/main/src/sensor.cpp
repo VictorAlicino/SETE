@@ -1,14 +1,17 @@
 #include "sensor.hpp"
+#include "ld2461.hpp"
 #include "mqtt.hpp"
 
 #include "esp_log.h"
 #include "esp_wifi.h"
+#include "freertos/timers.h"
 #include <string>
 
 const char* SENSOR_TAG = "Sensor";
 
 extern MQTT* mqtt;
 extern Sensor* sensor;
+extern LD2461* ld2461;
 
 std::string log_topic = "";
 
@@ -85,5 +88,3 @@ float Sensor::get_internal_temperature(){
     ESP_ERROR_CHECK(temperature_sensor_disable(this->temperature_sensor));
     return temperature;
 }
-
-void Sensor::count_detections(){}

@@ -35,7 +35,4 @@ public:
     void transfer_log_to_mqtt();
     void rollback_log_to_uart();
     float get_internal_temperature();
-
-    // Server communication and Detection functions
-    void count_detections();
 };

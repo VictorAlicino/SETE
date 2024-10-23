@@ -185,10 +185,9 @@ ld2461_version_t LD2461::get_version_and_id(ld2461_frame_t* frame)
     return version;
 }
 
-void LD2461::report_detections()
+void LD2461::report_detections(ld2461_detection_t* detection)
 {
-    ld2461_detection_t detection = ld2461_setup_detection();
-    ld2461_frame_t frame = ld2461_setup_frame();
+    static ld2461_frame_t frame = ld2461_setup_frame();
 
     this->read_data(&frame);
     while(frame.command_word != LD2461_COMMAND_RADAR_REPORT_1)
@@ -197,14 +196,14 @@ void LD2461::report_detections()
     }
     for(int i=0; i<(frame.data_length-1)/2; i++)
     {
-        detection.target[i].x = frame.command_value[2*i];
-        detection.target[i].y = frame.command_value[2*i+1];
+        detection->target[i].x = frame.command_value[2*i];
+        detection->target[i].y = frame.command_value[2*i+1];
     }
     (frame.data_length/2 > 0) ? gpio_set_level(GREEN_LED, 1) : gpio_set_level(GREEN_LED, 0);
     printf("Detected %d target(s): ", frame.data_length/2);
     for(int i=0; i<frame.data_length/2; i++)
     {
-        printf("Target[%d](X=%.1f, Y=%.1f) | ", i+1, (float)(detection.target[i].x)/10, (float)(detection.target[i].y)/10);
+        printf("Target[%d](X=%.1f, Y=%.1f) | ", i+1, (float)(detection->target[i].x)/10, (float)(detection->target[i].y)/10);
     }
 }
 
