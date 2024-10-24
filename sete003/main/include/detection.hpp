@@ -48,13 +48,55 @@ private:
     int exited_detections;
     int gave_up_detections;
 
+    /**
+     * @brief Vector product of the two vectors
+     * @note This vector product is altered to use the values pre-calculated 
+     * from the detection_area, so it is not necessary to calculate the vector again
+     * 
+     * @param vecAB_index Index of the vector AB in the detection_area
+     * @param pointA_index Index of point A from AB in the detection_area
+     * @param pointC Target point detected from the LD2461
+     * @return true If the target is on the left of the vector AB
+     * @return false If the target is not on the left of the vector AB
+     */
     bool _pre_calc_vector_product(
         uint8_t vecAB_index,
         uint8_t pointA_index,
         point_t pointC);
+
+    /**
+     * @brief Check if the target is inside the detection area
+     * 
+     * @param target Target point detected from the LD2461
+     * @return true If the target is inside the detection area
+     * @return false If the target is not inside the detection area
+     */
     bool _is_target_in_detection_area(point_t target);
 
 public:
+    /**
+     * @brief Construct a new Detection object
+     * 
+     * @param D0 Top left corner
+     * @param D1 Bottom left corner
+     * @param D2 Bottom right corner
+     * @param D3 Top right corner
+     */
+    Detection(
+        point_t D0,
+        point_t D1,
+        point_t D2,
+        point_t D3
+    );
+
+    /**
+     * @brief Set the detection area
+     * 
+     * @param D0 Top left corner
+     * @param D1 Bottom left corner
+     * @param D2 Bottom right corner
+     * @param D3 Top right corner
+     */
     void set_detection_area(
         point_t D0,
         point_t D1,
@@ -62,5 +104,6 @@ public:
         point_t D3
     );
 
+    void start_detection();
 
 };

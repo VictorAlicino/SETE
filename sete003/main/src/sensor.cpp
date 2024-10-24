@@ -1,5 +1,4 @@
 #include "sensor.hpp"
-#include "ld2461.hpp"
 #include "mqtt.hpp"
 
 #include "esp_log.h"
@@ -10,25 +9,26 @@
 const char* SENSOR_TAG = "Sensor";
 
 extern MQTT* mqtt;
-extern Sensor* sensor;
-extern LD2461* ld2461;
 
 std::string log_topic = "";
 
-// Variável para armazenar a função de log original
-vprintf_like_t original_log_function;
+vprintf_like_t original_log_function; // Keeps the original log function to rollback
 
-// Função customizada de log que envia para MQTT e UART
+/**
+ * @brief Send the log buffer to MQTT and UART
+ * 
+ * @param fmt 
+ * @param args 
+ * @return int Original log function
+ */
 int mqtt_and_uart_log_vprintf(const char *fmt, va_list args) {
-    static char buffer[256];  // buffer para armazenar o log formatado
+    static char buffer[256];
     int len = vsnprintf(buffer, sizeof(buffer), fmt, args);
 
     if (len >= 0 && len < sizeof(buffer)) {
-        // Publicar a mensagem de log no tópico MQTT
         esp_mqtt_client_publish(mqtt->get_client(), "log/esp32", buffer, 0, 1, 0);
         printf("%s", buffer);
 
-        // Chamar a função de log original para enviar à UART0
         if (original_log_function) {
             original_log_function(fmt, args);
         }
@@ -36,6 +36,11 @@ int mqtt_and_uart_log_vprintf(const char *fmt, va_list args) {
     return len;
 }
 
+/**
+ * @brief Get the MAC address of the ESP32
+ * 
+ * @param mac_str 
+ */
 void get_mac_address_str(char* mac_str)
 {
     uint8_t mac[6];

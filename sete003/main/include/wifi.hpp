@@ -5,6 +5,7 @@
 #include "freertos/event_groups.h"
 #include "esp_event.h"
 #include "esp_err.h"
+#include <string>
 
 #define MAXIMUM_WIFI_RETRY 5
 
@@ -17,12 +18,28 @@
 /* FreeRTOS event group to signal when we are connected*/
 static EventGroupHandle_t s_wifi_event_group  = xEventGroupCreate();
 
+/**
+ * @brief Get the mac address in cstring format
+ * 
+ * @param mac_str Mac address string pointer
+ */
 void get_mac_address_str(char* mac_str);
 
 class WiFi_STA{
 private:
 public:
-    WiFi_STA();
+    /**
+     * @brief Construct a new WiFi_STA object
+     * 
+     * @param ssid WiFi SSID
+     * @param password WiFi Password
+     */
+    WiFi_STA(std::string ssid, std::string password);
 
+    /**
+     * @brief Get WiFi Signal strenght
+     * 
+     * @return int8_t WiFi signal strenght
+     */
     int8_t get_rssi();
 };

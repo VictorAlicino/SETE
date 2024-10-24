@@ -14,6 +14,7 @@ FRAME HEADER - DATA LENGHT - COMMAND WORD - COMMAND VALUE - CHECKSUM - FRAME END
 
 #define MAX_TARGETS_DETECTION 5
 
+
 enum ld2461_baudrate_t
 {
     LD2461_BAUDRATE_9600 = 0x002580,
@@ -79,16 +80,45 @@ typedef struct ld2461_coordinate
 typedef struct ld2461_detection
 {
     struct ld2461_coordinate target[MAX_TARGETS_DETECTION];
+    int8_t detected_targets;
 }ld2461_detection_t;
 
+/**
+ * @brief Setup a frame with the default values
+ * 
+ * @return ld2461_frame_t Frame with default values
+ */
 ld2461_frame_t ld2461_setup_frame();
+
+/**
+ * @brief Setup a detection with the default values
+ * 
+ * @return ld2461_detection_t Detection with default values
+ */
 ld2461_detection_t ld2461_setup_detection();
 
 class LD2461{
 private:
     uart_port_t uart_num;
+    /**
+     * @brief Generate the checksum for the frame
+     * 
+     * @param frame Pointer to the frame
+     * @return uint8_t Sum of the checksum
+     */
     uint8_t ld2461_generate_checksum(ld2461_frame_t* frame);
 public:
+    /**
+     * @brief Construct a new LD2461 object
+     * 
+     * @note Default Baudrate is 9600
+     * @warning Avoid using UART_NUM_0, it is used by the ESP32 UART
+     * 
+     * @param uart_num UART port number
+     * @param tx_pin TX Pin GPIO Number
+     * @param rx_pin RX Pin GPIO Number
+     * @param baudrate Baudrate for the communication
+     */
     LD2461(
         uart_port_t uart_num,
         gpio_num_t tx_pin,
@@ -96,11 +126,57 @@ public:
         int baudrate
     );
 
+    /**
+     * @brief Read data from the LD2461
+     * 
+     * @param frame Frame to store the data readed
+     */
     void read_data(ld2461_frame_t* frame);
+
+    /**
+     * @brief Change the LD2461 baudrate
+     * 
+     * @warning Note that the baudrate change can not be reverted by reseting to factory settings
+     * 
+     * @param baudrate Baudrate to change
+     */
     void change_baudrate(ld2461_baudrate_t baudrate);
+    
+    /**
+     * @brief Get the version and id
+     * 
+     * @param frame Frame to store the data readed
+     * @return ld2461_version_t LD2461 Version and ID
+     */
     ld2461_version_t get_version_and_id(ld2461_frame_t* frame);
+
+    /**
+     * @brief Get the detected targets
+     * 
+     * @param detection Targets detected
+     */
     void report_detections(ld2461_detection_t* detection);
+
+    /**
+     * @brief Convert the frame to a cstring
+     * 
+     * @param frame Frame to convert
+     * @return const char* cstring with the frame data
+     */
     const char* frame_to_string(ld2461_frame_t* frame);
+
+    /**
+     * @brief Print the frame to the standard output
+     * 
+     * @param frame Frame to print
+     */
     void print_frame(ld2461_frame_t* frame);
+
+    /**
+     * @brief Convert the detection from a frame to a JSON in cstring
+     * 
+     * @param frame Frame to convert
+     * @return const char* cstring with the JSON data
+     */
     const char* detection_to_json(ld2461_frame_t* frame);
 };

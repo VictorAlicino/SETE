@@ -40,6 +40,11 @@ static void event_handler(
     }
 }
 
+/**
+ * @brief Set the dynamic hostname based on the MAC Address
+ * 
+ * @param netif Network Interface object to be used with the hostname
+ */
 void set_dynamic_hostname(esp_netif_t* netif)
 {
     uint8_t mac[6];
@@ -58,7 +63,7 @@ void set_dynamic_hostname(esp_netif_t* netif)
     ESP_LOGI(WIFI_TAG, "Hostname set to: %s", hostname);
 }
 
-WiFi_STA::WiFi_STA()
+WiFi_STA::WiFi_STA(std::string ssid, std::string password)
 {
 
     ESP_ERROR_CHECK(esp_netif_init());
@@ -93,11 +98,11 @@ WiFi_STA::WiFi_STA()
 
     wifi_config_t wifi_config = {
         .sta = {
-            .ssid = "50 centavos a hora",
-            .password = "duzentoseoito",
             .threshold = WIFI_AUTH_WPA_WPA2_PSK,
         },
     };
+    strncpy((char*)wifi_config.sta.ssid, ssid.c_str(), sizeof(wifi_config.sta.ssid));
+    strncpy((char*)wifi_config.sta.password, password.c_str(), sizeof(wifi_config.sta.password));
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
     ESP_ERROR_CHECK(esp_wifi_start());
