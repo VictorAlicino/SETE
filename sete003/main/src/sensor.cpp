@@ -9,6 +9,7 @@
 const char* SENSOR_TAG = "Sensor";
 
 extern MQTT* mqtt;
+extern Sensor* sensor;
 
 std::string log_topic = "";
 
@@ -26,8 +27,12 @@ int mqtt_and_uart_log_vprintf(const char *fmt, va_list args) {
     int len = vsnprintf(buffer, sizeof(buffer), fmt, args);
 
     if (len >= 0 && len < sizeof(buffer)) {
-        esp_mqtt_client_publish(mqtt->get_client(), "log/esp32", buffer, 0, 1, 0);
         printf("%s", buffer);
+        esp_mqtt_client_publish(
+            mqtt->get_client(),
+            std::string(sensor->get_mqtt_root_topic() + "/log").c_str(),
+            buffer, 0, 1, 0
+            );
 
         if (original_log_function) {
             original_log_function(fmt, args);

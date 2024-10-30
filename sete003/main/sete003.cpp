@@ -99,19 +99,19 @@ void app_main(void)
 
     // Initialize Detection
     Detection detection = Detection(
-        {-4, 2},
-        {-4, 0.5},
-        {4, 0.5},
-        {4, 2}
+        {-0.4, 0.4},
+        {-0.4, 0.2},
+        {0.4, 0.2},
+        {0.4, 0.4}
     );
 
     // Initialize Variables
     std::string sensor_state;
-
+    detection.start_detection();
     // Main Loop
     while(true)
     {
-        detection.start_detection();
+        detection.detect();
         sensor_state = (
             "{"
                 "\"internal_temperature\": " + std::to_string(sensor->get_internal_temperature()) + ","

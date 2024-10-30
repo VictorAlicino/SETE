@@ -38,6 +38,14 @@ typedef struct detection_area{
     vec2_t F[4]; // Vectors of detection area faces
 }detection_area_t;
 
+typedef enum detection_area_side{
+    LEFT,
+    BOTTOM,
+    RIGHT,
+    TOP,
+    NONE
+}detection_area_side_t;
+
 class Detection{
 private:
     detection_area_t detection_area;
@@ -104,6 +112,10 @@ public:
         point_t D3
     );
 
+    detection_area_side_t get_crossed_side(point_t point);
+    bool check_if_detected(uint8_t target_index);
     void start_detection();
+    void update_targets(ld2461_detection_t* report);
+    void detect();
 
 };

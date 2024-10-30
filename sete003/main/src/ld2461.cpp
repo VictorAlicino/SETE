@@ -202,11 +202,6 @@ void LD2461::report_detections(ld2461_detection_t* detection)
     }
     detection->detected_targets = frame.data_length/2;
     (frame.data_length/2 > 0) ? gpio_set_level(GREEN_LED, 1) : gpio_set_level(GREEN_LED, 0);
-    printf("Detected %d target(s): ", frame.data_length/2);
-    for(int i=0; i<frame.data_length/2; i++)
-    {
-        printf("Target[%d](X=%.1f, Y=%.1f) | ", i, (float)(detection->target[i].x)/10, (float)(detection->target[i].y)/10);
-    }
 }
 
 const char* LD2461::frame_to_string(ld2461_frame_t* frame)
