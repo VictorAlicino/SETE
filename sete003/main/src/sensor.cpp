@@ -27,7 +27,7 @@ int mqtt_and_uart_log_vprintf(const char *fmt, va_list args) {
     int len = vsnprintf(buffer, sizeof(buffer), fmt, args);
 
     if (len >= 0 && len < sizeof(buffer)) {
-        printf("%s", buffer);
+        //printf("%s", buffer);
         esp_mqtt_client_publish(
             mqtt->get_client(),
             std::string(sensor->get_mqtt_root_topic() + "/log").c_str(),

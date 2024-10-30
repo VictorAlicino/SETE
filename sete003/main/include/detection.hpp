@@ -46,11 +46,18 @@ typedef enum detection_area_side{
     NONE
 }detection_area_side_t;
 
+typedef struct target{
+    point_t current_position;
+    point_t entered_position;
+    point_t exited_position;
+    bool traversed;
+}target_t;
+
 class Detection{
 private:
     detection_area_t detection_area;
     point_t targets_previous[MAX_TARGETS_DETECTION];
-    point_t targets_current[MAX_TARGETS_DETECTION];
+    target_t targets[MAX_TARGETS_DETECTION];
 
     int entered_detections;
     int exited_detections;

@@ -31,6 +31,12 @@ Detection::Detection(
     exited_detections = 0;
     gave_up_detections = 0;
     set_detection_area(D0, D1, D2, D3);
+    for(int i=0; i<MAX_TARGETS_DETECTION; i++){
+        targets[i].current_position = {0, 0};
+        targets[i].entered_position = {0, 0};
+        targets[i].exited_position = {0, 0};
+        targets[i].traversed = false;
+    }
 }
 
 bool Detection::_pre_calc_vector_product(
@@ -71,21 +77,24 @@ void Detection::set_detection_area(
 
 bool Detection::check_if_detected(uint8_t target_index) {
     bool was_in_detection_area = _is_target_in_detection_area(targets_previous[target_index]);
-    bool is_in_detection_area = _is_target_in_detection_area(targets_current[target_index]);
+    bool is_in_detection_area = _is_target_in_detection_area(targets[target_index].current_position);
 
     if (!was_in_detection_area && is_in_detection_area) {
         ESP_LOGI(DETECTION_TAG, "Target %u entered detection area",target_index);
-        entered_detections++;
+        targets[target_index].entered_position = targets[target_index].current_position;
         return true;
     } else if (was_in_detection_area && !is_in_detection_area) {
         // Check if exited on the same side
-        if (get_crossed_side(targets_previous[target_index]) == get_crossed_side(targets_current[target_index])) {
-            ESP_LOGI(DETECTION_TAG, "Target %u gave up entering",target_index);
-            gave_up_detections++;
-        } else {
-            ESP_LOGI(DETECTION_TAG, "Target %u exited detection area",target_index);
-            exited_detections++;
-        }
+        ESP_LOGI(DETECTION_TAG, "Target %u exited detection area",target_index);
+        targets[target_index].exited_position = targets[target_index].current_position;
+        ESP_LOGI(DETECTION_TAG, "Target %u entered at (%.1f, %.1f) and exited at (%.1f, %.1f)\n",
+            target_index,
+            targets[target_index].entered_position.x,
+            targets[target_index].entered_position.y,
+            targets[target_index].exited_position.x,
+            targets[target_index].exited_position.y
+        );
+        targets[target_index].traversed = true;
         return false;
     }
     return false;
@@ -101,10 +110,13 @@ detection_area_side Detection::get_crossed_side(point_t point) {
 
 void Detection::update_targets(ld2461_detection_t* report)
 {
-    memcpy(targets_previous, targets_current, sizeof(targets_current));
     for(int i=0; i<MAX_TARGETS_DETECTION; i++)
     {
-        targets_current[i] = {
+        targets_previous[i] = targets[i].current_position;
+    }
+    for(int i=0; i<MAX_TARGETS_DETECTION; i++)
+    {
+        targets[i].current_position = {
             (float)(int8_t)(report->target[i].x)/10,
             (float)(int8_t)(report->target[i].y)/10
         };
@@ -117,7 +129,7 @@ void Detection::start_detection() {
     
     for(int i=0; i<MAX_TARGETS_DETECTION; i++)
     {
-        targets_current[i] = {
+        targets[i].current_position = {
             (float)(int8_t)(detection_frame.target[i].x)/10,
             (float)(int8_t)(detection_frame.target[i].y)/10
         };
@@ -139,6 +151,28 @@ void Detection::detect() {
     {
         if(check_if_detected(i)) {
             targets_str += std::to_string(i) + ", ";
+        }
+        if(targets[i].traversed == true){
+            detection_area_side side = get_crossed_side(targets[i].exited_position);
+            switch (side)
+            {
+            case LEFT:
+                ESP_LOGI(DETECTION_TAG, "Target %u exited on the LEFT side",i);
+                break;
+            case RIGHT:
+                ESP_LOGI(DETECTION_TAG, "Target %u exited on the RIGHT side",i);
+                break;
+            case BOTTOM:
+                ESP_LOGI(DETECTION_TAG, "Target %u exited on the BOTTOM side",i);
+                break;
+            case TOP:
+                ESP_LOGI(DETECTION_TAG, "Target %u exited on the TOP side",i);
+                break;
+            case NONE:
+                ESP_LOGI(DETECTION_TAG, "Target %u exited on NONE side",i);
+                break;
+            }
+            targets[i].traversed = false;
         }
     }
     //ESP_LOGI(DETECTION_TAG, "%s",targets_str.c_str());

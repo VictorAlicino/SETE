@@ -99,10 +99,10 @@ void app_main(void)
 
     // Initialize Detection
     Detection detection = Detection(
-        {-0.4, 0.4},
-        {-0.4, 0.2},
-        {0.4, 0.2},
-        {0.4, 0.4}
+        {-4, 2},
+        {-4, 0.5},
+        {4, 0.5},
+        {4, 2}
     );
 
     // Initialize Variables
