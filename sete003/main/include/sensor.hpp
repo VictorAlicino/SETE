@@ -52,4 +52,6 @@ public:
      * @return float Internal Temperature
      */
     float get_internal_temperature();
+
+    void dump_info();
 };

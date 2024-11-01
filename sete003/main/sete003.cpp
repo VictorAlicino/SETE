@@ -36,6 +36,7 @@ MQTT* mqtt;
 Sensor* sensor;
 LD2461* ld2461;
 PIR* pir;
+WiFi_STA* wifi;
 extern bool mqtt_connected;
 
 extern "C"
@@ -55,7 +56,7 @@ void app_main(void)
     ESP_ERROR_CHECK(esp_netif_init());
 
     // Initialize WiFi
-    WiFi_STA wifi = WiFi_STA("50 centavos a hora", "duzentoseoito");
+    wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
 
     // Initialize Board
     sensor = new Sensor();
@@ -102,29 +103,39 @@ void app_main(void)
         {-4, 2},
         {-4, 0.5},
         {4, 0.5},
-        {4, 2}
+        {4, 2},
+        30000000
     );
 
     // Initialize Variables
     std::string sensor_state;
     detection.start_detection();
+    int64_t last_payload_time = esp_timer_get_time();
+    int64_t time_now = 0;
+    #define PAYLOAD_INTERVAL 30000000 // 30 seconds
     // Main Loop
     while(true)
     {
+        time_now = esp_timer_get_time();
         detection.detect();
         sensor_state = (
             "{"
                 "\"internal_temperature\": " + std::to_string(sensor->get_internal_temperature()) + ","
                 "\"free_memory\": " + std::to_string(esp_get_free_heap_size()) + ","
-                "\"rssi\": " + std::to_string(wifi.get_rssi()) + ","
+                "\"rssi\": " + std::to_string(wifi->get_rssi()) + ","
                 "\"uptime\": " + std::to_string(esp_timer_get_time() / 1000000) + ","
                 "\"last_boot_reason\": " + std::to_string(esp_reset_reason()) +
             "}"
         );
-        mqtt->publish(
-            std::string(sensor->get_mqtt_root_topic() + "/info").c_str(),
-            sensor_state.c_str()
-        );
+        if(time_now - last_payload_time > PAYLOAD_INTERVAL)
+        {
+            detection.mqtt_send_detections();
+            mqtt->publish(
+                std::string(sensor->get_mqtt_root_topic() + "/info").c_str(),
+                sensor_state.c_str()
+            );
+            last_payload_time = time_now;
+        }
         //vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }

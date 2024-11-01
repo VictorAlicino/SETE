@@ -5,6 +5,7 @@
 #include "freertos/event_groups.h"
 #include "esp_event.h"
 #include "esp_err.h"
+#include "esp_wifi.h"
 #include <string>
 
 #define MAXIMUM_WIFI_RETRY 5
@@ -42,4 +43,19 @@ public:
      * @return int8_t WiFi signal strenght
      */
     int8_t get_rssi();
+
+    /**
+     * @brief Get the ap info object
+     * 
+     * @return wifi_ap_record_t 
+     */
+    wifi_ap_record_t get_ap_info();
+
+    /**
+     * @brief Check if the WiFi is connected
+     * 
+     * @return true If the WiFi is connected
+     * @return false If the WiFi is not connected
+     */
+    bool is_connected();
 };

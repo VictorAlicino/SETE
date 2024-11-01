@@ -136,3 +136,16 @@ int8_t WiFi_STA::get_rssi()
     ESP_ERROR_CHECK(esp_wifi_sta_get_ap_info(&ap_info));
     return ap_info.rssi;
 }
+
+wifi_ap_record_t WiFi_STA::get_ap_info()
+{
+    wifi_ap_record_t ap_info;
+    ESP_ERROR_CHECK(esp_wifi_sta_get_ap_info(&ap_info));
+    return ap_info;
+}
+
+bool WiFi_STA::is_connected()
+{
+    return xEventGroupGetBits(s_wifi_event_group) & WIFI_CONNECTED_BIT;
+}
+

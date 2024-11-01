@@ -1,5 +1,6 @@
 #include "sensor.hpp"
 #include "mqtt.hpp"
+#include "wifi.hpp"
 
 #include "esp_log.h"
 #include "esp_wifi.h"
@@ -10,6 +11,7 @@ const char* SENSOR_TAG = "Sensor";
 
 extern MQTT* mqtt;
 extern Sensor* sensor;
+extern WiFi_STA* wifi;
 
 std::string log_topic = "";
 
@@ -31,7 +33,7 @@ int mqtt_and_uart_log_vprintf(const char *fmt, va_list args) {
         esp_mqtt_client_publish(
             mqtt->get_client(),
             std::string(sensor->get_mqtt_root_topic() + "/log").c_str(),
-            buffer, 0, 1, 0
+            buffer, len-1 /*Ignore \n*/, 1, 0
             );
 
         if (original_log_function) {
@@ -57,7 +59,8 @@ void get_mac_address_str(char* mac_str)
     snprintf(mac_str, 18, "%02X:%02X:%02X:%02X:%02X:%02X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
 }
 
-Sensor::Sensor(){
+Sensor::Sensor()
+{
     // Init internal temperature sensor
     temperature_sensor_config_t temp_sensor_config = TEMPERATURE_SENSOR_CONFIG_DEFAULT(20, 100);
     ESP_ERROR_CHECK(temperature_sensor_install(&temp_sensor_config, &this->temperature_sensor));
@@ -80,21 +83,73 @@ std::string Sensor::get_name(){return this->name;}
 std::string Sensor::get_designator(){return this->designator;}
 std::string Sensor::get_mqtt_root_topic(){return this->mqtt_root_topic;}
 
-void Sensor::transfer_log_to_mqtt(){
+void Sensor::transfer_log_to_mqtt()
+{
     log_topic = this->mqtt_root_topic + "/log";
     original_log_function = esp_log_set_vprintf(mqtt_and_uart_log_vprintf);
-    ESP_LOGW(SENSOR_TAG, "Log transfered to MQTT and UART");
+    dump_info();
+    ESP_LOGW(SENSOR_TAG, "Sending all logs to MQTT from now on");
 }
 
-void Sensor::rollback_log_to_uart(){
+void Sensor::rollback_log_to_uart()
+{
     esp_log_set_vprintf(original_log_function);
-    ESP_LOGW(SENSOR_TAG, "Log rollbacked to UART");
+    ESP_LOGE(SENSOR_TAG, "MQTT not available, logs rollbacked to UART");
 }
 
-float Sensor::get_internal_temperature(){
+float Sensor::get_internal_temperature()
+{
     float temperature;
     ESP_ERROR_CHECK(temperature_sensor_enable(this->temperature_sensor));
     ESP_ERROR_CHECK(temperature_sensor_get_celsius(this->temperature_sensor, &temperature));
     ESP_ERROR_CHECK(temperature_sensor_disable(this->temperature_sensor));
     return temperature;
+}
+
+void Sensor::dump_info()
+{
+    ESP_LOGI(SENSOR_TAG, "Sensor Name: %s", this->name.c_str());
+    ESP_LOGI(SENSOR_TAG, "Sensor Designator: %s", this->designator.c_str());
+    ESP_LOGI(SENSOR_TAG, "Sensor MQTT Root Topic: %s", this->mqtt_root_topic.c_str());
+    ESP_LOGI(SENSOR_TAG, "Internal Temperature: %.2fºC", this->get_internal_temperature());
+    std::string last_boot_reason = "";
+    switch(esp_reset_reason())
+    {
+        case ESP_RST_UNKNOWN:    last_boot_reason = "Reset reason can not be determined"; break;
+        case ESP_RST_POWERON:    last_boot_reason = "Reset due to power-on event"; break;
+        case ESP_RST_EXT:        last_boot_reason = "Reset by external pin (not applicable for ESP32)"; break;
+        case ESP_RST_SW:         last_boot_reason = "Software reset via esp_restart"; break;
+        case ESP_RST_PANIC:      last_boot_reason = "Software reset due to exception/panic"; break;
+        case ESP_RST_INT_WDT:    last_boot_reason = "Reset (software or hardware) due to interrupt watchdog"; break;
+        case ESP_RST_TASK_WDT:   last_boot_reason = "Reset due to task watchdog"; break;
+        case ESP_RST_WDT:        last_boot_reason = "Reset due to other watchdogs"; break;
+        case ESP_RST_DEEPSLEEP:  last_boot_reason = "Reset after exiting deep sleep mode"; break;
+        case ESP_RST_BROWNOUT:   last_boot_reason = "Brownout reset (software or hardware)"; break;
+        case ESP_RST_SDIO:       last_boot_reason = "Reset over SDIO"; break;
+        case ESP_RST_USB:        last_boot_reason = "Reset by USB peripheral"; break;
+        case ESP_RST_JTAG:       last_boot_reason = "Reset by JTAG"; break;
+        case ESP_RST_EFUSE:      last_boot_reason = "Reset due to efuse error"; break;
+        case ESP_RST_PWR_GLITCH: last_boot_reason = "Reset due to power glitch detected"; break;
+        case ESP_RST_CPU_LOCKUP: last_boot_reason = "Reset due to CPU lock up"; break;
+        default:                 last_boot_reason = "Unhandled Reset Reason"; break;
+    }
+    ESP_LOGI(SENSOR_TAG, "Last Boot Reason: %s", last_boot_reason.c_str());
+    ESP_LOGI(SENSOR_TAG, "Free memory: %" PRIu32 " bytes", esp_get_free_heap_size());
+    ESP_LOGI(SENSOR_TAG, "IDF version: %s", esp_get_idf_version());
+    ESP_LOGI(SENSOR_TAG, "WiFi Connected: %s", wifi->is_connected() ? "Yes" : "No");
+    if(wifi->is_connected())
+    {
+        std::string pass_censor = "";
+        wifi_ap_record_t ap_info = wifi->get_ap_info();
+        for(int i=0; i<strlen((char*)ap_info.ssid); i++)
+        {
+            pass_censor += "*";
+        }
+        ESP_LOGI(SENSOR_TAG, "Connected to %s", (char*)ap_info.ssid);
+        ESP_LOGI(SENSOR_TAG, "Password: %s", pass_censor.c_str());
+        ESP_LOGI(SENSOR_TAG, "RSSI: %d", wifi->get_rssi());
+        ESP_LOGI(SENSOR_TAG, "Channel: %d", ap_info.primary);
+        ESP_LOGI(SENSOR_TAG, "AP BSSID: %02X:%02X:%02X:%02X:%02X:%02X", ap_info.bssid[0], ap_info.bssid[1], ap_info.bssid[2], ap_info.bssid[3], ap_info.bssid[4], ap_info.bssid[5]);
+    }
+
 }

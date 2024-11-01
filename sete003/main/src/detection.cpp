@@ -3,6 +3,8 @@
 #include "mqtt.hpp"
 #include "esp_log.h"
 
+#include <esp_timer.h>
+
 #define POINT_D0 0  // Top left corner
 #define POINT_D1 1  // Bottom left corner
 #define POINT_D2 2  // Bottom right corner
@@ -24,7 +26,8 @@ Detection::Detection(
         point_t D0,
         point_t D1,
         point_t D2,
-        point_t D3
+        point_t D3,
+        int64_t buffer_time
     )
 {
     entered_detections = 0;
@@ -36,7 +39,10 @@ Detection::Detection(
         targets[i].entered_position = {0, 0};
         targets[i].exited_position = {0, 0};
         targets[i].traversed = false;
+        targets[i].entered_side = NONE;
+        targets[i].exited_side = NONE;
     }
+    buffer_detection_payload_timer = buffer_time;
 }
 
 bool Detection::_pre_calc_vector_product(
@@ -75,32 +81,42 @@ void Detection::set_detection_area(
     detection_area.F[3] = {D0.x - D3.x, D0.y - D3.y};
 }
 
-bool Detection::check_if_detected(uint8_t target_index) {
+void Detection::set_buffer_time(int64_t buffer_time)
+{
+    buffer_detection_payload_timer = buffer_time;
+}
+
+const char* detection_area_side_str[] = {
+    "LEFT",
+    "BOTTOM",
+    "RIGHT",
+    "TOP",
+    "NONE"
+};
+
+bool Detection::check_if_detected(uint8_t target_index)
+{
     bool was_in_detection_area = _is_target_in_detection_area(targets_previous[target_index]);
     bool is_in_detection_area = _is_target_in_detection_area(targets[target_index].current_position);
 
     if (!was_in_detection_area && is_in_detection_area) {
-        ESP_LOGI(DETECTION_TAG, "Target %u entered detection area",target_index);
+        ESP_LOGD(DETECTION_TAG, "Target %u entered detection area",target_index);
         targets[target_index].entered_position = targets[target_index].current_position;
+        targets[target_index].entered_side = get_crossed_side(targets[target_index].entered_position);
         return true;
     } else if (was_in_detection_area && !is_in_detection_area) {
         // Check if exited on the same side
-        ESP_LOGI(DETECTION_TAG, "Target %u exited detection area",target_index);
+        ESP_LOGD(DETECTION_TAG, "Target %u exited detection area",target_index);
         targets[target_index].exited_position = targets[target_index].current_position;
-        ESP_LOGI(DETECTION_TAG, "Target %u entered at (%.1f, %.1f) and exited at (%.1f, %.1f)\n",
-            target_index,
-            targets[target_index].entered_position.x,
-            targets[target_index].entered_position.y,
-            targets[target_index].exited_position.x,
-            targets[target_index].exited_position.y
-        );
+        targets[target_index].exited_side = get_crossed_side(targets[target_index].exited_position);
         targets[target_index].traversed = true;
         return false;
     }
     return false;
 }
 
-detection_area_side Detection::get_crossed_side(point_t point) {
+detection_area_side Detection::get_crossed_side(point_t point)
+{
     if (point.x <= detection_area.D[0].x) return LEFT;
     if (point.x >= detection_area.D[2].x) return RIGHT;
     if (point.y <= detection_area.D[0].y) return BOTTOM;
@@ -123,7 +139,77 @@ void Detection::update_targets(ld2461_detection_t* report)
     }
 }
 
-void Detection::start_detection() {
+void Detection::count_detections(int target_index)
+{
+    if(targets[target_index].traversed == false) return;
+    if(targets[target_index].entered_side == NONE || targets[target_index].exited_side == NONE) return;
+
+    switch(targets[target_index].entered_side){
+        case TOP:
+            // User entered the room
+            if(targets[target_index].exited_side == BOTTOM){
+                entered_detections++;
+                ESP_LOGI(DETECTION_TAG, "Target %u entered the room",target_index);
+            }
+            // User gave up
+            else if(targets[target_index].exited_side == TOP){
+                gave_up_detections++;
+                ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room",target_index);
+            }
+            break;
+        case BOTTOM:
+            // User exited the room
+            if(targets[target_index].exited_side == TOP){
+                exited_detections++;
+                ESP_LOGI(DETECTION_TAG, "Target %u exited the room",target_index);
+            }
+            // User gave up
+            else if(targets[target_index].exited_side == BOTTOM){
+                gave_up_detections++;
+                ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room",target_index);
+            }
+            break;
+        case LEFT:
+            // User entered the room
+            if(targets[target_index].exited_side == BOTTOM){
+                entered_detections++;
+                ESP_LOGI(DETECTION_TAG, "Target %u entered the room",target_index);
+            }
+            // User gave up
+            else if(targets[target_index].exited_side == TOP){
+                exited_detections++;
+                ESP_LOGI(DETECTION_TAG, "Target %u exited the room",target_index);
+            }
+            break;
+        case RIGHT:
+            // User exited the room
+            if(targets[target_index].exited_side == TOP){
+                exited_detections++;
+                ESP_LOGI(DETECTION_TAG, "Target %u exited the room",target_index);
+            }
+            // User gave up
+            else if(targets[target_index].exited_side == BOTTOM){
+                gave_up_detections++;
+                ESP_LOGI(DETECTION_TAG, "Target %u entered the room",target_index);
+            }
+            break;
+        case NONE:
+            break;
+        default:
+            break;
+    }
+    targets[target_index].entered_side = NONE;
+    targets[target_index].exited_side = NONE;
+    targets[target_index].traversed = false;
+    ESP_LOGI(DETECTION_TAG, "Entered: %d, Exited: %d, Gave up: %d",
+        entered_detections,
+        exited_detections,
+        gave_up_detections
+    );
+}
+
+void Detection::start_detection()
+{
     ld2461_detection_t detection_frame = ld2461_setup_detection();
     ld2461->report_detections(&detection_frame);
     
@@ -136,7 +222,24 @@ void Detection::start_detection() {
     }
 }
 
-void Detection::detect() {
+void Detection::mqtt_send_detections()
+{
+    std::string payload = "{";
+    payload += "\"entered\": " + std::to_string(entered_detections) + ",";
+    payload += "\"exited\": " + std::to_string(exited_detections) + ",";
+    payload += "\"gave_up\": " + std::to_string(gave_up_detections);
+    payload += "}";
+    mqtt->publish(
+        std::string(sensor->get_mqtt_root_topic() + "/data").c_str(),
+        payload.c_str()
+    );
+    entered_detections = 0;
+    exited_detections = 0;
+    gave_up_detections = 0;
+}
+
+void Detection::detect()
+{
     ld2461_detection_t detection_frame = ld2461_setup_detection();
     ld2461->report_detections(&detection_frame);
 
@@ -152,28 +255,7 @@ void Detection::detect() {
         if(check_if_detected(i)) {
             targets_str += std::to_string(i) + ", ";
         }
-        if(targets[i].traversed == true){
-            detection_area_side side = get_crossed_side(targets[i].exited_position);
-            switch (side)
-            {
-            case LEFT:
-                ESP_LOGI(DETECTION_TAG, "Target %u exited on the LEFT side",i);
-                break;
-            case RIGHT:
-                ESP_LOGI(DETECTION_TAG, "Target %u exited on the RIGHT side",i);
-                break;
-            case BOTTOM:
-                ESP_LOGI(DETECTION_TAG, "Target %u exited on the BOTTOM side",i);
-                break;
-            case TOP:
-                ESP_LOGI(DETECTION_TAG, "Target %u exited on the TOP side",i);
-                break;
-            case NONE:
-                ESP_LOGI(DETECTION_TAG, "Target %u exited on NONE side",i);
-                break;
-            }
-            targets[i].traversed = false;
-        }
+        count_detections(i);
     }
     //ESP_LOGI(DETECTION_TAG, "%s",targets_str.c_str());
     update_targets(&detection_frame);

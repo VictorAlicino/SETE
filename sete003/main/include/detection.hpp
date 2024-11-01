@@ -1,13 +1,18 @@
 
 /*
-D0--------------------------------------D3    D0--------D3
+D0-------------------Bottom--------------D3    D0--------D3
 |                                        |    |          |
 |                                        |    |          |
-|               Horizontal               |    | Vertical |
+Left               Horizontal          Right  |    | Vertical |
 |                                        |    |          |
 |                                        |    |          |
-D1--------------------------------------D2    D1--------D2
+D1--------------------Top----------------D2    D1--------D2
+                   \      |
+                    \    |
+|<------------------LD2461-------------->|
 */
+
+
 
 #pragma once
 
@@ -49,7 +54,9 @@ typedef enum detection_area_side{
 typedef struct target{
     point_t current_position;
     point_t entered_position;
+    detection_area_side_t entered_side;
     point_t exited_position;
+    detection_area_side_t exited_side;
     bool traversed;
 }target_t;
 
@@ -62,6 +69,8 @@ private:
     int entered_detections;
     int exited_detections;
     int gave_up_detections;
+
+    int64_t buffer_detection_payload_timer;
 
     /**
      * @brief Vector product of the two vectors
@@ -96,12 +105,16 @@ public:
      * @param D1 Bottom left corner
      * @param D2 Bottom right corner
      * @param D3 Top right corner
+     * @param buffer_time Time to wait before sending the next detection payload
+     * 
+     * @note The buffer_time is in microseconds
      */
     Detection(
         point_t D0,
         point_t D1,
         point_t D2,
-        point_t D3
+        point_t D3,
+        int64_t buffer_time = 300000000
     );
 
     /**
@@ -119,10 +132,13 @@ public:
         point_t D3
     );
 
+    void set_buffer_time(int64_t buffer_time);
+
     detection_area_side_t get_crossed_side(point_t point);
     bool check_if_detected(uint8_t target_index);
     void start_detection();
     void update_targets(ld2461_detection_t* report);
+    void count_detections(int target_index);
     void detect();
-
+    void mqtt_send_detections();
 };
