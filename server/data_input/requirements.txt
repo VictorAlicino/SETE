@@ -1,0 +1,4 @@
+python-decouple
+sqlalchemy
+psycopg2
+aiomqtt
