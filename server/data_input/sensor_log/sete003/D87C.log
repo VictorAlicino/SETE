@@ -1,0 +1,127 @@
+2024-11-05 14:55:02.813579 [0;32mI (1942) Sensor: Sensor Name: Sonare D87C[0m 
+2024-11-05 14:55:02.891554 [0;32mI (1942) Sensor: Sensor Designator: D87C[0m 
+2024-11-05 14:55:02.893554 [0;32mI (1942) Sensor: Sensor MQTT Root Topic: SETE/sensors/sete003/D87C[0m 
+2024-11-05 14:55:02.894553 [0;32mI (1952) Sensor: Internal Temperature: 41.40ºC[0m 
+2024-11-05 14:55:02.895552 [0;32mI (1952) Sensor: Last Boot Reason: Reset due to power-on event[0m 
+2024-11-05 14:55:02.896552 [0;32mI (1962) Sensor: Free memory: 259464 bytes[0m 
+2024-11-05 14:55:02.897552 [0;32mI (1962) Sensor: IDF version: v5.3.1[0m 
+2024-11-05 14:55:02.898552 [0;32mI (1972) Sensor: WiFi Connected: Yes[0m 
+2024-11-05 14:55:02.899550 [0;32mI (1972) Sensor: Connected to 50 centavos a hora[0m 
+2024-11-05 14:55:02.902549 [0;32mI (1982) Sensor: Password: ******************[0m 
+2024-11-05 14:55:02.903550 [0;32mI (1982) Sensor: RSSI: -38[0m 
+2024-11-05 14:55:02.904549 [0;32mI (1982) Sensor: Channel: 1[0m 
+2024-11-05 14:55:02.904549 [0;32mI (1992) Sensor: AP BSSID: D8:C6:78:A8:59:48[0m 
+2024-11-05 14:55:02.905549 [0;33mW (1992) Sensor: Sending all logs to MQTT from now on[0m 
+2024-11-05 14:55:02.906550 [0;32mI (2012) SET003: Detected LD2461 running on v0.1 from 11/1/2023[0m 
+2024-11-05 14:57:42.410067 [0;32mI (1952) Sensor: Sensor Name: Sonare D87C[0m 
+2024-11-05 14:57:42.468048 [0;32mI (1952) Sensor: Sensor Designator: D87C[0m 
+2024-11-05 14:57:42.471050 [0;32mI (1952) Sensor: Sensor MQTT Root Topic: SETE/sensors/sete003/D87C[0m 
+2024-11-05 14:57:42.474046 [0;32mI (1962) Sensor: Internal Temperature: 41.40ºC[0m 
+2024-11-05 14:57:42.476048 [0;32mI (1962) Sensor: Last Boot Reason: Reset due to power-on event[0m 
+2024-11-05 14:57:42.478048 [0;32mI (1972) Sensor: Free memory: 259240 bytes[0m 
+2024-11-05 14:57:42.480047 [0;32mI (1972) Sensor: IDF version: v5.3.1[0m 
+2024-11-05 14:57:42.482043 [0;32mI (1982) Sensor: WiFi Connected: Yes[0m 
+2024-11-05 14:57:42.484042 [0;32mI (1982) Sensor: Connected to 50 centavos a hora[0m 
+2024-11-05 14:57:42.486042 [0;32mI (1992) Sensor: Password: ******************[0m 
+2024-11-05 14:57:42.488044 [0;32mI (1992) Sensor: RSSI: -39[0m 
+2024-11-05 14:57:42.491044 [0;32mI (1992) Sensor: Channel: 1[0m 
+2024-11-05 14:57:42.525030 [0;32mI (2002) Sensor: AP BSSID: D8:C6:78:A8:59:48[0m 
+2024-11-05 14:57:42.527029 [0;33mW (2002) Sensor: Sending all logs to MQTT from now on[0m 
+2024-11-05 14:59:35.748001 [0;32mI (2562) Sensor: Sensor Name: Sonare D87C[0m 
+2024-11-05 14:59:35.812992 [0;32mI (2562) Sensor: Sensor Designator: D87C[0m 
+2024-11-05 14:59:35.815992 [0;32mI (2562) Sensor: Sensor MQTT Root Topic: SETE/sensors/sete003/D87C[0m 
+2024-11-05 14:59:35.816990 [0;32mI (2572) Sensor: Internal Temperature: 41.40ºC[0m 
+2024-11-05 14:59:35.818991 [0;32mI (2572) Sensor: Last Boot Reason: Reset due to power-on event[0m 
+2024-11-05 14:59:35.819989 [0;32mI (2582) Sensor: Free memory: 259236 bytes[0m 
+2024-11-05 14:59:35.820989 [0;32mI (2592) Sensor: IDF version: v5.3.1[0m 
+2024-11-05 14:59:35.822991 [0;32mI (2592) Sensor: WiFi Connected: Yes[0m 
+2024-11-05 14:59:35.823990 [0;32mI (2592) Sensor: Connected to 50 centavos a hora[0m 
+2024-11-05 14:59:35.825990 [0;32mI (2602) Sensor: Password: ******************[0m 
+2024-11-05 14:59:35.826989 [0;32mI (2602) Sensor: RSSI: -36[0m 
+2024-11-05 14:59:35.828989 [0;32mI (2612) Sensor: Channel: 1[0m 
+2024-11-05 14:59:35.829989 [0;32mI (2612) Sensor: AP BSSID: D8:C6:78:A8:59:48[0m 
+2024-11-05 14:59:35.878976 [0;33mW (2622) Sensor: Sending all logs to MQTT from now on[0m 
+2024-11-05 15:19:36.225986 [0;32mI (1203042) DETECTION: Target 2 exited the room | id: 10[0m 
+2024-11-05 15:19:36.281967 [0;32mI (1203052) DETECTION: Entered: 0, Exited: 1, Gave up: 0[0m 
+2024-11-05 15:40:02.605043 [0;32mI (1932) Sensor: Sensor Name: Sonare D87C[0m 
+2024-11-05 15:40:02.663021 [0;32mI (1942) Sensor: Sensor Designator: D87C[0m 
+2024-11-05 15:40:02.665546 [0;32mI (1942) Sensor: Sensor MQTT Root Topic: SETE/sensors/sete003/D87C[0m 
+2024-11-05 15:40:02.667544 [0;32mI (1942) Sensor: Internal Temperature: 37.40ºC[0m 
+2024-11-05 15:40:02.668543 [0;32mI (1952) Sensor: Last Boot Reason: Reset due to power-on event[0m 
+2024-11-05 15:40:02.669543 [0;32mI (1952) Sensor: Free memory: 259440 bytes[0m 
+2024-11-05 15:40:02.670542 [0;32mI (1962) Sensor: IDF version: v5.3.1[0m 
+2024-11-05 15:40:02.672542 [0;32mI (1962) Sensor: WiFi Connected: Yes[0m 
+2024-11-05 15:40:02.673542 [0;32mI (1972) Sensor: Connected to 50 centavos a hora[0m 
+2024-11-05 15:40:02.674542 [0;32mI (1972) Sensor: Password: ******************[0m 
+2024-11-05 15:40:02.675541 [0;32mI (1982) Sensor: RSSI: -37[0m 
+2024-11-05 15:40:02.676541 [0;32mI (1982) Sensor: Channel: 1[0m 
+2024-11-05 15:40:02.719526 [0;32mI (1982) Sensor: AP BSSID: D8:C6:78:A8:59:48[0m 
+2024-11-05 15:40:02.720525 [0;33mW (1992) Sensor: Sending all logs to MQTT from now on[0m 
+2024-11-05 15:47:58.078947 [0;32mI (477412) DETECTION: Target 0 exited the room | id: 30[0m 
+2024-11-05 15:47:58.136952 [0;32mI (477412) DETECTION: Entered: 0, Exited: 1, Gave up: 0[0m 
+2024-11-05 15:48:02.077903 [0;33mW (481412) DETECTION: Target 0 traversed but exited_side is not defined | id: 22[0m 
+2024-11-05 15:48:02.135913 [0;32mI (481412) DETECTION: Entered: 0, Exited: 1, Gave up: 0[0m 
+2024-11-05 15:48:05.956953 [0;32mI (485282) DETECTION: Target 0 exited the room | id: 30[0m 
+2024-11-05 15:48:06.207965 [0;32mI (485292) DETECTION: Entered: 0, Exited: 1, Gave up: 0[0m 
+2024-11-05 15:48:11.211923 [0;33mW (490532) DETECTION: Target 0 traversed but exited_side is not defined | id: 32[0m 
+2024-11-05 15:48:11.270902 [0;32mI (490532) DETECTION: Entered: 0, Exited: 1, Gave up: 0[0m 
+2024-11-05 15:48:22.826010 [0;33mW (502152) DETECTION: Target 0 traversed but exited_side is not defined | id: 12[0m 
+2024-11-05 15:48:22.884987 [0;32mI (502162) DETECTION: Entered: 0, Exited: 1, Gave up: 0[0m 
+2024-11-05 15:48:24.576021 [0;33mW (503902) DETECTION: Target 0 traversed but exited_side is not defined | id: 22[0m 
+2024-11-05 15:48:24.634004 [0;32mI (503912) DETECTION: Entered: 0, Exited: 1, Gave up: 0[0m 
+2024-11-05 15:48:29.327684 [0;33mW (508662) DETECTION: Target 2 traversed but exited_side is not defined | id: 32[0m 
+2024-11-05 15:48:29.386666 [0;32mI (508662) DETECTION: Entered: 0, Exited: 1, Gave up: 0[0m 
+2024-11-05 15:48:31.577860 [0;32mI (510912) DETECTION: Target 2 exited the room | id: 10[0m 
+2024-11-05 15:48:31.636843 [0;32mI (510912) DETECTION: Entered: 0, Exited: 2, Gave up: 0[0m 
+2024-11-05 15:48:51.330999 [0;33mW (530662) DETECTION: Target 2 traversed but exited_side is not defined | id: 12[0m 
+2024-11-05 15:48:51.392996 [0;32mI (530662) DETECTION: Entered: 0, Exited: 0, Gave up: 0[0m 
+2024-11-05 15:50:21.450745 [0;33mW (620782) DETECTION: Target 2 traversed but exited_side is not defined | id: 12[0m 
+2024-11-05 15:50:21.508108 [0;32mI (620782) DETECTION: Entered: 0, Exited: 0, Gave up: 0[0m 
+2024-11-05 15:50:47.565985 [0;32mI (646902) DETECTION: Target 0 exited the room | id: 21[0m 
+2024-11-05 15:50:47.630962 [0;32mI (646902) DETECTION: Entered: 0, Exited: 1, Gave up: 0[0m 
+2024-11-05 16:57:11.887701 [0;33mW (4631102) DETECTION: Target 0 traversed but exited_side is not defined | id: 32[0m 
+2024-11-05 16:57:12.120624 [0;32mI (4631102) DETECTION: Entered: 0, Exited: 0, Gave up: 0[0m 
+2024-11-05 16:57:15.164354 [0;32mI (2442) Sensor: Sensor Name: Sonare D87C[0m 
+2024-11-05 16:57:15.466985 [0;32mI (2442) Sensor: Sensor Designator: D87C[0m 
+2024-11-05 16:57:15.843626 [0;32mI (2442) Sensor: Sensor MQTT Root Topic: SETE/sensors/sete003/D87C[0m 
+2024-11-05 16:57:15.943593 [0;32mI (2452) Sensor: Internal Temperature: 40.40ºC[0m 
+2024-11-05 16:57:16.050574 [0;32mI (2452) Sensor: Last Boot Reason: Reset due to power-on event[0m 
+2024-11-05 16:57:16.175533 [0;32mI (2462) Sensor: Free memory: 259432 bytes[0m 
+2024-11-05 16:57:16.485429 [0;32mI (2462) Sensor: IDF version: v5.3.1[0m 
+2024-11-05 16:57:16.817364 [0;32mI (2472) Sensor: WiFi Connected: Yes[0m 
+2024-11-05 16:57:17.053413 [0;32mI (2472) Sensor: Connected to 50 centavos a hora[0m 
+2024-11-05 16:57:17.301333 [0;32mI (2482) Sensor: Password: ******************[0m 
+2024-11-05 16:57:17.534277 [0;32mI (2482) Sensor: RSSI: -35[0m 
+2024-11-05 16:57:17.850170 [0;32mI (2482) Sensor: Channel: 1[0m 
+2024-11-05 16:57:18.349009 [0;32mI (2492) Sensor: AP BSSID: D8:C6:78:A8:59:48[0m 
+2024-11-05 16:57:18.456971 [0;33mW (2492) Sensor: Sending all logs to MQTT from now on[0m 
+2024-11-05 16:57:18.577934 [0;32mI (2522) SET003: Detected LD2461 running on v0.1 from 11/1/2023[0m 
+2024-11-05 17:30:39.479733 [0;32mI (1916) Sensor: Sensor Name: Sonare D87C[0m 
+2024-11-05 17:30:39.543712 [0;32mI (1916) Sensor: Sensor Designator: D87C[0m 
+2024-11-05 17:30:39.544712 [0;32mI (1916) Sensor: Sensor MQTT Root Topic: SETE/sensors/sete003/D87C[0m 
+2024-11-05 17:30:39.545711 [0;32mI (1926) Sensor: Internal Temperature: 37.40ºC[0m 
+2024-11-05 17:30:39.546711 [0;32mI (1926) Sensor: Last Boot Reason: Software reset due to exception/panic[0m 
+2024-11-05 17:30:39.547710 [0;32mI (1936) Sensor: Free memory: 259428 bytes[0m 
+2024-11-05 17:30:39.548712 [0;32mI (1946) Sensor: IDF version: v5.3.1[0m 
+2024-11-05 17:30:39.549710 [0;32mI (1946) Sensor: WiFi Connected: Yes[0m 
+2024-11-05 17:30:39.550709 [0;32mI (1946) Sensor: Connected to 50 centavos a hora[0m 
+2024-11-05 17:30:39.551710 [0;32mI (1956) Sensor: Password: ******************[0m 
+2024-11-05 17:30:39.552710 [0;32mI (1956) Sensor: RSSI: -34[0m 
+2024-11-05 17:30:39.553709 [0;32mI (1966) Sensor: Channel: 1[0m 
+2024-11-05 17:30:39.554708 [0;32mI (1966) Sensor: AP BSSID: D8:C6:78:A8:59:48[0m 
+2024-11-05 17:30:39.607693 [0;33mW (1976) Sensor: Sending all logs to MQTT from now on[0m 
+2024-11-05 17:30:39.608701 [0;32mI (1986) SET003: Detected LD2461 running on v0.1 from 11/1/2023[0m 
+2024-11-05 19:16:28.475977 [0;32mI (2552) Sensor: Sensor Name: Sonare D87C[0m 
+2024-11-05 19:16:28.537953 [0;32mI (2552) Sensor: Sensor Designator: D87C[0m 
+2024-11-05 19:16:28.540955 [0;32mI (2552) Sensor: Sensor MQTT Root Topic: SETE/sensors/sete003/D87C[0m 
+2024-11-05 19:16:28.543953 [0;32mI (2562) Sensor: Internal Temperature: 41.40ºC[0m 
+2024-11-05 19:16:28.545954 [0;32mI (2562) Sensor: Last Boot Reason: Reset due to power-on event[0m 
+2024-11-05 19:16:28.547955 [0;32mI (2572) Sensor: Free memory: 259408 bytes[0m 
+2024-11-05 19:16:28.549953 [0;32mI (2572) Sensor: IDF version: v5.3.1[0m 
+2024-11-05 19:16:28.551949 [0;32mI (2582) Sensor: WiFi Connected: Yes[0m 
+2024-11-05 19:16:28.553952 [0;32mI (2582) Sensor: Connected to 50 centavos a hora[0m 
+2024-11-05 19:16:28.555950 [0;32mI (2592) Sensor: Password: ******************[0m 
+2024-11-05 19:16:28.557950 [0;32mI (2592) Sensor: RSSI: -34[0m 
+2024-11-05 19:16:28.559951 [0;32mI (2602) Sensor: Channel: 1[0m 
+2024-11-05 19:16:28.561950 [0;32mI (2602) Sensor: AP BSSID: D8:C6:78:A8:59:48[0m 
+2024-11-05 19:16:28.562949 [0;33mW (2612) Sensor: Sending all logs to MQTT from now on[0m 
