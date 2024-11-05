@@ -10,6 +10,8 @@ private:
     std::string designator;
     std::string mqtt_root_topic;
 
+    std::string ota_update_uri;
+
     temperature_sensor_handle_t temperature_sensor;
 public:
     Sensor();
@@ -54,4 +56,7 @@ public:
     float get_internal_temperature();
 
     void dump_info();
+
+    std::string get_ota_update_uri();
+    void set_ota_update_uri(std::string uri);
 };

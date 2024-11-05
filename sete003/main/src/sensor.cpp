@@ -106,6 +106,16 @@ float Sensor::get_internal_temperature()
     return temperature;
 }
 
+std::string Sensor::get_ota_update_uri()
+{
+    return this->ota_update_uri;
+}
+
+void Sensor::set_ota_update_uri(std::string uri)
+{
+    this->ota_update_uri = uri;
+}
+
 void Sensor::dump_info()
 {
     ESP_LOGI(SENSOR_TAG, "Sensor Name: %s", this->name.c_str());

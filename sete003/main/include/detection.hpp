@@ -71,6 +71,7 @@ private:
     int gave_up_detections;
 
     int64_t buffer_detection_payload_timer;
+    bool send_raw_detection_payload;
 
     /**
      * @brief Vector product of the two vectors
@@ -135,6 +136,9 @@ public:
     void set_buffer_time(int64_t buffer_time);
 
     detection_area_side_t get_crossed_side(point_t point);
+
+    void set_raw_data_sent(bool send_raw_data);    
+   
     bool check_if_detected(uint8_t target_index);
     void start_detection();
     void update_targets(ld2461_detection_t* report);

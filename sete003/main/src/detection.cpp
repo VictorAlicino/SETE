@@ -149,53 +149,67 @@ void Detection::count_detections(int target_index)
             // User entered the room
             if(targets[target_index].exited_side == BOTTOM){
                 entered_detections++;
-                ESP_LOGI(DETECTION_TAG, "Target %u entered the room",target_index);
+                ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 00",target_index);
             }
             // User gave up
             else if(targets[target_index].exited_side == TOP){
                 gave_up_detections++;
-                ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room",target_index);
+                ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 01",target_index);
+            }
+            else{
+                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 02",target_index);
             }
             break;
         case BOTTOM:
             // User exited the room
             if(targets[target_index].exited_side == TOP){
                 exited_detections++;
-                ESP_LOGI(DETECTION_TAG, "Target %u exited the room",target_index);
+                ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 10",target_index);
             }
             // User gave up
             else if(targets[target_index].exited_side == BOTTOM){
                 gave_up_detections++;
-                ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room",target_index);
+                ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 11",target_index);
+            }
+            else{
+                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 12",target_index);
             }
             break;
         case LEFT:
             // User entered the room
             if(targets[target_index].exited_side == BOTTOM){
                 entered_detections++;
-                ESP_LOGI(DETECTION_TAG, "Target %u entered the room",target_index);
+                ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 20",target_index);
             }
             // User gave up
             else if(targets[target_index].exited_side == TOP){
                 exited_detections++;
-                ESP_LOGI(DETECTION_TAG, "Target %u exited the room",target_index);
+                ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 21",target_index);
+            }
+            else{
+                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 22",target_index);
             }
             break;
         case RIGHT:
             // User exited the room
             if(targets[target_index].exited_side == TOP){
                 exited_detections++;
-                ESP_LOGI(DETECTION_TAG, "Target %u exited the room",target_index);
+                ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 30",target_index);
             }
             // User gave up
             else if(targets[target_index].exited_side == BOTTOM){
                 gave_up_detections++;
-                ESP_LOGI(DETECTION_TAG, "Target %u entered the room",target_index);
+                ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 31",target_index);
+            }
+            else{
+                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 32",target_index);
             }
             break;
         case NONE:
+            ESP_LOGW(DETECTION_TAG, "Target %u traversed but entered_side is NONE | id: 40",target_index);
             break;
         default:
+            ESP_LOGW(DETECTION_TAG, "Target %u traversed but entered_side is not defined | 50",target_index);
             break;
     }
     targets[target_index].entered_side = NONE;
@@ -238,10 +252,17 @@ void Detection::mqtt_send_detections()
     gave_up_detections = 0;
 }
 
+void Detection::set_raw_data_sent(bool send_raw_data)
+{
+    send_raw_detection_payload = send_raw_data;
+}
+
 void Detection::detect()
 {
     ld2461_detection_t detection_frame = ld2461_setup_detection();
     ld2461->report_detections(&detection_frame);
+
+    std::string detection_payload = "{";
 
     if(detection_frame.detected_targets == 0)
     {
@@ -256,7 +277,19 @@ void Detection::detect()
             targets_str += std::to_string(i) + ", ";
         }
         count_detections(i);
+        detection_payload += "\"t_" + std::to_string(i) + "\": {";
+        detection_payload += "\"x\": " + std::to_string(targets[i].current_position.x) + ",";
+        detection_payload += "\"y\": " + std::to_string(targets[i].current_position.y);
+        detection_payload += "},";
     }
+    detection_payload.pop_back();
+    detection_payload += "}";
     //ESP_LOGI(DETECTION_TAG, "%s",targets_str.c_str());
+    if(send_raw_detection_payload){
+        mqtt->publish(
+            std::string(sensor->get_mqtt_root_topic() + "/raw").c_str(),
+            detection_payload.c_str()
+        );
+    }
     update_targets(&detection_frame);
 }

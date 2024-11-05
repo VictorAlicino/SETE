@@ -1,8 +1,11 @@
 #include "ota_update.hpp"
+#include "sensor.hpp"
 
 #include "esp_log.h"
 
 #define HASH_LEN 32
+
+extern Sensor* sensor;
 
 static const char *OTA_TAG = "Over-The-Air Update";
 
@@ -69,7 +72,10 @@ void ota_update(void *pvParameter)
 {
     ESP_LOGI(OTA_TAG, "Starting OTA task");
 
-
+    esp_http_client_config_t config = {
+        .url = sensor->get_ota_update_uri().c_str(),
+        .event_handler = _http_event_handler,
+    };
 
     esp_https_ota_config_t ota_config = {
         .http_config = &config,

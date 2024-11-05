@@ -100,11 +100,11 @@ void app_main(void)
 
     // Initialize Detection
     Detection detection = Detection(
-        {-4, 2},
-        {-4, 0.5},
-        {4, 0.5},
-        {4, 2},
-        30000000
+        {-0.1, 0.4},    // D0
+        {-0.1, 0.2},    // D1
+        {0.1, 0.2},     // D2
+        {0.1, 0.4},     // D3
+        15000000        // Buffer Time
     );
 
     // Initialize Variables
@@ -114,6 +114,7 @@ void app_main(void)
     int64_t time_now = 0;
     #define PAYLOAD_INTERVAL 30000000 // 30 seconds
     // Main Loop
+    detection.set_raw_data_sent(false);
     while(true)
     {
         time_now = esp_timer_get_time();
