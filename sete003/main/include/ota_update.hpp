@@ -10,6 +10,13 @@
 #include "esp_https_ota.h"
 
 /**
+ * @brief Check if the OTA update was successful
+ * @note Taken from "simple_ota_example" from esp-idf examples
+ * @return esp_err_t
+ */
+esp_err_t check_ota_sucess(void);
+
+/**
  * @brief Get the sha256 of partitions object
  * @note Taken from "simple_ota_example" from esp-idf examples
  */

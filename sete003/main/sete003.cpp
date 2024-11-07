@@ -56,7 +56,7 @@ void app_main(void)
     ESP_ERROR_CHECK(esp_netif_init());
 
     // Initialize WiFi
-    wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
+    wifi = new WiFi_STA("CAMPOS_EXT", "salsicha");
 
     // Initialize Board
     sensor = new Sensor();
@@ -100,10 +100,10 @@ void app_main(void)
 
     // Initialize Detection
     Detection detection = Detection(
-        {-0.1, 0.4},    // D0
-        {-0.1, 0.2},    // D1
-        {0.1, 0.2},     // D2
-        {0.1, 0.4},     // D3
+        {-2, 0.7},    // D0
+        {0, 0},    // D1
+        {0, 0},     // D2
+        {2, 0.7},     // D3
         15000000        // Buffer Time
     );
 
@@ -114,7 +114,7 @@ void app_main(void)
     int64_t time_now = 0;
     #define PAYLOAD_INTERVAL 30000000 // 30 seconds
     // Main Loop
-    detection.set_raw_data_sent(false);
+    detection.set_raw_data_sent(true);
     while(true)
     {
         time_now = esp_timer_get_time();
