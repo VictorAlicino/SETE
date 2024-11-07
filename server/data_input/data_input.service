@@ -1,0 +1,11 @@
+[Unit]
+Description=SETE Sensor Data Input
+After=network.target
+
+[Service]
+WorkingDirectory=/caminho/para/seu/diretorio
+ExecStart=/caminho/para/venv/bin/python /caminho/para/main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

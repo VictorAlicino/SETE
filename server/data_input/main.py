@@ -38,7 +38,7 @@ async def store_sensor_log(payload, topic):
     # Abre o arquivo no modo append
     with open(filepath, "a") as f:
         log_entry = f"{datetime.now()} {payload} \n"
-        print(log_entry[:-1])  # Imprime no console
+        print(f"{topic[3]}: {log_entry[:-1]}")  # Imprime no console
         f.write(log_entry)  # Escreve no arquivo
 
 async def sensor003_payload(payload, topic: list[str]):
@@ -73,7 +73,6 @@ async def sensor003_payload(payload, topic: list[str]):
         case _:
             print(f"Unknown Topic: {topic[4]}")
 
-
 async def process_payload(payload):
     topic = str(payload.topic).split("/")
     match topic[2]:
@@ -86,11 +85,15 @@ async def _main():
     # Start the database
     database.create_all()
 
-    async with aiomqtt.Client("144.22.195.55", 1883) as client:
-        await client.subscribe("SETE/sensors/#")
-        while True:
-            async for message in client.messages:
-                await process_payload(message)
+    while True:
+        try:
+            async with aiomqtt.Client("144.22.195.55", 1883) as client:
+                await client.subscribe("SETE/sensors/#")
+                while True:
+                    async for message in client.messages:
+                        await process_payload(message)
+        except Exception as e:
+            print(e)
 
 if __name__ == "__main__":
     asyncio.run(_main())

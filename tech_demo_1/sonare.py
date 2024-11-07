@@ -61,7 +61,7 @@ plt_styles = [
 area_detection_count = 0
 detected_indices = set()
 
-monitoring_area = [(-4, 1), (-4, 0.5), (4, 0.5), (4, 1)]
+monitoring_area = [(-4, 2), (-4, 0.5), (4, 0.5), (4, 2)]
 polygon_path = mpath.Path(monitoring_area)
 
 # Fila para comunicação entre threads
@@ -237,11 +237,11 @@ sensor_selector.bind("<<ComboboxSelected>>", lambda event: update_selected_senso
 async def decode_payload(payload: json) -> None:
     now = datetime.now()
     for key, value in payload.items():
-        targets = payload[key]['ld2461']['detections']
-        pir = payload[key]['pir']['detection']
-        update_sensor_selector(list(payload.keys()))
+        targets = payload['ld2461']['detections']
+        pir = payload['pir']['detection']
+        update_sensor_selector(["D87C"])
 
-        if sensor_selector.get() == key:
+        if sensor_selector.get() == "D87C":
             update_raw_data(f"{now.strftime('[%d/%m/%Y %H:%M:%S:%f]')} {payload}")
             update_pir_data(pir)
             update_radar_data(targets)
@@ -252,7 +252,7 @@ async def decode_payload(payload: json) -> None:
 # Função para conectar ao MQTT
 async def mqtt_client():
     async with aiomqtt.Client("144.22.195.55") as client:
-        await client.subscribe("SETE/tech_demo")
+        await client.subscribe("SETE/sensors/sete003/D87C/data")
         while True:
             async for message in client.messages:
                 payload = json.loads(message.payload.decode())

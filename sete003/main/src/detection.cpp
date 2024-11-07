@@ -238,6 +238,7 @@ void Detection::start_detection()
 
 void Detection::mqtt_send_detections()
 {
+    if(entered_detections == 0 && exited_detections == 0 && gave_up_detections == 0) return;
     std::string payload = "{";
     payload += "\"entered\": " + std::to_string(entered_detections) + ",";
     payload += "\"exited\": " + std::to_string(exited_detections) + ",";
