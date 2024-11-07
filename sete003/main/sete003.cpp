@@ -56,7 +56,7 @@ void app_main(void)
     ESP_ERROR_CHECK(esp_netif_init());
 
     // Initialize WiFi
-    wifi = new WiFi_STA("CAMPOS_5G_EXT", "salsicha");
+    wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
 
     // Initialize Board
     sensor = new Sensor();
