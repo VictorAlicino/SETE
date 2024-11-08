@@ -1,0 +1,5 @@
+aiomqtt
+python-decouple
+psycopg2
+sqlalchemy
+matplotlib
