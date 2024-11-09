@@ -56,7 +56,7 @@ void app_main(void)
     ESP_ERROR_CHECK(esp_netif_init());
 
     // Initialize WiFi
-    wifi = new WiFi_STA("CAMPOS_EXT", "salsicha");
+    wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
 
     // Initialize Board
     sensor = new Sensor();
@@ -100,10 +100,10 @@ void app_main(void)
 
     // Initialize Detection
     Detection detection = Detection(
-        {-2, 0.7},    // D0
-        {0, 0},    // D1
-        {0, 0},     // D2
-        {2, 0.7},     // D3
+        {-2, 1.5},    // D0
+        {-2, 1},    // D1
+        {2, 1},     // D2
+        {2, 1.5},     // D3
         15000000        // Buffer Time
     );
 

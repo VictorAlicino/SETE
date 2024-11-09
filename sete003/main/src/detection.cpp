@@ -45,22 +45,28 @@ Detection::Detection(
     buffer_detection_payload_timer = buffer_time;
 }
 
-bool Detection::_pre_calc_vector_product(
+point* Detection::get_detection_area_point()
+{
+    return detection_area.D;
+}
+
+std::pair<bool, int> Detection::_pre_calc_vector_product(
         uint8_t vecAB_index,
         uint8_t pointA_index,
         point_t pointC)
 {
-    return (
+    float result = (
         detection_area.F[vecAB_index].x * (pointC.y - detection_area.D[pointA_index].y) -
-        detection_area.F[vecAB_index].y * (pointC.x - detection_area.D[pointA_index].x)) >= 0;
+        detection_area.F[vecAB_index].y * (pointC.x - detection_area.D[pointA_index].x));
+    return std::pair<bool, int>(result >= 0, result);
 }
 
 bool Detection::_is_target_in_detection_area(point_t point_target)
 {
-    return _pre_calc_vector_product(VEC_D0D1, POINT_D0, point_target) &&
-           _pre_calc_vector_product(VEC_D1D2, POINT_D1, point_target) &&
-           _pre_calc_vector_product(VEC_D2D3, POINT_D2, point_target) &&
-           _pre_calc_vector_product(VEC_D3D4, POINT_D3, point_target);
+    return _pre_calc_vector_product(VEC_D0D1, POINT_D0, point_target).first &&
+           _pre_calc_vector_product(VEC_D1D2, POINT_D1, point_target).first &&
+           _pre_calc_vector_product(VEC_D2D3, POINT_D2, point_target).first &&
+           _pre_calc_vector_product(VEC_D3D4, POINT_D3, point_target).first;
 }
 
 void Detection::set_detection_area(
@@ -102,13 +108,13 @@ bool Detection::check_if_detected(uint8_t target_index)
     if (!was_in_detection_area && is_in_detection_area) {
         ESP_LOGD(DETECTION_TAG, "Target %u entered detection area",target_index);
         targets[target_index].entered_position = targets[target_index].current_position;
-        targets[target_index].entered_side = get_crossed_side(targets[target_index].entered_position);
+        targets[target_index].entered_side = get_crossed_side(targets[target_index].current_position);
         return true;
     } else if (was_in_detection_area && !is_in_detection_area) {
         // Check if exited on the same side
         ESP_LOGD(DETECTION_TAG, "Target %u exited detection area",target_index);
         targets[target_index].exited_position = targets[target_index].current_position;
-        targets[target_index].exited_side = get_crossed_side(targets[target_index].exited_position);
+        targets[target_index].exited_side = get_crossed_side(targets[target_index].current_position);
         targets[target_index].traversed = true;
         return false;
     }
@@ -117,11 +123,20 @@ bool Detection::check_if_detected(uint8_t target_index)
 
 detection_area_side Detection::get_crossed_side(point_t point)
 {
-    if (point.x <= detection_area.D[0].x) return LEFT;
-    if (point.x >= detection_area.D[2].x) return RIGHT;
-    if (point.y <= detection_area.D[0].y) return BOTTOM;
-    if (point.y >= detection_area.D[1].y) return TOP;
-    return NONE;
+    float min = 0;
+    detection_area_side_t side = NONE;
+
+    float a = _pre_calc_vector_product(VEC_D0D1, POINT_D0, point).second; // Left
+    float b = _pre_calc_vector_product(VEC_D1D2, POINT_D1, point).second; // Bottom
+    float c = _pre_calc_vector_product(VEC_D2D3, POINT_D2, point).second; // Right
+    float d = _pre_calc_vector_product(VEC_D3D4, POINT_D3, point).second; // Top
+
+    if(a <= min){min = a; side = LEFT;}
+    if(b < min) {min = b; side = BOTTOM;}
+    if(c < min) {min = c; side = RIGHT;}
+    if(d < min) {min = d; side = TOP;}
+
+    return side;
 }
 
 void Detection::update_targets(ld2461_detection_t* report)
@@ -144,6 +159,15 @@ void Detection::count_detections(int target_index)
     if(targets[target_index].traversed == false) return;
     if(targets[target_index].entered_side == NONE || targets[target_index].exited_side == NONE) return;
 
+    ESP_LOGI(DETECTION_TAG, "Target %u entry point: (%.2f, %.2f) | exit point: (%.2f, %.2f) | entered side: %s | exited side: %s",
+        target_index,
+        targets[target_index].entered_position.x,
+        targets[target_index].entered_position.y,
+        targets[target_index].exited_position.x,
+        targets[target_index].exited_position.y,
+        detection_area_side_str[targets[target_index].entered_side],
+        detection_area_side_str[targets[target_index].exited_side]
+    );
     switch(targets[target_index].entered_side){
         case TOP:
             // User entered the room
@@ -215,11 +239,11 @@ void Detection::count_detections(int target_index)
     targets[target_index].entered_side = NONE;
     targets[target_index].exited_side = NONE;
     targets[target_index].traversed = false;
-    ESP_LOGI(DETECTION_TAG, "Entered: %d, Exited: %d, Gave up: %d",
-        entered_detections,
-        exited_detections,
-        gave_up_detections
-    );
+    // ESP_LOGI(DETECTION_TAG, "Entered: %d, Exited: %d, Gave up: %d",
+    //     entered_detections,
+    //     exited_detections,
+    //     gave_up_detections
+    // );
 }
 
 void Detection::start_detection()

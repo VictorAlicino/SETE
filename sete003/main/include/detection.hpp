@@ -84,7 +84,7 @@ private:
      * @return true If the target is on the left of the vector AB
      * @return false If the target is not on the left of the vector AB
      */
-    bool _pre_calc_vector_product(
+    std::pair<bool, int> _pre_calc_vector_product(
         uint8_t vecAB_index,
         uint8_t pointA_index,
         point_t pointC);
@@ -132,6 +132,8 @@ public:
         point_t D2,
         point_t D3
     );
+
+    point_t* get_detection_area_point();
 
     void set_buffer_time(int64_t buffer_time);
 
