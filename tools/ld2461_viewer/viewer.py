@@ -45,9 +45,16 @@ def update_graph(detections):
     ax.set_xlim([-5, 5])
     ax.set_ylim([0, 8])
 
+    ax.grid(True, which='both', linestyle='--', linewidth=0.5, color='gray')
+
     # Adicionar os pontos ao gráfico
     for detection in detections:
         ax.plot(detection[0], detection[1], 'bo', markersize=8)
+
+    for index, detection in enumerate(detections):
+        x, y = detection
+        ax.plot(x, y, 'bo', markersize=8)
+        ax.annotate(f"T{index}", (x, y), textcoords="offset points", xytext=(0, 10), ha='center')
 
     # Desenhar o gráfico novamente
     canvas.draw()
@@ -76,7 +83,7 @@ def start_gui():
     graph_frame.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
     # Criar o gráfico
-    fig = plt.Figure(figsize=(5, 4), dpi=100)
+    fig = plt.Figure(figsize=(5, 4), dpi=300)
     ax = fig.add_subplot(111)
 
     # Criar o canvas para exibir o gráfico no tkinter
