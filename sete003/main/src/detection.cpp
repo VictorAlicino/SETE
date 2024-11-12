@@ -50,7 +50,7 @@ point* Detection::get_detection_area_point()
     return detection_area.D;
 }
 
-std::pair<bool, int> Detection::_pre_calc_vector_product(
+std::pair<bool, float> Detection::_pre_calc_vector_product(
         uint8_t vecAB_index,
         uint8_t pointA_index,
         point_t pointC)
@@ -58,7 +58,7 @@ std::pair<bool, int> Detection::_pre_calc_vector_product(
     float result = (
         detection_area.F[vecAB_index].x * (pointC.y - detection_area.D[pointA_index].y) -
         detection_area.F[vecAB_index].y * (pointC.x - detection_area.D[pointA_index].x));
-    return std::pair<bool, int>(result >= 0, result);
+    return std::pair<bool, float>(result >= 0, result);
 }
 
 bool Detection::_is_target_in_detection_area(point_t point_target)
@@ -132,9 +132,9 @@ detection_area_side Detection::get_crossed_side(point_t point)
     float d = _pre_calc_vector_product(VEC_D3D4, POINT_D3, point).second; // Top
 
     if(a <= min){min = a; side = LEFT;}
-    if(b < min) {min = b; side = BOTTOM;}
-    if(c < min) {min = c; side = RIGHT;}
-    if(d < min) {min = d; side = TOP;}
+    if(b < min ) {min = b; side = BOTTOM;}
+    if(c < min ) {min = c; side = RIGHT;}
+    if(d < min ) {min = d; side = TOP;}
 
     return side;
 }
