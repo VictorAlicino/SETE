@@ -9,7 +9,9 @@ private:
     std::string name;
     std::string designator;
     std::string mqtt_root_topic;
+    std::string mqtt_callback_topic;
 
+    int64_t payload_buffer_time;
     std::string ota_update_uri;
 
     temperature_sensor_handle_t temperature_sensor;
@@ -37,6 +39,13 @@ public:
     std::string get_mqtt_root_topic();
 
     /**
+     * @brief Get the mqtt callback topic
+     * 
+     * @return std::string mqtt callback topic
+     */
+    std::string get_mqtt_callback_topic();
+
+    /**
      * @brief Transfers the log from STDIO to MQTT
      * 
      */
@@ -56,6 +65,9 @@ public:
     float get_internal_temperature();
 
     void dump_info();
+
+    void set_payload_buffer_time(int64_t buffer_time);
+    int64_t get_payload_buffer_time();
 
     std::string get_ota_update_uri();
     void set_ota_update_uri(std::string uri);

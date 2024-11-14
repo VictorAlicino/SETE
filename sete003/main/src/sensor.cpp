@@ -74,6 +74,9 @@ Sensor::Sensor()
     this->name = "Sonare " + mac_str_s;
     this->designator = mac_str_s;
     this->mqtt_root_topic = "SETE/sensors/sete003/" + mac_str_s;
+    this->mqtt_callback_topic = this->mqtt_root_topic + "/callback";
+
+    this->payload_buffer_time = 300000000; // 30 seconds
 
     free(mac_str);
     ESP_LOGI(SENSOR_TAG, "%s initialized with designator %s", this->name.c_str(), this->designator.c_str());
@@ -82,6 +85,9 @@ Sensor::Sensor()
 std::string Sensor::get_name(){return this->name;}
 std::string Sensor::get_designator(){return this->designator;}
 std::string Sensor::get_mqtt_root_topic(){return this->mqtt_root_topic;}
+std::string Sensor::get_mqtt_callback_topic(){return this->mqtt_callback_topic;}
+int64_t Sensor::get_payload_buffer_time(){return this->payload_buffer_time;}
+void Sensor::set_payload_buffer_time(int64_t buffer_time){this->payload_buffer_time = buffer_time;}
 
 void Sensor::transfer_log_to_mqtt()
 {

@@ -70,7 +70,6 @@ private:
     int exited_detections;
     int gave_up_detections;
 
-    int64_t buffer_detection_payload_timer;
     bool send_raw_detection_payload;
 
     /**
@@ -84,7 +83,7 @@ private:
      * @return true If the target is on the left of the vector AB
      * @return false If the target is not on the left of the vector AB
      */
-    std::pair<bool, int> _pre_calc_vector_product(
+    std::pair<bool, float> _pre_calc_vector_product(
         uint8_t vecAB_index,
         uint8_t pointA_index,
         point_t pointC);
@@ -106,16 +105,13 @@ public:
      * @param D1 Bottom left corner
      * @param D2 Bottom right corner
      * @param D3 Top right corner
-     * @param buffer_time Time to wait before sending the next detection payload
      * 
-     * @note The buffer_time is in microseconds
      */
     Detection(
         point_t D0,
         point_t D1,
         point_t D2,
-        point_t D3,
-        int64_t buffer_time = 300000000
+        point_t D3
     );
 
     /**
@@ -133,9 +129,14 @@ public:
         point_t D3
     );
 
-    point_t* get_detection_area_point();
+    /**
+     * @brief Get the detection area
+     * 
+     * @return detection_area_t 
+     */
+    detection_area_t get_detection_area();
 
-    void set_buffer_time(int64_t buffer_time);
+    point_t* get_detection_area_point();
 
     detection_area_side_t get_crossed_side(point_t point);
 

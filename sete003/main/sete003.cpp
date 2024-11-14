@@ -37,6 +37,7 @@ Sensor* sensor;
 LD2461* ld2461;
 PIR* pir;
 WiFi_STA* wifi;
+Detection* detection;
 extern bool mqtt_connected;
 
 extern "C"
@@ -99,26 +100,27 @@ void app_main(void)
     }
 
     // Initialize Detection
-    Detection detection = Detection(
+    detection = new Detection(
         {-2, 1.5},    // D0
         {-2, 1},    // D1
         {2, 1},     // D2
-        {2, 1.5},     // D3
-        15000000        // Buffer Time
+        {2, 1.5}     // D3
     );
 
     // Initialize Variables
     std::string sensor_state;
-    detection.start_detection();
+    detection->start_detection();
     int64_t last_payload_time = esp_timer_get_time();
     int64_t time_now = 0;
-    #define PAYLOAD_INTERVAL 30000000 // 30 seconds
     // Main Loop
-    detection.set_raw_data_sent(true);
+    detection->set_raw_data_sent(false);
+    vTaskDelay(5000 / portTICK_PERIOD_MS);
+    ESP_LOGI(TAG, "Finished initialization");
+    mqtt->subscribe(std::string(sensor->get_mqtt_root_topic() + "/command/#").c_str(), 0);
     while(true)
     {
         time_now = esp_timer_get_time();
-        detection.detect();
+        detection->detect();
         sensor_state = (
             "{"
                 "\"internal_temperature\": " + std::to_string(sensor->get_internal_temperature()) + ","
@@ -128,9 +130,9 @@ void app_main(void)
                 "\"last_boot_reason\": " + std::to_string(esp_reset_reason()) +
             "}"
         );
-        if(time_now - last_payload_time > PAYLOAD_INTERVAL)
+        if(time_now - last_payload_time > sensor->get_payload_buffer_time())
         {
-            detection.mqtt_send_detections();
+            detection->mqtt_send_detections();
             mqtt->publish(
                 std::string(sensor->get_mqtt_root_topic() + "/info").c_str(),
                 sensor_state.c_str()

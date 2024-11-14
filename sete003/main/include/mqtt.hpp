@@ -29,4 +29,13 @@ public:
      * @return esp_err_t ESP_OK if success
      */
     esp_err_t publish(const char* topic, const char* payload);
+
+    /**
+     * @brief Subscribe to a topic
+     * 
+     * @param topic Topic to subscribe
+     * @param qos Quality of Service
+     * @return esp_err_t ESP_OK if success
+     */
+    esp_err_t subscribe(const char* topic, int qos);
 };

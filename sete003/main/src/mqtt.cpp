@@ -21,9 +21,11 @@
 #include "lwip/dns.h"
 #include "lwip/netdb.h"
 
+#include "string.h"
 #include "esp_log.h"
 #include "mqtt_client.h"
 #include "sensor.cpp"
+#include "comms.hpp"
 
 const char* MQTT_TAG = "MQTT";
 
@@ -70,13 +72,10 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
     case 7:
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_BEFORE_CONNECT");
-        //sensor->transfer_log_to_mqtt();
         break;
 
     case MQTT_EVENT_SUBSCRIBED:
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
-        msg_id = esp_mqtt_client_publish(client, "/topic/qos0", "data", 0, 0, 0);
-        ESP_LOGI(MQTT_TAG, "sent publish successful, msg_id=%d", msg_id);
         break;
     case MQTT_EVENT_UNSUBSCRIBED:
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_UNSUBSCRIBED, msg_id=%d", event->msg_id);
@@ -85,10 +84,21 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
         //ESP_LOGI(MQTT_TAG, "MQTT_EVENT_PUBLISHED, msg_id=%d", event->msg_id);
         break;
     case MQTT_EVENT_DATA:
-        ESP_LOGI(MQTT_TAG, "MQTT_EVENT_DATA");
-        printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
-        printf("DATA=%.*s\r\n", event->data_len, event->data);
-        break;
+        {
+            //ESP_LOGI(MQTT_TAG, "MQTT_EVENT_DATA");
+            //printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
+            //printf("DATA=%.*s\r\n", event->data_len, event->data);
+            std::string root_topic = sensor->get_mqtt_root_topic() + "/command";
+            std::string topic = std::string(event->topic, event->topic_len);
+            if(topic.substr(0, root_topic.length()) == root_topic)
+            {
+                process_server_message(
+                    topic.substr(root_topic.length(), topic.length()),
+                    std::string(event->data, event->data_len)
+                );
+            }
+            break;
+        }
     case MQTT_EVENT_ERROR:
         ESP_LOGI(MQTT_TAG, "MQTT_EVENT_ERROR");
         if (event->error_handle->error_type == MQTT_ERROR_TYPE_TCP_TRANSPORT) {
@@ -134,6 +144,17 @@ esp_err_t MQTT::publish(const char* topic, const char* payload)
         0,
         0,
         0);
+    if(a<0) return ESP_FAIL;
+    return ESP_OK;
+}
+
+esp_err_t MQTT::subscribe(const char* topic, int qos)
+{
+    int a = esp_mqtt_client_subscribe(
+        this->client,
+        topic,
+        qos
+        );
     if(a<0) return ESP_FAIL;
     return ESP_OK;
 }
