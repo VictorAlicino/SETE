@@ -6,10 +6,14 @@ import threading
 import tkinter as tk
 from tkinter import ttk
 import matplotlib.pyplot as plt
+from decouple import config as env
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.patches import Polygon
 import os
 from db.database import DB
 from db.sensor_internal_data import get_distinct_sensor
+
+detection_area = []
 
 # MQTT Async Guard
 if sys.platform.lower() == "win32" or os.name.lower() == "nt":
@@ -47,14 +51,19 @@ def update_graph(detections):
 
     ax.grid(True, which='both', linestyle='--', linewidth=0.5, color='gray')
 
+    # Adicionar polígono com os pontos de detection_area
+    if len(detection_area) == 4:
+        polygon = Polygon(detection_area, closed=True, edgecolor='red', facecolor='red', alpha=0.1)
+        ax.add_patch(polygon)
+
     # Adicionar os pontos ao gráfico
     for detection in detections:
         ax.plot(detection[0], detection[1], 'bo', markersize=8)
 
     for index, detection in enumerate(detections):
+        x, y = detection
         if x == 0 and y == 0:
             continue
-        x, y = detection
         ax.plot(x, y, 'bo', markersize=2)
         ax.annotate(f"T{index} ({x}, {y})", (x, y), textcoords="offset points", xytext=(0, 10), ha='center')
 
@@ -63,8 +72,10 @@ def update_graph(detections):
 
 # Função para conectar ao MQTT e receber dados
 async def mqtt_loop():
+    await get_detection_area()
+    print(detection_area)
     try:
-        async with aiomqtt.Client("144.22.195.55", 1883) as client:
+        async with aiomqtt.Client(env('MQTT'), 1883) as client:
             await client.subscribe(f"SETE/sensors/sete003/{selected_sensor}/raw")
             while True:
                 async for message in client.messages:
@@ -107,6 +118,23 @@ def update_gui():
     # Apenas chama o update novamente após 100ms
     root.after(100, update_gui)
 
+async def get_detection_area():
+    async with aiomqtt.Client(env('MQTT'), 1883) as client:
+        await client.subscribe(f"SETE/sensors/sete003/{selected_sensor}/callback")
+        await client.publish(f"SETE/sensors/sete003/{selected_sensor}/command/raw_data", "true")
+        await client.publish(f"SETE/sensors/sete003/{selected_sensor}/command/detection_area/get", "")
+        async for message in client.messages:
+            payload = json.loads(message.payload.decode())
+            detection_area.append((float(payload['D0']['x']), float(payload['D0']['y'])))
+            detection_area.append((float(payload['D1']['x']), float(payload['D1']['y'])))
+            detection_area.append((float(payload['D2']['x']), float(payload['D2']['y'])))
+            detection_area.append((float(payload['D3']['x']), float(payload['D3']['y'])))
+            return
+
+async def exit():
+    async with aiomqtt.Client(env('MQTT'), 1883) as client:
+        await client.publish(f"SETE/sensors/sete003/{selected_sensor}/command/raw_data", "false")
+
 # Função para rodar o loop MQTT em uma thread
 def run_mqtt():
     loop = asyncio.new_event_loop()
@@ -135,3 +163,7 @@ if __name__ == "__main__":
 
     # Iniciar a interface gráfica
     start_gui()
+
+    asyncio.run(exit())
+
+
