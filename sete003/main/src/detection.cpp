@@ -4,6 +4,12 @@
 #include "esp_log.h"
 
 #include <esp_timer.h>
+#include "math.h"
+#include "cJSON.h"
+
+#ifndef MAX_TARGETS_DETECTION
+#define MAX_TARGETS_DETECTION 5
+#endif
 
 #define POINT_D0 0  // Top left corner
 #define POINT_D1 1  // Bottom left corner
@@ -251,7 +257,8 @@ void Detection::count_detections(int target_index)
 
 void Detection::start_detection()
 {
-    ld2461_detection_t detection_frame = ld2461_setup_detection();
+    ld2461_detection_t detection_frame;
+    ld2461_setup_detection(&detection_frame);
     ld2461->report_detections(&detection_frame);
     
     for(int i=0; i<MAX_TARGETS_DETECTION; i++)
@@ -287,10 +294,9 @@ void Detection::set_raw_data_sent(bool send_raw_data)
 
 void Detection::detect()
 {
-    ld2461_detection_t detection_frame = ld2461_setup_detection();
+    ld2461_detection_t detection_frame;
+    ld2461_setup_detection(&detection_frame);
     ld2461->report_detections(&detection_frame);
-
-    std::string detection_payload = "{";
 
     if(detection_frame.detected_targets == 0)
     {
@@ -298,6 +304,7 @@ void Detection::detect()
         return;
     }
 
+    std::string detection_payload = "{";
     std::string targets_str = "Target in Area: ";
     for(int i=0; i<MAX_TARGETS_DETECTION; i++)
     {
@@ -310,7 +317,7 @@ void Detection::detect()
         detection_payload += "\"y\": " + std::to_string(targets[i].current_position.y);
         detection_payload += "},";
     }
-    detection_payload.pop_back();
+    detection_payload.pop_back(); // Remove last comma
     detection_payload += "}";
     // if(targets_str.length() > 16) ESP_LOGI(DETECTION_TAG, "%s",targets_str.c_str());
     if(send_raw_detection_payload){

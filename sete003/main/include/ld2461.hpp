@@ -92,10 +92,15 @@ ld2461_frame_t ld2461_setup_frame();
 
 /**
  * @brief Setup a detection with the default values
- * 
- * @return ld2461_detection_t Detection with default values
  */
-ld2461_detection_t ld2461_setup_detection();
+void ld2461_setup_detection(ld2461_detection_t* detection);
+
+/**
+ * @brief Free the memory allocated for the frame
+ * 
+ * @param frame Pointer to the frame
+ */
+void free_ld2461_frame(ld2461_frame_t* frame);
 
 class LD2461{
 private:

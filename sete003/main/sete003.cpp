@@ -13,6 +13,7 @@
 #include "freertos/ringbuf.h"
 #include "esp_log.h"
 #include "esp_timer.h"
+#include "cJSON.h"
 #include <string>
 
 // App Headers
@@ -70,6 +71,7 @@ void app_main(void)
     gpio_set_direction(RED_LED, GPIO_MODE_OUTPUT);
     gpio_set_direction(GREEN_LED, GPIO_MODE_OUTPUT);
     gpio_set_direction(BLUE_LED, GPIO_MODE_OUTPUT);
+    gpio_set_level(RED_LED, 1);
 
     // Initialize Sensors
     ld2461 = new LD2461(
@@ -101,10 +103,10 @@ void app_main(void)
 
     // Initialize Detection
     detection = new Detection(
-        {-2, 1.5},    // D0
-        {-2, 1},    // D1
-        {2, 1},     // D2
-        {2, 1.5}     // D3
+        {-5, 2},    // D0
+        {-5, 1},    // D1
+        {5, 1},     // D2
+        {5, 2}     // D3
     );
 
     // Initialize Variables
@@ -117,6 +119,8 @@ void app_main(void)
     vTaskDelay(5000 / portTICK_PERIOD_MS);
     ESP_LOGI(TAG, "Finished initialization");
     mqtt->subscribe(std::string(sensor->get_mqtt_root_topic() + "/command/#").c_str(), 0);
+    //ESP_LOGI("SET003", "Firmware downloaded from OTA");
+    sensor->start_free_memory = esp_get_free_heap_size();
     while(true)
     {
         time_now = esp_timer_get_time();

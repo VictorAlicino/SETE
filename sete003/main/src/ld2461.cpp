@@ -4,9 +4,11 @@
 #include <string.h>
 #include "ld2461.hpp"
 
+#ifndef RED_LED
 #define RED_LED GPIO_NUM_45
 #define GREEN_LED GPIO_NUM_38
 #define BLUE_LED GPIO_NUM_37
+#endif
 
 const char* RADAR_TAG = "LD2461";
 
@@ -21,16 +23,22 @@ ld2461_frame_t ld2461_setup_frame()
     return frame;
 }
 
-ld2461_detection_t ld2461_setup_detection()
+void ld2461_setup_detection(ld2461_detection_t* detection)
 {
-    ld2461_detection_t detection;
     for(int i=0; i<MAX_TARGETS_DETECTION; i++)
     {
-        detection.target[i].x = 0;
-        detection.target[i].y = 0;
+        detection->target[i].x = 0;
+        detection->target[i].y = 0;
     }
-    detection.detected_targets = 0;
-    return detection;
+    detection->detected_targets = 0;
+}
+
+void free_ld2461_frame(ld2461_frame_t* frame)
+{
+    if(frame->command_value != NULL)
+    {
+        free(frame->command_value);
+    }
 }
 
 LD2461::LD2461(
@@ -123,9 +131,9 @@ void LD2461::read_data(ld2461_frame_t* frame)
 
         // Catch the footer
         uart_read_bytes(this->uart_num, data, 1, 100);
-        if(*data != 0xDD) {printf("\n");continue;}
+        if(*data != 0xDD) {printf("\n"); free(command_value); continue;}
         uart_read_bytes(this->uart_num, data, 1, 100);
-        if(*data != 0xEE) {printf("\n");continue;}
+        if(*data != 0xEE) {printf("\n"); free(command_value); continue;}
         uart_read_bytes(this->uart_num, data, 1, 100);
         frame->data_length = *data_length;
         frame->command_word = (ld2461_command_word_t)(*command_word);
@@ -137,7 +145,6 @@ void LD2461::read_data(ld2461_frame_t* frame)
         frame->checksum = *checksum;
         free(command_value);
        data_ready = true;
-       gpio_set_level(RED_LED, 1);
     }
     free(data_length);
     free(command_word);
@@ -202,6 +209,7 @@ void LD2461::report_detections(ld2461_detection_t* detection)
     }
     detection->detected_targets = frame.data_length/2;
     (frame.data_length/2 > 0) ? gpio_set_level(GREEN_LED, 1) : gpio_set_level(GREEN_LED, 0);
+    free_ld2461_frame(&frame);
 }
 
 const char* LD2461::frame_to_string(ld2461_frame_t* frame)

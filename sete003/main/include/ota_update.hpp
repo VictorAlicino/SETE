@@ -9,6 +9,8 @@
 #include "esp_http_client.h"
 #include "esp_https_ota.h"
 
+#include <string>
+
 /**
  * @brief Check if the OTA update was successful
  * @note Taken from "simple_ota_example" from esp-idf examples
@@ -42,4 +44,4 @@ esp_err_t _htpp_event_handler(esp_http_client_event_t *evt);
  * @brief Update the firmware
  * @note Taken from "simple_ota_example" from esp-idf examples
  */
-void ota_update(void);
+void ota_update(std::string uri);

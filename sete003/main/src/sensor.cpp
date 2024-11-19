@@ -76,7 +76,7 @@ Sensor::Sensor()
     this->mqtt_root_topic = "SETE/sensors/sete003/" + mac_str_s;
     this->mqtt_callback_topic = this->mqtt_root_topic + "/callback";
 
-    this->payload_buffer_time = 300000000; // 30 seconds
+    this->payload_buffer_time = 30000000; // 30 seconds
 
     free(mac_str);
     ESP_LOGI(SENSOR_TAG, "%s initialized with designator %s", this->name.c_str(), this->designator.c_str());
@@ -168,4 +168,9 @@ void Sensor::dump_info()
         ESP_LOGI(SENSOR_TAG, "AP BSSID: %02X:%02X:%02X:%02X:%02X:%02X", ap_info.bssid[0], ap_info.bssid[1], ap_info.bssid[2], ap_info.bssid[3], ap_info.bssid[4], ap_info.bssid[5]);
     }
 
+}
+
+int64_t Sensor::get_free_memory()
+{
+    return this->start_free_memory - esp_get_free_heap_size();
 }

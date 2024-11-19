@@ -71,4 +71,7 @@ public:
 
     std::string get_ota_update_uri();
     void set_ota_update_uri(std::string uri);
+
+    uint64_t start_free_memory;
+    int64_t get_free_memory();
 };

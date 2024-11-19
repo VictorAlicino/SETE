@@ -2,8 +2,15 @@
 #include "sensor.hpp"
 
 #include "esp_log.h"
+#include "driver/gpio.h"
 
 #define HASH_LEN 32
+
+#ifndef RED_LED
+#define RED_LED GPIO_NUM_45
+#define GREEN_LED GPIO_NUM_38
+#define BLUE_LED GPIO_NUM_37
+#endif
 
 extern Sensor* sensor;
 
@@ -68,27 +75,88 @@ static void get_sha256_of_partitions(void)
     print_sha256(sha_256, "SHA-256 for current firmware: ");
 }
 
-void ota_update(void *pvParameter)
+void ota_led_blink(void *pvParameters)
+{
+    while (true)
+    {
+        gpio_set_level(RED_LED, 1);
+        gpio_set_level(GREEN_LED, 0);
+        gpio_set_level(BLUE_LED, 0);
+        vTaskDelay(200 / portTICK_PERIOD_MS);
+        gpio_set_level(RED_LED, 0);
+        gpio_set_level(GREEN_LED, 0);
+        gpio_set_level(BLUE_LED, 0);
+        vTaskDelay(200 / portTICK_PERIOD_MS);
+
+        gpio_set_level(RED_LED, 0);
+        gpio_set_level(GREEN_LED, 1);
+        gpio_set_level(BLUE_LED, 0);
+        vTaskDelay(200 / portTICK_PERIOD_MS);
+        gpio_set_level(RED_LED, 0);
+        gpio_set_level(GREEN_LED, 0);
+        gpio_set_level(BLUE_LED, 0);
+        vTaskDelay(200 / portTICK_PERIOD_MS);
+
+        gpio_set_level(RED_LED, 0);
+        gpio_set_level(GREEN_LED, 0);
+        gpio_set_level(BLUE_LED, 1);
+        vTaskDelay(200 / portTICK_PERIOD_MS);
+        gpio_set_level(RED_LED, 0);
+        gpio_set_level(GREEN_LED, 0);
+        gpio_set_level(BLUE_LED, 0);
+        vTaskDelay(200 / portTICK_PERIOD_MS);
+    }
+}
+
+void ota_update(std::string uri)
 {
     ESP_LOGI(OTA_TAG, "Starting OTA task");
 
     esp_http_client_config_t config = {
-        .url = sensor->get_ota_update_uri().c_str(),
+        .url = uri.c_str(),
+        .auth_type = HTTP_AUTH_TYPE_NONE,
         .event_handler = _http_event_handler,
     };
 
     esp_https_ota_config_t ota_config = {
         .http_config = &config,
     };
+
     ESP_LOGI(OTA_TAG, "Attempting to download update from %s", config.url);
+    TaskHandle_t led_blink_task = NULL;
+    xTaskCreate(ota_led_blink, "ota_led_blink", 2048, NULL, 5, &led_blink_task);
+
     esp_err_t ret = esp_https_ota(&ota_config);
+    vTaskDelete(led_blink_task);
+
     if (ret == ESP_OK) {
         ESP_LOGI(OTA_TAG, "OTA Succeed, Rebooting...");
+        for(int i = 5; i > 0; i--)
+        {
+            ESP_LOGI(OTA_TAG, "Rebooting in %d seconds...", i);
+            gpio_set_level(RED_LED, 0);
+            gpio_set_level(GREEN_LED, 1);
+            gpio_set_level(BLUE_LED, 0);
+            vTaskDelay(500 / portTICK_PERIOD_MS);
+            gpio_set_level(RED_LED, 0);
+            gpio_set_level(GREEN_LED, 0);
+            gpio_set_level(BLUE_LED, 0);
+            vTaskDelay(500 / portTICK_PERIOD_MS);
+        }
         esp_restart();
     } else {
         ESP_LOGE(OTA_TAG, "Firmware upgrade failed");
-    }
-    while (1) {
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        for(int i = 5; i > 0; i--)
+        {
+            ESP_LOGE(OTA_TAG, "Be advised, OTA Upgrade Failed");
+            gpio_set_level(RED_LED, 1);
+            gpio_set_level(GREEN_LED, 0);
+            gpio_set_level(BLUE_LED, 0);
+            vTaskDelay(500 / portTICK_PERIOD_MS);
+            gpio_set_level(RED_LED, 0);
+            gpio_set_level(GREEN_LED, 0);
+            gpio_set_level(BLUE_LED, 0);
+            vTaskDelay(500 / portTICK_PERIOD_MS);
+        }
     }
 }

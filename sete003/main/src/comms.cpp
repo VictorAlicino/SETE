@@ -1,6 +1,7 @@
 #include "comms.hpp"
 #include "detection.hpp"
 #include "mqtt.hpp"
+#include "ota_update.hpp"
 
 #include "esp_log.h"
 #include "cJSON.h"
@@ -27,9 +28,21 @@ void process_server_message(
     else if(topic == "/update")
     {
         ESP_LOGI("COMMS", "Updating device by Server command");
-        ESP_LOGE("COMMS", "Not implemented yet!");
-        #warning "OTA Update not implemented"
-        //TODO: Implement OTA Update
+        
+        cJSON* root = cJSON_Parse(data.c_str());
+        if(root == NULL)
+        {
+            ESP_LOGE(COMMS_TAG, "Invalid JSON");
+            return;
+        }
+
+        cJSON* url = cJSON_GetObjectItem(root, "url");
+        if(url == NULL)
+        {
+            ESP_LOGE(COMMS_TAG, "Invalid URL");
+            return;
+        }
+        ota_update(url->valuestring);
     }
     else if(topic == "/detection_area/set")
     {
