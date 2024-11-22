@@ -1,9 +1,10 @@
 #include "detection.hpp"
 #include "pir.hpp"
 #include "mqtt.hpp"
-#include "esp_log.h"
+#include "storage.hpp"
 
 #include <esp_timer.h>
+#include "esp_log.h"
 #include "math.h"
 #include "cJSON.h"
 
@@ -21,6 +22,7 @@
 #define VEC_D3D4 3  // Top face (Vector D3-D0)
 
 // Global Variables (plis get rid of those)
+extern Storage* storage;
 extern LD2461* ld2461;
 extern PIR* pir;
 extern MQTT* mqtt;
@@ -38,7 +40,17 @@ Detection::Detection(
     entered_detections = 0;
     exited_detections = 0;
     gave_up_detections = 0;
-    set_detection_area(D0, D1, D2, D3);
+
+    detection_area.D[0] = D0;
+    detection_area.D[1] = D1;
+    detection_area.D[2] = D2;
+    detection_area.D[3] = D3;
+
+    detection_area.F[0] = {D1.x - D0.x, D1.y - D0.y};
+    detection_area.F[1] = {D2.x - D1.x, D2.y - D1.y};
+    detection_area.F[2] = {D3.x - D2.x, D3.y - D2.y};
+    detection_area.F[3] = {D0.x - D3.x, D0.y - D3.y};
+
     for(int i=0; i<MAX_TARGETS_DETECTION; i++){
         targets[i].current_position = {0, 0};
         targets[i].entered_position = {0, 0};
@@ -94,6 +106,25 @@ void Detection::set_detection_area(
     detection_area.F[1] = {D2.x - D1.x, D2.y - D1.y};
     detection_area.F[2] = {D3.x - D2.x, D3.y - D2.y};
     detection_area.F[3] = {D0.x - D3.x, D0.y - D3.y};
+
+    storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D0_X", std::to_string(D0.x).c_str());
+    storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D0_Y", std::to_string(D0.y).c_str());
+
+    storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D1_X", std::to_string(D1.x).c_str());
+    storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D1_Y", std::to_string(D1.y).c_str());
+
+    storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D2_X", std::to_string(D2.x).c_str());
+    storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D2_Y", std::to_string(D2.y).c_str());
+
+    storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D3_X", std::to_string(D3.x).c_str());
+    storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D3_Y", std::to_string(D3.y).c_str());
+
+    ESP_LOGI(DETECTION_TAG, "Detection Area setted to:\n D0(%.2f, %.2f)\t D3(%.2f, %.2f)\n D1(%.2f, %.2f)\t D2(%.2f, %.2f)",
+        D0.x, D0.y,
+        D3.x, D3.y,
+        D1.x, D1.y,
+        D2.x, D2.y
+    );
 }
 
 const char* detection_area_side_str[] = {

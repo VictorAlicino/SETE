@@ -148,4 +148,3 @@ bool WiFi_STA::is_connected()
 {
     return xEventGroupGetBits(s_wifi_event_group) & WIFI_CONNECTED_BIT;
 }
-

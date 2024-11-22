@@ -1,6 +1,7 @@
 #include "sensor.hpp"
 #include "mqtt.hpp"
 #include "wifi.hpp"
+#include "storage.hpp"
 
 #include "esp_log.h"
 #include "esp_wifi.h"
@@ -9,6 +10,7 @@
 
 const char* SENSOR_TAG = "Sensor";
 
+extern Storage* storage;
 extern MQTT* mqtt;
 extern Sensor* sensor;
 extern WiFi_STA* wifi;
@@ -76,9 +78,20 @@ Sensor::Sensor()
     this->mqtt_root_topic = "SETE/sensors/sete003/" + mac_str_s;
     this->mqtt_callback_topic = this->mqtt_root_topic + "/callback";
 
-    this->payload_buffer_time = 30000000; // 30 seconds
+    int64_t nvs_buffer_time = storage->get_int64(SENSOR_BASIC_DATA, "BUFFER_TIME");
+    if(nvs_buffer_time == NULL)
+    {
+        ESP_LOGI(SENSOR_TAG, "BUFFER_TIME not found in NVS, setting default value");
+        this->payload_buffer_time = 30000000; // 30 seconds
+        storage->store_data_int64(SENSOR_BASIC_DATA, "BUFFER_TIME", this->payload_buffer_time);
+    }
+    else
+    {
+        this->payload_buffer_time = nvs_buffer_time;
+    }
 
     free(mac_str);
+    ESP_LOGI(SENSOR_TAG, "Payload will be buffered for %lld microseconds", this->payload_buffer_time);
     ESP_LOGI(SENSOR_TAG, "%s initialized with designator %s", this->name.c_str(), this->designator.c_str());
 }
 
@@ -87,7 +100,13 @@ std::string Sensor::get_designator(){return this->designator;}
 std::string Sensor::get_mqtt_root_topic(){return this->mqtt_root_topic;}
 std::string Sensor::get_mqtt_callback_topic(){return this->mqtt_callback_topic;}
 int64_t Sensor::get_payload_buffer_time(){return this->payload_buffer_time;}
-void Sensor::set_payload_buffer_time(int64_t buffer_time){this->payload_buffer_time = buffer_time;}
+
+void Sensor::set_payload_buffer_time(int64_t buffer_time)
+{
+    this->payload_buffer_time = buffer_time;
+    storage->store_data_int64(SENSOR_BASIC_DATA, "BUFFER_TIME", this->payload_buffer_time);
+    ESP_LOGI(SENSOR_TAG, "BUFFER_TIME set to %lld", this->payload_buffer_time);
+}
 
 void Sensor::transfer_log_to_mqtt()
 {

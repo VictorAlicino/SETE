@@ -16,6 +16,8 @@
 #include "cJSON.h"
 #include <string>
 
+#include <cstdlib>
+
 // App Headers
 #include "sensor.hpp"
 #include "ld2461.hpp"
@@ -23,6 +25,7 @@
 #include "wifi.hpp"
 #include "mqtt.hpp"
 #include "detection.hpp"
+#include "storage.hpp"
 
 // LED GPIOs
 #define RED_LED GPIO_NUM_45
@@ -32,7 +35,8 @@
 // Local Variables
 static const char *TAG = "SET003";
 
-// GLobal Variables
+// Global Variables
+Storage* storage;
 MQTT* mqtt;
 Sensor* sensor;
 LD2461* ld2461;
@@ -41,6 +45,8 @@ WiFi_STA* wifi;
 Detection* detection;
 extern bool mqtt_connected;
 
+bool flag_0 = true;
+
 extern "C"
 {
     void app_main(void);
@@ -48,14 +54,8 @@ extern "C"
 
 void app_main(void)
 {
-    //Initialize NVS
-    esp_err_t ret = nvs_flash_init();
-    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
-        ESP_ERROR_CHECK(nvs_flash_erase());
-        ret = nvs_flash_init();
-    }
-    ESP_ERROR_CHECK(ret);
-    ESP_ERROR_CHECK(esp_netif_init());
+    // Initialize Storage (NVS)
+    storage = new Storage();
 
     // Initialize WiFi
     wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
@@ -101,13 +101,59 @@ void app_main(void)
                     ld2461_version.year);
     }
 
-    // Initialize Detection
-    detection = new Detection(
-        {-5, 2},    // D0
-        {-5, 1},    // D1
-        {5, 1},     // D2
-        {5, 2}     // D3
-    );
+    {
+        // Initialize Detection
+        char* D0_X = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D0_X");
+        char* D0_Y = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D0_Y");
+
+        char* D1_X = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D1_X");
+        char* D1_Y = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D1_Y");
+
+        char* D2_X = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D2_X");
+        char* D2_Y = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D2_Y");
+
+        char* D3_X = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D3_X");
+        char* D3_Y = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D3_Y");
+
+        // Test if the values are not NULL
+        if(D0_X != NULL && D0_Y != NULL &&
+            D1_X != NULL && D1_Y != NULL &&
+            D2_X != NULL && D2_Y != NULL &&
+            D3_X != NULL && D3_Y != NULL)
+        {
+            ESP_LOGI(TAG, "Using stored values for the detection area");
+            detection = new Detection(
+                {std::stof(D0_X), std::stof(D0_Y)},    // D0
+                {std::stof(D1_X), std::stof(D1_Y)},    // D1
+                {std::stof(D2_X), std::stof(D2_Y)},    // D2
+                {std::stof(D3_X), std::stof(D3_Y)}     // D3
+            );
+            free(D0_X); free(D0_Y);
+            free(D1_X); free(D1_Y);
+            free(D2_X); free(D2_Y);
+            free(D3_X); free(D3_Y);
+        }
+        else // If the values are NULL, we will use the default values
+        {
+            ESP_LOGI(TAG, "Values for the detection area not found, using default values");
+            detection = new Detection(
+                {-5, 2},    // D0
+                {-5, 1},    // D1
+                {5, 1},     // D2
+                {5, 2}     // D3
+            );
+
+            // Save the default values
+            detection->set_detection_area(
+                {-5, 2},    // D0
+                {-5, 1},    // D1
+                {5, 1},     // D2
+                {5, 2}     // D3
+            );
+
+            ESP_LOGI(TAG, "Default values for the detection area stored");
+        }
+    }
 
     // Initialize Variables
     std::string sensor_state;
@@ -121,7 +167,7 @@ void app_main(void)
     mqtt->subscribe(std::string(sensor->get_mqtt_root_topic() + "/command/#").c_str(), 0);
     //ESP_LOGI("SET003", "Firmware downloaded from OTA");
     sensor->start_free_memory = esp_get_free_heap_size();
-    while(true)
+    while(flag_0)
     {
         time_now = esp_timer_get_time();
         detection->detect();
@@ -143,6 +189,6 @@ void app_main(void)
             );
             last_payload_time = time_now;
         }
-        //vTaskDelay(1000 / portTICK_PERIOD_MS);
+        vTaskDelay(pdMS_TO_TICKS(100));
     }
 }

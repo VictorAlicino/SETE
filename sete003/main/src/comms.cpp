@@ -1,16 +1,17 @@
 #include "comms.hpp"
 #include "detection.hpp"
 #include "mqtt.hpp"
+#include "wifi.hpp"
 #include "ota_update.hpp"
 
 #include "esp_log.h"
 #include "cJSON.h"
 
-
 #include <string>
 
 extern Detection* detection;
 extern MQTT* mqtt;
+extern WiFi_STA* wifi;
 extern Sensor* sensor;
 
 const char* COMMS_TAG = "COMMS";
@@ -133,13 +134,13 @@ void process_server_message(
             ESP_LOGW(COMMS_TAG, "Invalid data for raw_data");
         }
     }
-    else if(topic == "/set_payload_buffer_time")
+    else if(topic == "/payload_buffer_time/set")
     {
         ESP_LOGI(COMMS_TAG, "Setting payload buffer time by Server command");
         int64_t buffer_time = std::stoll(data);
         sensor->set_payload_buffer_time(buffer_time);
     }
-    else if(topic == "/get_payload_buffer_time")
+    else if(topic == "/payload_buffer_time/get")
     {
         ESP_LOGI(COMMS_TAG, "Sending payload buffer time to callback topic by Server command");
         cJSON* root = cJSON_CreateObject();
