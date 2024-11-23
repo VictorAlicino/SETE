@@ -71,6 +71,7 @@ private:
     int gave_up_detections;
 
     bool send_raw_detection_payload;
+    bool enter_exit_inverted;
 
     /**
      * @brief Vector product of the two vectors
@@ -111,7 +112,8 @@ public:
         point_t D0,
         point_t D1,
         point_t D2,
-        point_t D3
+        point_t D3,
+        bool enter_exit_inverted = false
     );
 
     /**
@@ -140,7 +142,8 @@ public:
 
     detection_area_side_t get_crossed_side(point_t point);
 
-    void set_raw_data_sent(bool send_raw_data);    
+    void set_raw_data_sent(bool send_raw_data);
+    void set_enter_exit_inverted(bool inverted);
    
     bool check_if_detected(uint8_t target_index);
     void start_detection();

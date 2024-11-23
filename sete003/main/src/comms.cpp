@@ -117,6 +117,21 @@ void process_server_message(
 
         cJSON_Delete(root);
     }
+    else if(topic == "/detection_area/invert")
+    {
+        if(data == "true")
+        {
+            detection->set_enter_exit_inverted(true);
+        }
+        else if(data == "false")
+        {
+            detection->set_enter_exit_inverted(false);
+        }
+        else
+        {
+            ESP_LOGW(COMMS_TAG, "Invalid data for invert");
+        }
+    }
     else if(topic == "/raw_data")
     {
         if(data == "true")

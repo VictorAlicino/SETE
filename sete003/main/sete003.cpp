@@ -115,6 +115,8 @@ void app_main(void)
         char* D3_X = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D3_X");
         char* D3_Y = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D3_Y");
 
+        bool enter_exit_inverted = storage->get_uint8(SENSOR_BASIC_DATA, "ENTER_EXIT");
+
         // Test if the values are not NULL
         if(D0_X != NULL && D0_Y != NULL &&
             D1_X != NULL && D1_Y != NULL &&
@@ -122,11 +124,13 @@ void app_main(void)
             D3_X != NULL && D3_Y != NULL)
         {
             ESP_LOGI(TAG, "Using stored values for the detection area");
+            if(enter_exit_inverted == 0) enter_exit_inverted = false;
             detection = new Detection(
                 {std::stof(D0_X), std::stof(D0_Y)},    // D0
                 {std::stof(D1_X), std::stof(D1_Y)},    // D1
                 {std::stof(D2_X), std::stof(D2_Y)},    // D2
-                {std::stof(D3_X), std::stof(D3_Y)}     // D3
+                {std::stof(D3_X), std::stof(D3_Y)},    // D3
+                enter_exit_inverted
             );
             free(D0_X); free(D0_Y);
             free(D1_X); free(D1_Y);
