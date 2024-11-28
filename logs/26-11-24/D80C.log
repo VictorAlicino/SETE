@@ -1,0 +1,279 @@
+2024-11-26 05:36:04.124436 I (12593188) wifi 
+2024-11-26 05:36:04.154464 bcn_timeout,ap_probe_send_star 
+2024-11-26 05:36:04.154670 
+ 
+2024-11-26 05:46:21.887974 I (13210968) wifi 
+2024-11-26 05:46:21.924045 bcn_timeout,ap_probe_send_star 
+2024-11-26 05:46:21.924937 
+ 
+2024-11-26 05:51:30.532962 I (13519608) wifi 
+2024-11-26 05:51:30.564801 bcn_timeout,ap_probe_send_star 
+2024-11-26 05:51:30.565003 
+ 
+2024-11-26 06:04:23.054584 I (14292118) wifi 
+2024-11-26 06:04:23.088853 bcn_timeout,ap_probe_send_star 
+2024-11-26 06:04:23.089172 
+ 
+2024-11-26 06:22:25.121235 I (15374178) wifi 
+2024-11-26 06:22:25.154586 bcn_timeout,ap_probe_send_star 
+2024-11-26 06:22:25.154890 
+ 
+2024-11-26 06:35:17.496892 I (16146558) wifi 
+2024-11-26 06:35:17.523786 bcn_timeout,ap_probe_send_star 
+2024-11-26 06:35:17.523989 
+ 
+2024-11-26 06:58:28.243029 I (17537298) wifi 
+2024-11-26 06:58:28.275933 bcn_timeout,ap_probe_send_star 
+2024-11-26 06:58:28.276254 
+ 
+2024-11-26 07:17:18.139771 [0;32mI (18667198) DETECTION: Target 0 gave up entering the room | id: 31![0m 
+2024-11-26 07:17:28.765907 [0;32mI (18677828) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 07:17:33.140425 [0;32mI (18682198) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-11-26 07:17:35.389847 [0;32mI (18684448) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-11-26 07:21:02.514612 [0;32mI (18891578) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-11-26 07:35:01.883418 [0;32mI (19730938) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 07:35:01.913230 [0;32mI (19730938) DETECTION: Target 1 gave up entering the room | id: 11![0m 
+2024-11-26 07:35:05.880424 [0;32mI (19734938) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 08:00:42.614708 [0;32mI (21271668) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 08:03:16.997015 [0;32mI (21426038) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-11-26 08:03:17.995207 [0;32mI (21427038) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 08:03:23.873032 [0;32mI (21432918) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-11-26 08:05:17.372214 [0;32mI (21546408) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-11-26 08:05:47.740281 [0;32mI (21576788) DETECTION: Target 0 entered the room | id: 30![0m 
+2024-11-26 08:35:40.967818 [0;32mI (23370008) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 08:47:22.712554 [0;32mI (24071748) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-11-26 09:10:28.324615 [0;32mI (25457358) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 09:11:31.833729 [0;32mI (25520848) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-11-26 09:42:46.805627 [0;32mI (27395828) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 09:43:34.437090 [0;32mI (27443458) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 09:44:14.179363 [0;32mI (27483198) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 09:57:10.554786 [0;32mI (28259568) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 09:59:07.806493 [0;32mI (28376828) DETECTION: Target 1 gave up entering the room | id: 11![0m 
+2024-11-26 09:59:09.057589 [0;32mI (28378068) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-11-26 10:00:09.553734 [0;32mI (28438568) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 10:12:16.170050 [0;32mI (29165178) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 10:12:33.289967 [0;33mW (29182308) DETECTION: Target 0 traversed but exited_side is not defined | id: 12[0m 
+2024-11-26 10:12:56.681851 [0;32mI (29205688) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 10:12:58.545928 [0;33mW (29207558) DETECTION: Target 0 traversed but exited_side is not defined | id: 02[0m 
+2024-11-26 10:15:34.040409 [0;32mI (29363058) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 10:16:43.916418 [0;32mI (29432928) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 10:16:47.421886 [0;32mI (29436438) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 10:16:48.549483 [0;32mI (29437558) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 10:16:48.580364 [0;32mI (29437568) DETECTION: Target 3 exited the room | id: 00![0m 
+2024-11-26 10:16:56.798089 [0;32mI (29445808) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 10:16:56.923217 [0;32mI (29445928) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 10:20:25.284981 [0;32mI (29654298) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 10:20:27.533659 [0;33mW (29656548) DETECTION: Target 0 traversed but exited_side is not defined | id: 02[0m 
+2024-11-26 10:25:31.782033 [0;32mI (29960788) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 10:26:48.535207 [0;32mI (30037548) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 10:26:55.035775 [0;32mI (30044038) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 10:32:23.156102 [0;32mI (30372168) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 10:33:56.775973 [0;32mI (30465788) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 10:34:09.152688 [0;32mI (30478158) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-11-26 11:04:54.012091 [0;32mI (32323008) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 11:05:35.510768 [0;32mI (32364508) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 11:05:40.259491 [0;32mI (32369258) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 11:06:46.887060 [0;32mI (32435878) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 11:09:19.899219 [0;32mI (32588888) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 11:10:17.636311 [0;32mI (32646638) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 11:11:15.505631 [0;32mI (32704498) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-11-26 11:12:05.133450 [0;32mI (32754128) DETECTION: Target 1 gave up entering the room | id: 31![0m 
+2024-11-26 11:12:58.638748 [0;32mI (32807638) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-11-26 11:15:30.511714 [0;32mI (32959508) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 11:17:20.635456 [0;32mI (33069628) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 11:22:12.633754 [0;32mI (33361628) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 11:27:49.250642 [0;32mI (33698238) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 11:28:49.500261 [0;32mI (33758498) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 11:39:04.493994 [0;32mI (34373488) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-11-26 11:46:29.122487 [0;32mI (34818108) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 12:05:18.606203 [0;32mI (35947588) DETECTION: Target 3 gave up exiting the room | id: 01![0m 
+2024-11-26 12:05:20.862247 [0;32mI (35949838) DETECTION: Target 1 gave up entering the room | id: 11![0m 
+2024-11-26 12:05:22.482182 [0;32mI (35951468) DETECTION: Target 3 gave up exiting the room | id: 01![0m 
+2024-11-26 12:05:30.862896 [0;32mI (35959838) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 12:14:28.850657 [0;32mI (36497828) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 12:15:14.977909 [0;32mI (36543948) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 12:25:50.968411 [0;32mI (37179948) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 12:27:34.595413 [0;32mI (37283568) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 12:44:22.083518 [0;32mI (38291048) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-11-26 12:46:49.958963 [0;32mI (38438928) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 12:46:51.590511 [0;32mI (38440558) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-11-26 12:47:09.205373 [0;32mI (38458168) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 12:51:07.454882 [0;32mI (38696418) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 12:54:07.827380 [0;32mI (38876798) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 13:02:51.823687 [0;32mI (39400788) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 13:12:47.944468 [0;32mI (39996908) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 13:14:25.941428 [0;32mI (40094898) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-11-26 13:16:14.316718 [0;32mI (40203278) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 13:16:16.693946 [0;32mI (40205648) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 13:16:51.068566 [0;33mW (40240028) DETECTION: Target 1 traversed but exited_side is not defined | id: 12[0m 
+2024-11-26 13:16:56.187215 [0;33mW (40245148) DETECTION: Target 0 traversed but exited_side is not defined | id: 12[0m 
+2024-11-26 13:17:47.068218 [0;32mI (40296028) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-11-26 13:17:51.941874 [0;32mI (40300898) DETECTION: Target 1 exited the room | id: 20![0m 
+2024-11-26 13:17:58.942982 [0;32mI (40307898) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 13:18:02.706934 [0;32mI (40311648) DETECTION: Target 2 gave up entering the room | id: 11![0m 
+2024-11-26 13:18:06.569012 [0;32mI (40315528) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 13:18:19.318262 [0;32mI (40328278) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 13:18:23.436962 [0;32mI (40332398) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 13:18:24.814371 [0;32mI (40333768) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 13:18:26.939571 [0;32mI (40335898) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 13:19:11.684697 [0;32mI (40380638) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-11-26 13:19:13.691763 [0;32mI (40382648) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-11-26 13:19:15.063304 [0;32mI (40384018) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 13:20:11.809772 [0;32mI (40440768) DETECTION: Target 0 entered the room | id: 30![0m 
+2024-11-26 13:20:48.434723 [0;33mW (40477388) DETECTION: Target 0 traversed but exited_side is not defined | id: 02[0m 
+2024-11-26 13:21:09.448544 [0;32mI (40498398) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 13:21:20.581670 [0;32mI (40509518) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 13:21:34.307629 [0;32mI (40523268) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 13:21:46.190069 [0;32mI (40535138) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 13:21:46.682598 [0;32mI (40535638) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-11-26 13:23:52.806528 [0;32mI (40661758) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-11-26 13:25:23.432757 [0;32mI (40752388) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 13:26:37.180436 [0;32mI (40826138) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-11-26 13:34:14.800844 [0;32mI (41283758) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 13:36:23.058316 [0;32mI (41412008) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-11-26 13:36:29.053860 [0;32mI (41417998) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-11-26 13:37:02.929998 [0;32mI (41451878) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 13:37:05.424865 [0;32mI (41454378) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 13:38:30.922718 [0;32mI (41539878) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 13:38:40.553809 [0;32mI (41549508) DETECTION: Target 1 gave up entering the room | id: 11![0m 
+2024-11-26 13:47:49.552721 [0;32mI (42098498) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 14:05:29.538431 [0;32mI (43158478) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-11-26 14:06:04.924378 [0;32mI (43193858) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 14:06:05.289445 [0;32mI (43194228) DETECTION: Target 1 gave up entering the room | id: 11![0m 
+2024-11-26 14:06:06.041542 [0;32mI (43194988) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-11-26 14:08:09.037511 [0;33mW (43317968) DETECTION: Target 0 traversed but exited_side is not defined | id: 12[0m 
+2024-11-26 14:12:44.792906 [0;33mW (43593728) DETECTION: Target 1 traversed but exited_side is not defined | id: 02[0m 
+2024-11-26 14:12:58.656184 [0;32mI (43607598) DETECTION: Target 0 entered the room | id: 30![0m 
+2024-11-26 14:13:06.156293 [0;33mW (43615098) DETECTION: Target 1 traversed but exited_side is not defined | id: 12[0m 
+2024-11-26 14:13:07.282896 [0;33mW (43616228) DETECTION: Target 0 traversed but exited_side is not defined | id: 12[0m 
+2024-11-26 14:13:17.422596 [0;32mI (43626348) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 14:25:27.656664 [0;32mI (44356588) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 14:26:20.153640 [0;32mI (44409088) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 14:32:44.897778 [0;32mI (44793828) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 14:32:58.771528 [0;32mI (44807708) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 14:40:51.773101 [0;32mI (45280698) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 14:41:30.016760 [0;32mI (45318948) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 14:42:18.020247 [0;32mI (45366948) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 14:47:17.019771 [0;32mI (45665948) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 14:51:04.763943 [0;32mI (45893688) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 14:53:11.137000 [0;32mI (46020068) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 14:53:18.888609 [0;32mI (46027808) DETECTION: Target 1 gave up exiting the room | id: 21![0m 
+2024-11-26 14:53:30.387263 [0;32mI (46039308) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 14:54:28.010412 [0;32mI (46096938) DETECTION: Target 1 entered the room | id: 30![0m 
+2024-11-26 14:54:42.638842 [0;32mI (46111558) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 14:54:46.275505 [0;32mI (46115188) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 14:54:46.642754 [0;32mI (46115558) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-11-26 14:56:07.763766 [0;32mI (46196688) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-11-26 14:56:13.269369 [0;32mI (46202188) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 14:58:29.132688 [0;32mI (46338058) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 14:58:56.758602 [0;32mI (46365678) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 15:01:35.132648 [0;32mI (46524058) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 15:01:37.527626 [0;32mI (46526428) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 15:01:40.255125 [0;33mW (46529178) DETECTION: Target 0 traversed but exited_side is not defined | id: 02[0m 
+2024-11-26 15:01:41.760413 [0;32mI (46530678) DETECTION: Target 2 gave up entering the room | id: 11![0m 
+2024-11-26 15:01:44.255352 [0;32mI (46533178) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-11-26 15:01:44.632505 [0;32mI (46533558) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 15:01:45.879867 [0;32mI (46534808) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-11-26 15:01:54.877109 [0;32mI (46543798) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 15:02:34.745558 I (46583648) wifi 
+2024-11-26 15:02:34.782350 bcn_timeout,ap_probe_send_star 
+2024-11-26 15:02:34.782548 
+ 
+2024-11-26 15:04:36.132671 [0;32mI (46705048) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 15:05:37.008923 [0;32mI (46765928) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 15:13:23.499695 [0;32mI (47232418) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 15:14:52.999430 [0;32mI (47321918) DETECTION: Target 1 gave up entering the room | id: 31![0m 
+2024-11-26 15:22:19.893267 [0;32mI (47768788) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 15:25:08.374392 [0;32mI (47937288) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-11-26 15:49:49.612463 [0;32mI (49418518) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 15:50:12.237432 [0;32mI (49441148) DETECTION: Target 3 entered the room | id: 10![0m 
+2024-11-26 15:50:32.237428 [0;32mI (49461138) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 15:51:50.729306 [0;32mI (49539638) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 15:56:33.103410 [0;32mI (49822008) DETECTION: Target 1 entered the room | id: 30![0m 
+2024-11-26 16:01:03.096385 [0;33mW (50091998) DETECTION: Target 1 traversed but exited_side is not defined | id: 02[0m 
+2024-11-26 16:18:32.719440 [0;32mI (51141608) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-11-26 16:28:16.955865 [0;32mI (51725848) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 16:28:18.463362 [0;32mI (51727348) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 16:55:19.945269 [0;32mI (53348828) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 17:00:30.324128 [0;32mI (53659198) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 17:04:13.443402 [0;32mI (53882328) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-11-26 17:06:21.567973 [0;32mI (54010448) DETECTION: Target 3 exited the room | id: 00![0m 
+2024-11-26 17:06:21.816921 [0;32mI (54010698) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-11-26 17:11:18.185056 [0;32mI (54307068) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 17:12:20.186820 [0;32mI (54369068) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-11-26 17:16:09.684067 [0;32mI (54598568) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 17:20:25.559897 [0;32mI (54854438) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-11-26 17:20:30.806807 [0;32mI (54859688) DETECTION: Target 3 entered the room | id: 10![0m 
+2024-11-26 17:20:30.932463 [0;32mI (54859808) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-11-26 17:29:02.423332 [0;32mI (55371298) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 17:29:04.046573 [0;32mI (55372918) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-11-26 17:31:02.176288 [0;32mI (55491048) DETECTION: Target 2 gave up entering the room | id: 11![0m 
+2024-11-26 17:37:37.043081 [0;33mW (55885918) DETECTION: Target 1 traversed but exited_side is not defined | id: 02[0m 
+2024-11-26 17:37:38.295905 [0;33mW (55887168) DETECTION: Target 2 traversed but exited_side is not defined | id: 32[0m 
+2024-11-26 17:37:50.168189 [0;32mI (55899038) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 17:37:54.669834 [0;32mI (55903538) DETECTION: Target 2 entered the room | id: 30![0m 
+2024-11-26 17:39:44.045564 I (56012898) wifi 
+2024-11-26 17:39:44.072380 bcn_timeout,ap_probe_send_star 
+2024-11-26 17:39:44.072562 
+ 
+2024-11-26 17:51:04.539016 [0;32mI (56693398) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-11-26 17:55:08.412921 [0;32mI (56937278) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 17:55:08.785463 [0;32mI (56937648) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 17:55:36.411806 [0;32mI (56965278) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-11-26 18:00:34.037953 [0;32mI (57262898) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 18:00:47.154481 [0;32mI (57276018) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 18:03:32.279880 [0;32mI (57441138) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 18:04:13.778094 [0;32mI (57482638) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 18:04:27.169107 [0;32mI (57496018) DETECTION: Target 2 gave up entering the room | id: 11![0m 
+2024-11-26 18:04:28.037592 [0;32mI (57496898) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 18:04:29.280597 [0;32mI (57498148) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 18:04:35.407465 [0;33mW (57504268) DETECTION: Target 2 traversed but exited_side is not defined | id: 12[0m 
+2024-11-26 18:04:48.156319 [0;32mI (57517018) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 18:05:25.028214 [0;32mI (57553888) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-11-26 18:05:26.276046 [0;32mI (57555138) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-11-26 18:06:26.161716 [0;32mI (57615018) DETECTION: Target 2 entered the room | id: 30![0m 
+2024-11-26 18:06:53.399619 [0;33mW (57642258) DETECTION: Target 1 traversed but exited_side is not defined | id: 02[0m 
+2024-11-26 18:08:03.391005 I (57712228) wifi 
+2024-11-26 18:08:03.417661 bcn_timeout,ap_probe_send_star 
+2024-11-26 18:08:03.417898 
+ 
+2024-11-26 18:19:42.149010 [0;32mI (58411008) DETECTION: Target 2 gave up entering the room | id: 31![0m 
+2024-11-26 18:22:59.769779 [0;33mW (58608628) DETECTION: Target 2 traversed but exited_side is not defined | id: 02[0m 
+2024-11-26 18:23:07.894931 [0;32mI (58616748) DETECTION: Target 2 entered the room | id: 30![0m 
+2024-11-26 18:23:10.016371 [0;32mI (58618868) DETECTION: Target 1 entered the room | id: 30![0m 
+2024-11-26 18:23:11.767462 [0;32mI (58620628) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-11-26 18:23:12.141997 [0;32mI (58620998) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-11-26 18:23:56.884312 [0;32mI (58665738) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 18:29:17.133374 [0;32mI (58985988) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 18:29:24.017664 [0;32mI (58992868) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 18:30:03.633884 [0;32mI (59032488) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-11-26 18:31:32.260391 [0;32mI (59121118) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-11-26 19:02:11.240177 [0;32mI (60960088) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 19:09:50.860927 [0;33mW (61419698) DETECTION: Target 0 traversed but exited_side is not defined | id: 02[0m 
+2024-11-26 19:14:02.358671 [0;32mI (61671198) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-11-26 19:14:40.731512 [0;33mW (61709568) DETECTION: Target 0 traversed but exited_side is not defined | id: 02[0m 
+2024-11-26 19:43:25.402681 I (63434188) wifi 
+2024-11-26 19:43:25.427459 bcn_timeout,ap_probe_send_star 
+2024-11-26 19:43:25.428363 
+ 
+2024-11-26 20:06:34.225804 I (64823028) wifi 
+2024-11-26 20:06:34.251326 bcn_timeout,ap_probe_send_star 
+2024-11-26 20:06:34.251572 
+ 
+2024-11-26 20:50:20.305058 I (67449088) wifi 
+2024-11-26 20:50:20.330804 bcn_timeout,ap_probe_send_star 
+2024-11-26 20:50:20.331058 
+ 
+2024-11-26 21:05:47.434530 I (68376228) wifi 
+2024-11-26 21:05:47.469065 bcn_timeout,ap_probe_send_star 
+2024-11-26 21:05:47.469302 
+ 
+2024-11-26 21:23:48.803535 I (69457578) wifi 
+2024-11-26 21:23:48.854226 bcn_timeout,ap_probe_send_star 
+2024-11-26 21:23:48.854436 
+ 
+2024-11-26 21:28:58.366040 I (69767128) wifi 
+2024-11-26 21:28:58.397699 bcn_timeout,ap_probe_send_star 
+2024-11-26 21:28:58.397880 
+ 
+2024-11-26 21:28:59.736442 bcn_timeout,ap_probe_send_star 
