@@ -1,0 +1,9 @@
+aiomqtt>=2.3.0
+tk
+matplotlib
+asyncio
+datetime
+python-decouple
+sqlalchemy
+psycopg2
+matplotlib
