@@ -11,6 +11,12 @@
 
 #include <string>
 
+typedef struct ota_payload
+{
+    char* url;
+    uint8_t ota_ready;
+}ota_payload_t;
+
 /**
  * @brief Check if the OTA update was successful
  * @note Taken from "simple_ota_example" from esp-idf examples

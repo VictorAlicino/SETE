@@ -3,7 +3,7 @@
 D0-------------------Bottom--------------D3    D0--------D3
 |                                        |    |          |
 |                                        |    |          |
-Left               Horizontal          Right  |    | Vertical |
+Left               Horizontal          Right  | Vertical |
 |                                        |    |          |
 |                                        |    |          |
 D1--------------------Top----------------D2    D1--------D2

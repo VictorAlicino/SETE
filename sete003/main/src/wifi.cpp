@@ -120,11 +120,11 @@ WiFi_STA::WiFi_STA(std::string ssid, std::string password)
     /* xEventGroupWaitBits() returns the bits before the call returned, hence we can test which event actually
      * happened. */
     if (bits & WIFI_CONNECTED_BIT) {
-        ESP_LOGI(WIFI_TAG, "connected to ap SSID:%s",
-                 "50 centavos a hora");
+        ESP_LOGI(WIFI_TAG, "connected to ap SSID: %s",
+                 ssid.c_str());
     } else if (bits & WIFI_FAIL_BIT) {
-        ESP_LOGI(WIFI_TAG, "connected to ap SSID:%s",
-                 "50 centavos a hora");
+        ESP_LOGI(WIFI_TAG, "connected to ap SSID: %s",
+                 ssid.c_str());
     } else {
         ESP_LOGE(WIFI_TAG, "UNEXPECTED EVENT");
     }

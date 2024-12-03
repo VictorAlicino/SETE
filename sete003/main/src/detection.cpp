@@ -42,7 +42,6 @@ Detection::Detection(
     exited_detections = 0;
     gave_up_detections = 0;
 
-    send_raw_detection_payload = false;
     this->enter_exit_inverted = enter_exit_inverted;
 
     detection_area.D[0] = D0;
@@ -63,6 +62,11 @@ Detection::Detection(
         targets[i].entered_side = NONE;
         targets[i].exited_side = NONE;
     }
+
+    bool raw_data = storage->get_uint8(SENSOR_BASIC_DATA, "SEND_RAW_DATA");
+    if(raw_data == 0) raw_data = false;
+    else this->send_raw_detection_payload = raw_data;
+    ESP_LOGI("DETECTION", "Sending Raw Data?: %s", raw_data ? "true" : "false");
 }
 
 point* Detection::get_detection_area_point()
@@ -203,15 +207,15 @@ void Detection::count_detections(int target_index)
     if(targets[target_index].traversed == false) return;
     if(targets[target_index].entered_side == NONE || targets[target_index].exited_side == NONE) return;
 
-    // ESP_LOGI(DETECTION_TAG, "Target %u entry point: (%.2f, %.2f) | exit point: (%.2f, %.2f) | entered side: %s | exited side: %s",
-    //     target_index,
-    //     targets[target_index].entered_position.x,
-    //     targets[target_index].entered_position.y,
-    //     targets[target_index].exited_position.x,
-    //     targets[target_index].exited_position.y,
-    //     detection_area_side_str[targets[target_index].entered_side],
-    //     detection_area_side_str[targets[target_index].exited_side]
-    // );
+    ESP_LOGI(DETECTION_TAG, "Target %u entry point: (%.2f, %.2f) | exit point: (%.2f, %.2f) | entered side: %s | exited side: %s",
+        target_index,
+        targets[target_index].entered_position.x,
+        targets[target_index].entered_position.y,
+        targets[target_index].exited_position.x,
+        targets[target_index].exited_position.y,
+        detection_area_side_str[targets[target_index].entered_side],
+        detection_area_side_str[targets[target_index].exited_side]
+    );
     switch(targets[target_index].entered_side){
         case TOP:
             // User entered the room
@@ -388,6 +392,8 @@ void Detection::mqtt_send_detections()
 void Detection::set_raw_data_sent(bool send_raw_data)
 {
     send_raw_detection_payload = send_raw_data;
+    ESP_LOGI(DETECTION_TAG, "Raw Data Sent set to [%s]", send_raw_data ? "true" : "false");
+    storage->store_data_uint8(SENSOR_BASIC_DATA, "SEND_RAW_DATA", send_raw_data);
 }
 
 void Detection::set_enter_exit_inverted(bool inverted)

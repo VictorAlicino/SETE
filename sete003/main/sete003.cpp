@@ -58,6 +58,7 @@ void app_main(void)
     storage = new Storage();
 
     // Initialize WiFi
+    //wifi = new WiFi_STA("CAMPOS_EXT", "salsicha");
     wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
 
     // Initialize Board
@@ -158,6 +159,12 @@ void app_main(void)
             ESP_LOGI(TAG, "Default values for the detection area stored");
         }
     }
+    ESP_LOGI(TAG, "Detection area: (%f, %f), (%f, %f), (%f, %f), (%f, %f)",
+        detection->get_detection_area_point()[0].x, detection->get_detection_area_point()[0].y,
+        detection->get_detection_area_point()[1].x, detection->get_detection_area_point()[1].y,
+        detection->get_detection_area_point()[2].x, detection->get_detection_area_point()[2].y,
+        detection->get_detection_area_point()[3].x, detection->get_detection_area_point()[3].y
+    );
 
     // Initialize Variables
     std::string sensor_state;
@@ -165,9 +172,9 @@ void app_main(void)
     int64_t last_payload_time = esp_timer_get_time();
     int64_t time_now = 0;
     // Main Loop
-    detection->set_raw_data_sent(false);
     vTaskDelay(5000 / portTICK_PERIOD_MS);
     ESP_LOGI(TAG, "Finished initialization");
+    detection->set_raw_data_sent(true);
     mqtt->subscribe(std::string(sensor->get_mqtt_root_topic() + "/command/#").c_str(), 0);
     //ESP_LOGI("SET003", "Firmware downloaded from OTA");
     sensor->start_free_memory = esp_get_free_heap_size();
