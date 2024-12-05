@@ -243,8 +243,32 @@ void Detection::count_detections(int target_index)
                     ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 01!",target_index);
                 }
             }
+            else if(targets[target_index].exited_side == LEFT){
+                if(!enter_exit_inverted)
+                {
+                    exited_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 02",target_index);
+                }
+                else
+                {
+                    entered_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 02!",target_index);
+                }
+            }
+            else if(targets[target_index].exited_side == RIGHT){
+                if(!enter_exit_inverted)
+                {
+                    exited_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 03",target_index);
+                }
+                else
+                {
+                    entered_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 03!",target_index);
+                }
+            }
             else{
-                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 02",target_index);
+                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 04",target_index);
             }
             break;
         case BOTTOM:
@@ -274,6 +298,30 @@ void Detection::count_detections(int target_index)
                     ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 11!",target_index);
                 }
             }
+            else if(targets[target_index].exited_side == LEFT){
+                if(!enter_exit_inverted)
+                {
+                    gave_up_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 12",target_index);
+                }
+                else
+                {
+                    gave_up_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 12!",target_index);
+                }
+            }
+            else if(targets[target_index].exited_side == RIGHT){
+                if(!enter_exit_inverted)
+                {
+                    gave_up_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 12",target_index);
+                }
+                else
+                {
+                    gave_up_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 12!",target_index);
+                }
+            }
             else{
                 ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 12",target_index);
             }
@@ -296,13 +344,37 @@ void Detection::count_detections(int target_index)
             else if(targets[target_index].exited_side == TOP){
                 if(!enter_exit_inverted)
                 {
+                    entered_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 21",target_index);
+                }
+                else
+                {
+                    exited_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 21!",target_index);
+                }
+            }
+            else if(targets[target_index].exited_side == LEFT){
+                if(!enter_exit_inverted)
+                {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 21",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 22",target_index);
                 }
                 else
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 21!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 22!",target_index);
+                }
+            }
+            else if(targets[target_index].exited_side == RIGHT){
+                if(!enter_exit_inverted)
+                {
+                    gave_up_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 22",target_index);
+                }
+                else
+                {
+                    gave_up_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 22!",target_index);
                 }
             }
             else{
@@ -334,6 +406,30 @@ void Detection::count_detections(int target_index)
                 {
                     gave_up_detections++;
                     ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 31!",target_index);
+                }
+            }
+            else if(targets[target_index].exited_side == RIGHT){
+                if(!enter_exit_inverted)
+                {
+                    gave_up_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 32",target_index);
+                }
+                else
+                {
+                    gave_up_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 32!",target_index);
+                }
+            }
+            else if(targets[target_index].exited_side == LEFT){
+                if(!enter_exit_inverted)
+                {
+                    gave_up_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 32",target_index);
+                }
+                else
+                {
+                    gave_up_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 32!",target_index);
                 }
             }
             else{

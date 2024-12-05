@@ -11,6 +11,7 @@
 #include "nvs_flash.h"
 #include "driver/uart.h"
 #include "freertos/ringbuf.h"
+#include "esp_ota_ops.h"
 #include "esp_log.h"
 #include "esp_timer.h"
 #include "cJSON.h"
@@ -54,12 +55,14 @@ extern "C"
 
 void app_main(void)
 {
+    ESP_LOGI("SET003", "Firmware Compiled on [ %s @ %s ]", __DATE__, __TIME__);
     // Initialize Storage (NVS)
     storage = new Storage();
 
     // Initialize WiFi
     //wifi = new WiFi_STA("CAMPOS_EXT", "salsicha");
     wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
+    //wifi = new WiFi_STA("Farma A Filial", "Filial#2200");
 
     // Initialize Board
     sensor = new Sensor();
@@ -173,10 +176,15 @@ void app_main(void)
     int64_t time_now = 0;
     // Main Loop
     vTaskDelay(5000 / portTICK_PERIOD_MS);
-    ESP_LOGI(TAG, "Finished initialization");
     detection->set_raw_data_sent(true);
     mqtt->subscribe(std::string(sensor->get_mqtt_root_topic() + "/command/#").c_str(), 0);
-    //ESP_LOGI("SET003", "Firmware downloaded from OTA");
+    {
+        ESP_LOGI(TAG, "Firmware downloaded from OTA | Compiled on [ %s @ %s ]", __DATE__, __TIME__);
+        const esp_partition_t *running = esp_ota_get_running_partition();
+        ESP_LOGI(TAG, "Running partition type %d subtype %d (offset 0x%x)",
+             running->type, running->subtype, running->address);
+    }
+    ESP_LOGI(TAG, "Finished initialization");
     sensor->start_free_memory = esp_get_free_heap_size();
     while(flag_0)
     {
