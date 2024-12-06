@@ -49,27 +49,27 @@ async def process_payload(message):
     for index, target in payload.items():
         if (target['x'] == 0 and target['y'] == 0):
             continue
-        print(f"{datetime.now()}", end=" ")
+        #print(f"{datetime.now()}", end=" ")
         t_x, t_y = float(target["x"]), float(target["y"])
         current_distance = point_to_line_distance(t_x, t_y, monitoring_vector)
 
         # Check if target was previously detected
         if index in previous_distances:
-            print(f"{index} distance: {current_distance:.2f}", end=" ")
             previous_distance = previous_distances[index]
             # Detect crossing (sign change in distance)
             if previous_distance * current_distance < 0:
+                print(f"{index} distance: {current_distance:.2f}", end=" ")
                 if current_distance > 0:
-                    print(f"[EXITED ]", end="")
+                    print("[EXITED ]")
                 else:
-                    print(f"[ENTERED]", end="")
+                    print("[ENTERED]")
                 area_detection_count += 1
             else:
-                print(f"[       ]", end=" | ")
+                # print(f"[       ]", end=" | ")
+                pass
 
         # Update previous distance
         previous_distances[index] = current_distance
-    print()
 
 
 async def send_buffer_to_db():
@@ -84,7 +84,7 @@ async def send_buffer_to_db():
             data = DataByTwo()
             data.sensor_id = "D80C"
             data.traversed = area_detection_count
-            add_data_by_two(db, data)
+            #add_data_by_two(db, data)
             area_detection_count = 0
 
 
