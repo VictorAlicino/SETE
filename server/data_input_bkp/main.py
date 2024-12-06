@@ -52,24 +52,25 @@ async def process_payload(message):
         #print(f"{datetime.now()}", end=" ")
         t_x, t_y = float(target["x"]), float(target["y"])
         current_distance = point_to_line_distance(t_x, t_y, monitoring_vector)
-
+        print(f"{index} distance: {current_distance:.2f}", end=" | ")
         # Check if target was previously detected
         if index in previous_distances:
             previous_distance = previous_distances[index]
+            change = current_distance * previous_distance
             # Detect crossing (sign change in distance)
-            if previous_distance * current_distance < 0:
-                print(f"{index} distance: {current_distance:.2f}", end=" ")
+            if change == 0:
+                continue
+            if change < 0:
                 if current_distance > 0:
-                    print("[EXITED ]")
+                    print("[EXITED ]", end=" | ")
                 else:
-                    print("[ENTERED]")
+                    print("[ENTERED]", end=" | ")
                 area_detection_count += 1
             else:
-                # print(f"[       ]", end=" | ")
-                pass
-
+                print(f"[       ]", end=" | ")
         # Update previous distance
         previous_distances[index] = current_distance
+    print("\r")
 
 
 async def send_buffer_to_db():
