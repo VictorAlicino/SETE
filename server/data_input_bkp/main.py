@@ -49,10 +49,8 @@ async def process_payload(message):
     for index, target in payload.items():
         if (target['x'] == 0 and target['y'] == 0):
             continue
-        #print(f"{datetime.now()}", end=" ")
         t_x, t_y = float(target["x"]), float(target["y"])
         current_distance = point_to_line_distance(t_x, t_y, monitoring_vector)
-        print(f"{index} distance: {current_distance:.2f}", end=" | ")
         # Check if target was previously detected
         if index in previous_distances:
             previous_distance = previous_distances[index]
@@ -62,16 +60,12 @@ async def process_payload(message):
                 continue
             if change < 0:
                 if current_distance > 0:
-                    print("[EXITED ]", end=" | ")
+                    print(f"{datetime.now()} Target <{index}> exited")
                 else:
-                    print("[ENTERED]", end=" | ")
+                    print(f"{datetime.now()} Target <{index}> entered")
                 area_detection_count += 1
-            else:
-                print(f"[       ]", end=" | ")
         # Update previous distance
         previous_distances[index] = current_distance
-    print("\r")
-
 
 async def send_buffer_to_db():
     """Send accumulated data to the database periodically."""
