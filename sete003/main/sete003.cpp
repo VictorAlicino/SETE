@@ -80,8 +80,8 @@ void app_main(void)
     // Initialize Sensors
     ld2461 = new LD2461(
         UART_NUM_2,
-        GPIO_NUM_36,
-        GPIO_NUM_35,
+        GPIO_NUM_36,    // TX Pin
+        GPIO_NUM_35,    // RX Pin
         9600
     );
     pir = new PIR(GPIO_NUM_48);
@@ -181,7 +181,7 @@ void app_main(void)
     {
         ESP_LOGI(TAG, "Firmware downloaded from OTA | Compiled on [ %s @ %s ]", __DATE__, __TIME__);
         const esp_partition_t *running = esp_ota_get_running_partition();
-        ESP_LOGI(TAG, "Running partition type %d subtype %d (offset 0x%x)",
+        ESP_LOGI(TAG, "Running partition type %d subtype %d (offset 0x%lx)",
              running->type, running->subtype, running->address);
     }
     ESP_LOGI(TAG, "Finished initialization");

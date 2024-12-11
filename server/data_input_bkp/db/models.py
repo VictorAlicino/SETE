@@ -25,6 +25,8 @@ class DataByTwo(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     timestamp = Column(DateTime(timezone=True), default=datetime.now)
     sensor_id = Column(String, nullable=False)
+    entered = Column(Integer, default=0)
+    exited = Column(Integer, default=0)
     traversed = Column(Integer, default=0)
 
     def __repr__(self):
