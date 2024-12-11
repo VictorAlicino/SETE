@@ -1,0 +1,3500 @@
+2024-12-07 07:35:51.659323 I (51239623) wifi 
+2024-12-07 07:35:51.681200 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:35:51.681424 
+ 
+2024-12-07 07:36:06.703360 I (51254673) wifi 
+2024-12-07 07:36:06.724770 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:36:06.725071 
+ 
+2024-12-07 07:36:21.746145 I (51269713) wifi 
+2024-12-07 07:36:21.767893 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:36:21.768138 
+ 
+2024-12-07 07:36:51.831191 I (51299793) wifi 
+2024-12-07 07:36:51.852649 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:36:51.852828 
+ 
+2024-12-07 07:37:06.874260 I (51314843) wifi 
+2024-12-07 07:37:06.895757 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:37:06.895958 
+ 
+2024-12-07 07:37:21.943659 I (51329893) wifi 
+2024-12-07 07:37:21.965599 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:37:21.965809 
+ 
+2024-12-07 07:37:52.003256 I (51359973) wifi 
+2024-12-07 07:37:52.032842 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:37:52.033071 
+ 
+2024-12-07 07:38:07.046188 I (51375013) wifi 
+2024-12-07 07:38:07.069378 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:38:07.069612 
+ 
+2024-12-07 07:38:22.089733 I (51390053) wifi 
+2024-12-07 07:38:22.111196 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:38:22.111362 
+ 
+2024-12-07 07:38:52.175794 I (51420143) wifi 
+2024-12-07 07:38:52.197941 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:38:52.198186 
+ 
+2024-12-07 07:39:07.116207 I (51435083) wifi 
+2024-12-07 07:39:07.137552 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:39:07.137832 
+ 
+2024-12-07 07:39:22.159342 I (51450123) wifi 
+2024-12-07 07:39:22.180832 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:39:22.181054 
+ 
+2024-12-07 07:39:52.245304 I (51480213) wifi 
+2024-12-07 07:39:52.266978 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:39:52.267206 
+ 
+2024-12-07 07:40:07.287929 I (51495253) wifi 
+2024-12-07 07:40:07.309502 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:40:07.309676 
+ 
+2024-12-07 07:40:22.331207 I (51510293) wifi 
+2024-12-07 07:40:22.352767 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:40:22.352969 
+ 
+2024-12-07 07:40:52.417238 I (51540383) wifi 
+2024-12-07 07:40:52.438743 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:40:52.438921 
+ 
+2024-12-07 07:41:07.460266 I (51555423) wifi 
+2024-12-07 07:41:07.481913 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:41:07.482142 
+ 
+2024-12-07 07:41:22.503430 I (51570473) wifi 
+2024-12-07 07:41:22.524774 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:41:22.524972 
+ 
+2024-12-07 07:41:52.588359 I (51600553) wifi 
+2024-12-07 07:41:52.610202 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:41:52.610425 
+ 
+2024-12-07 07:42:07.632218 I (51615593) wifi 
+2024-12-07 07:42:07.653630 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:42:07.653916 
+ 
+2024-12-07 07:42:22.675320 I (51630643) wifi 
+2024-12-07 07:42:22.696951 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:42:22.697234 
+ 
+2024-12-07 07:42:52.762145 I (51660723) wifi 
+2024-12-07 07:42:52.784168 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:42:52.784369 
+ 
+2024-12-07 07:43:07.823264 I (51675783) wifi 
+2024-12-07 07:43:07.844729 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:43:07.844904 
+ 
+2024-12-07 07:43:22.847285 I (51690813) wifi 
+2024-12-07 07:43:22.868979 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:43:22.869226 
+ 
+2024-12-07 07:43:52.933318 I (51720893) wifi 
+2024-12-07 07:43:52.955333 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:43:52.955590 
+ 
+2024-12-07 07:44:07.976317 I (51735943) wifi 
+2024-12-07 07:44:07.997783 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:44:07.998135 
+ 
+2024-12-07 07:44:23.019266 I (51750983) wifi 
+2024-12-07 07:44:23.040533 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:44:23.040794 
+ 
+2024-12-07 07:44:53.105441 I (51781073) wifi 
+2024-12-07 07:44:53.126731 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:44:53.126916 
+ 
+2024-12-07 07:45:08.148282 I (51796113) wifi 
+2024-12-07 07:45:08.169893 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:45:08.170254 
+ 
+2024-12-07 07:45:23.193273 I (51811153) wifi 
+2024-12-07 07:45:23.214809 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:45:23.215003 
+ 
+2024-12-07 07:45:53.277903 I (51841243) wifi 
+2024-12-07 07:45:53.299476 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:45:53.299673 
+ 
+2024-12-07 07:46:08.322812 I (51856283) wifi 
+2024-12-07 07:46:08.344303 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:46:08.344508 
+ 
+2024-12-07 07:46:23.363792 I (51871323) wifi 
+2024-12-07 07:46:23.385492 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:46:23.385700 
+ 
+2024-12-07 07:46:53.449823 I (51901413) wifi 
+2024-12-07 07:46:53.471580 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:46:53.471785 
+ 
+2024-12-07 07:47:08.492890 I (51916453) wifi 
+2024-12-07 07:47:08.514555 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:47:08.514771 
+ 
+2024-12-07 07:47:23.535801 I (51931503) wifi 
+2024-12-07 07:47:23.559009 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:47:23.559251 
+ 
+2024-12-07 07:47:53.519324 I (51961483) wifi 
+2024-12-07 07:47:53.540698 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:47:53.540948 
+ 
+2024-12-07 07:48:08.562976 I (51976523) wifi 
+2024-12-07 07:48:08.584589 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:48:08.584795 
+ 
+2024-12-07 07:48:23.605376 I (51991573) wifi 
+2024-12-07 07:48:23.626941 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:48:23.627167 
+ 
+2024-12-07 07:48:53.695463 I (52021653) wifi 
+2024-12-07 07:48:53.724518 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:48:53.724714 
+ 
+2024-12-07 07:49:08.734442 I (52036693) wifi 
+2024-12-07 07:49:08.758540 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:49:08.758852 
+ 
+2024-12-07 07:49:23.777886 I (52051743) wifi 
+2024-12-07 07:49:23.801435 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:49:23.801621 
+ 
+2024-12-07 07:49:53.863958 I (52081823) wifi 
+2024-12-07 07:49:53.887507 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:49:53.887751 
+ 
+2024-12-07 07:50:08.906926 I (52096873) wifi 
+2024-12-07 07:50:08.931070 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:50:08.931278 
+ 
+2024-12-07 07:50:23.949872 I (52111913) wifi 
+2024-12-07 07:50:23.973630 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:50:23.973834 
+ 
+2024-12-07 07:50:54.036192 I (52142003) wifi 
+2024-12-07 07:50:54.061378 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:50:54.061599 
+ 
+2024-12-07 07:51:09.078735 I (52157043) wifi 
+2024-12-07 07:51:09.102311 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:51:09.102539 
+ 
+2024-12-07 07:51:24.121690 I (52172083) wifi 
+2024-12-07 07:51:24.144974 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:51:24.145278 
+ 
+2024-12-07 07:51:54.208002 I (52202173) wifi 
+2024-12-07 07:51:54.231613 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:51:54.231828 
+ 
+2024-12-07 07:52:09.251678 I (52217213) wifi 
+2024-12-07 07:52:09.275478 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:52:09.275684 
+ 
+2024-12-07 07:52:24.294279 I (52232253) wifi 
+2024-12-07 07:52:24.318407 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:52:24.318633 
+ 
+2024-12-07 07:52:54.379760 I (52262343) wifi 
+2024-12-07 07:52:54.403108 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:52:54.403398 
+ 
+2024-12-07 07:53:09.423282 I (52277383) wifi 
+2024-12-07 07:53:09.446461 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:53:09.446761 
+ 
+2024-12-07 07:53:24.466256 I (52292423) wifi 
+2024-12-07 07:53:24.489802 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:53:24.490000 
+ 
+2024-12-07 07:53:54.551706 I (52322513) wifi 
+2024-12-07 07:53:54.575882 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:53:54.576107 
+ 
+2024-12-07 07:54:09.595257 I (52337553) wifi 
+2024-12-07 07:54:09.618880 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:54:09.619106 
+ 
+2024-12-07 07:54:24.638705 I (52352603) wifi 
+2024-12-07 07:54:24.662455 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:54:24.662660 
+ 
+2024-12-07 07:54:54.724272 I (52382683) wifi 
+2024-12-07 07:54:54.747601 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:54:54.747878 
+ 
+2024-12-07 07:55:09.786930 I (52397743) wifi 
+2024-12-07 07:55:09.811215 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:55:09.811704 
+ 
+2024-12-07 07:55:24.812196 I (52412773) wifi 
+2024-12-07 07:55:24.836116 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:55:24.836393 
+ 
+2024-12-07 07:55:54.896746 I (52442853) wifi 
+2024-12-07 07:55:54.919961 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:55:54.920263 
+ 
+2024-12-07 07:56:09.837730 I (52457803) wifi 
+2024-12-07 07:56:09.861348 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:56:09.861582 
+ 
+2024-12-07 07:56:24.879859 I (52472843) wifi 
+2024-12-07 07:56:24.903354 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:56:24.903563 
+ 
+2024-12-07 07:56:39.923277 I (52487883) wifi 
+2024-12-07 07:56:39.946547 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:56:39.946832 
+ 
+2024-12-07 07:56:54.967287 I (52502923) wifi 
+2024-12-07 07:56:54.990812 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:56:54.991172 
+ 
+2024-12-07 07:57:10.009315 I (52517973) wifi 
+2024-12-07 07:57:10.032787 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:57:10.032976 
+ 
+2024-12-07 07:57:25.053057 I (52533013) wifi 
+2024-12-07 07:57:25.076438 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:57:25.076667 
+ 
+2024-12-07 07:57:40.095284 I (52548053) wifi 
+2024-12-07 07:57:40.118692 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:57:40.118973 
+ 
+2024-12-07 07:57:55.139290 I (52563103) wifi 
+2024-12-07 07:57:55.162894 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:57:55.163136 
+ 
+2024-12-07 07:58:10.181326 I (52578143) wifi 
+2024-12-07 07:58:10.204874 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:58:10.205109 
+ 
+2024-12-07 07:58:25.224295 I (52593183) wifi 
+2024-12-07 07:58:25.247809 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:58:25.248011 
+ 
+2024-12-07 07:58:40.267440 I (52608223) wifi 
+2024-12-07 07:58:40.290953 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:58:40.291189 
+ 
+2024-12-07 07:58:55.312342 I (52623273) wifi 
+2024-12-07 07:58:55.334656 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:58:55.334922 
+ 
+2024-12-07 07:59:10.353332 I (52638313) wifi 
+2024-12-07 07:59:10.376906 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:59:10.377144 
+ 
+2024-12-07 07:59:25.396827 I (52653353) wifi 
+2024-12-07 07:59:25.420288 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:59:25.420590 
+ 
+2024-12-07 07:59:40.440308 I (52668403) wifi 
+2024-12-07 07:59:40.463941 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:59:40.464181 
+ 
+2024-12-07 07:59:55.482401 I (52683443) wifi 
+2024-12-07 07:59:55.506311 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 07:59:55.506533 
+ 
+2024-12-07 08:00:10.525317 I (52698483) wifi 
+2024-12-07 08:00:10.548691 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:00:10.548963 
+ 
+2024-12-07 08:00:25.568504 I (52713523) wifi 
+2024-12-07 08:00:25.591888 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:00:25.592223 
+ 
+2024-12-07 08:00:40.611351 I (52728573) wifi 
+2024-12-07 08:00:40.634713 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:00:40.634990 
+ 
+2024-12-07 08:00:55.691429 I (52743623) wifi 
+2024-12-07 08:00:55.715021 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:00:55.715256 
+ 
+2024-12-07 08:01:10.697930 I (52758653) wifi 
+2024-12-07 08:01:10.721551 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:01:10.721750 
+ 
+2024-12-07 08:01:25.740853 I (52773703) wifi 
+2024-12-07 08:01:25.764486 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:01:25.764705 
+ 
+2024-12-07 08:01:40.783929 I (52788743) wifi 
+2024-12-07 08:01:40.807979 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:01:40.808214 
+ 
+2024-12-07 08:01:55.826941 I (52803783) wifi 
+2024-12-07 08:01:55.850404 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:01:55.850615 
+ 
+2024-12-07 08:02:10.870409 I (52818833) wifi 
+2024-12-07 08:02:10.893845 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:02:10.894187 
+ 
+2024-12-07 08:02:25.912990 I (52833873) wifi 
+2024-12-07 08:02:25.936266 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:02:25.936560 
+ 
+2024-12-07 08:02:40.955523 I (52848913) wifi 
+2024-12-07 08:02:40.978959 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:02:40.979297 
+ 
+2024-12-07 08:02:55.998916 I (52863953) wifi 
+2024-12-07 08:02:56.030572 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:02:56.030773 
+ 
+2024-12-07 08:03:11.047868 I (52879003) wifi 
+2024-12-07 08:03:11.073305 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:03:11.073519 
+ 
+2024-12-07 08:03:26.084950 I (52894043) wifi 
+2024-12-07 08:03:26.108647 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:03:26.108848 
+ 
+2024-12-07 08:03:41.128224 I (52909083) wifi 
+2024-12-07 08:03:41.150971 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:03:41.151270 
+ 
+2024-12-07 08:03:56.171017 I (52924133) wifi 
+2024-12-07 08:03:56.194490 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:03:56.194699 
+ 
+2024-12-07 08:04:11.213956 I (52939173) wifi 
+2024-12-07 08:04:11.237318 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:04:11.237603 
+ 
+2024-12-07 08:04:26.256936 I (52954213) wifi 
+2024-12-07 08:04:26.280514 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:04:26.280719 
+ 
+2024-12-07 08:04:41.197498 I (52969153) wifi 
+2024-12-07 08:04:41.221090 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:04:41.221295 
+ 
+2024-12-07 08:04:56.242500 I (52984203) wifi 
+2024-12-07 08:04:56.266096 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:04:56.266311 
+ 
+2024-12-07 08:05:11.283538 I (52999243) wifi 
+2024-12-07 08:05:11.307172 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:05:11.307380 
+ 
+2024-12-07 08:05:26.326952 I (53014283) wifi 
+2024-12-07 08:05:26.350051 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:05:26.350245 
+ 
+2024-12-07 08:05:41.369759 I (53029323) wifi 
+2024-12-07 08:05:41.393853 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:05:41.394079 
+ 
+2024-12-07 08:05:56.413205 I (53044373) wifi 
+2024-12-07 08:05:56.441746 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:05:56.441925 
+ 
+2024-12-07 08:06:11.455794 I (53059413) wifi 
+2024-12-07 08:06:11.479584 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:06:11.479798 
+ 
+2024-12-07 08:06:26.499010 I (53074453) wifi 
+2024-12-07 08:06:26.522684 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:06:26.522879 
+ 
+2024-12-07 08:06:41.559784 I (53089503) wifi 
+2024-12-07 08:06:41.583620 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:06:41.583822 
+ 
+2024-12-07 08:06:56.584812 I (53104543) wifi 
+2024-12-07 08:06:56.608349 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:06:56.608576 
+ 
+2024-12-07 08:07:11.652727 I (53119613) wifi 
+2024-12-07 08:07:11.677947 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:07:11.678199 
+ 
+2024-12-07 08:07:30.434364 [0;32mI (53138393) DETECTION: Target 0 entry point: (1.20, 2.10) | exit point: (-0.60, 1.70) | entered side: RIGHT | exited side: TOP[0m 
+2024-12-07 08:07:30.459680 [0;32mI (53138403) DETECTION: Target 0 entered the room | id: 30![0m 
+2024-12-07 08:07:32.307337 [0;32mI (53140273) DETECTION: Target 0 entry point: (-0.80, 1.80) | exit point: (-1.00, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 08:07:32.330662 [0;32mI (53140273) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 08:07:32.556745 [0;32mI (53140523) DETECTION: Target 0 entry point: (-1.00, 1.80) | exit point: (-1.10, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 08:07:32.580593 [0;32mI (53140523) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 08:07:32.807349 [0;32mI (53140773) DETECTION: Target 0 entry point: (-1.10, 1.80) | exit point: (-1.40, 1.60) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 08:07:32.830837 [0;32mI (53140773) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 08:07:33.681949 [0;32mI (53141643) DETECTION: Target 0 entry point: (-1.70, 1.90) | exit point: (-2.10, 1.80) | entered side: LEFT | exited side: LEFT[0m 
+2024-12-07 08:07:33.705377 [0;32mI (53141653) DETECTION: Target 0 gave up entering the room | id: 22![0m 
+2024-12-07 08:07:39.681379 [0;32mI (53147643) DETECTION: Target 0 entry point: (-0.30, 1.80) | exit point: (0.00, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 08:07:39.704852 [0;32mI (53147643) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-12-07 08:07:56.756777 I (53164713) wifi 
+2024-12-07 08:07:56.780447 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:07:56.780670 
+ 
+2024-12-07 08:08:11.799858 I (53179753) wifi 
+2024-12-07 08:08:11.821497 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:08:11.821701 
+ 
+2024-12-07 08:08:26.843834 I (53194803) wifi 
+2024-12-07 08:08:26.867955 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:08:26.868193 
+ 
+2024-12-07 08:08:41.885891 I (53209843) wifi 
+2024-12-07 08:08:41.907517 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:08:41.907719 
+ 
+2024-12-07 08:08:56.931316 I (53224883) wifi 
+2024-12-07 08:08:56.952619 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:08:56.952944 
+ 
+2024-12-07 08:09:11.972123 I (53239933) wifi 
+2024-12-07 08:09:11.993592 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:09:11.993791 
+ 
+2024-12-07 08:09:27.015291 I (53254973) wifi 
+2024-12-07 08:09:27.036702 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:09:27.037014 
+ 
+2024-12-07 08:09:42.059845 I (53270013) wifi 
+2024-12-07 08:09:42.081574 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:09:42.081828 
+ 
+2024-12-07 08:09:57.101321 I (53285053) wifi 
+2024-12-07 08:09:57.124702 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:09:57.124972 
+ 
+2024-12-07 08:10:12.144292 I (53300103) wifi 
+2024-12-07 08:10:12.165976 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:10:12.166274 
+ 
+2024-12-07 08:10:27.187374 I (53315143) wifi 
+2024-12-07 08:10:27.209766 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:10:27.210067 
+ 
+2024-12-07 08:10:42.229386 I (53330183) wifi 
+2024-12-07 08:10:42.250855 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:10:42.251067 
+ 
+2024-12-07 08:10:47.183939 [0;32mI (53335143) DETECTION: Target 1 entry point: (0.80, 1.80) | exit point: (0.70, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 08:10:47.209465 [0;32mI (53335153) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 08:10:55.804790 [0;32mI (53343763) DETECTION: Target 0 entry point: (2.00, 1.90) | exit point: (2.10, 1.90) | entered side: RIGHT | exited side: RIGHT[0m 
+2024-12-07 08:10:55.828277 [0;32mI (53343773) DETECTION: Target 0 gave up entering the room | id: 32![0m 
+2024-12-07 08:11:42.403111 I (53390353) wifi 
+2024-12-07 08:11:42.425906 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:11:42.426227 
+ 
+2024-12-07 08:11:57.445409 I (53405403) wifi 
+2024-12-07 08:11:57.467021 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:11:57.467267 
+ 
+2024-12-07 08:12:12.488414 I (53420443) wifi 
+2024-12-07 08:12:12.509946 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:12:12.510248 
+ 
+2024-12-07 08:12:27.531362 I (53435483) wifi 
+2024-12-07 08:12:27.553194 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:12:27.553635 
+ 
+2024-12-07 08:12:42.574361 I (53450533) wifi 
+2024-12-07 08:12:42.595896 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:12:42.596124 
+ 
+2024-12-07 08:12:57.617924 I (53465573) wifi 
+2024-12-07 08:12:57.646346 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:12:57.646654 
+ 
+2024-12-07 08:13:12.558235 I (53480513) wifi 
+2024-12-07 08:13:12.579532 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:13:12.579738 
+ 
+2024-12-07 08:13:27.601378 I (53495553) wifi 
+2024-12-07 08:13:27.622775 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:13:27.623105 
+ 
+2024-12-07 08:13:42.644421 I (53510603) wifi 
+2024-12-07 08:13:42.666080 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:13:42.666296 
+ 
+2024-12-07 08:13:57.687630 I (53525643) wifi 
+2024-12-07 08:13:57.709003 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:13:57.709253 
+ 
+2024-12-07 08:14:12.730405 I (53540683) wifi 
+2024-12-07 08:14:12.751713 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:14:12.752009 
+ 
+2024-12-07 08:14:27.773506 I (53555733) wifi 
+2024-12-07 08:14:27.795127 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:14:27.795329 
+ 
+2024-12-07 08:14:42.816935 I (53570773) wifi 
+2024-12-07 08:14:42.838225 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:14:42.838505 
+ 
+2024-12-07 08:14:57.859531 I (53585813) wifi 
+2024-12-07 08:14:57.881556 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:14:57.881768 
+ 
+2024-12-07 08:15:12.903011 I (53600853) wifi 
+2024-12-07 08:15:12.925544 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:15:12.925742 
+ 
+2024-12-07 08:15:27.945450 I (53615903) wifi 
+2024-12-07 08:15:27.969144 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:15:27.969545 
+ 
+2024-12-07 08:15:42.988406 I (53630943) wifi 
+2024-12-07 08:15:43.011434 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:15:43.011674 
+ 
+2024-12-07 08:16:13.074563 I (53661033) wifi 
+2024-12-07 08:16:13.095995 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:16:13.096330 
+ 
+2024-12-07 08:16:28.117468 I (53676073) wifi 
+2024-12-07 08:16:28.138658 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:16:28.138925 
+ 
+2024-12-07 08:16:38.056456 [0;32mI (53686013) DETECTION: Target 1 entry point: (-0.20, 2.00) | exit point: (-0.20, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 08:16:38.078514 [0;32mI (53686023) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 08:16:42.177396 [0;32mI (53690133) DETECTION: Target 1 entry point: (-0.20, 1.80) | exit point: (0.00, 0.00) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 08:16:42.198790 [0;32mI (53690143) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 08:17:13.248433 I (53721203) wifi 
+2024-12-07 08:17:13.270219 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:17:13.270433 
+ 
+2024-12-07 08:17:28.290608 I (53736243) wifi 
+2024-12-07 08:17:28.313474 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:17:28.313800 
+ 
+2024-12-07 08:17:43.332460 I (53751283) wifi 
+2024-12-07 08:17:43.353707 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:17:43.353972 
+ 
+2024-12-07 08:17:52.178142 [0;32mI (53760133) DETECTION: Target 0 entry point: (-0.50, 3.00) | exit point: (0.00, 1.40) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 08:17:52.200309 [0;32mI (53760143) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-12-07 08:17:54.428018 [0;32mI (53762383) DETECTION: Target 0 entry point: (0.10, 1.80) | exit point: (0.30, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 08:17:54.449417 [0;32mI (53762393) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-12-07 08:18:13.419321 I (53781373) wifi 
+2024-12-07 08:18:13.440573 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:18:13.440860 
+ 
+2024-12-07 08:18:28.465620 I (53796413) wifi 
+2024-12-07 08:18:28.489732 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:18:28.489939 
+ 
+2024-12-07 08:18:43.506142 I (53811463) wifi 
+2024-12-07 08:18:43.533431 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:18:43.533744 
+ 
+2024-12-07 08:19:13.647587 I (53841603) wifi 
+2024-12-07 08:19:13.669321 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:19:13.669540 
+ 
+2024-12-07 08:19:28.634059 I (53856583) wifi 
+2024-12-07 08:19:28.655530 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:19:28.655701 
+ 
+2024-12-07 08:19:43.678106 I (53871633) wifi 
+2024-12-07 08:19:43.699383 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:19:43.699680 
+ 
+2024-12-07 08:20:13.763085 I (53901713) wifi 
+2024-12-07 08:20:13.796246 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:20:13.801478 
+ 
+2024-12-07 08:20:20.303126 [0;32mI (53908263) DETECTION: Target 0 entry point: (-0.80, 3.00) | exit point: (-0.10, 1.70) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 08:20:20.324775 [0;32mI (53908263) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-12-07 08:21:13.935318 I (53961883) wifi 
+2024-12-07 08:21:13.958418 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:21:13.958752 
+ 
+2024-12-07 08:21:28.875838 I (53976833) wifi 
+2024-12-07 08:21:28.897454 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:21:28.897666 
+ 
+2024-12-07 08:21:43.918879 I (53991873) wifi 
+2024-12-07 08:21:43.940214 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:21:43.940505 
+ 
+2024-12-07 08:22:14.004849 I (54021953) wifi 
+2024-12-07 08:22:14.026402 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:22:14.026618 
+ 
+2024-12-07 08:22:29.049347 I (54037003) wifi 
+2024-12-07 08:22:29.070887 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:22:29.071104 
+ 
+2024-12-07 08:22:37.440130 [0;32mI (54045383) DETECTION: Target 0 entry point: (-0.20, 1.80) | exit point: (-1.00, 3.20) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 08:22:37.595877 [0;32mI (54045383) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-12-07 08:22:57.079386 [0;32mI (54065003) DETECTION: Target 0 entry point: (0.00, 3.00) | exit point: (0.00, 1.60) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 08:22:57.108880 [0;32mI (54065013) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-12-07 08:23:14.198847 I (54082133) wifi 
+2024-12-07 08:23:14.216220 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:23:14.216507 
+ 
+2024-12-07 08:23:29.220807 I (54097173) wifi 
+2024-12-07 08:23:29.275466 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:23:29.275679 
+ 
+2024-12-07 08:23:44.262833 I (54112213) wifi 
+2024-12-07 08:23:44.295375 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:23:44.295582 
+ 
+2024-12-07 08:24:14.349872 I (54142303) wifi 
+2024-12-07 08:24:14.376425 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:24:14.376644 
+ 
+2024-12-07 08:24:29.391812 I (54157343) wifi 
+2024-12-07 08:24:29.415390 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:24:29.415608 
+ 
+2024-12-07 08:24:44.435376 I (54172383) wifi 
+2024-12-07 08:24:44.458909 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:24:44.459161 
+ 
+2024-12-07 08:25:14.520353 I (54202473) wifi 
+2024-12-07 08:25:14.544713 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:25:14.545022 
+ 
+2024-12-07 08:25:29.564454 I (54217513) wifi 
+2024-12-07 08:25:29.591394 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:25:29.591673 
+ 
+2024-12-07 08:25:35.673375 [0;32mI (54223633) DETECTION: Target 0 entry point: (0.00, 1.80) | exit point: (0.20, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 08:25:35.697408 [0;32mI (54223633) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-12-07 08:25:49.422877 [0;32mI (54237383) DETECTION: Target 0 entry point: (1.50, 2.80) | exit point: (0.20, 1.70) | entered side: RIGHT | exited side: TOP[0m 
+2024-12-07 08:25:49.446625 [0;32mI (54237383) DETECTION: Target 0 entered the room | id: 30![0m 
+2024-12-07 08:26:03.175884 [0;32mI (54251133) DETECTION: Target 0 entry point: (0.00, 3.00) | exit point: (0.10, 1.70) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 08:26:03.199357 [0;32mI (54251133) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-12-07 08:26:05.300963 [0;32mI (54253253) DETECTION: Target 1 entry point: (-0.10, 3.00) | exit point: (0.30, 1.60) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 08:26:05.324575 [0;32mI (54253263) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-12-07 08:26:29.736332 I (54277683) wifi 
+2024-12-07 08:26:29.759890 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:26:29.760258 
+ 
+2024-12-07 08:26:44.779368 I (54292733) wifi 
+2024-12-07 08:26:44.805791 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:26:44.806114 
+ 
+2024-12-07 08:27:14.884357 I (54322813) wifi 
+2024-12-07 08:27:14.907775 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:27:14.908090 
+ 
+2024-12-07 08:27:29.908360 I (54337863) wifi 
+2024-12-07 08:27:29.935202 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:27:29.935505 
+ 
+2024-12-07 08:27:44.953299 I (54352903) wifi 
+2024-12-07 08:27:44.980983 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:27:44.981241 
+ 
+2024-12-07 08:28:15.037359 I (54382983) wifi 
+2024-12-07 08:28:15.064805 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:28:15.065125 
+ 
+2024-12-07 08:28:30.080399 I (54398033) wifi 
+2024-12-07 08:28:30.107313 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:28:30.107624 
+ 
+2024-12-07 08:28:45.123362 I (54413073) wifi 
+2024-12-07 08:28:45.146695 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:28:45.146977 
+ 
+2024-12-07 08:29:15.209400 I (54443163) wifi 
+2024-12-07 08:29:15.232714 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:29:15.233005 
+ 
+2024-12-07 08:29:30.252331 I (54458203) wifi 
+2024-12-07 08:29:30.278995 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:29:30.279229 
+ 
+2024-12-07 08:29:45.297485 I (54473243) wifi 
+2024-12-07 08:29:45.323742 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:29:45.323944 
+ 
+2024-12-07 08:30:15.278897 I (54503233) wifi 
+2024-12-07 08:30:15.303858 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:30:15.307275 
+ 
+2024-12-07 08:30:30.321928 I (54518273) wifi 
+2024-12-07 08:30:30.348767 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:30:30.349128 
+ 
+2024-12-07 08:30:45.366439 I (54533313) wifi 
+2024-12-07 08:30:45.405106 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:30:45.405352 
+ 
+2024-12-07 08:31:20.920180 [0;32mI (54568873) DETECTION: Target 0 entry point: (0.50, 2.90) | exit point: (0.10, 1.70) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 08:31:20.944822 [0;32mI (54568883) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-12-07 08:31:23.922423 [0;32mI (54571873) DETECTION: Target 1 entry point: (0.50, 2.80) | exit point: (0.20, 1.70) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 08:31:23.945793 [0;32mI (54571883) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-12-07 08:31:45.537441 I (54593483) wifi 
+2024-12-07 08:31:45.563998 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:31:45.564328 
+ 
+2024-12-07 08:32:15.623427 I (54623573) wifi 
+2024-12-07 08:32:15.649736 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:32:15.650018 
+ 
+2024-12-07 08:32:30.668459 I (54638613) wifi 
+2024-12-07 08:32:30.694533 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:32:30.694733 
+ 
+2024-12-07 08:32:45.709212 I (54653663) wifi 
+2024-12-07 08:32:45.735470 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:32:45.735748 
+ 
+2024-12-07 08:33:15.796970 I (54683743) wifi 
+2024-12-07 08:33:15.823004 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:33:15.823266 
+ 
+2024-12-07 08:33:30.840487 I (54698783) wifi 
+2024-12-07 08:33:30.866407 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:33:30.866736 
+ 
+2024-12-07 08:33:45.881504 I (54713833) wifi 
+2024-12-07 08:33:45.907862 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:33:45.908295 
+ 
+2024-12-07 08:34:15.967568 I (54743913) wifi 
+2024-12-07 08:34:15.993942 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:34:15.994286 
+ 
+2024-12-07 08:34:31.010595 I (54758963) wifi 
+2024-12-07 08:34:31.037083 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:34:31.037281 
+ 
+2024-12-07 08:34:46.054410 I (54774003) wifi 
+2024-12-07 08:34:46.080895 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:34:46.081103 
+ 
+2024-12-07 08:35:16.140022 I (54804093) wifi 
+2024-12-07 08:35:16.166167 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:35:16.166396 
+ 
+2024-12-07 08:35:31.184494 I (54819133) wifi 
+2024-12-07 08:35:31.210009 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:35:31.210251 
+ 
+2024-12-07 08:35:46.225719 I (54834173) wifi 
+2024-12-07 08:35:46.251810 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:35:46.251993 
+ 
+2024-12-07 08:36:16.311738 I (54864263) wifi 
+2024-12-07 08:36:16.339690 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:36:16.339962 
+ 
+2024-12-07 08:36:31.385210 I (54879333) wifi 
+2024-12-07 08:36:31.408775 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:36:31.408974 
+ 
+2024-12-07 08:36:46.397739 I (54894343) wifi 
+2024-12-07 08:36:46.423517 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:36:46.423790 
+ 
+2024-12-07 08:36:54.917229 [0;32mI (54902863) DETECTION: Target 0 entry point: (0.00, 1.90) | exit point: (-1.30, 4.90) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 08:36:54.940691 [0;32mI (54902873) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-12-07 08:36:58.416227 [0;32mI (54906373) DETECTION: Target 0 entry point: (-0.40, 3.00) | exit point: (-0.30, 1.70) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 08:36:58.439659 [0;32mI (54906373) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-12-07 08:37:16.483760 I (54924433) wifi 
+2024-12-07 08:37:16.509865 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:37:16.510097 
+ 
+2024-12-07 08:37:31.526775 I (54939473) wifi 
+2024-12-07 08:37:31.552610 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:37:31.552895 
+ 
+2024-12-07 08:37:46.570760 I (54954523) wifi 
+2024-12-07 08:37:46.595950 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:37:46.596193 
+ 
+2024-12-07 08:37:48.917260 [0;32mI (54956873) DETECTION: Target 0 entry point: (0.00, 2.20) | exit point: (0.30, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 08:37:48.944643 [0;32mI (54956873) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-12-07 08:37:50.918732 [0;32mI (54958873) DETECTION: Target 1 entry point: (0.30, 1.80) | exit point: (0.90, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 08:37:50.941971 [0;32mI (54958873) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-12-07 08:38:16.655726 I (54984603) wifi 
+2024-12-07 08:38:16.681925 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:38:16.682177 
+ 
+2024-12-07 08:38:31.603697 I (54999543) wifi 
+2024-12-07 08:38:31.631415 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:38:31.631676 
+ 
+2024-12-07 08:38:46.649177 I (55014593) wifi 
+2024-12-07 08:38:46.673466 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:38:46.673670 
+ 
+2024-12-07 08:39:01.682743 I (55029633) wifi 
+2024-12-07 08:39:01.708803 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:39:01.709004 
+ 
+2024-12-07 08:39:16.725728 I (55044673) wifi 
+2024-12-07 08:39:16.753580 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:39:16.753876 
+ 
+2024-12-07 08:39:31.768712 I (55059713) wifi 
+2024-12-07 08:39:31.794131 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:39:31.794436 
+ 
+2024-12-07 08:39:46.811731 I (55074763) wifi 
+2024-12-07 08:39:46.836937 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:39:46.837222 
+ 
+2024-12-07 08:40:01.854635 I (55089803) wifi 
+2024-12-07 08:40:01.881397 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:40:01.881607 
+ 
+2024-12-07 08:40:16.897713 I (55104843) wifi 
+2024-12-07 08:40:16.923301 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:40:16.923513 
+ 
+2024-12-07 08:40:31.941221 I (55119883) wifi 
+2024-12-07 08:40:31.968172 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:40:31.968405 
+ 
+2024-12-07 08:40:34.164374 [0;32mI (55122113) DETECTION: Target 0 entry point: (-0.30, 1.80) | exit point: (-0.60, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 08:40:34.187920 [0;32mI (55122123) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-12-07 08:41:02.026266 I (55149973) wifi 
+2024-12-07 08:41:02.052292 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:41:02.052507 
+ 
+2024-12-07 08:41:17.069755 I (55165013) wifi 
+2024-12-07 08:41:17.099728 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:41:17.099932 
+ 
+2024-12-07 08:41:32.112902 I (55180063) wifi 
+2024-12-07 08:41:32.138276 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:41:32.138481 
+ 
+2024-12-07 08:41:47.156351 I (55195103) wifi 
+2024-12-07 08:41:47.181778 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:41:47.181988 
+ 
+2024-12-07 08:42:02.198772 I (55210143) wifi 
+2024-12-07 08:42:02.224385 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:42:02.224583 
+ 
+2024-12-07 08:42:17.248244 I (55225193) wifi 
+2024-12-07 08:42:17.271954 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:42:17.272193 
+ 
+2024-12-07 08:42:32.288337 I (55240233) wifi 
+2024-12-07 08:42:32.311560 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:42:32.311825 
+ 
+2024-12-07 08:42:47.328326 I (55255273) wifi 
+2024-12-07 08:42:47.353287 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:42:47.353504 
+ 
+2024-12-07 08:43:02.371378 I (55270313) wifi 
+2024-12-07 08:43:02.398978 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:43:02.399226 
+ 
+2024-12-07 08:43:17.415770 I (55285363) wifi 
+2024-12-07 08:43:17.441288 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:43:17.441493 
+ 
+2024-12-07 08:43:32.457843 I (55300403) wifi 
+2024-12-07 08:43:32.483899 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:43:32.484141 
+ 
+2024-12-07 08:43:47.499774 I (55315443) wifi 
+2024-12-07 08:43:47.525428 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:43:47.525732 
+ 
+2024-12-07 08:44:02.544129 I (55330493) wifi 
+2024-12-07 08:44:02.569952 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:44:02.570193 
+ 
+2024-12-07 08:44:17.585781 I (55345533) wifi 
+2024-12-07 08:44:17.613949 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:44:17.614183 
+ 
+2024-12-07 08:44:32.629065 I (55360573) wifi 
+2024-12-07 08:44:32.654460 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:44:32.654625 
+ 
+2024-12-07 08:44:47.672378 I (55375613) wifi 
+2024-12-07 08:44:47.698479 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:44:47.698677 
+ 
+2024-12-07 08:45:02.716248 I (55390663) wifi 
+2024-12-07 08:45:02.741270 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:45:02.741461 
+ 
+2024-12-07 08:45:17.758386 I (55405703) wifi 
+2024-12-07 08:45:17.785806 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:45:17.786184 
+ 
+2024-12-07 08:45:32.801350 I (55420743) wifi 
+2024-12-07 08:45:32.828385 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:45:32.828564 
+ 
+2024-12-07 08:45:47.844296 I (55435793) wifi 
+2024-12-07 08:45:47.869849 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:45:47.870188 
+ 
+2024-12-07 08:46:02.887299 I (55450833) wifi 
+2024-12-07 08:46:02.913911 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:46:02.914141 
+ 
+2024-12-07 08:46:17.930291 I (55465873) wifi 
+2024-12-07 08:46:17.958609 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:46:17.958811 
+ 
+2024-12-07 08:46:32.973405 I (55480923) wifi 
+2024-12-07 08:46:33.000018 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:46:33.000257 
+ 
+2024-12-07 08:46:48.016375 I (55495963) wifi 
+2024-12-07 08:46:48.042798 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:46:48.042997 
+ 
+2024-12-07 08:47:02.957422 I (55510903) wifi 
+2024-12-07 08:47:02.983539 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:47:02.983747 
+ 
+2024-12-07 08:47:18.000593 I (55525943) wifi 
+2024-12-07 08:47:18.026660 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:47:18.026852 
+ 
+2024-12-07 08:47:33.045806 I (55540993) wifi 
+2024-12-07 08:47:33.076763 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:47:33.076960 
+ 
+2024-12-07 08:47:48.085862 I (55556033) wifi 
+2024-12-07 08:47:48.111471 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:47:48.111680 
+ 
+2024-12-07 08:48:03.164907 I (55571113) wifi 
+2024-12-07 08:48:03.188604 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:48:03.188810 
+ 
+2024-12-07 08:48:18.172875 I (55586113) wifi 
+2024-12-07 08:48:18.198944 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:48:18.199185 
+ 
+2024-12-07 08:48:33.214848 I (55601163) wifi 
+2024-12-07 08:48:33.240558 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:48:33.240732 
+ 
+2024-12-07 08:48:48.260277 I (55616203) wifi 
+2024-12-07 08:48:48.286000 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:48:48.286247 
+ 
+2024-12-07 08:49:03.301341 I (55631243) wifi 
+2024-12-07 08:49:03.329093 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:49:03.329283 
+ 
+2024-12-07 08:49:18.344400 I (55646293) wifi 
+2024-12-07 08:49:18.384090 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:49:18.384313 
+ 
+2024-12-07 08:49:33.387449 I (55661333) wifi 
+2024-12-07 08:49:33.413946 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:49:33.414218 
+ 
+2024-12-07 08:49:48.431434 I (55676373) wifi 
+2024-12-07 08:49:48.456346 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:49:48.456620 
+ 
+2024-12-07 08:50:03.473427 I (55691413) wifi 
+2024-12-07 08:50:03.500904 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:50:03.501146 
+ 
+2024-12-07 08:50:18.516394 I (55706463) wifi 
+2024-12-07 08:50:18.543615 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:50:18.543890 
+ 
+2024-12-07 08:50:33.559507 I (55721503) wifi 
+2024-12-07 08:50:33.586497 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:50:33.586723 
+ 
+2024-12-07 08:50:48.602613 I (55736543) wifi 
+2024-12-07 08:50:48.628411 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:50:48.628678 
+ 
+2024-12-07 08:51:03.644107 I (55751593) wifi 
+2024-12-07 08:51:03.670279 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:51:03.670527 
+ 
+2024-12-07 08:51:18.688194 I (55766633) wifi 
+2024-12-07 08:51:18.714688 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:51:18.714892 
+ 
+2024-12-07 08:51:33.731583 I (55781673) wifi 
+2024-12-07 08:51:33.757618 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:51:33.757920 
+ 
+2024-12-07 08:51:48.774332 I (55796723) wifi 
+2024-12-07 08:51:48.800643 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:51:48.801262 
+ 
+2024-12-07 08:52:03.817648 I (55811763) wifi 
+2024-12-07 08:52:03.847011 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:52:03.847336 
+ 
+2024-12-07 08:52:18.860708 I (55826803) wifi 
+2024-12-07 08:52:18.886837 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:52:18.887071 
+ 
+2024-12-07 08:52:33.906167 I (55841843) wifi 
+2024-12-07 08:52:33.929433 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:52:33.929755 
+ 
+2024-12-07 08:52:48.946684 I (55856893) wifi 
+2024-12-07 08:52:48.971404 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:52:48.971621 
+ 
+2024-12-07 08:53:03.989716 I (55871933) wifi 
+2024-12-07 08:53:04.014065 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:53:04.014369 
+ 
+2024-12-07 08:53:19.035206 I (55886973) wifi 
+2024-12-07 08:53:19.061814 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:53:19.062061 
+ 
+2024-12-07 08:53:34.075724 I (55902023) wifi 
+2024-12-07 08:53:34.100326 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:53:34.100533 
+ 
+2024-12-07 08:53:49.120670 I (55917063) wifi 
+2024-12-07 08:53:49.144463 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:53:49.144726 
+ 
+2024-12-07 08:54:04.161732 I (55932103) wifi 
+2024-12-07 08:54:04.186332 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:54:04.186532 
+ 
+2024-12-07 08:54:19.204692 I (55947143) wifi 
+2024-12-07 08:54:19.229062 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:54:19.229331 
+ 
+2024-12-07 08:54:34.247728 I (55962193) wifi 
+2024-12-07 08:54:34.276884 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:54:34.277124 
+ 
+2024-12-07 08:54:49.290712 I (55977233) wifi 
+2024-12-07 08:54:49.314810 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:54:49.315007 
+ 
+2024-12-07 08:55:04.333689 I (55992273) wifi 
+2024-12-07 08:55:04.358425 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:55:04.358637 
+ 
+2024-12-07 08:55:19.376687 I (56007323) wifi 
+2024-12-07 08:55:19.400728 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:55:19.400917 
+ 
+2024-12-07 08:55:34.318797 I (56022263) wifi 
+2024-12-07 08:55:34.343212 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:55:34.343422 
+ 
+2024-12-07 08:55:49.360710 I (56037303) wifi 
+2024-12-07 08:55:49.386302 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:55:49.386518 
+ 
+2024-12-07 08:56:04.405186 I (56052343) wifi 
+2024-12-07 08:56:04.429704 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:56:04.430000 
+ 
+2024-12-07 08:56:19.448741 I (56067393) wifi 
+2024-12-07 08:56:19.472531 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:56:19.472828 
+ 
+2024-12-07 08:56:34.489233 I (56082433) wifi 
+2024-12-07 08:56:34.514511 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:56:34.514793 
+ 
+2024-12-07 08:56:49.533724 I (56097473) wifi 
+2024-12-07 08:56:49.559361 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:56:49.559578 
+ 
+2024-12-07 08:57:04.575752 I (56112523) wifi 
+2024-12-07 08:57:04.599728 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:57:04.599915 
+ 
+2024-12-07 08:57:19.618881 I (56127563) wifi 
+2024-12-07 08:57:19.642739 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:57:19.643006 
+ 
+2024-12-07 08:57:34.663296 I (56142603) wifi 
+2024-12-07 08:57:34.687271 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:57:34.687476 
+ 
+2024-12-07 08:57:49.704732 I (56157643) wifi 
+2024-12-07 08:57:49.730306 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:57:49.730531 
+ 
+2024-12-07 08:58:04.747686 I (56172693) wifi 
+2024-12-07 08:58:04.773391 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:58:04.773595 
+ 
+2024-12-07 08:58:34.833731 I (56202773) wifi 
+2024-12-07 08:58:34.860794 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:58:34.860992 
+ 
+2024-12-07 08:58:49.877265 I (56217823) wifi 
+2024-12-07 08:58:49.908350 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:58:49.908568 
+ 
+2024-12-07 08:59:04.919986 I (56232863) wifi 
+2024-12-07 08:59:04.945449 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:59:04.945744 
+ 
+2024-12-07 08:59:35.005750 I (56262943) wifi 
+2024-12-07 08:59:35.031134 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:59:35.031570 
+ 
+2024-12-07 08:59:50.048744 I (56277993) wifi 
+2024-12-07 08:59:50.082340 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 08:59:50.082571 
+ 
+2024-12-07 09:00:05.092290 I (56293033) wifi 
+2024-12-07 09:00:05.156679 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:00:05.156990 
+ 
+2024-12-07 09:00:35.177763 I (56323123) wifi 
+2024-12-07 09:00:35.204303 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:00:35.204525 
+ 
+2024-12-07 09:00:50.220728 I (56338163) wifi 
+2024-12-07 09:00:50.246606 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:00:50.246877 
+ 
+2024-12-07 09:01:05.263967 I (56353203) wifi 
+2024-12-07 09:01:05.289775 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:01:05.290076 
+ 
+2024-12-07 09:01:35.352847 I (56383293) wifi 
+2024-12-07 09:01:35.377014 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:01:35.377253 
+ 
+2024-12-07 09:01:50.393425 I (56398333) wifi 
+2024-12-07 09:01:50.418844 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:01:50.419077 
+ 
+2024-12-07 09:02:05.436218 I (56413373) wifi 
+2024-12-07 09:02:05.461308 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:02:05.461500 
+ 
+2024-12-07 09:02:35.522266 I (56443463) wifi 
+2024-12-07 09:02:35.547141 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:02:35.547426 
+ 
+2024-12-07 09:02:50.565323 I (56458503) wifi 
+2024-12-07 09:02:50.590422 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:02:50.590768 
+ 
+2024-12-07 09:03:05.608275 I (56473553) wifi 
+2024-12-07 09:03:05.633323 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:03:05.633521 
+ 
+2024-12-07 09:03:35.694307 I (56503633) wifi 
+2024-12-07 09:03:35.719481 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:03:35.719691 
+ 
+2024-12-07 09:03:50.737359 I (56518673) wifi 
+2024-12-07 09:03:50.762531 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:03:50.762729 
+ 
+2024-12-07 09:04:05.679782 I (56533623) wifi 
+2024-12-07 09:04:05.703528 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:04:05.703758 
+ 
+2024-12-07 09:04:35.763949 I (56563703) wifi 
+2024-12-07 09:04:35.789971 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:04:35.790216 
+ 
+2024-12-07 09:04:50.807390 I (56578743) wifi 
+2024-12-07 09:04:50.831982 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:04:50.832199 
+ 
+2024-12-07 09:05:05.849848 I (56593793) wifi 
+2024-12-07 09:05:05.886919 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:05:05.887173 
+ 
+2024-12-07 09:05:35.940294 I (56623873) wifi 
+2024-12-07 09:05:35.963926 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:05:35.964359 
+ 
+2024-12-07 09:05:50.979701 I (56638923) wifi 
+2024-12-07 09:05:51.003780 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:05:51.003982 
+ 
+2024-12-07 09:06:06.029637 I (56653963) wifi 
+2024-12-07 09:06:06.053165 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:06:06.053349 
+ 
+2024-12-07 09:06:36.108165 I (56684053) wifi 
+2024-12-07 09:06:36.133142 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:06:36.133316 
+ 
+2024-12-07 09:06:51.153142 I (56699093) wifi 
+2024-12-07 09:06:51.182137 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:06:51.182343 
+ 
+2024-12-07 09:07:06.194222 I (56714133) wifi 
+2024-12-07 09:07:06.219286 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:07:06.219503 
+ 
+2024-12-07 09:07:36.280185 I (56744223) wifi 
+2024-12-07 09:07:36.305026 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:07:36.305564 
+ 
+2024-12-07 09:07:51.323594 I (56759263) wifi 
+2024-12-07 09:07:51.347940 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:07:51.348248 
+ 
+2024-12-07 09:08:06.366680 I (56774303) wifi 
+2024-12-07 09:08:06.390979 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:08:06.391304 
+ 
+2024-12-07 09:08:36.452616 I (56804393) wifi 
+2024-12-07 09:08:36.485629 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:08:36.485923 
+ 
+2024-12-07 09:08:51.495194 I (56819433) wifi 
+2024-12-07 09:08:51.520526 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:08:51.520815 
+ 
+2024-12-07 09:09:06.539091 I (56834483) wifi 
+2024-12-07 09:09:06.562976 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:09:06.563284 
+ 
+2024-12-07 09:09:36.624135 I (56864563) wifi 
+2024-12-07 09:09:36.649370 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:09:36.649583 
+ 
+2024-12-07 09:09:51.667733 I (56879603) wifi 
+2024-12-07 09:09:51.692218 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:09:51.692425 
+ 
+2024-12-07 09:10:06.721117 I (56894663) wifi 
+2024-12-07 09:10:06.748720 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:10:06.748915 
+ 
+2024-12-07 09:10:36.796731 I (56924733) wifi 
+2024-12-07 09:10:36.821260 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:10:36.821465 
+ 
+2024-12-07 09:10:51.839482 I (56939783) wifi 
+2024-12-07 09:10:51.864134 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:10:51.864335 
+ 
+2024-12-07 09:11:06.883157 I (56954823) wifi 
+2024-12-07 09:11:06.907327 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:11:06.907545 
+ 
+2024-12-07 09:11:36.973810 I (56984903) wifi 
+2024-12-07 09:11:37.019481 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:11:37.019688 
+ 
+2024-12-07 09:11:52.013137 I (56999953) wifi 
+2024-12-07 09:11:52.039061 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:11:52.039352 
+ 
+2024-12-07 09:12:07.054637 I (57014993) wifi 
+2024-12-07 09:12:07.079330 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:12:07.079554 
+ 
+2024-12-07 09:12:37.038661 I (57044973) wifi 
+2024-12-07 09:12:37.062707 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:12:37.063022 
+ 
+2024-12-07 09:12:52.081649 I (57060023) wifi 
+2024-12-07 09:12:52.105689 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:12:52.105998 
+ 
+2024-12-07 09:13:07.124847 I (57075063) wifi 
+2024-12-07 09:13:07.150113 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:13:07.150380 
+ 
+2024-12-07 09:13:37.210379 I (57105153) wifi 
+2024-12-07 09:13:37.236001 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:13:37.236316 
+ 
+2024-12-07 09:13:52.253659 I (57120193) wifi 
+2024-12-07 09:13:52.277562 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:13:52.277884 
+ 
+2024-12-07 09:14:07.296820 I (57135233) wifi 
+2024-12-07 09:14:07.338789 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:14:07.338981 
+ 
+2024-12-07 09:14:37.382209 I (57165323) wifi 
+2024-12-07 09:14:37.406710 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:14:37.406901 
+ 
+2024-12-07 09:14:52.425688 I (57180363) wifi 
+2024-12-07 09:14:52.449597 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:14:52.449876 
+ 
+2024-12-07 09:15:07.468695 I (57195403) wifi 
+2024-12-07 09:15:07.492756 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:15:07.492964 
+ 
+2024-12-07 09:15:37.553763 I (57225493) wifi 
+2024-12-07 09:15:37.578818 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:15:37.579004 
+ 
+2024-12-07 09:15:52.597723 I (57240533) wifi 
+2024-12-07 09:15:52.623749 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:15:52.623932 
+ 
+2024-12-07 09:16:07.642661 I (57255583) wifi 
+2024-12-07 09:16:07.666294 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:16:07.666520 
+ 
+2024-12-07 09:16:37.726690 I (57285663) wifi 
+2024-12-07 09:16:37.750516 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:16:37.750788 
+ 
+2024-12-07 09:16:52.771754 I (57300713) wifi 
+2024-12-07 09:16:52.796371 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:16:52.796590 
+ 
+2024-12-07 09:17:07.812690 I (57315753) wifi 
+2024-12-07 09:17:07.836514 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:17:07.836793 
+ 
+2024-12-07 09:17:37.898858 I (57345833) wifi 
+2024-12-07 09:17:37.922853 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:17:37.923126 
+ 
+2024-12-07 09:17:52.954683 I (57360893) wifi 
+2024-12-07 09:17:52.981879 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:17:52.982113 
+ 
+2024-12-07 09:18:07.984778 I (57375923) wifi 
+2024-12-07 09:18:08.008947 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:18:08.009182 
+ 
+2024-12-07 09:18:53.114241 I (57421053) wifi 
+2024-12-07 09:18:53.138546 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:18:53.138796 
+ 
+2024-12-07 09:19:08.156682 I (57436093) wifi 
+2024-12-07 09:19:08.182283 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:19:08.182510 
+ 
+2024-12-07 09:19:38.243451 I (57466183) wifi 
+2024-12-07 09:19:38.267890 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:19:38.268133 
+ 
+2024-12-07 09:19:53.292745 I (57481223) wifi 
+2024-12-07 09:19:53.316358 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:19:53.316577 
+ 
+2024-12-07 09:20:10.018265 [0;32mI (57497963) DETECTION: Target 0 entry point: (0.30, 1.80) | exit point: (-0.30, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 09:20:10.043569 [0;32mI (57497963) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-12-07 09:20:17.267278 [0;32mI (57505213) DETECTION: Target 1 entry point: (0.60, 2.10) | exit point: (0.00, 0.00) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 09:20:17.290826 [0;32mI (57505213) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 09:20:17.641219 [0;32mI (57505583) DETECTION: Target 0 entry point: (0.80, 2.80) | exit point: (0.80, 3.10) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 09:20:17.667744 [0;32mI (57505583) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-12-07 09:20:27.896760 [0;32mI (57515833) DETECTION: Target 1 entry point: (-0.30, 1.80) | exit point: (-0.50, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 09:20:27.920238 [0;32mI (57515843) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-12-07 09:20:41.771939 [0;32mI (57529713) DETECTION: Target 1 entry point: (-0.20, 2.50) | exit point: (-0.20, 1.60) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 09:20:41.795514 [0;32mI (57529713) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-12-07 09:20:45.396065 [0;32mI (57533333) DETECTION: Target 1 entry point: (-0.20, 1.80) | exit point: (0.20, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 09:20:45.419340 [0;32mI (57533343) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-12-07 09:21:08.399479 I (57556333) wifi 
+2024-12-07 09:21:08.422782 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:21:08.423094 
+ 
+2024-12-07 09:21:23.442061 I (57571373) wifi 
+2024-12-07 09:21:23.465380 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:21:23.465682 
+ 
+2024-12-07 09:21:38.485021 I (57586423) wifi 
+2024-12-07 09:21:38.509018 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:21:38.509247 
+ 
+2024-12-07 09:21:55.392015 [0;32mI (57603333) DETECTION: Target 0 entry point: (0.30, 3.00) | exit point: (0.30, 1.70) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 09:21:55.415893 [0;32mI (57603333) DETECTION: Target 0 entered the room | id: 10![0m 
+2024-12-07 09:22:23.613544 I (57631553) wifi 
+2024-12-07 09:22:23.637519 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:22:23.637700 
+ 
+2024-12-07 09:22:38.657018 I (57646593) wifi 
+2024-12-07 09:22:38.680623 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:22:38.680821 
+ 
+2024-12-07 09:22:53.699549 I (57661633) wifi 
+2024-12-07 09:22:53.724574 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:22:53.724766 
+ 
+2024-12-07 09:23:08.742952 I (57676683) wifi 
+2024-12-07 09:23:08.766655 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:23:08.766852 
+ 
+2024-12-07 09:23:23.787674 I (57691723) wifi 
+2024-12-07 09:23:23.811150 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:23:23.811347 
+ 
+2024-12-07 09:23:38.873555 I (57706803) wifi 
+2024-12-07 09:23:38.897668 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:23:38.897871 
+ 
+2024-12-07 09:24:54.043961 I (57781983) wifi 
+2024-12-07 09:24:54.067760 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:24:54.067964 
+ 
+2024-12-07 09:25:09.086982 I (57797023) wifi 
+2024-12-07 09:25:09.110630 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:25:09.110842 
+ 
+2024-12-07 09:25:24.129733 I (57812063) wifi 
+2024-12-07 09:25:24.153270 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:25:24.153487 
+ 
+2024-12-07 09:25:39.174083 I (57827113) wifi 
+2024-12-07 09:25:39.198326 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:25:39.198540 
+ 
+2024-12-07 09:26:09.259096 I (57857193) wifi 
+2024-12-07 09:26:09.283105 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:26:09.283304 
+ 
+2024-12-07 09:26:24.304466 I (57872243) wifi 
+2024-12-07 09:26:24.327880 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:26:24.328195 
+ 
+2024-12-07 09:26:39.344999 I (57887283) wifi 
+2024-12-07 09:26:39.368662 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 09:26:39.368863 
+ 
+2024-12-07 09:53:48.003132 [0;32mI (59515933) DETECTION: Target 1 entry point: (-0.60, 3.00) | exit point: (-0.20, 1.70) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 09:53:48.024775 [0;32mI (59515933) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-12-07 09:54:03.997117 [0;32mI (59531923) DETECTION: Target 1 entry point: (0.70, 1.80) | exit point: (0.00, 0.00) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 09:54:04.018628 [0;32mI (59531933) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 09:56:14.125605 [0;32mI (59662053) DETECTION: Target 1 entry point: (0.20, 1.80) | exit point: (-0.20, 3.20) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 09:56:14.147081 [0;32mI (59662063) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-12-07 10:11:58.616496 [0;32mI (60606543) DETECTION: Target 1 entry point: (-0.20, 1.80) | exit point: (-0.10, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 10:11:58.639905 [0;32mI (60606543) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-12-07 10:28:49.611121 [0;32mI (61617523) DETECTION: Target 1 entry point: (-0.10, 2.20) | exit point: (0.00, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 10:28:49.629616 [0;32mI (61617533) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 10:32:52.732773 [0;32mI (61860653) DETECTION: Target 2 entry point: (0.00, 1.90) | exit point: (0.50, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 10:32:52.755684 [0;32mI (61860653) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-12-07 10:33:19.970819 I (61887883) wifi 
+2024-12-07 10:33:19.994412 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 10:33:19.994604 
+ 
+2024-12-07 10:33:35.013741 I (61902923) wifi 
+2024-12-07 10:33:35.036893 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 10:33:35.037128 
+ 
+2024-12-07 10:33:50.056738 I (61917973) wifi 
+2024-12-07 10:33:50.080920 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 10:33:50.081177 
+ 
+2024-12-07 10:34:05.101242 I (61933013) wifi 
+2024-12-07 10:34:05.124296 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 10:34:05.124509 
+ 
+2024-12-07 10:34:20.142787 I (61948053) wifi 
+2024-12-07 10:34:20.165880 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 10:34:20.166115 
+ 
+2024-12-07 10:34:35.185766 I (61963103) wifi 
+2024-12-07 10:34:35.208915 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 10:34:35.209193 
+ 
+2024-12-07 10:34:50.228765 I (61978143) wifi 
+2024-12-07 10:34:50.251810 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 10:34:50.251987 
+ 
+2024-12-07 10:35:05.272019 I (61993183) wifi 
+2024-12-07 10:35:05.294781 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 10:35:05.295474 
+ 
+2024-12-07 10:35:20.314796 I (62008223) wifi 
+2024-12-07 10:35:20.338349 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 10:35:20.338555 
+ 
+2024-12-07 10:35:35.365705 I (62023273) wifi 
+2024-12-07 10:35:35.390440 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 10:35:35.390642 
+ 
+2024-12-07 10:35:50.400503 I (62038313) wifi 
+2024-12-07 10:35:50.423339 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 10:35:50.423632 
+ 
+2024-12-07 10:44:42.981192 [0;32mI (62570893) DETECTION: Target 2 entry point: (1.00, 1.80) | exit point: (0.30, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 10:44:43.002159 [0;32mI (62570893) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-12-07 10:44:50.225357 [0;32mI (62578143) DETECTION: Target 1 entry point: (0.70, 1.90) | exit point: (0.40, 3.50) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 10:44:50.246654 [0;32mI (62578143) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-12-07 10:46:58.732363 [0;32mI (62706633) DETECTION: Target 1 entry point: (-1.60, 3.00) | exit point: (-0.70, 1.70) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 10:46:58.749966 [0;32mI (62706643) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-12-07 10:48:32.471724 [0;32mI (62800383) DETECTION: Target 1 entry point: (-0.20, 1.80) | exit point: (-0.40, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 10:48:32.495806 [0;32mI (62800393) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-12-07 10:55:34.591895 [0;32mI (63222503) DETECTION: Target 1 entry point: (0.60, 1.80) | exit point: (2.10, 2.20) | entered side: TOP | exited side: RIGHT[0m 
+2024-12-07 10:55:34.612832 [0;32mI (63222503) DETECTION: Target 1 entered the room | id: 03![0m 
+2024-12-07 11:02:46.870015 [0;32mI (63654373) DETECTION: Target 1 entry point: (1.80, 2.70) | exit point: (0.00, 0.00) | entered side: RIGHT | exited side: TOP[0m 
+2024-12-07 11:02:46.870241 [0;32mI (63654373) DETECTION: Target 1 entered the room | id: 30![0m 
+2024-12-07 11:02:49.713430 [0;32mI (63657623) DETECTION: Target 1 entry point: (-0.60, 1.80) | exit point: (-0.30, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:02:49.734726 [0;32mI (63657623) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:03:26.834268 [0;32mI (63694743) DETECTION: Target 1 entry point: (-0.40, 1.80) | exit point: (0.00, 0.00) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:03:26.855578 [0;32mI (63694743) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:05:08.084374 [0;32mI (63795993) DETECTION: Target 1 entry point: (1.80, 1.90) | exit point: (2.50, 2.30) | entered side: RIGHT | exited side: RIGHT[0m 
+2024-12-07 11:05:08.105271 [0;32mI (63795993) DETECTION: Target 1 gave up entering the room | id: 32![0m 
+2024-12-07 11:05:19.338092 [0;32mI (63807243) DETECTION: Target 1 entry point: (2.00, 2.20) | exit point: (2.10, 2.10) | entered side: RIGHT | exited side: RIGHT[0m 
+2024-12-07 11:05:19.360968 [0;32mI (63807253) DETECTION: Target 1 gave up entering the room | id: 32![0m 
+2024-12-07 11:05:58.583217 [0;32mI (63846493) DETECTION: Target 1 entry point: (1.80, 2.30) | exit point: (0.00, 0.00) | entered side: RIGHT | exited side: TOP[0m 
+2024-12-07 11:05:58.604210 [0;32mI (63846493) DETECTION: Target 1 entered the room | id: 30![0m 
+2024-12-07 11:10:10.995566 [0;32mI (64098863) DETECTION: Target 1 entry point: (-0.80, 3.00) | exit point: (-0.10, 1.70) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 11:10:11.050504 [0;32mI (64098873) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-12-07 11:12:52.336923 [0;32mI (64260243) DETECTION: Target 2 entry point: (0.30, 1.90) | exit point: (0.30, 1.60) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:12:52.369341 [0;32mI (64260243) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-12-07 11:12:52.711275 [0;32mI (64260613) DETECTION: Target 1 entry point: (0.60, 2.60) | exit point: (0.30, 1.60) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 11:12:52.734232 [0;32mI (64260623) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-12-07 11:15:52.208345 [0;32mI (64440113) DETECTION: Target 1 entry point: (0.00, 1.90) | exit point: (0.00, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:15:52.237736 [0;32mI (64440113) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:15:54.333793 [0;32mI (64442233) DETECTION: Target 1 entry point: (-0.20, 1.80) | exit point: (-0.20, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:15:54.354501 [0;32mI (64442243) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:16:26.335357 [0;32mI (64474243) DETECTION: Target 1 entry point: (-0.20, 1.80) | exit point: (-0.40, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:16:26.356298 [0;32mI (64474243) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:16:27.083345 [0;32mI (64474983) DETECTION: Target 1 entry point: (-0.40, 1.80) | exit point: (-0.40, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:16:27.108325 [0;32mI (64474993) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:16:39.582720 [0;32mI (64487483) DETECTION: Target 1 entry point: (-0.50, 2.00) | exit point: (-0.30, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:16:39.657133 [0;32mI (64487493) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:16:39.869197 [0;32mI (64487733) DETECTION: Target 1 entry point: (-0.30, 1.80) | exit point: (-0.40, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:16:39.891550 [0;32mI (64487743) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:17:47.456847 [0;32mI (64555363) DETECTION: Target 1 entry point: (-0.50, 1.80) | exit point: (-0.70, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:17:47.483478 [0;32mI (64555363) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:17:48.582564 [0;32mI (64556483) DETECTION: Target 1 entry point: (-0.40, 1.80) | exit point: (-0.40, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:17:48.617740 [0;32mI (64556493) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:19:23.084363 [0;32mI (64650983) DETECTION: Target 2 entry point: (0.60, 2.60) | exit point: (0.70, 3.10) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 11:19:23.105333 [0;32mI (64650993) DETECTION: Target 2 gave up entering the room | id: 11![0m 
+2024-12-07 11:19:32.708809 [0;32mI (64660613) DETECTION: Target 1 entry point: (-0.40, 1.90) | exit point: (1.40, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 11:19:32.729636 [0;32mI (64660613) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-12-07 11:19:52.077527 [0;32mI (64679983) DETECTION: Target 1 entry point: (2.00, 3.00) | exit point: (1.80, 3.10) | entered side: RIGHT | exited side: BOTTOM[0m 
+2024-12-07 11:19:52.098931 [0;32mI (64679983) DETECTION: Target 1 gave up entering the room | id: 31![0m 
+2024-12-07 11:19:54.953760 [0;32mI (64682853) DETECTION: Target 1 entry point: (1.70, 3.00) | exit point: (1.30, 3.50) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 11:19:54.974887 [0;32mI (64682863) DETECTION: Target 1 gave up entering the room | id: 11![0m 
+2024-12-07 11:23:45.076238 [0;32mI (64912973) DETECTION: Target 1 entry point: (1.40, 3.00) | exit point: (1.20, 3.30) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 11:23:45.107199 [0;32mI (64912983) DETECTION: Target 1 gave up entering the room | id: 11![0m 
+2024-12-07 11:36:33.071151 [0;32mI (65680973) DETECTION: Target 2 entry point: (1.60, 3.00) | exit point: (0.00, 0.00) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 11:36:33.092306 [0;32mI (65680973) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-12-07 11:36:57.697098 [0;32mI (65705593) DETECTION: Target 2 entry point: (0.00, 2.40) | exit point: (-0.10, 3.10) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 11:36:57.718450 [0;32mI (65705603) DETECTION: Target 2 gave up entering the room | id: 11![0m 
+2024-12-07 11:37:24.448220 [0;32mI (65732343) DETECTION: Target 2 entry point: (-0.10, 1.80) | exit point: (-0.20, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 11:37:24.469190 [0;32mI (65732353) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-12-07 11:37:34.333769 [0;32mI (65742223) DETECTION: Target 2 entry point: (-0.10, 3.00) | exit point: (-0.10, 1.70) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 11:37:34.356532 [0;32mI (65742223) DETECTION: Target 2 entered the room | id: 10![0m 
+2024-12-07 11:37:37.446177 [0;32mI (65745343) DETECTION: Target 3 entry point: (1.00, 2.70) | exit point: (0.00, 0.00) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 11:37:37.467313 [0;32mI (65745343) DETECTION: Target 3 entered the room | id: 10![0m 
+2024-12-07 11:37:37.695175 [0;32mI (65745593) DETECTION: Target 1 entry point: (-0.60, 2.40) | exit point: (2.30, 3.30) | entered side: LEFT | exited side: BOTTOM[0m 
+2024-12-07 11:37:37.716672 [0;32mI (65745593) DETECTION: Target 1 exited the room | id: 20![0m 
+2024-12-07 11:37:38.445733 [0;32mI (65746343) DETECTION: Target 0 entry point: (1.60, 2.80) | exit point: (1.60, 3.10) | entered side: RIGHT | exited side: BOTTOM[0m 
+2024-12-07 11:37:38.467193 [0;32mI (65746343) DETECTION: Target 0 gave up entering the room | id: 31![0m 
+2024-12-07 11:37:39.070247 [0;32mI (65746963) DETECTION: Target 0 entry point: (1.80, 3.00) | exit point: (2.10, 2.90) | entered side: BOTTOM | exited side: RIGHT[0m 
+2024-12-07 11:37:39.091350 [0;32mI (65746973) DETECTION: Target 0 gave up entering the room | id: 12![0m 
+2024-12-07 11:37:39.321207 [0;32mI (65747213) DETECTION: Target 0 entry point: (2.00, 3.00) | exit point: (2.10, 2.90) | entered side: RIGHT | exited side: RIGHT[0m 
+2024-12-07 11:37:39.342160 [0;32mI (65747223) DETECTION: Target 0 gave up entering the room | id: 32![0m 
+2024-12-07 11:37:40.071424 [0;32mI (65747973) DETECTION: Target 2 entry point: (-0.20, 1.90) | exit point: (-0.40, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:37:40.092429 [0;32mI (65747973) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-12-07 11:37:41.945206 [0;32mI (65749843) DETECTION: Target 2 entry point: (-0.20, 2.00) | exit point: (0.00, 0.00) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:37:42.035759 [0;32mI (65749843) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-12-07 11:37:42.693688 [0;32mI (65750593) DETECTION: Target 1 entry point: (0.10, 2.50) | exit point: (2.50, 3.30) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 11:37:42.714799 [0;32mI (65750593) DETECTION: Target 1 gave up entering the room | id: 11![0m 
+2024-12-07 11:37:45.443607 [0;32mI (65753343) DETECTION: Target 0 entry point: (0.40, 2.70) | exit point: (2.10, 2.40) | entered side: BOTTOM | exited side: RIGHT[0m 
+2024-12-07 11:37:45.470167 [0;32mI (65753343) DETECTION: Target 0 gave up entering the room | id: 12![0m 
+2024-12-07 11:37:52.441921 [0;32mI (65760343) DETECTION: Target 0 entry point: (1.40, 2.50) | exit point: (0.20, 3.10) | entered side: RIGHT | exited side: BOTTOM[0m 
+2024-12-07 11:37:52.465672 [0;32mI (65760343) DETECTION: Target 0 gave up entering the room | id: 31![0m 
+2024-12-07 11:37:55.315175 [0;32mI (65763213) DETECTION: Target 0 entry point: (1.10, 2.70) | exit point: (0.10, 1.30) | entered side: RIGHT | exited side: TOP[0m 
+2024-12-07 11:37:55.335944 [0;32mI (65763213) DETECTION: Target 0 entered the room | id: 30![0m 
+2024-12-07 11:38:13.065739 [0;32mI (65780963) DETECTION: Target 0 entry point: (0.60, 1.90) | exit point: (0.50, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:38:13.088767 [0;32mI (65780963) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 11:39:46.447173 [0;32mI (65874343) DETECTION: Target 2 entry point: (0.50, 1.80) | exit point: (0.40, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:39:46.468379 [0;32mI (65874343) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-12-07 11:39:46.947616 [0;32mI (65874843) DETECTION: Target 2 entry point: (0.10, 1.80) | exit point: (0.10, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:39:46.969098 [0;32mI (65874853) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-12-07 11:39:48.698216 [0;32mI (65876593) DETECTION: Target 2 entry point: (-0.10, 1.90) | exit point: (0.00, 1.60) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:39:48.719049 [0;32mI (65876603) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-12-07 11:39:53.445149 [0;32mI (65881343) DETECTION: Target 1 entry point: (1.80, 3.00) | exit point: (2.10, 2.60) | entered side: BOTTOM | exited side: RIGHT[0m 
+2024-12-07 11:39:53.466249 [0;32mI (65881343) DETECTION: Target 1 gave up entering the room | id: 12![0m 
+2024-12-07 11:39:55.821690 [0;32mI (65883713) DETECTION: Target 0 entry point: (0.80, 1.80) | exit point: (0.00, 3.30) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 11:39:55.842470 [0;32mI (65883723) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-12-07 11:40:30.682667 I (65918573) wifi 
+2024-12-07 11:40:30.703459 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:40:30.703742 
+ 
+2024-12-07 11:41:00.768250 I (65948663) wifi 
+2024-12-07 11:41:00.789693 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:41:00.789898 
+ 
+2024-12-07 11:41:30.854177 I (65978743) wifi 
+2024-12-07 11:41:30.875385 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:41:30.875598 
+ 
+2024-12-07 11:42:00.942209 I (66008833) wifi 
+2024-12-07 11:42:00.963203 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:42:00.963477 
+ 
+2024-12-07 11:42:31.026119 I (66038913) wifi 
+2024-12-07 11:42:31.047163 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:42:31.047338 
+ 
+2024-12-07 11:43:01.112285 I (66069003) wifi 
+2024-12-07 11:43:01.133629 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:43:01.133921 
+ 
+2024-12-07 11:43:31.213275 I (66099103) wifi 
+2024-12-07 11:43:31.234549 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:43:31.234821 
+ 
+2024-12-07 11:44:01.284229 I (66129173) wifi 
+2024-12-07 11:44:01.306860 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:44:01.307165 
+ 
+2024-12-07 11:44:31.370325 I (66159263) wifi 
+2024-12-07 11:44:31.391211 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:44:31.391535 
+ 
+2024-12-07 11:44:45.812774 [0;32mI (66173703) DETECTION: Target 0 entry point: (1.80, 2.80) | exit point: (0.70, 1.70) | entered side: RIGHT | exited side: TOP[0m 
+2024-12-07 11:44:45.833699 [0;32mI (66173713) DETECTION: Target 0 entered the room | id: 30![0m 
+2024-12-07 11:45:01.456762 I (66189343) wifi 
+2024-12-07 11:45:01.478699 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:45:01.478902 
+ 
+2024-12-07 11:45:31.439707 I (66219333) wifi 
+2024-12-07 11:45:31.460836 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:45:31.461067 
+ 
+2024-12-07 11:46:01.527207 I (66249413) wifi 
+2024-12-07 11:46:01.549978 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:46:01.550266 
+ 
+2024-12-07 11:46:31.624183 I (66279513) wifi 
+2024-12-07 11:46:31.645024 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:46:31.645321 
+ 
+2024-12-07 11:47:01.698258 I (66309583) wifi 
+2024-12-07 11:47:01.719703 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:47:01.719976 
+ 
+2024-12-07 11:47:31.784271 I (66339673) wifi 
+2024-12-07 11:47:31.805855 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:47:31.806087 
+ 
+2024-12-07 11:48:01.872316 I (66369763) wifi 
+2024-12-07 11:48:01.901794 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:48:01.901993 
+ 
+2024-12-07 11:48:31.957346 I (66399843) wifi 
+2024-12-07 11:48:31.978840 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:48:31.979090 
+ 
+2024-12-07 11:49:02.042745 I (66429933) wifi 
+2024-12-07 11:49:02.064510 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:49:02.064719 
+ 
+2024-12-07 11:49:32.128242 I (66460013) wifi 
+2024-12-07 11:49:32.152356 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:49:32.152570 
+ 
+2024-12-07 11:50:02.214320 I (66490103) wifi 
+2024-12-07 11:50:02.235136 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:50:02.235424 
+ 
+2024-12-07 11:50:32.300781 I (66520193) wifi 
+2024-12-07 11:50:32.322375 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:50:32.322602 
+ 
+2024-12-07 11:51:02.386486 I (66550273) wifi 
+2024-12-07 11:51:02.407985 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:51:02.408205 
+ 
+2024-12-07 11:51:32.472825 I (66580363) wifi 
+2024-12-07 11:51:32.495511 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:51:32.495717 
+ 
+2024-12-07 11:52:02.560519 I (66610453) wifi 
+2024-12-07 11:52:02.582012 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:52:02.582245 
+ 
+2024-12-07 11:52:32.644425 I (66640533) wifi 
+2024-12-07 11:52:32.665556 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:52:32.665868 
+ 
+2024-12-07 11:53:32.714477 I (66700603) wifi 
+2024-12-07 11:53:32.735301 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:53:32.735594 
+ 
+2024-12-07 11:54:32.886534 I (66760773) wifi 
+2024-12-07 11:54:32.907648 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:54:32.907847 
+ 
+2024-12-07 11:55:31.929227 [0;32mI (66819823) DETECTION: Target 0 entry point: (-1.90, 3.00) | exit point: (-2.10, 2.70) | entered side: BOTTOM | exited side: LEFT[0m 
+2024-12-07 11:55:31.953591 [0;32mI (66819823) DETECTION: Target 0 gave up entering the room | id: 12![0m 
+2024-12-07 11:55:51.434015 [0;32mI (66839323) DETECTION: Target 1 entry point: (-1.40, 1.90) | exit point: (0.00, 0.00) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:55:51.455169 [0;32mI (66839323) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:56:11.807307 [0;32mI (66859693) DETECTION: Target 0 entry point: (-0.50, 1.80) | exit point: (-0.50, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:56:11.830235 [0;32mI (66859703) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 11:56:14.430021 [0;32mI (66862323) DETECTION: Target 0 entry point: (-0.50, 1.80) | exit point: (-0.50, 1.50) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:56:14.450782 [0;32mI (66862323) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 11:56:35.180481 [0;32mI (66883073) DETECTION: Target 0 entry point: (-0.40, 1.80) | exit point: (-0.60, 1.60) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:56:35.206656 [0;32mI (66883073) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 11:56:43.179550 [0;32mI (66891073) DETECTION: Target 0 entry point: (-0.50, 1.80) | exit point: (-0.40, 1.60) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:56:43.200437 [0;32mI (66891073) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 11:57:33.057599 [0;32mI (66940953) DETECTION: Target 1 entry point: (-0.50, 1.80) | exit point: (-0.50, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:57:33.078596 [0;32mI (66940953) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:57:38.556543 [0;32mI (66946443) DETECTION: Target 0 entry point: (-0.40, 1.80) | exit point: (-0.60, 1.60) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:57:38.578152 [0;32mI (66946453) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 11:57:39.181645 [0;32mI (66947073) DETECTION: Target 1 entry point: (-0.60, 1.80) | exit point: (-0.80, 1.50) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:57:39.202807 [0;32mI (66947073) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:57:48.307522 [0;32mI (66956193) DETECTION: Target 1 entry point: (-0.80, 1.80) | exit point: (-0.70, 1.60) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:57:48.328814 [0;32mI (66956203) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:57:50.057109 [0;32mI (66957953) DETECTION: Target 1 entry point: (-0.80, 1.80) | exit point: (-0.70, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:57:50.085384 [0;32mI (66957953) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:57:53.182183 [0;32mI (66961073) DETECTION: Target 1 entry point: (-0.70, 1.80) | exit point: (-0.70, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:57:53.203110 [0;32mI (66961083) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:57:56.431502 [0;32mI (66964323) DETECTION: Target 1 entry point: (-0.60, 1.80) | exit point: (-0.60, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:57:56.453009 [0;32mI (66964323) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:58:12.558119 [0;32mI (66980443) DETECTION: Target 1 entry point: (-0.50, 1.80) | exit point: (-1.70, 1.20) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:58:12.795263 [0;32mI (66980453) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 11:58:32.182554 [0;32mI (67000073) DETECTION: Target 0 entry point: (-0.60, 1.80) | exit point: (-0.60, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 11:58:32.203616 [0;32mI (67000083) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 11:59:33.747102 I (67061633) wifi 
+2024-12-07 11:59:33.768061 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 11:59:33.768346 
+ 
+2024-12-07 12:00:33.921446 I (67121803) wifi 
+2024-12-07 12:00:33.940685 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:00:33.940952 
+ 
+2024-12-07 12:01:34.091144 I (67181973) wifi 
+2024-12-07 12:01:34.112513 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:01:34.112850 
+ 
+2024-12-07 12:02:34.160728 I (67242043) wifi 
+2024-12-07 12:02:34.182222 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:02:34.182576 
+ 
+2024-12-07 12:03:34.333176 I (67302223) wifi 
+2024-12-07 12:03:34.354739 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:03:34.354914 
+ 
+2024-12-07 12:04:34.505174 I (67362393) wifi 
+2024-12-07 12:04:34.526562 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:04:34.526841 
+ 
+2024-12-07 12:05:34.679352 I (67422563) wifi 
+2024-12-07 12:05:34.700659 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:05:34.700979 
+ 
+2024-12-07 12:06:34.851874 I (67482733) wifi 
+2024-12-07 12:06:34.870602 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:06:34.870803 
+ 
+2024-12-07 12:07:35.021492 I (67542903) wifi 
+2024-12-07 12:07:35.045006 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:07:35.045330 
+ 
+2024-12-07 12:08:35.193539 I (67603073) wifi 
+2024-12-07 12:08:35.215151 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:08:35.215349 
+ 
+2024-12-07 12:09:35.365497 I (67663253) wifi 
+2024-12-07 12:09:35.388977 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:09:35.389236 
+ 
+2024-12-07 12:10:35.435856 I (67723323) wifi 
+2024-12-07 12:10:35.457730 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:10:35.457942 
+ 
+2024-12-07 12:11:05.533527 I (67753413) wifi 
+2024-12-07 12:11:05.557995 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:11:05.558352 
+ 
+2024-12-07 12:11:35.607531 I (67783493) wifi 
+2024-12-07 12:11:35.628818 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:11:35.629121 
+ 
+2024-12-07 12:12:05.696283 I (67813573) wifi 
+2024-12-07 12:12:05.714906 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:12:05.715258 
+ 
+2024-12-07 12:12:35.780370 I (67843663) wifi 
+2024-12-07 12:12:35.802888 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:12:35.803204 
+ 
+2024-12-07 12:13:05.865075 I (67873753) wifi 
+2024-12-07 12:13:05.886876 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:13:05.887116 
+ 
+2024-12-07 12:13:35.952107 I (67903833) wifi 
+2024-12-07 12:13:35.973757 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:13:35.973963 
+ 
+2024-12-07 12:14:06.039087 I (67933923) wifi 
+2024-12-07 12:14:06.060738 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:14:06.060942 
+ 
+2024-12-07 12:14:36.124090 I (67964003) wifi 
+2024-12-07 12:14:36.145317 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:14:36.145609 
+ 
+2024-12-07 12:15:06.209855 I (67994093) wifi 
+2024-12-07 12:15:06.242957 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:15:06.243181 
+ 
+2024-12-07 12:15:36.297114 I (68024183) wifi 
+2024-12-07 12:15:36.318623 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:15:36.318817 
+ 
+2024-12-07 12:16:06.382131 I (68054263) wifi 
+2024-12-07 12:16:06.407957 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:16:06.408271 
+ 
+2024-12-07 12:16:36.470312 I (68084353) wifi 
+2024-12-07 12:16:36.489662 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:16:36.489857 
+ 
+2024-12-07 12:17:36.641091 I (68144523) wifi 
+2024-12-07 12:17:36.664323 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:17:36.664548 
+ 
+2024-12-07 12:18:06.726149 I (68174603) wifi 
+2024-12-07 12:18:06.747543 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:18:06.747834 
+ 
+2024-12-07 12:18:36.812136 I (68204693) wifi 
+2024-12-07 12:18:36.837358 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:18:36.837737 
+ 
+2024-12-07 12:19:06.795587 I (68234673) wifi 
+2024-12-07 12:19:06.816984 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:19:06.817300 
+ 
+2024-12-07 12:19:36.925615 I (68264793) wifi 
+2024-12-07 12:19:36.946842 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:19:36.947144 
+ 
+2024-12-07 12:20:06.972096 I (68294853) wifi 
+2024-12-07 12:20:06.990674 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:20:06.990894 
+ 
+2024-12-07 12:20:37.053652 I (68324933) wifi 
+2024-12-07 12:20:37.075353 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:20:37.075581 
+ 
+2024-12-07 12:21:07.139899 I (68355023) wifi 
+2024-12-07 12:21:07.162171 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:21:07.162401 
+ 
+2024-12-07 12:21:37.225888 I (68385103) wifi 
+2024-12-07 12:21:37.247349 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:21:37.247579 
+ 
+2024-12-07 12:22:07.312905 I (68415193) wifi 
+2024-12-07 12:22:07.334490 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:22:07.334670 
+ 
+2024-12-07 12:22:37.397875 I (68445283) wifi 
+2024-12-07 12:22:37.419259 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:22:37.419590 
+ 
+2024-12-07 12:23:07.483966 I (68475363) wifi 
+2024-12-07 12:23:07.506067 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:23:07.506266 
+ 
+2024-12-07 12:23:37.570933 I (68505453) wifi 
+2024-12-07 12:23:37.604092 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:23:37.604292 
+ 
+2024-12-07 12:24:07.656347 I (68535533) wifi 
+2024-12-07 12:24:07.678567 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:24:07.678774 
+ 
+2024-12-07 12:24:37.743834 I (68565623) wifi 
+2024-12-07 12:24:37.766082 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:24:37.766310 
+ 
+2024-12-07 12:25:07.829441 I (68595713) wifi 
+2024-12-07 12:25:07.851263 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:25:07.851564 
+ 
+2024-12-07 12:25:37.915889 I (68625793) wifi 
+2024-12-07 12:25:37.940441 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:25:37.940629 
+ 
+2024-12-07 12:26:08.002845 I (68655883) wifi 
+2024-12-07 12:26:08.024660 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:26:08.024976 
+ 
+2024-12-07 12:26:38.087068 I (68685963) wifi 
+2024-12-07 12:26:38.115075 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:26:38.115354 
+ 
+2024-12-07 12:27:08.173913 I (68716053) wifi 
+2024-12-07 12:27:08.196001 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:27:08.196251 
+ 
+2024-12-07 12:27:38.156989 I (68746033) wifi 
+2024-12-07 12:27:38.181604 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:27:38.181802 
+ 
+2024-12-07 12:28:08.242439 I (68776123) wifi 
+2024-12-07 12:28:08.264527 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:28:08.265330 
+ 
+2024-12-07 12:28:38.328490 I (68806203) wifi 
+2024-12-07 12:28:38.350135 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:28:38.350422 
+ 
+2024-12-07 12:29:08.415333 I (68836293) wifi 
+2024-12-07 12:29:08.437230 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:29:08.437504 
+ 
+2024-12-07 12:29:38.500693 I (68866383) wifi 
+2024-12-07 12:29:38.522756 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:29:38.522952 
+ 
+2024-12-07 12:30:08.586980 I (68896463) wifi 
+2024-12-07 12:30:08.609541 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:30:08.609749 
+ 
+2024-12-07 12:30:47.661540 [0;32mI (68935543) DETECTION: Target 0 entry point: (-0.60, 2.00) | exit point: (-0.80, 1.40) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 12:30:47.687182 [0;32mI (68935553) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 12:30:58.534917 [0;32mI (68946413) DETECTION: Target 0 entry point: (0.50, 1.80) | exit point: (0.80, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 12:30:58.556908 [0;32mI (68946423) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 12:31:01.785076 [0;32mI (68949663) DETECTION: Target 0 entry point: (0.80, 1.80) | exit point: (2.10, 2.70) | entered side: TOP | exited side: RIGHT[0m 
+2024-12-07 12:31:01.807988 [0;32mI (68949673) DETECTION: Target 0 entered the room | id: 03![0m 
+2024-12-07 12:31:08.663120 [0;32mI (68956543) DETECTION: Target 0 entry point: (2.00, 2.50) | exit point: (0.80, 1.70) | entered side: RIGHT | exited side: TOP[0m 
+2024-12-07 12:31:08.685046 [0;32mI (68956543) DETECTION: Target 0 entered the room | id: 30![0m 
+2024-12-07 12:31:10.790714 [0;32mI (68958673) DETECTION: Target 0 entry point: (0.60, 1.90) | exit point: (0.50, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 12:31:10.813939 [0;32mI (68958673) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 12:31:36.910161 [0;32mI (68984793) DETECTION: Target 0 entry point: (0.70, 1.80) | exit point: (2.10, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 12:31:36.931912 [0;32mI (68984793) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-12-07 12:31:44.665167 [0;32mI (68992543) DETECTION: Target 1 entry point: (0.80, 1.80) | exit point: (2.10, 2.30) | entered side: TOP | exited side: RIGHT[0m 
+2024-12-07 12:31:44.687608 [0;32mI (68992553) DETECTION: Target 1 entered the room | id: 03![0m 
+2024-12-07 12:32:05.040507 [0;32mI (69012923) DETECTION: Target 0 entry point: (1.90, 2.90) | exit point: (0.50, 1.70) | entered side: RIGHT | exited side: TOP[0m 
+2024-12-07 12:32:05.064888 [0;32mI (69012923) DETECTION: Target 0 entered the room | id: 30![0m 
+2024-12-07 12:32:06.663748 [0;32mI (69014543) DETECTION: Target 1 entry point: (1.80, 2.60) | exit point: (0.60, 1.70) | entered side: RIGHT | exited side: TOP[0m 
+2024-12-07 12:32:06.687817 [0;32mI (69014553) DETECTION: Target 1 entered the room | id: 30![0m 
+2024-12-07 12:32:35.538105 [0;32mI (69043423) DETECTION: Target 0 entry point: (-0.50, 1.80) | exit point: (-0.60, 1.30) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 12:32:35.559941 [0;32mI (69043423) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 12:32:47.913552 [0;32mI (69055793) DETECTION: Target 1 entry point: (0.30, 1.80) | exit point: (-1.70, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 12:32:47.935049 [0;32mI (69055803) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-12-07 12:32:49.412592 [0;32mI (69057293) DETECTION: Target 1 entry point: (-1.90, 2.90) | exit point: (-2.10, 2.60) | entered side: LEFT | exited side: LEFT[0m 
+2024-12-07 12:32:49.433950 [0;32mI (69057303) DETECTION: Target 1 gave up entering the room | id: 22![0m 
+2024-12-07 12:32:51.412590 [0;32mI (69059293) DETECTION: Target 1 entry point: (-2.00, 2.90) | exit point: (-1.70, 3.10) | entered side: LEFT | exited side: BOTTOM[0m 
+2024-12-07 12:32:51.434077 [0;32mI (69059303) DETECTION: Target 1 exited the room | id: 20![0m 
+2024-12-07 12:32:58.663254 [0;32mI (69066543) DETECTION: Target 1 entry point: (-1.80, 3.00) | exit point: (-0.30, 3.10) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 12:32:58.684749 [0;32mI (69066553) DETECTION: Target 1 gave up entering the room | id: 11![0m 
+2024-12-07 12:33:05.163644 [0;32mI (69073043) DETECTION: Target 1 entry point: (0.00, 3.00) | exit point: (-0.10, 3.40) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 12:33:05.185253 [0;32mI (69073053) DETECTION: Target 1 gave up entering the room | id: 11![0m 
+2024-12-07 12:33:09.537082 [0;32mI (69077423) DETECTION: Target 1 entry point: (-0.30, 3.00) | exit point: (-0.20, 3.40) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 12:33:09.559268 [0;32mI (69077423) DETECTION: Target 1 gave up entering the room | id: 11![0m 
+2024-12-07 12:33:42.163104 [0;32mI (69110043) DETECTION: Target 1 entry point: (-0.10, 3.00) | exit point: (-2.10, 2.20) | entered side: BOTTOM | exited side: LEFT[0m 
+2024-12-07 12:33:42.185139 [0;32mI (69110053) DETECTION: Target 1 gave up entering the room | id: 12![0m 
+2024-12-07 12:33:45.166200 [0;32mI (69113043) DETECTION: Target 1 entry point: (-2.00, 2.50) | exit point: (-2.20, 2.10) | entered side: LEFT | exited side: LEFT[0m 
+2024-12-07 12:33:45.188174 [0;32mI (69113053) DETECTION: Target 1 gave up entering the room | id: 22![0m 
+2024-12-07 12:33:49.166291 [0;32mI (69117043) DETECTION: Target 2 entry point: (0.20, 1.80) | exit point: (0.30, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 12:33:49.188146 [0;32mI (69117053) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-12-07 12:33:51.677102 [0;32mI (69119543) DETECTION: Target 1 entry point: (-1.70, 2.70) | exit point: (-0.90, 3.10) | entered side: LEFT | exited side: BOTTOM[0m 
+2024-12-07 12:33:51.703051 [0;32mI (69119553) DETECTION: Target 1 exited the room | id: 20![0m 
+2024-12-07 12:33:52.412506 [0;32mI (69120293) DETECTION: Target 0 entry point: (-1.70, 1.90) | exit point: (0.60, 1.10) | entered side: LEFT | exited side: TOP[0m 
+2024-12-07 12:33:52.434457 [0;32mI (69120303) DETECTION: Target 0 exited the room | id: 21![0m 
+2024-12-07 12:33:55.033715 [0;32mI (69122913) DETECTION: Target 1 entry point: (-1.50, 2.90) | exit point: (0.00, 0.00) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 12:33:55.058809 [0;32mI (69122923) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-12-07 12:34:29.657706 [0;32mI (69157543) DETECTION: Target 0 entry point: (-1.80, 2.60) | exit point: (-2.10, 1.90) | entered side: LEFT | exited side: LEFT[0m 
+2024-12-07 12:34:29.681378 [0;32mI (69157543) DETECTION: Target 0 gave up entering the room | id: 22![0m 
+2024-12-07 12:34:39.540552 [0;32mI (69167423) DETECTION: Target 1 entry point: (0.00, 2.00) | exit point: (0.10, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 12:34:39.562607 [0;32mI (69167423) DETECTION: Target 1 exited the room | id: 00![0m 
+2024-12-07 12:34:41.666077 [0;32mI (69169543) DETECTION: Target 2 entry point: (0.30, 1.80) | exit point: (0.70, 3.10) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 12:34:41.688168 [0;32mI (69169553) DETECTION: Target 2 exited the room | id: 00![0m 
+2024-12-07 12:34:50.658098 [0;32mI (69178543) DETECTION: Target 0 entry point: (-2.00, 2.20) | exit point: (-2.00, 1.70) | entered side: LEFT | exited side: TOP[0m 
+2024-12-07 12:34:50.694017 [0;32mI (69178543) DETECTION: Target 0 exited the room | id: 21![0m 
+2024-12-07 12:34:55.157844 [0;32mI (69183043) DETECTION: Target 0 entry point: (-1.80, 2.20) | exit point: (-1.90, 1.70) | entered side: LEFT | exited side: TOP[0m 
+2024-12-07 12:34:55.180202 [0;32mI (69183043) DETECTION: Target 0 exited the room | id: 21![0m 
+2024-12-07 12:34:57.657865 [0;32mI (69185543) DETECTION: Target 0 entry point: (-1.90, 1.80) | exit point: (-2.10, 2.70) | entered side: TOP | exited side: LEFT[0m 
+2024-12-07 12:34:57.679996 [0;32mI (69185543) DETECTION: Target 0 entered the room | id: 02![0m 
+2024-12-07 12:35:07.661140 [0;32mI (69195543) DETECTION: Target 1 entry point: (-0.90, 1.80) | exit point: (-0.80, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 12:35:07.685167 [0;32mI (69195543) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 12:35:17.916134 [0;32mI (69205793) DETECTION: Target 2 entry point: (1.50, 2.90) | exit point: (1.60, 3.10) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 12:35:17.937921 [0;32mI (69205803) DETECTION: Target 2 gave up entering the room | id: 11![0m 
+2024-12-07 12:35:18.290578 [0;32mI (69206173) DETECTION: Target 2 entry point: (1.80, 3.00) | exit point: (2.20, 3.00) | entered side: BOTTOM | exited side: RIGHT[0m 
+2024-12-07 12:35:18.312515 [0;32mI (69206173) DETECTION: Target 2 gave up entering the room | id: 12![0m 
+2024-12-07 12:35:20.540286 [0;32mI (69208423) DETECTION: Target 0 entry point: (-1.70, 2.80) | exit point: (-1.40, 3.10) | entered side: LEFT | exited side: BOTTOM[0m 
+2024-12-07 12:35:20.562254 [0;32mI (69208423) DETECTION: Target 0 exited the room | id: 20![0m 
+2024-12-07 12:35:26.407525 [0;32mI (69214293) DETECTION: Target 1 entry point: (-0.80, 1.80) | exit point: (0.00, 0.00) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 12:35:26.431444 [0;32mI (69214293) DETECTION: Target 1 gave up exiting the room | id: 01![0m 
+2024-12-07 12:35:38.282162 [0;32mI (69226163) DETECTION: Target 1 entry point: (-1.40, 3.00) | exit point: (0.00, 0.00) | entered side: BOTTOM | exited side: TOP[0m 
+2024-12-07 12:35:38.304126 [0;32mI (69226163) DETECTION: Target 1 entered the room | id: 10![0m 
+2024-12-07 12:35:38.407120 [0;32mI (69226293) DETECTION: Target 0 entry point: (-0.70, 3.00) | exit point: (-0.70, 3.10) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 12:35:38.429007 [0;32mI (69226293) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-12-07 12:35:46.282335 [0;32mI (69234163) DETECTION: Target 0 entry point: (-0.80, 3.00) | exit point: (1.10, 3.10) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 12:35:46.304370 [0;32mI (69234173) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-12-07 12:36:16.284863 [0;32mI (69264163) DETECTION: Target 0 entry point: (1.60, 2.90) | exit point: (2.20, 2.60) | entered side: BOTTOM | exited side: RIGHT[0m 
+2024-12-07 12:36:16.308344 [0;32mI (69264173) DETECTION: Target 0 gave up entering the room | id: 12![0m 
+2024-12-07 12:36:24.656912 [0;32mI (69272533) DETECTION: Target 1 entry point: (1.10, 2.40) | exit point: (0.00, 0.00) | entered side: RIGHT | exited side: TOP[0m 
+2024-12-07 12:36:24.680798 [0;32mI (69272543) DETECTION: Target 1 entered the room | id: 30![0m 
+2024-12-07 12:36:30.032391 [0;32mI (69277913) DETECTION: Target 0 entry point: (1.10, 2.60) | exit point: (1.10, 3.10) | entered side: RIGHT | exited side: BOTTOM[0m 
+2024-12-07 12:36:30.054161 [0;32mI (69277913) DETECTION: Target 0 gave up entering the room | id: 31![0m 
+2024-12-07 12:37:09.688940 I (69317563) wifi 
+2024-12-07 12:37:09.710841 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:37:09.711233 
+ 
+2024-12-07 12:37:39.774890 I (69347653) wifi 
+2024-12-07 12:37:39.796752 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:37:39.797084 
+ 
+2024-12-07 12:38:09.863918 I (69377733) wifi 
+2024-12-07 12:38:09.885997 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:38:09.886236 
+ 
+2024-12-07 12:38:39.947378 I (69407823) wifi 
+2024-12-07 12:38:39.970096 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:38:39.970317 
+ 
+2024-12-07 12:39:10.034327 I (69437913) wifi 
+2024-12-07 12:39:10.056193 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:39:10.056486 
+ 
+2024-12-07 12:39:40.119462 I (69467993) wifi 
+2024-12-07 12:39:40.141322 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:39:40.141526 
+ 
+2024-12-07 12:40:10.205461 I (69498083) wifi 
+2024-12-07 12:40:10.229429 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:40:10.229628 
+ 
+2024-12-07 12:41:01.281548 [0;32mI (69549153) DETECTION: Target 0 entry point: (0.10, 2.90) | exit point: (-0.10, 3.10) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 12:41:01.303820 [0;32mI (69549163) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-12-07 12:41:01.907425 [0;32mI (69549783) DETECTION: Target 0 entry point: (0.30, 2.90) | exit point: (0.40, 3.10) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-07 12:41:01.929233 [0;32mI (69549793) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-12-07 12:41:40.463498 I (69588343) wifi 
+2024-12-07 12:41:40.486592 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:41:40.486791 
+ 
+2024-12-07 12:42:10.555393 I (69618423) wifi 
+2024-12-07 12:42:10.581488 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:42:10.581792 
+ 
+2024-12-07 12:42:40.635414 I (69648513) wifi 
+2024-12-07 12:42:40.657576 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:42:40.657859 
+ 
+2024-12-07 12:43:10.722957 I (69678593) wifi 
+2024-12-07 12:43:10.744827 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:43:10.745157 
+ 
+2024-12-07 12:43:40.807438 I (69708683) wifi 
+2024-12-07 12:43:40.832964 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:43:40.833184 
+ 
+2024-12-07 12:44:10.893350 I (69738763) wifi 
+2024-12-07 12:44:10.915598 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:44:10.915806 
+ 
+2024-12-07 12:44:40.877582 I (69768753) wifi 
+2024-12-07 12:44:40.900115 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:44:40.900312 
+ 
+2024-12-07 12:45:10.963515 I (69798833) wifi 
+2024-12-07 12:45:10.985591 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:45:10.985787 
+ 
+2024-12-07 12:45:41.049447 I (69828923) wifi 
+2024-12-07 12:45:41.071645 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:45:41.071849 
+ 
+2024-12-07 12:46:11.141552 I (69859013) wifi 
+2024-12-07 12:46:11.163746 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:46:11.163953 
+ 
+2024-12-07 12:46:41.221610 I (69889093) wifi 
+2024-12-07 12:46:41.244465 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:46:41.244628 
+ 
+2024-12-07 12:47:11.307526 I (69919183) wifi 
+2024-12-07 12:47:11.329480 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:47:11.329662 
+ 
+2024-12-07 12:47:41.393567 I (69949263) wifi 
+2024-12-07 12:47:41.479619 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:47:41.479821 
+ 
+2024-12-07 12:48:11.479549 I (69979353) wifi 
+2024-12-07 12:48:11.501662 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:48:11.501867 
+ 
+2024-12-07 12:48:41.565568 I (70009443) wifi 
+2024-12-07 12:48:41.589153 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:48:41.589353 
+ 
+2024-12-07 12:48:59.649537 [0;32mI (70027523) DETECTION: Target 0 entry point: (-0.20, 1.80) | exit point: (2.20, 2.90) | entered side: TOP | exited side: RIGHT[0m 
+2024-12-07 12:48:59.674127 [0;32mI (70027533) DETECTION: Target 0 entered the room | id: 03![0m 
+2024-12-07 12:49:11.652988 I (70039523) wifi 
+2024-12-07 12:49:11.676180 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:49:11.676384 
+ 
+2024-12-07 12:49:33.776153 [0;32mI (70061653) DETECTION: Target 0 entry point: (0.20, 1.80) | exit point: (-0.10, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 12:49:33.798257 [0;32mI (70061653) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 12:49:36.150078 [0;32mI (70064023) DETECTION: Target 0 entry point: (-0.60, 1.80) | exit point: (-0.50, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 12:49:36.172024 [0;32mI (70064033) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 12:49:36.399073 [0;32mI (70064273) DETECTION: Target 0 entry point: (-0.60, 1.80) | exit point: (-0.60, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 12:49:36.422829 [0;32mI (70064283) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 12:49:39.399781 [0;32mI (70067273) DETECTION: Target 0 entry point: (-0.60, 1.80) | exit point: (-0.80, 1.70) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 12:49:39.420903 [0;32mI (70067283) DETECTION: Target 0 gave up exiting the room | id: 01![0m 
+2024-12-07 12:50:41.909690 I (70129783) wifi 
+2024-12-07 12:50:41.932617 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:50:41.932908 
+ 
+2024-12-07 12:51:11.996273 I (70159873) wifi 
+2024-12-07 12:51:12.019848 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:51:12.020084 
+ 
+2024-12-07 12:51:42.087836 I (70189953) wifi 
+2024-12-07 12:51:42.111728 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:51:42.111996 
+ 
+2024-12-07 12:52:12.167890 I (70220043) wifi 
+2024-12-07 12:52:12.189890 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:52:12.190110 
+ 
+2024-12-07 12:52:39.792131 [0;32mI (70247653) DETECTION: Target 0 entry point: (0.00, 2.10) | exit point: (-0.90, 4.60) | entered side: TOP | exited side: BOTTOM[0m 
+2024-12-07 12:52:39.792335 [0;32mI (70247653) DETECTION: Target 0 exited the room | id: 00![0m 
+2024-12-07 12:53:12.238415 I (70280113) wifi 
+2024-12-07 12:53:12.260889 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:53:12.261250 
+ 
+2024-12-07 12:53:42.323880 I (70310193) wifi 
+2024-12-07 12:53:42.345684 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:53:42.346020 
+ 
+2024-12-07 12:54:12.410356 I (70340283) wifi 
+2024-12-07 12:54:12.431634 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:54:12.431927 
+ 
+2024-12-07 12:54:42.495941 I (70370363) wifi 
+2024-12-07 12:54:42.518547 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:54:42.518743 
+ 
+2024-12-07 12:55:12.582015 I (70400453) wifi 
+2024-12-07 12:55:12.603632 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:55:12.603831 
+ 
+2024-12-07 12:55:42.667916 I (70430543) wifi 
+2024-12-07 12:55:42.689478 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:55:42.689680 
+ 
+2024-12-07 12:56:12.755425 I (70460623) wifi 
+2024-12-07 12:56:12.777058 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:56:12.777263 
+ 
+2024-12-07 12:56:42.840442 I (70490713) wifi 
+2024-12-07 12:56:42.861829 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:56:42.863297 
+ 
+2024-12-07 12:57:12.926398 I (70520793) wifi 
+2024-12-07 12:57:12.947811 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:57:12.948135 
+ 
+2024-12-07 12:57:43.012523 I (70550883) wifi 
+2024-12-07 12:57:43.033994 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:57:43.034222 
+ 
+2024-12-07 12:58:13.097985 I (70580973) wifi 
+2024-12-07 12:58:13.119440 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:58:13.119701 
+ 
+2024-12-07 12:58:43.184512 I (70611053) wifi 
+2024-12-07 12:58:43.205987 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:58:43.206335 
+ 
+2024-12-07 12:59:13.275396 I (70641143) wifi 
+2024-12-07 12:59:13.297146 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:59:13.297477 
+ 
+2024-12-07 12:59:43.372966 I (70671243) wifi 
+2024-12-07 12:59:43.396068 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 12:59:43.396269 
+ 
+2024-12-07 13:00:13.442493 I (70701313) wifi 
+2024-12-07 13:00:13.464551 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:00:13.464753 
+ 
+2024-12-07 13:00:43.529099 I (70731403) wifi 
+2024-12-07 13:00:43.551073 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:00:43.551255 
+ 
+2024-12-07 13:01:13.614552 I (70761483) wifi 
+2024-12-07 13:01:13.638227 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:01:13.638441 
+ 
+2024-12-07 13:01:43.599083 I (70791463) wifi 
+2024-12-07 13:01:43.621561 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:01:43.621760 
+ 
+2024-12-07 13:02:13.685096 I (70821553) wifi 
+2024-12-07 13:02:13.707206 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:02:13.707413 
+ 
+2024-12-07 13:02:43.771211 I (70851643) wifi 
+2024-12-07 13:02:43.793696 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:02:43.793898 
+ 
+2024-12-07 13:03:13.856525 I (70881723) wifi 
+2024-12-07 13:03:13.878611 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:03:13.878903 
+ 
+2024-12-07 13:03:43.943068 I (70911813) wifi 
+2024-12-07 13:03:43.965221 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:03:43.965456 
+ 
+2024-12-07 13:04:14.034612 I (70941903) wifi 
+2024-12-07 13:04:14.056643 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:04:14.056853 
+ 
+2024-12-07 13:04:44.114570 I (70971983) wifi 
+2024-12-07 13:04:44.139939 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:04:44.140222 
+ 
+2024-12-07 13:05:14.200656 I (71002073) wifi 
+2024-12-07 13:05:14.222464 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:05:14.222757 
+ 
+2024-12-07 13:05:44.286920 I (71032153) wifi 
+2024-12-07 13:05:44.309058 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:05:44.309263 
+ 
+2024-12-07 13:06:44.459225 I (71092323) wifi 
+2024-12-07 13:06:44.481600 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:06:44.481803 
+ 
+2024-12-07 13:07:14.544895 I (71122413) wifi 
+2024-12-07 13:07:14.568776 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:07:14.568984 
+ 
+2024-12-07 13:09:14.892963 I (71242753) wifi 
+2024-12-07 13:09:14.914990 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:09:14.915363 
+ 
+2024-12-07 13:10:14.959113 I (71302823) wifi 
+2024-12-07 13:10:14.981169 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:10:14.981367 
+ 
+2024-12-07 13:11:15.131000 I (71362993) wifi 
+2024-12-07 13:11:15.155953 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:11:15.156169 
+ 
+2024-12-07 13:12:15.303081 I (71423173) wifi 
+2024-12-07 13:12:15.327825 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:12:15.328133 
+ 
+2024-12-07 13:13:15.479058 I (71483343) wifi 
+2024-12-07 13:13:15.504636 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:13:15.504838 
+ 
+2024-12-07 13:14:15.646995 I (71543513) wifi 
+2024-12-07 13:14:15.672314 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:14:15.672590 
+ 
+2024-12-07 13:15:15.819094 I (71603683) wifi 
+2024-12-07 13:15:15.844017 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:15:15.844228 
+ 
+2024-12-07 13:16:15.991106 I (71663853) wifi 
+2024-12-07 13:16:16.020161 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:16:16.020364 
+ 
+2024-12-07 13:17:16.167094 I (71724033) wifi 
+2024-12-07 13:17:16.192129 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:17:16.192330 
+ 
+2024-12-07 13:18:16.339117 I (71784203) wifi 
+2024-12-07 13:18:16.364270 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:18:16.364468 
+ 
+2024-12-07 13:19:16.410611 I (71844273) wifi 
+2024-12-07 13:19:16.436441 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:19:16.436658 
+ 
+2024-12-07 13:20:16.580723 I (71904443) wifi 
+2024-12-07 13:20:16.605556 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:20:16.605922 
+ 
+2024-12-07 13:21:16.752421 I (71964613) wifi 
+2024-12-07 13:21:16.778351 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:21:16.778602 
+ 
+2024-12-07 13:22:16.924173 I (72024783) wifi 
+2024-12-07 13:22:16.949406 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:22:16.949625 
+ 
+2024-12-07 13:23:17.096389 I (72084953) wifi 
+2024-12-07 13:23:17.121462 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:23:17.121666 
+ 
+2024-12-07 13:25:17.440458 I (72205303) wifi 
+2024-12-07 13:25:17.462165 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:25:17.462374 
+ 
+2024-12-07 13:26:17.612424 I (72265473) wifi 
+2024-12-07 13:26:17.633764 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:26:17.634076 
+ 
+2024-12-07 13:27:17.681977 I (72325543) wifi 
+2024-12-07 13:27:17.703425 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:27:17.703735 
+ 
+2024-12-07 13:28:17.853949 I (72385713) wifi 
+2024-12-07 13:28:17.875309 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:28:17.875577 
+ 
+2024-12-07 13:29:18.025999 I (72445883) wifi 
+2024-12-07 13:29:18.048646 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:29:18.048838 
+ 
+2024-12-07 13:29:48.112002 I (72475973) wifi 
+2024-12-07 13:29:48.133413 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:29:48.133714 
+ 
+2024-12-07 13:30:18.198089 I (72506063) wifi 
+2024-12-07 13:30:18.219578 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:30:18.219781 
+ 
+2024-12-07 13:30:48.284003 I (72536143) wifi 
+2024-12-07 13:30:48.305351 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:30:48.305800 
+ 
+2024-12-07 13:31:18.370160 I (72566233) wifi 
+2024-12-07 13:31:18.391570 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:31:18.391764 
+ 
+2024-12-07 13:31:48.456093 I (72596313) wifi 
+2024-12-07 13:31:48.477712 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:31:48.477916 
+ 
+2024-12-07 13:32:18.541998 I (72626403) wifi 
+2024-12-07 13:32:18.563572 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:32:18.563772 
+ 
+2024-12-07 13:32:48.628571 I (72656493) wifi 
+2024-12-07 13:32:48.649799 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:32:48.650099 
+ 
+2024-12-07 13:33:18.714133 I (72686573) wifi 
+2024-12-07 13:33:18.735347 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:33:18.735683 
+ 
+2024-12-07 13:33:48.800129 I (72716663) wifi 
+2024-12-07 13:33:48.821672 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:33:48.821885 
+ 
+2024-12-07 13:34:18.886127 I (72746743) wifi 
+2024-12-07 13:34:18.907648 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:34:18.907846 
+ 
+2024-12-07 13:34:48.972210 I (72776833) wifi 
+2024-12-07 13:34:48.995366 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:34:48.995631 
+ 
+2024-12-07 13:35:19.058171 I (72806913) wifi 
+2024-12-07 13:35:19.079253 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:35:19.079453 
+ 
+2024-12-07 13:35:49.085350 I (72836933) wifi 
+2024-12-07 13:35:49.106929 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:35:49.107194 
+ 
+2024-12-07 13:36:19.128458 I (72866993) wifi 
+2024-12-07 13:36:19.149692 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:36:19.149930 
+ 
+2024-12-07 13:36:49.214116 I (72897073) wifi 
+2024-12-07 13:36:49.235436 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:36:49.235736 
+ 
+2024-12-07 13:37:19.299893 I (72927163) wifi 
+2024-12-07 13:37:19.321341 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:37:19.321645 
+ 
+2024-12-07 13:37:49.385897 I (72957243) wifi 
+2024-12-07 13:37:49.407563 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:37:49.407768 
+ 
+2024-12-07 13:38:19.471921 I (72987333) wifi 
+2024-12-07 13:38:19.493894 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:38:19.497716 
+ 
+2024-12-07 13:38:49.557417 I (73017413) wifi 
+2024-12-07 13:38:49.578927 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:38:49.579265 
+ 
+2024-12-07 13:39:19.643850 I (73047503) wifi 
+2024-12-07 13:39:19.665557 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:39:19.665761 
+ 
+2024-12-07 13:39:49.729918 I (73077583) wifi 
+2024-12-07 13:39:49.751233 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:39:49.751534 
+ 
+2024-12-07 13:40:19.816086 I (73107673) wifi 
+2024-12-07 13:40:19.837616 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:40:19.837816 
+ 
+2024-12-07 13:40:49.901881 I (73137763) wifi 
+2024-12-07 13:40:49.928980 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:40:49.929186 
+ 
+2024-12-07 13:41:19.987890 I (73167843) wifi 
+2024-12-07 13:41:20.009549 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:41:20.009764 
+ 
+2024-12-07 13:41:50.075412 I (73197933) wifi 
+2024-12-07 13:41:50.096890 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:41:50.097433 
+ 
+2024-12-07 13:42:20.159983 I (73228013) wifi 
+2024-12-07 13:42:20.181612 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:42:20.181816 
+ 
+2024-12-07 13:42:50.269116 I (73258123) wifi 
+2024-12-07 13:42:50.299024 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:42:50.299276 
+ 
+2024-12-07 13:43:20.331861 I (73288193) wifi 
+2024-12-07 13:43:20.353700 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:43:20.353976 
+ 
+2024-12-07 13:43:50.418021 I (73318273) wifi 
+2024-12-07 13:43:50.439355 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:43:50.439669 
+ 
+2024-12-07 13:44:20.401484 I (73348263) wifi 
+2024-12-07 13:44:20.423612 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:44:20.423811 
+ 
+2024-12-07 13:44:50.487560 I (73378343) wifi 
+2024-12-07 13:44:50.509120 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:44:50.509317 
+ 
+2024-12-07 13:45:20.575491 I (73408433) wifi 
+2024-12-07 13:45:20.597113 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:45:20.597390 
+ 
+2024-12-07 13:45:50.659817 I (73438513) wifi 
+2024-12-07 13:45:50.681391 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:45:50.681618 
+ 
+2024-12-07 13:46:20.751921 I (73468613) wifi 
+2024-12-07 13:46:20.773448 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:46:20.773773 
+ 
+2024-12-07 13:46:50.831979 I (73498693) wifi 
+2024-12-07 13:46:50.853715 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:46:50.853981 
+ 
+2024-12-07 13:47:20.917452 I (73528773) wifi 
+2024-12-07 13:47:20.938764 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:47:20.939065 
+ 
+2024-12-07 13:47:51.005408 I (73558863) wifi 
+2024-12-07 13:47:51.107617 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:47:51.107816 
+ 
+2024-12-07 13:48:21.089485 I (73588943) wifi 
+2024-12-07 13:48:21.113062 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:48:21.113260 
+ 
+2024-12-07 13:48:51.175506 I (73619033) wifi 
+2024-12-07 13:48:51.197079 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:48:51.197403 
+ 
+2024-12-07 13:49:21.261710 I (73649113) wifi 
+2024-12-07 13:49:21.283215 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:49:21.283424 
+ 
+2024-12-07 13:49:51.347493 I (73679203) wifi 
+2024-12-07 13:49:51.369096 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:49:51.369436 
+ 
+2024-12-07 13:50:21.434125 I (73709293) wifi 
+2024-12-07 13:50:21.455556 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:50:21.455731 
+ 
+2024-12-07 13:50:51.519782 I (73739373) wifi 
+2024-12-07 13:50:51.541150 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:50:51.541411 
+ 
+2024-12-07 13:51:21.605818 I (73769463) wifi 
+2024-12-07 13:51:21.627332 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:51:21.627539 
+ 
+2024-12-07 13:51:51.691866 I (73799543) wifi 
+2024-12-07 13:51:51.713120 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:51:51.716497 
+ 
+2024-12-07 13:52:21.790559 I (73829633) wifi 
+2024-12-07 13:52:21.813293 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:52:21.816549 
+ 
+2024-12-07 13:52:51.761386 I (73859613) wifi 
+2024-12-07 13:52:51.782807 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:52:51.783150 
+ 
+2024-12-07 13:53:21.847338 I (73889703) wifi 
+2024-12-07 13:53:21.869575 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:53:21.869800 
+ 
+2024-12-07 13:53:51.933302 I (73919793) wifi 
+2024-12-07 13:53:51.955309 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:53:51.955483 
+ 
+2024-12-07 13:54:22.020583 I (73949873) wifi 
+2024-12-07 13:54:22.041848 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:54:22.042075 
+ 
+2024-12-07 13:54:52.105518 I (73979963) wifi 
+2024-12-07 13:54:52.127629 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:54:52.127826 
+ 
+2024-12-07 13:55:22.191890 I (74010043) wifi 
+2024-12-07 13:55:22.213977 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:55:22.214216 
+ 
+2024-12-07 13:55:52.277426 I (74040133) wifi 
+2024-12-07 13:55:52.299464 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:55:52.299689 
+ 
+2024-12-07 13:56:22.366207 I (74070223) wifi 
+2024-12-07 13:56:22.388641 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:56:22.388838 
+ 
+2024-12-07 13:56:52.449388 I (74100303) wifi 
+2024-12-07 13:56:52.471723 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:56:52.471920 
+ 
+2024-12-07 13:57:22.535932 I (74130393) wifi 
+2024-12-07 13:57:22.560443 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:57:22.560663 
+ 
+2024-12-07 13:57:52.621404 I (74160473) wifi 
+2024-12-07 13:57:52.643772 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:57:52.644069 
+ 
+2024-12-07 13:58:22.707963 I (74190563) wifi 
+2024-12-07 13:58:22.731429 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:58:22.731637 
+ 
+2024-12-07 13:58:52.705960 I (74220563) wifi 
+2024-12-07 13:58:52.728067 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:58:52.728302 
+ 
+2024-12-07 13:59:22.879523 I (74250733) wifi 
+2024-12-07 13:59:22.901956 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:59:22.902182 
+ 
+2024-12-07 13:59:53.004941 I (74280853) wifi 
+2024-12-07 13:59:53.028456 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 13:59:53.028798 
+ 
+2024-12-07 14:00:23.051705 I (74310903) wifi 
+2024-12-07 14:00:23.074121 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:00:23.074333 
+ 
+2024-12-07 14:00:53.137429 I (74340993) wifi 
+2024-12-07 14:00:53.159785 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:00:53.160000 
+ 
+2024-12-07 14:01:23.121457 I (74370973) wifi 
+2024-12-07 14:01:23.143247 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:01:23.143513 
+ 
+2024-12-07 14:01:53.207513 I (74401063) wifi 
+2024-12-07 14:01:53.230959 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:01:53.231177 
+ 
+2024-12-07 14:02:23.294001 I (74431143) wifi 
+2024-12-07 14:02:23.315729 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:02:23.315990 
+ 
+2024-12-07 14:02:53.379536 I (74461233) wifi 
+2024-12-07 14:02:53.401534 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:02:53.401810 
+ 
+2024-12-07 14:03:23.465470 I (74491323) wifi 
+2024-12-07 14:03:23.487549 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:03:23.487752 
+ 
+2024-12-07 14:03:53.551500 I (74521403) wifi 
+2024-12-07 14:03:53.573617 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:03:53.573819 
+ 
+2024-12-07 14:04:23.640103 I (74551493) wifi 
+2024-12-07 14:04:23.662203 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:04:23.662408 
+ 
+2024-12-07 14:04:53.725009 I (74581573) wifi 
+2024-12-07 14:04:53.746961 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:04:53.747179 
+ 
+2024-12-07 14:05:23.810022 I (74611663) wifi 
+2024-12-07 14:05:23.831976 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:05:23.832188 
+ 
+2024-12-07 14:05:53.895756 I (74641743) wifi 
+2024-12-07 14:05:53.917813 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:05:53.918009 
+ 
+2024-12-07 14:06:23.983805 I (74671833) wifi 
+2024-12-07 14:06:24.005936 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:06:24.006175 
+ 
+2024-12-07 14:06:54.066850 I (74701923) wifi 
+2024-12-07 14:06:54.089892 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:06:54.090200 
+ 
+2024-12-07 14:07:24.153758 I (74732003) wifi 
+2024-12-07 14:07:24.175802 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:07:24.176133 
+ 
+2024-12-07 14:07:54.241762 I (74762093) wifi 
+2024-12-07 14:07:54.263875 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:07:54.264155 
+ 
+2024-12-07 14:08:24.325728 I (74792173) wifi 
+2024-12-07 14:08:24.347818 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:08:24.348016 
+ 
+2024-12-07 14:13:55.170458 I (75123023) wifi 
+2024-12-07 14:13:55.191972 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:13:55.192208 
+ 
+2024-12-07 14:14:25.257836 I (75153103) wifi 
+2024-12-07 14:14:25.279495 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:14:25.279701 
+ 
+2024-12-07 14:14:55.342618 I (75183193) wifi 
+2024-12-07 14:14:55.364785 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:14:55.364980 
+ 
+2024-12-07 14:15:25.428355 I (75213273) wifi 
+2024-12-07 14:15:25.449923 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:15:25.450161 
+ 
+2024-12-07 14:15:55.514380 I (75243363) wifi 
+2024-12-07 14:15:55.535844 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:15:55.536013 
+ 
+2024-12-07 14:16:25.605465 I (75273453) wifi 
+2024-12-07 14:16:25.627989 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:16:25.628222 
+ 
+2024-12-07 14:16:55.686357 I (75303533) wifi 
+2024-12-07 14:16:55.707891 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:16:55.708130 
+ 
+2024-12-07 14:17:25.670911 I (75333523) wifi 
+2024-12-07 14:17:25.692798 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:17:25.693111 
+ 
+2024-12-07 14:17:55.756362 I (75363603) wifi 
+2024-12-07 14:17:55.778575 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:17:55.778791 
+ 
+2024-12-07 14:18:25.841897 I (75393693) wifi 
+2024-12-07 14:18:25.864018 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:18:25.864251 
+ 
+2024-12-07 14:18:55.928880 I (75423773) wifi 
+2024-12-07 14:18:55.950851 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:18:55.951183 
+ 
+2024-12-07 14:19:26.014513 I (75453863) wifi 
+2024-12-07 14:19:26.036544 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:19:26.036746 
+ 
+2024-12-07 14:19:56.102515 I (75483953) wifi 
+2024-12-07 14:19:56.124299 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:19:56.124600 
+ 
+2024-12-07 14:20:26.186937 I (75514033) wifi 
+2024-12-07 14:20:26.209127 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:20:26.210768 
+ 
+2024-12-07 14:20:56.272712 I (75544123) wifi 
+2024-12-07 14:20:56.295692 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:20:56.295993 
+ 
+2024-12-07 14:21:26.358716 I (75574203) wifi 
+2024-12-07 14:21:26.380807 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:21:26.381012 
+ 
+2024-12-07 14:21:56.444693 I (75604293) wifi 
+2024-12-07 14:21:56.466715 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:21:56.467056 
+ 
+2024-12-07 14:22:26.530727 I (75634373) wifi 
+2024-12-07 14:22:26.552576 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:22:26.552868 
+ 
+2024-12-07 14:22:56.617300 I (75664463) wifi 
+2024-12-07 14:22:56.639277 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:22:56.639496 
+ 
+2024-12-07 14:23:26.702739 I (75694553) wifi 
+2024-12-07 14:23:26.725307 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:23:26.725525 
+ 
+2024-12-07 14:23:56.789104 I (75724633) wifi 
+2024-12-07 14:23:56.908123 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:23:56.908376 
+ 
+2024-12-07 14:24:26.874795 I (75754723) wifi 
+2024-12-07 14:24:26.898620 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:24:26.898809 
+ 
+2024-12-07 14:24:56.960812 I (75784803) wifi 
+2024-12-07 14:24:56.982882 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:24:56.983113 
+ 
+2024-12-07 14:25:27.047344 I (75814893) wifi 
+2024-12-07 14:25:27.069505 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:25:27.069703 
+ 
+2024-12-07 14:25:57.133215 I (75844983) wifi 
+2024-12-07 14:25:57.154950 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:25:57.159326 
+ 
+2024-12-07 14:26:27.116799 I (75874963) wifi 
+2024-12-07 14:26:27.138651 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:26:27.138916 
+ 
+2024-12-07 14:26:57.207806 I (75905053) wifi 
+2024-12-07 14:26:57.233781 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:26:57.233978 
+ 
+2024-12-07 14:27:57.382919 I (75965223) wifi 
+2024-12-07 14:27:57.397974 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:27:57.398221 
+ 
+2024-12-07 14:28:57.546787 I (76025393) wifi 
+2024-12-07 14:28:57.569080 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:28:57.569358 
+ 
+2024-12-07 14:29:57.721481 I (76085563) wifi 
+2024-12-07 14:29:57.743142 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:29:57.743499 
+ 
+2024-12-07 14:30:57.891389 I (76145733) wifi 
+2024-12-07 14:30:57.913752 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:30:57.913967 
+ 
+2024-12-07 14:31:58.063930 I (76205903) wifi 
+2024-12-07 14:31:58.086014 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:31:58.086312 
+ 
+2024-12-07 14:32:58.239013 I (76266083) wifi 
+2024-12-07 14:32:58.257445 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:32:58.257636 
+ 
+2024-12-07 14:33:58.410925 I (76326253) wifi 
+2024-12-07 14:33:58.432993 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:33:58.433236 
+ 
+2024-12-07 14:34:58.476940 I (76386323) wifi 
+2024-12-07 14:34:58.499119 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:34:58.499324 
+ 
+2024-12-07 14:35:58.696772 I (76446543) wifi 
+2024-12-07 14:35:58.729814 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:35:58.730011 
+ 
+2024-12-07 14:36:58.821224 I (76506663) wifi 
+2024-12-07 14:36:58.847326 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:36:58.847524 
+ 
+2024-12-07 14:42:59.859629 I (76867703) wifi 
+2024-12-07 14:42:59.880986 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:42:59.881344 
+ 
+2024-12-07 14:43:59.926140 I (76927763) wifi 
+2024-12-07 14:43:59.948102 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:43:59.948377 
+ 
+2024-12-07 14:45:00.098434 I (76987943) wifi 
+2024-12-07 14:45:00.120261 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:45:00.120544 
+ 
+2024-12-07 14:45:30.185467 I (77018023) wifi 
+2024-12-07 14:45:30.207727 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:45:30.208004 
+ 
+2024-12-07 14:46:00.271513 I (77048113) wifi 
+2024-12-07 14:46:00.293602 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:46:00.293806 
+ 
+2024-12-07 14:46:30.357503 I (77078193) wifi 
+2024-12-07 14:46:30.379578 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:46:30.379781 
+ 
+2024-12-07 14:47:00.443427 I (77108283) wifi 
+2024-12-07 14:47:00.465657 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:47:00.465873 
+ 
+2024-12-07 14:47:30.529018 I (77138373) wifi 
+2024-12-07 14:47:30.550998 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:47:30.551216 
+ 
+2024-12-07 14:48:00.615011 I (77168453) wifi 
+2024-12-07 14:48:00.636808 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:48:00.637137 
+ 
+2024-12-07 14:48:30.701493 I (77198543) wifi 
+2024-12-07 14:48:30.723572 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:48:30.723771 
+ 
+2024-12-07 14:49:00.787057 I (77228623) wifi 
+2024-12-07 14:49:00.808994 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:49:00.809301 
+ 
+2024-12-07 14:49:30.873544 I (77258713) wifi 
+2024-12-07 14:49:30.896581 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:49:30.896777 
+ 
+2024-12-07 14:50:00.963244 I (77288803) wifi 
+2024-12-07 14:50:00.985155 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:50:00.985358 
+ 
+2024-12-07 14:50:31.044958 I (77318883) wifi 
+2024-12-07 14:50:31.067294 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:50:31.067521 
+ 
+2024-12-07 14:51:01.131319 I (77348973) wifi 
+2024-12-07 14:51:01.153080 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:51:01.153345 
+ 
+2024-12-07 14:51:31.217443 I (77379053) wifi 
+2024-12-07 14:51:31.239307 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:51:31.239493 
+ 
+2024-12-07 14:52:01.200811 I (77409043) wifi 
+2024-12-07 14:52:01.222906 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:52:01.223130 
+ 
+2024-12-07 14:52:31.286971 I (77439123) wifi 
+2024-12-07 14:52:31.313876 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:52:31.314101 
+ 
+2024-12-07 14:53:01.372828 I (77469213) wifi 
+2024-12-07 14:53:01.394777 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:53:01.394975 
+ 
+2024-12-07 14:53:31.458896 I (77499293) wifi 
+2024-12-07 14:53:31.481090 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:53:31.481294 
+ 
+2024-12-07 14:54:01.544781 I (77529383) wifi 
+2024-12-07 14:54:01.567089 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:54:01.567300 
+ 
+2024-12-07 14:54:31.631387 I (77559463) wifi 
+2024-12-07 14:54:31.654370 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:54:31.654576 
+ 
+2024-12-07 14:55:01.718384 I (77589553) wifi 
+2024-12-07 14:55:01.740462 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:55:01.740682 
+ 
+2024-12-07 14:55:31.807883 I (77619643) wifi 
+2024-12-07 14:55:31.829737 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:55:31.830100 
+ 
+2024-12-07 14:56:01.888915 I (77649723) wifi 
+2024-12-07 14:56:01.911104 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:56:01.911305 
+ 
+2024-12-07 14:56:31.976158 I (77679813) wifi 
+2024-12-07 14:56:31.998105 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:56:31.998302 
+ 
+2024-12-07 14:57:02.062461 I (77709893) wifi 
+2024-12-07 14:57:02.084579 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:57:02.084864 
+ 
+2024-12-07 14:57:32.146899 I (77739983) wifi 
+2024-12-07 14:57:32.169636 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:57:32.169842 
+ 
+2024-12-07 14:58:02.232895 I (77770073) wifi 
+2024-12-07 14:58:02.254813 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:58:02.255103 
+ 
+2024-12-07 14:58:32.318941 I (77800153) wifi 
+2024-12-07 14:58:32.340733 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:58:32.341100 
+ 
+2024-12-07 14:59:02.405017 I (77830243) wifi 
+2024-12-07 14:59:02.427104 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:59:02.427299 
+ 
+2024-12-07 14:59:32.504543 I (77860343) wifi 
+2024-12-07 14:59:32.526522 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 14:59:32.526699 
+ 
+2024-12-07 15:00:02.579974 I (77890413) wifi 
+2024-12-07 15:00:02.601922 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:00:02.602238 
+ 
+2024-12-07 15:00:32.561022 I (77920393) wifi 
+2024-12-07 15:00:32.582892 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:00:32.583275 
+ 
+2024-12-07 15:01:02.647474 I (77950483) wifi 
+2024-12-07 15:01:02.669702 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:01:02.669914 
+ 
+2024-12-07 15:01:32.732958 I (77980563) wifi 
+2024-12-07 15:01:32.754820 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:01:32.755157 
+ 
+2024-12-07 15:02:02.819528 I (78010653) wifi 
+2024-12-07 15:02:02.841356 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:02:02.841698 
+ 
+2024-12-07 15:02:32.905008 I (78040743) wifi 
+2024-12-07 15:02:32.927062 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:02:32.927244 
+ 
+2024-12-07 15:03:02.991108 I (78070823) wifi 
+2024-12-07 15:03:03.013214 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:03:03.013415 
+ 
+2024-12-07 15:03:33.078542 I (78100913) wifi 
+2024-12-07 15:03:33.102406 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:03:33.102618 
+ 
+2024-12-07 15:04:03.163618 I (78130993) wifi 
+2024-12-07 15:04:03.186654 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:04:03.186854 
+ 
+2024-12-07 15:04:33.249522 I (78161083) wifi 
+2024-12-07 15:04:33.278813 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:04:33.279017 
+ 
+2024-12-07 15:05:03.337131 I (78191173) wifi 
+2024-12-07 15:05:03.359221 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:05:03.359412 
+ 
+2024-12-07 15:05:33.421483 I (78221253) wifi 
+2024-12-07 15:05:33.445662 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:05:33.445854 
+ 
+2024-12-07 15:06:03.507328 I (78251343) wifi 
+2024-12-07 15:06:03.532124 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:06:03.532428 
+ 
+2024-12-07 15:06:33.593330 I (78281423) wifi 
+2024-12-07 15:06:33.616105 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:06:33.616363 
+ 
+2024-12-07 15:07:03.679858 I (78311513) wifi 
+2024-12-07 15:07:03.701825 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:07:03.702151 
+ 
+2024-12-07 15:07:33.765721 I (78341603) wifi 
+2024-12-07 15:07:33.787803 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:07:33.788001 
+ 
+2024-12-07 15:08:03.852343 I (78371683) wifi 
+2024-12-07 15:08:03.874476 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:08:03.874794 
+ 
+2024-12-07 15:08:33.937782 I (78401773) wifi 
+2024-12-07 15:08:33.959996 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:08:33.960230 
+ 
+2024-12-07 15:09:03.921385 I (78431753) wifi 
+2024-12-07 15:09:03.944177 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:09:03.944493 
+ 
+2024-12-07 15:09:34.007357 I (78461843) wifi 
+2024-12-07 15:09:34.029622 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:09:34.029821 
+ 
+2024-12-07 15:10:04.093426 I (78491923) wifi 
+2024-12-07 15:10:04.116013 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:10:04.116252 
+ 
+2024-12-07 15:10:34.179414 I (78522013) wifi 
+2024-12-07 15:10:34.201223 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:10:34.201504 
+ 
+2024-12-07 15:11:04.273791 I (78552093) wifi 
+2024-12-07 15:11:04.298447 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:11:04.298968 
+ 
+2024-12-07 15:11:34.351878 I (78582183) wifi 
+2024-12-07 15:11:34.404434 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:11:34.404754 
+ 
+2024-12-07 15:12:04.448431 I (78612283) wifi 
+2024-12-07 15:12:04.470581 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:12:04.470792 
+ 
+2024-12-07 15:12:34.523902 I (78642353) wifi 
+2024-12-07 15:12:34.545689 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:12:34.545963 
+ 
+2024-12-07 15:13:04.611444 I (78672443) wifi 
+2024-12-07 15:13:04.633324 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:13:04.633611 
+ 
+2024-12-07 15:13:34.707001 I (78702533) wifi 
+2024-12-07 15:13:34.728811 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:13:34.729085 
+ 
+2024-12-07 15:14:04.706458 I (78732533) wifi 
+2024-12-07 15:14:04.728176 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:14:04.728429 
+ 
+2024-12-07 15:14:34.869519 I (78762703) wifi 
+2024-12-07 15:14:34.891451 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:14:34.891739 
+ 
+2024-12-07 15:15:04.953961 I (78792783) wifi 
+2024-12-07 15:15:04.976169 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:15:04.976717 
+ 
+2024-12-07 15:15:35.040458 I (78822873) wifi 
+2024-12-07 15:15:35.067776 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:15:35.068237 
+ 
+2024-12-07 15:16:05.126458 I (78852953) wifi 
+2024-12-07 15:16:05.150845 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:16:05.151163 
+ 
+2024-12-07 15:16:35.212372 I (78883043) wifi 
+2024-12-07 15:16:35.233907 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:16:35.234337 
+ 
+2024-12-07 15:17:05.297943 I (78913133) wifi 
+2024-12-07 15:17:05.319444 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:17:05.319669 
+ 
+2024-12-07 15:17:35.281962 I (78943113) wifi 
+2024-12-07 15:17:35.303527 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:17:35.303734 
+ 
+2024-12-07 15:18:05.368098 I (78973193) wifi 
+2024-12-07 15:18:05.391672 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:18:05.391974 
+ 
+2024-12-07 15:18:35.454472 I (79003283) wifi 
+2024-12-07 15:18:35.476064 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:18:35.476272 
+ 
+2024-12-07 15:19:05.539972 I (79033373) wifi 
+2024-12-07 15:19:05.563113 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:19:05.563441 
+ 
+2024-12-07 15:19:35.626412 I (79063453) wifi 
+2024-12-07 15:19:35.647823 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:19:35.648174 
+ 
+2024-12-07 15:20:05.714098 I (79093543) wifi 
+2024-12-07 15:20:05.735393 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:20:05.735658 
+ 
+2024-12-07 15:20:35.802652 I (79123633) wifi 
+2024-12-07 15:20:35.823801 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:20:35.824105 
+ 
+2024-12-07 15:21:05.884293 I (79153713) wifi 
+2024-12-07 15:21:05.905587 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:21:05.905863 
+ 
+2024-12-07 15:21:36.073329 I (79183903) wifi 
+2024-12-07 15:21:36.094881 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:21:36.095115 
+ 
+2024-12-07 15:22:06.261879 I (79214093) wifi 
+2024-12-07 15:22:06.285415 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:22:06.285646 
+ 
+2024-12-07 15:22:37.166332 I (79244993) wifi 
+2024-12-07 15:22:37.191276 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:22:37.191490 
+ 
+2024-12-07 15:22:44.422718 I (79252223) wifi 
+2024-12-07 15:22:44.444674 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:22:44.444943 
+ 
+2024-12-07 15:23:07.456769 I (79275283) wifi 
+2024-12-07 15:23:07.478787 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:23:07.479115 
+ 
+2024-12-07 15:23:24.197295 I (79292003) wifi 
+2024-12-07 15:23:24.219071 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:23:24.219345 
+ 
+2024-12-07 15:23:36.724726 I (79304553) wifi 
+2024-12-07 15:23:36.746753 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:23:36.746940 
+ 
+2024-12-07 15:24:07.835259 I (79335663) wifi 
+2024-12-07 15:24:07.857198 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:24:07.857549 
+ 
+2024-12-07 15:24:37.046298 I (79364873) wifi 
+2024-12-07 15:24:37.069017 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:24:37.069249 
+ 
+2024-12-07 15:25:07.547273 I (79395363) wifi 
+2024-12-07 15:25:07.567110 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:25:07.567320 
+ 
+2024-12-07 15:25:13.967777 I (79401753) wifi 
+2024-12-07 15:25:13.989910 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:25:13.990127 
+ 
+2024-12-07 15:25:26.956308 I (79414753) wifi 
+2024-12-07 15:25:26.978479 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:25:26.978681 
+ 
+2024-12-07 15:25:37.375773 I (79425203) wifi 
+2024-12-07 15:25:37.398013 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:25:37.398240 
+ 
+2024-12-07 15:26:06.642857 I (79454473) wifi 
+2024-12-07 15:26:06.665642 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:26:06.665849 
+ 
+2024-12-07 15:26:38.667877 I (79486463) wifi 
+2024-12-07 15:26:38.691550 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:26:38.691884 
+ 
+2024-12-07 15:26:38.692053 I (79486503) wifi 
+2024-12-07 15:26:38.692199 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:26:38.692335 
+ 
+2024-12-07 15:27:09.658381 I (79517463) wifi 
+2024-12-07 15:27:09.682009 [ADDBA]RX DELBA, reason:39, delete tid:0, initiator:0(recipient 
+2024-12-07 15:27:09.682255 
+ 
+2024-12-07 15:30:30.245834 I (79718043) wifi 
+2024-12-07 15:30:30.267804 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:30:30.268161 
+ 
+2024-12-07 15:32:47.786805 I (79855573) wifi 
+2024-12-07 15:32:47.810827 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:32:47.811141 
+ 
+2024-12-07 15:33:04.185958 I (79871983) wifi 
+2024-12-07 15:33:04.208536 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:33:04.208734 
+ 
+2024-12-07 15:34:12.721054 I (79940513) wifi 
+2024-12-07 15:34:12.742740 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:34:12.743173 
+ 
+2024-12-07 15:36:16.031587 I (80063823) wifi 
+2024-12-07 15:36:16.054256 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:36:16.054481 
+ 
+2024-12-07 15:38:39.397233 I (80207193) wifi 
+2024-12-07 15:38:39.419300 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:38:39.419522 
+ 
+2024-12-07 15:39:16.752273 I (80244543) wifi 
+2024-12-07 15:39:16.774343 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:39:16.774556 
+ 
+2024-12-07 15:41:58.742733 I (80406553) wifi 
+2024-12-07 15:41:58.764842 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:41:58.765064 
+ 
+2024-12-07 15:43:38.728232 I (80506513) wifi 
+2024-12-07 15:43:38.750498 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:43:38.750681 
+ 
+2024-12-07 15:44:19.249715 I (80547033) wifi 
+2024-12-07 15:44:19.271898 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:44:19.272137 
+ 
+2024-12-07 15:46:58.755783 I (80706553) wifi 
+2024-12-07 15:46:58.777938 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:46:58.778176 
+ 
+2024-12-07 15:48:15.740868 I (80783523) wifi 
+2024-12-07 15:48:15.762659 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:48:15.762922 
+ 
+2024-12-07 15:49:30.752834 I (80858533) wifi 
+2024-12-07 15:49:30.774844 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:49:30.775190 
+ 
+2024-12-07 15:49:40.214817 I (80868013) wifi 
+2024-12-07 15:49:40.236616 bcn_timeout,ap_probe_send_star 
+2024-12-07 15:49:40.236881 
+ 
+2024-12-07 21:34:58.986848 [0;32mI (101586693) DETECTION: Target 2 entry point: (-0.20, 2.00) | exit point: (0.00, 0.00) | entered side: TOP | exited side: TOP[0m 
+2024-12-07 21:34:59.009351 [0;32mI (101586693) DETECTION: Target 2 gave up exiting the room | id: 01![0m 
+2024-12-08 08:57:47.985471 [0;32mI (142555483) DETECTION: Target 1 entry point: (2.00, 2.70) | exit point: (2.10, 2.20) | entered side: RIGHT | exited side: RIGHT[0m 
+2024-12-08 08:57:48.003752 [0;32mI (142555483) DETECTION: Target 1 gave up entering the room | id: 32![0m 
+2024-12-08 08:57:53.606315 [0;32mI (142561103) DETECTION: Target 1 entry point: (2.00, 2.70) | exit point: (2.10, 2.60) | entered side: RIGHT | exited side: RIGHT[0m 
+2024-12-08 08:57:53.629272 [0;32mI (142561113) DETECTION: Target 1 gave up entering the room | id: 32![0m 
+2024-12-08 08:58:08.230275 [0;32mI (142575733) DETECTION: Target 1 entry point: (2.00, 2.30) | exit point: (2.10, 2.30) | entered side: RIGHT | exited side: RIGHT[0m 
+2024-12-08 08:58:08.252155 [0;32mI (142575733) DETECTION: Target 1 gave up entering the room | id: 32![0m 
+2024-12-08 10:06:17.352971 I (146664793) wifi 
+2024-12-08 10:06:17.375147 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:06:17.375355 
+ 
+2024-12-08 10:07:03.896131 I (146711333) wifi 
+2024-12-08 10:07:03.917974 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:07:03.918292 
+ 
+2024-12-08 10:07:40.937096 I (146748383) wifi 
+2024-12-08 10:07:40.958922 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:07:40.959524 
+ 
+2024-12-08 10:08:52.291663 I (146819743) wifi 
+2024-12-08 10:08:52.313426 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:08:52.313726 
+ 
+2024-12-08 10:10:02.669711 I (146890113) wifi 
+2024-12-08 10:10:02.781684 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:10:02.781886 
+ 
+2024-12-08 10:11:10.720583 I (146958163) wifi 
+2024-12-08 10:11:10.742391 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:11:10.742688 
+ 
+2024-12-08 10:11:40.264672 I (146987733) wifi 
+2024-12-08 10:11:40.286828 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:11:40.287061 
+ 
+2024-12-08 10:12:31.056188 I (147038493) wifi 
+2024-12-08 10:12:31.078172 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:12:31.078486 
+ 
+2024-12-08 10:12:41.442610 I (147048893) wifi 
+2024-12-08 10:12:41.477279 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:12:41.477515 
+ 
+2024-12-08 10:12:52.693691 I (147060143) wifi 
+2024-12-08 10:12:52.715542 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:12:52.715856 
+ 
+2024-12-08 10:13:23.651598 I (147091093) wifi 
+2024-12-08 10:13:23.673817 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:13:23.674015 
+ 
+2024-12-08 10:14:02.436162 I (147129873) wifi 
+2024-12-08 10:14:02.458135 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:14:02.458435 
+ 
+2024-12-08 10:16:02.105193 I (147249553) wifi 
+2024-12-08 10:16:02.127063 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:16:02.127804 
+ 
+2024-12-08 10:16:11.918173 I (147259363) wifi 
+2024-12-08 10:16:11.940094 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:16:11.940381 
+ 
+2024-12-08 10:16:41.694796 I (147289143) wifi 
+2024-12-08 10:16:41.718819 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:16:41.719001 
+ 
+2024-12-08 10:17:22.340690 I (147329783) wifi 
+2024-12-08 10:17:22.364973 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:17:22.365217 
+ 
+2024-12-08 10:18:20.636284 I (147388063) wifi 
+2024-12-08 10:18:20.658433 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:18:20.658635 
+ 
+2024-12-08 10:18:29.936733 I (147397403) wifi 
+2024-12-08 10:18:29.965949 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:18:29.966191 
+ 
+2024-12-08 10:20:59.106988 I (147546553) wifi 
+2024-12-08 10:20:59.128813 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:20:59.129135 
+ 
+2024-12-08 10:22:11.458121 I (147618923) wifi 
+2024-12-08 10:22:11.496667 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:22:11.496868 
+ 
+2024-12-08 10:23:01.633452 I (147669073) wifi 
+2024-12-08 10:23:01.655431 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:23:01.655676 
+ 
+2024-12-08 10:23:44.203025 I (147711643) wifi 
+2024-12-08 10:23:44.225000 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:23:44.225213 
+ 
+2024-12-08 10:24:35.679136 I (147763113) wifi 
+2024-12-08 10:24:35.700605 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:24:35.700809 
+ 
+2024-12-08 10:25:38.067599 I (147825533) wifi 
+2024-12-08 10:25:38.100085 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:25:38.100887 
+ 
+2024-12-08 10:26:02.109135 I (147849553) wifi 
+2024-12-08 10:26:02.130874 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:26:02.131174 
+ 
+2024-12-08 10:26:24.252094 I (147871693) wifi 
+2024-12-08 10:26:24.275657 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:26:24.275971 
+ 
+2024-12-08 10:28:59.109300 I (148026553) wifi 
+2024-12-08 10:28:59.132615 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:28:59.132806 
+ 
+2024-12-08 10:29:08.436199 I (148035893) wifi 
+2024-12-08 10:29:08.469263 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:29:08.469480 
+ 
+2024-12-08 10:29:26.430181 I (148053873) wifi 
+2024-12-08 10:29:26.452027 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:29:26.452340 
+ 
+2024-12-08 10:30:32.515440 I (148119953) wifi 
+2024-12-08 10:30:32.536684 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:30:32.536955 
+ 
+2024-12-08 10:31:02.937165 I (148150373) wifi 
+2024-12-08 10:31:02.960719 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:31:02.961074 
+ 
+2024-12-08 10:31:33.515866 I (148180943) wifi 
+2024-12-08 10:31:33.537458 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:31:33.537800 
+ 
+2024-12-08 10:32:21.907259 I (148229343) wifi 
+2024-12-08 10:32:21.929293 bcn_timeout,ap_probe_send_star 
+2024-12-08 10:32:21.929508 
+ 
+2024-12-08 16:59:19.466263 [0;32mI (171446813) DETECTION: Target 0 entry point: (0.40, 2.80) | exit point: (-0.70, 4.60) | entered side: BOTTOM | exited side: BOTTOM[0m 
+2024-12-08 16:59:19.490469 [0;32mI (171446823) DETECTION: Target 0 gave up entering the room | id: 11![0m 
+2024-12-08 18:49:48.650781 [0;32mI (178075973) DETECTION: Target 1 entry point: (-0.50, 2.40) | exit point: (0.00, 0.00) | entered side: LEFT | exited side: TOP[0m 
+2024-12-08 18:49:48.675520 [0;32mI (178075973) DETECTION: Target 1 exited the room | id: 21![0m 
+2024-12-09 04:52:17.016426 I (214224053) wifi 
+2024-12-09 04:52:17.087907 bcn_timeout,ap_probe_send_star 
+2024-12-09 04:52:17.088261 
+ 
+2024-12-09 04:53:48.201500 I (214315303) wifi 
+2024-12-09 04:53:48.223211 bcn_timeout,ap_probe_send_star 
+2024-12-09 04:53:48.223495 
+ 
+2024-12-09 04:55:50.436453 I (214437553) wifi 
+2024-12-09 04:55:50.462693 bcn_timeout,ap_probe_send_star 
+2024-12-09 04:55:50.463061 
+ 
+2024-12-09 04:56:23.191519 I (214470303) wifi 
+2024-12-09 04:56:23.213742 bcn_timeout,ap_probe_send_star 
+2024-12-09 04:56:23.213931 
+ 
+2024-12-09 04:56:48.785081 I (214495883) wifi 
+2024-12-09 04:56:48.807587 bcn_timeout,ap_probe_send_star 
+2024-12-09 04:56:48.807786 
+ 
+2024-12-09 04:57:35.745983 I (214542863) wifi 
+2024-12-09 04:57:35.768008 bcn_timeout,ap_probe_send_star 
+2024-12-09 04:57:35.768345 
+ 
+2024-12-09 04:58:33.705076 I (214600803) wifi 
+2024-12-09 04:58:33.726900 bcn_timeout,ap_probe_send_star 
+2024-12-09 04:58:33.727222 
+ 
+2024-12-09 04:59:21.773176 I (214648873) wifi 
+2024-12-09 04:59:21.795614 bcn_timeout,ap_probe_send_star 
+2024-12-09 04:59:21.806345 
+ 
+2024-12-09 05:01:26.049108 I (214773133) wifi 
+2024-12-09 05:01:26.129636 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:01:26.129924 
+ 
+2024-12-09 05:01:46.328127 I (214793373) wifi 
+2024-12-09 05:01:46.369250 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:01:46.370087 
+ 
+2024-12-09 05:02:06.008144 I (214813113) wifi 
+2024-12-09 05:02:06.030649 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:02:06.030891 
+ 
+2024-12-09 05:03:04.763249 I (214871853) wifi 
+2024-12-09 05:03:04.786664 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:03:04.786949 
+ 
+2024-12-09 05:03:14.191190 I (214881303) wifi 
+2024-12-09 05:03:14.212909 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:03:14.213216 
+ 
+2024-12-09 05:04:15.264733 I (214942363) wifi 
+2024-12-09 05:04:15.286717 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:04:15.293821 
+ 
+2024-12-09 05:04:38.110157 I (214965213) wifi 
+2024-12-09 05:04:38.132481 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:04:38.132860 
+ 
+2024-12-09 05:05:38.964253 I (215026073) wifi 
+2024-12-09 05:05:38.986279 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:05:38.986495 
+ 
+2024-12-09 05:06:16.542432 I (215063643) wifi 
+2024-12-09 05:06:16.568662 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:06:16.568894 
+ 
+2024-12-09 05:06:38.687964 I (215085803) wifi 
+2024-12-09 05:06:38.709790 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:06:38.710102 
+ 
+2024-12-09 05:07:04.090490 I (215111193) wifi 
+2024-12-09 05:07:04.112797 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:07:04.113130 
+ 
+2024-12-09 05:07:37.960499 I (215145093) wifi 
+2024-12-09 05:07:37.995535 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:07:37.995736 
+ 
+2024-12-09 05:08:18.625468 I (215185713) wifi 
+2024-12-09 05:08:18.647748 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:08:18.648019 
+ 
+2024-12-09 05:11:38.812584 I (215385913) wifi 
+2024-12-09 05:11:38.834356 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:11:38.834634 
+ 
+2024-12-09 05:12:16.232008 I (215423323) wifi 
+2024-12-09 05:12:16.257647 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:12:16.257842 
+ 
+2024-12-09 05:13:28.456552 I (215495553) wifi 
+2024-12-09 05:13:28.484537 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:13:28.484815 
+ 
+2024-12-09 05:14:48.982652 I (215576003) wifi 
+2024-12-09 05:14:49.115633 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:14:49.115834 
+ 
+2024-12-09 05:16:39.106220 I (215686223) wifi 
+2024-12-09 05:16:39.130299 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:16:39.130525 
+ 
+2024-12-09 05:16:50.307135 I (215697403) wifi 
+2024-12-09 05:16:50.331181 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:16:50.331368 
+ 
+2024-12-09 05:18:50.829669 I (215817923) wifi 
+2024-12-09 05:18:50.854218 bcn_timeout,ap_probe_send_star 
+2024-12-09 05:18:50.854450 
+ 
