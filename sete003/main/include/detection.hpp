@@ -1,12 +1,14 @@
 
 /*
-D0-------------------Bottom--------------D3    D0--------D3
+D0------------------Bottom---------------D3    D0--------D3
 |                                        |    |          |
+|   S0----------Detection Line------S1   |    |          |
 |                                        |    |          |
 Left               Horizontal          Right  | Vertical |
 |                                        |    |          |
 |                                        |    |          |
-D1--------------------Top----------------D2    D1--------D2
+|                                        |    |          |
+D1-------------------Top-----------------D2    D1--------D2
                    \      |
                     \    |
 |<------------------LD2461-------------->|
@@ -38,9 +40,14 @@ typedef struct detection_area{
     F1: D1-D2
     F2: D2-D3
     F3: D3-D0
+
+    L: S0-S1
     */
-    point_t D[4]; // Points of the detection area
-    vec2_t F[4]; // Vectors of detection area faces
+    point_t D[4];                   // Points of the detection area
+    point_t S[2];                   // Points of the detection segment
+    vec2_t F[4];                    // Segment of detection area faces
+    vec2_t L;                       // Segment of the detection area
+    uint8_t portrait_landscape;     // 0: Portrait, 1: Landscape
 }detection_area_t;
 
 typedef enum detection_area_side{
@@ -54,8 +61,9 @@ typedef enum detection_area_side{
 typedef struct target{
     point_t current_position;
     point_t entered_position;
-    detection_area_side_t entered_side;
     point_t exited_position;
+    point_t detection_segment_crossed_position;
+    detection_area_side_t entered_side;
     detection_area_side_t exited_side;
     bool traversed;
 }target_t;
@@ -87,7 +95,8 @@ private:
     std::pair<bool, float> _pre_calc_vector_product(
         uint8_t vecAB_index,
         uint8_t pointA_index,
-        point_t pointC);
+        point_t pointC,
+        uint8_t area_or_segment);
 
     /**
      * @brief Check if the target is inside the detection area
@@ -113,6 +122,8 @@ public:
         point_t D1,
         point_t D2,
         point_t D3,
+        point_t S0,
+        point_t S1,
         bool enter_exit_inverted = false
     );
 
@@ -128,7 +139,9 @@ public:
         point_t D0,
         point_t D1,
         point_t D2,
-        point_t D3
+        point_t D3,
+        point_t S0,
+        point_t S1
     );
 
     /**
@@ -145,6 +158,8 @@ public:
     void set_raw_data_sent(bool send_raw_data);
     void set_enter_exit_inverted(bool inverted);
    
+    std::pair<bool, float> _target_to_detection_segment_distance(point_t target);
+
     bool check_if_detected(uint8_t target_index);
     void start_detection();
     void update_targets(ld2461_detection_t* report);

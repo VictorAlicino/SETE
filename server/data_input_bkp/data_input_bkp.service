@@ -2,7 +2,7 @@
 Description=SETE Sensor Data Input BACKUP
 After=network.target
 
-[Service]
+[Service] 
 WorkingDirectory=/home/ubuntu/data_input
 ExecStart=/home/ubuntu/data_input_bkp/env/bin/python /home/ubuntu/data_input_bkp/main.py
 Restart=always

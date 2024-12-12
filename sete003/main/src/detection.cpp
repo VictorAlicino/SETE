@@ -21,6 +21,12 @@
 #define VEC_D2D3 2  // Right face (Vector D2-D3)
 #define VEC_D3D4 3  // Top face (Vector D3-D0)
 
+#define POINT_S0 0  // Detection threshold line start
+#define POINT_S1 1  // Detection threshold line end
+
+#define DETECTION_AREA 0
+#define DETECTION_SEGMENT 1
+
 // Global Variables (plis get rid of those)
 extern Storage* storage;
 extern LD2461* ld2461;
@@ -35,6 +41,8 @@ Detection::Detection(
         point_t D1,
         point_t D2,
         point_t D3,
+        point_t S0,
+        point_t S1,
         bool enter_exit_inverted
     )
 {
@@ -44,15 +52,24 @@ Detection::Detection(
 
     this->enter_exit_inverted = enter_exit_inverted;
 
+    // Detection Area Points
     detection_area.D[0] = D0;
     detection_area.D[1] = D1;
     detection_area.D[2] = D2;
     detection_area.D[3] = D3;
 
+    // Detection Area Faces
     detection_area.F[0] = {D1.x - D0.x, D1.y - D0.y};
     detection_area.F[1] = {D2.x - D1.x, D2.y - D1.y};
     detection_area.F[2] = {D3.x - D2.x, D3.y - D2.y};
     detection_area.F[3] = {D0.x - D3.x, D0.y - D3.y};
+
+    // Detection Line (Segment) Points
+    detection_area.S[0] = S0;
+    detection_area.S[1] = S1;
+
+    // Detection Line (Segment) Vector
+    detection_area.L = {S1.x - S0.x, S1.y - S0.y};
 
     for(int i=0; i<MAX_TARGETS_DETECTION; i++){
         targets[i].current_position = {0, 0};
@@ -69,40 +86,21 @@ Detection::Detection(
     ESP_LOGI("DETECTION", "Sending Raw Data?: %s", raw_data ? "true" : "false");
 }
 
-point* Detection::get_detection_area_point()
-{
-    return detection_area.D;
-}
-
-detection_area_t Detection::get_detection_area()
-{
-    return detection_area;
-}
-
-std::pair<bool, float> Detection::_pre_calc_vector_product(
-        uint8_t vecAB_index,
-        uint8_t pointA_index,
-        point_t pointC)
-{
-    float result = (
-        detection_area.F[vecAB_index].x * (pointC.y - detection_area.D[pointA_index].y) -
-        detection_area.F[vecAB_index].y * (pointC.x - detection_area.D[pointA_index].x));
-    return std::pair<bool, float>(result >= 0, result);
-}
-
-bool Detection::_is_target_in_detection_area(point_t point_target)
-{
-    return _pre_calc_vector_product(VEC_D0D1, POINT_D0, point_target).first &&
-           _pre_calc_vector_product(VEC_D1D2, POINT_D1, point_target).first &&
-           _pre_calc_vector_product(VEC_D2D3, POINT_D2, point_target).first &&
-           _pre_calc_vector_product(VEC_D3D4, POINT_D3, point_target).first;
-}
+const char* detection_area_side_str[] = {
+    "LEFT",
+    "BOTTOM",
+    "RIGHT",
+    "TOP",
+    "NONE"
+};
 
 void Detection::set_detection_area(
         point_t D0,
         point_t D1,
         point_t D2,
-        point_t D3
+        point_t D3,
+        point_t S0,
+        point_t S1
     )
 {
     detection_area.D[0] = D0;
@@ -114,6 +112,11 @@ void Detection::set_detection_area(
     detection_area.F[1] = {D2.x - D1.x, D2.y - D1.y};
     detection_area.F[2] = {D3.x - D2.x, D3.y - D2.y};
     detection_area.F[3] = {D0.x - D3.x, D0.y - D3.y};
+
+    detection_area.S[0] = S0;
+    detection_area.S[1] = S1;
+
+    detection_area.L = {S1.x - S0.x, S1.y - S0.y};
 
     storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D0_X", std::to_string(D0.x).c_str());
     storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D0_Y", std::to_string(D0.y).c_str());
@@ -127,21 +130,81 @@ void Detection::set_detection_area(
     storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D3_X", std::to_string(D3.x).c_str());
     storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D3_Y", std::to_string(D3.y).c_str());
 
-    ESP_LOGI(DETECTION_TAG, "Detection Area setted to:\n D0(%.2f, %.2f)\t D3(%.2f, %.2f)\n D1(%.2f, %.2f)\t D2(%.2f, %.2f)",
+    storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_S0_X", std::to_string(S0.x).c_str());
+    storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_S0_Y", std::to_string(S0.y).c_str());
+
+    storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_S1_X", std::to_string(S1.x).c_str());
+    storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_S1_Y", std::to_string(S1.y).c_str());
+
+    ESP_LOGI(DETECTION_TAG, "Detection Area setted to:\n D0(%.2f, %.2f)\t D3(%.2f, %.2f)\n D1(%.2f, %.2f)\t D2(%.2f, %.2f)\nDetection line from (%.2f, %.2f) to (%.2f, %.2f)",
         D0.x, D0.y,
         D3.x, D3.y,
         D1.x, D1.y,
-        D2.x, D2.y
+        D2.x, D2.y,
+        S0.x, S0.y,
+        S1.x, S1.y
     );
 }
 
-const char* detection_area_side_str[] = {
-    "LEFT",
-    "BOTTOM",
-    "RIGHT",
-    "TOP",
-    "NONE"
-};
+point* Detection::get_detection_area_point()
+{
+    return detection_area.D;
+}
+
+detection_area_t Detection::get_detection_area()
+{
+    return detection_area;
+}
+
+std::pair<bool, float> Detection::_pre_calc_vector_product(
+        uint8_t vecAB_index,
+        uint8_t pointA_index,
+        point_t pointC,
+        uint8_t area_or_segment)
+{
+    float result = 0.0;
+    switch(area_or_segment)
+    {
+        case DETECTION_AREA:
+            result = (
+                detection_area.F[vecAB_index].x * (pointC.y - detection_area.D[pointA_index].y) -
+                detection_area.F[vecAB_index].y * (pointC.x - detection_area.D[pointA_index].x));
+            break;
+        case DETECTION_SEGMENT:
+            result = (
+                detection_area.L.x * (pointC.y - detection_area.S[pointA_index].y) -
+                detection_area.L.y * (pointC.x - detection_area.S[pointA_index].x)
+            );
+            break;
+        default:
+            result = 0.0;
+    }
+    return std::pair<bool, float>(result >= 0, result);
+}
+
+bool Detection::_is_target_in_detection_area(point_t point_target)
+{
+    return _pre_calc_vector_product(VEC_D0D1, POINT_D0, point_target, DETECTION_AREA).first &&
+           _pre_calc_vector_product(VEC_D1D2, POINT_D1, point_target, DETECTION_AREA).first &&
+           _pre_calc_vector_product(VEC_D2D3, POINT_D2, point_target, DETECTION_AREA).first &&
+           _pre_calc_vector_product(VEC_D3D4, POINT_D3, point_target, DETECTION_AREA).first;
+}
+
+std::pair<bool, float> Detection::_target_to_detection_segment_distance(point_t target)
+{
+
+    float n = (
+        (detection_area.S[1].y - detection_area.S[0].y) * target.x -
+        (detection_area.S[1].x - detection_area.S[0].x) * target.y +
+        (detection_area.S[1].x * detection_area.S[0].y) -
+        (detection_area.S[1].y * detection_area.S[0].x)
+    ); // Vector product
+    float dx = detection_area.S[1].x - detection_area.S[0].x;
+    float dy = detection_area.S[1].y - detection_area.S[0].y;
+    float d = sqrt(dx*dx + dy*dy); // Length of the segment
+    float result = n / d;
+    return std::pair<bool, float>(result >= 0, result);
+}
 
 bool Detection::check_if_detected(uint8_t target_index)
 {
@@ -149,6 +212,7 @@ bool Detection::check_if_detected(uint8_t target_index)
     bool is_in_detection_area = _is_target_in_detection_area(targets[target_index].current_position);
 
     if (!was_in_detection_area && is_in_detection_area) {
+        // Target is in detection area
         targets[target_index].entered_position = targets[target_index].current_position;
         targets[target_index].entered_side = get_crossed_side(targets[target_index].current_position);
         // ESP_LOGI(DETECTION_TAG, "Target %u entered detection area at %s",
@@ -157,6 +221,7 @@ bool Detection::check_if_detected(uint8_t target_index)
         // );
         return true;
     } else if (was_in_detection_area && !is_in_detection_area) {
+        // Target exited detection area
         targets[target_index].exited_position = targets[target_index].current_position;
         targets[target_index].exited_side = get_crossed_side(targets[target_index].current_position);
         targets[target_index].traversed = true;
@@ -174,10 +239,10 @@ detection_area_side Detection::get_crossed_side(point_t point)
     float min = 10; // This value needs to be higher than the maximum value of the vector product to work
     detection_area_side_t side = NONE;
 
-    float a = _pre_calc_vector_product(VEC_D0D1, POINT_D0, point).second; // Left
-    float b = _pre_calc_vector_product(VEC_D1D2, POINT_D1, point).second; // Top
-    float c = _pre_calc_vector_product(VEC_D2D3, POINT_D2, point).second; // Right
-    float d = _pre_calc_vector_product(VEC_D3D4, POINT_D3, point).second; // Bottom
+    float a = _pre_calc_vector_product(VEC_D0D1, POINT_D0, point, DETECTION_AREA).second; // Left
+    float b = _pre_calc_vector_product(VEC_D1D2, POINT_D1, point, DETECTION_AREA).second; // Top
+    float c = _pre_calc_vector_product(VEC_D2D3, POINT_D2, point, DETECTION_AREA).second; // Right
+    float d = _pre_calc_vector_product(VEC_D3D4, POINT_D3, point, DETECTION_AREA).second; // Bottom
 
     if(a <= min){min = a; side = LEFT;}
     if(b < min ) {min = b; side = TOP;}
