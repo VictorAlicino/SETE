@@ -41,12 +41,20 @@ typedef struct detection_area{
     F2: D2-D3
     F3: D3-D0
 
+    F_D0: distance(D0-D1)
+    F_D1: distance(D1-D2)
+    F_D2: distance(D2-D3)
+    F_D3: distance(D3-D0)
+
     L: S0-S1
+    L_D: sqrt((S0.x - S1.x)^2 + (S0.y - S1.y)^2)
     */
     point_t D[4];                   // Points of the detection area
     point_t S[2];                   // Points of the detection segment
     vec2_t F[4];                    // Segment of detection area faces
+    float F_D[4];                   // Length of the detection area faces
     vec2_t L;                       // Segment of the detection area
+    float L_D;                      // Length of the detection line
     uint8_t portrait_landscape;     // 0: Portrait, 1: Landscape
 }detection_area_t;
 
@@ -59,13 +67,16 @@ typedef enum detection_area_side{
 }detection_area_side_t;
 
 typedef struct target{
-    point_t current_position;
-    point_t entered_position;
-    point_t exited_position;
-    point_t detection_segment_crossed_position;
-    detection_area_side_t entered_side;
-    detection_area_side_t exited_side;
-    bool traversed;
+    point_t current_position;                   // Current position of the target
+    point_t previous_position;                  // Previous position of the target
+    float previous_distance;                    // Distance from the previous position to the detection line
+    bool line_side;                             // Side of the detection line where the target is
+    point_t entered_position;                   // Position where the target entered the detection area
+    point_t exited_position;                    // Position where the target exited the detection area
+    point_t detection_segment_crossed_position; // Position where the target crossed the detection segment
+    detection_area_side_t entered_side;         // Side where the target entered the detection area
+    detection_area_side_t exited_side;          // Side where the target exited the detection area
+    bool traversed;                             // Flag to indicate if the target traversed the detection area
 }target_t;
 
 class Detection{
@@ -92,11 +103,11 @@ private:
      * @return true If the target is on the left of the vector AB
      * @return false If the target is not on the left of the vector AB
      */
-    std::pair<bool, float> _pre_calc_vector_product(
+    std::pair<bool, float> _pre_calc_vector_product_area(
         uint8_t vecAB_index,
         uint8_t pointA_index,
-        point_t pointC,
-        uint8_t area_or_segment);
+        point_t pointC
+    );
 
     /**
      * @brief Check if the target is inside the detection area
@@ -157,8 +168,8 @@ public:
 
     void set_raw_data_sent(bool send_raw_data);
     void set_enter_exit_inverted(bool inverted);
-   
-    std::pair<bool, float> _target_to_detection_segment_distance(point_t target);
+
+    std::pair<bool, float> _pre_calc_vector_product_segment(point_t pointC);
 
     bool check_if_detected(uint8_t target_index);
     void start_detection();

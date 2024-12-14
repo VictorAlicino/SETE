@@ -119,13 +119,21 @@ void app_main(void)
         char* D3_X = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D3_X");
         char* D3_Y = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D3_Y");
 
+        char* S0_X = storage->get_str(SENSOR_BASIC_DATA, "LD2461_S0_X");
+        char* S0_Y = storage->get_str(SENSOR_BASIC_DATA, "LD2461_S0_Y");
+
+        char* S1_X = storage->get_str(SENSOR_BASIC_DATA, "LD2461_S1_X");
+        char* S1_Y = storage->get_str(SENSOR_BASIC_DATA, "LD2461_S1_Y");
+
         bool enter_exit_inverted = storage->get_uint8(SENSOR_BASIC_DATA, "ENTER_EXIT");
 
         // Test if the values are not NULL
         if(D0_X != NULL && D0_Y != NULL &&
             D1_X != NULL && D1_Y != NULL &&
             D2_X != NULL && D2_Y != NULL &&
-            D3_X != NULL && D3_Y != NULL)
+            D3_X != NULL && D3_Y != NULL &&
+            S0_X != NULL && S0_Y != NULL &&
+            S1_X != NULL && S1_Y != NULL)
         {
             ESP_LOGI(TAG, "Using stored values for the detection area");
             if(enter_exit_inverted == 0) enter_exit_inverted = false;
@@ -134,6 +142,8 @@ void app_main(void)
                 {std::stof(D1_X), std::stof(D1_Y)},    // D1
                 {std::stof(D2_X), std::stof(D2_Y)},    // D2
                 {std::stof(D3_X), std::stof(D3_Y)},    // D3
+                {std::stof(S0_X), std::stof(S0_Y)},    // S0
+                {std::stof(S1_X), std::stof(S1_Y)},    // S1
                 enter_exit_inverted
             );
             free(D0_X); free(D0_Y);
@@ -148,7 +158,9 @@ void app_main(void)
                 {-5, 2},    // D0
                 {-5, 1},    // D1
                 {5, 1},     // D2
-                {5, 2}     // D3
+                {5, 2},     // D3
+                {-5, 1.2},   // S0
+                {5, 1.2}    // S1
             );
 
             // Save the default values
@@ -156,7 +168,9 @@ void app_main(void)
                 {-5, 2},    // D0
                 {-5, 1},    // D1
                 {5, 1},     // D2
-                {5, 2}     // D3
+                {5, 2},     // D3
+                {-5, 1.2},   // S0
+                {5, 1.2}    // S1
             );
 
             ESP_LOGI(TAG, "Default values for the detection area stored");

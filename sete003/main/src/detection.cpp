@@ -64,12 +64,21 @@ Detection::Detection(
     detection_area.F[2] = {D3.x - D2.x, D3.y - D2.y};
     detection_area.F[3] = {D0.x - D3.x, D0.y - D3.y};
 
+    // Detection Area Segment Length
+    detection_area.F_D[0] = sqrt(((D1.x * D1.x) - (D0.x * D0.x)) + ((D1.y * D1.y) - (D0.y * D0.y)));
+    detection_area.F_D[1] = sqrt(((D2.x * D2.x) - (D1.x * D1.x)) + ((D2.y * D2.y) - (D1.y * D1.y)));
+    detection_area.F_D[2] = sqrt(((D3.x * D3.x) - (D2.x * D2.x)) + ((D3.y * D3.y) - (D2.y * D2.y)));
+    detection_area.F_D[3] = sqrt(((D0.x * D0.x) - (D3.x * D3.x)) + ((D0.y * D0.y) - (D3.y * D3.y)));
+
     // Detection Line (Segment) Points
     detection_area.S[0] = S0;
     detection_area.S[1] = S1;
 
     // Detection Line (Segment) Vector
     detection_area.L = {S1.x - S0.x, S1.y - S0.y};
+
+    // Detection Line (Segment) Length
+    detection_area.L_D = sqrt(((S1.x * S1.x) - (S0.x * S0.x)) + ((S1.y * S1.y) - (S0.y * S0.y)));
 
     for(int i=0; i<MAX_TARGETS_DETECTION; i++){
         targets[i].current_position = {0, 0};
@@ -103,20 +112,34 @@ void Detection::set_detection_area(
         point_t S1
     )
 {
+
+    // Detection Area Points
     detection_area.D[0] = D0;
     detection_area.D[1] = D1;
     detection_area.D[2] = D2;
     detection_area.D[3] = D3;
 
+    // Detection Area Faces
     detection_area.F[0] = {D1.x - D0.x, D1.y - D0.y};
     detection_area.F[1] = {D2.x - D1.x, D2.y - D1.y};
     detection_area.F[2] = {D3.x - D2.x, D3.y - D2.y};
     detection_area.F[3] = {D0.x - D3.x, D0.y - D3.y};
 
+    // Detection Area Segment Length
+    detection_area.F_D[0] = sqrt(((D1.x * D1.x) - (D0.x * D0.x)) + ((D1.y * D1.y) - (D0.y * D0.y)));
+    detection_area.F_D[1] = sqrt(((D2.x * D2.x) - (D1.x * D1.x)) + ((D2.y * D2.y) - (D1.y * D1.y)));
+    detection_area.F_D[2] = sqrt(((D3.x * D3.x) - (D2.x * D2.x)) + ((D3.y * D3.y) - (D2.y * D2.y)));
+    detection_area.F_D[3] = sqrt(((D0.x * D0.x) - (D3.x * D3.x)) + ((D0.y * D0.y) - (D3.y * D3.y)));
+
+    // Detection Line (Segment) Points
     detection_area.S[0] = S0;
     detection_area.S[1] = S1;
 
+    // Detection Line (Segment) Vector
     detection_area.L = {S1.x - S0.x, S1.y - S0.y};
+
+    // Detection Line (Segment) Length
+    detection_area.L_D = sqrt(((S1.x * S1.x) - (S0.x * S0.x)) + ((S1.y * S1.y) - (S0.y * S0.y)));
 
     storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D0_X", std::to_string(D0.x).c_str());
     storage->store_data_str(SENSOR_BASIC_DATA, "LD2461_D0_Y", std::to_string(D0.y).c_str());
@@ -156,80 +179,71 @@ detection_area_t Detection::get_detection_area()
     return detection_area;
 }
 
-std::pair<bool, float> Detection::_pre_calc_vector_product(
-        uint8_t vecAB_index,
-        uint8_t pointA_index,
-        point_t pointC,
-        uint8_t area_or_segment)
+std::pair<bool, float> Detection::_pre_calc_vector_product_area(
+    uint8_t vecAB_index,
+    uint8_t pointA_index,
+    point_t pointC)
 {
-    float result = 0.0;
-    switch(area_or_segment)
-    {
-        case DETECTION_AREA:
-            result = (
-                detection_area.F[vecAB_index].x * (pointC.y - detection_area.D[pointA_index].y) -
-                detection_area.F[vecAB_index].y * (pointC.x - detection_area.D[pointA_index].x));
-            break;
-        case DETECTION_SEGMENT:
-            result = (
-                detection_area.L.x * (pointC.y - detection_area.S[pointA_index].y) -
-                detection_area.L.y * (pointC.x - detection_area.S[pointA_index].x)
-            );
-            break;
-        default:
-            result = 0.0;
-    }
+    //if (detection_area.F_D[vecAB_index] == 0) return std::pair<bool, float>(false, 0);
+    float result = (
+        detection_area.F[vecAB_index].x * (pointC.y - detection_area.D[pointA_index].y) -
+        detection_area.F[vecAB_index].y * (pointC.x - detection_area.D[pointA_index].x)
+    );
+    //result = result / detection_area.F_D[vecAB_index];
+    return std::pair<bool, float>(result >= 0, result);
+}
+
+std::pair<bool, float> Detection::_pre_calc_vector_product_segment(point_t pointC)
+{
+    if (detection_area.L_D == 0) return std::pair<bool, float>(false, 0);
+    float result = (
+        detection_area.L.x * (pointC.y - detection_area.S[0].y) -
+        detection_area.L.y * (pointC.x - detection_area.S[0].x)
+    );
+    result = result / detection_area.L_D;
     return std::pair<bool, float>(result >= 0, result);
 }
 
 bool Detection::_is_target_in_detection_area(point_t point_target)
 {
-    return _pre_calc_vector_product(VEC_D0D1, POINT_D0, point_target, DETECTION_AREA).first &&
-           _pre_calc_vector_product(VEC_D1D2, POINT_D1, point_target, DETECTION_AREA).first &&
-           _pre_calc_vector_product(VEC_D2D3, POINT_D2, point_target, DETECTION_AREA).first &&
-           _pre_calc_vector_product(VEC_D3D4, POINT_D3, point_target, DETECTION_AREA).first;
-}
-
-std::pair<bool, float> Detection::_target_to_detection_segment_distance(point_t target)
-{
-
-    float n = (
-        (detection_area.S[1].y - detection_area.S[0].y) * target.x -
-        (detection_area.S[1].x - detection_area.S[0].x) * target.y +
-        (detection_area.S[1].x * detection_area.S[0].y) -
-        (detection_area.S[1].y * detection_area.S[0].x)
-    ); // Vector product
-    float dx = detection_area.S[1].x - detection_area.S[0].x;
-    float dy = detection_area.S[1].y - detection_area.S[0].y;
-    float d = sqrt(dx*dx + dy*dy); // Length of the segment
-    float result = n / d;
-    return std::pair<bool, float>(result >= 0, result);
+    return _pre_calc_vector_product_area(VEC_D0D1, POINT_D0, point_target).first &&
+           _pre_calc_vector_product_area(VEC_D1D2, POINT_D1, point_target).first &&
+           _pre_calc_vector_product_area(VEC_D2D3, POINT_D2, point_target).first &&
+           _pre_calc_vector_product_area(VEC_D3D4, POINT_D3, point_target).first;
 }
 
 bool Detection::check_if_detected(uint8_t target_index)
 {
     bool was_in_detection_area = _is_target_in_detection_area(targets_previous[target_index]);
     bool is_in_detection_area = _is_target_in_detection_area(targets[target_index].current_position);
-
     if (!was_in_detection_area && is_in_detection_area) {
-        // Target is in detection area
+        // Target entered in detection area
+        ESP_LOGI(DETECTION_TAG, "Target %u entered the detection area", target_index);
         targets[target_index].entered_position = targets[target_index].current_position;
+        auto [line_side, distance] = _pre_calc_vector_product_segment(targets[target_index].current_position);
+        targets[target_index].line_side = line_side;
+        targets[target_index].previous_distance = distance;
         targets[target_index].entered_side = get_crossed_side(targets[target_index].current_position);
-        // ESP_LOGI(DETECTION_TAG, "Target %u entered detection area at %s",
-        //     target_index,
-        //     detection_area_side_str[targets[target_index].entered_side]
-        // );
         return true;
-    } else if (was_in_detection_area && !is_in_detection_area) {
+    }
+    else if (was_in_detection_area && !is_in_detection_area) {
         // Target exited detection area
+        ESP_LOGI(DETECTION_TAG, "Target %u exited the detection area", target_index);
         targets[target_index].exited_position = targets[target_index].current_position;
         targets[target_index].exited_side = get_crossed_side(targets[target_index].current_position);
         targets[target_index].traversed = true;
-        // ESP_LOGI(DETECTION_TAG, "Target %u exited detection area at %s",
-        //     target_index,
-        //     detection_area_side_str[targets[target_index].exited_side]
-        // );
         return false;
+    } 
+    else if (was_in_detection_area && is_in_detection_area) {
+        // Target is still in detection area
+        //auto [line_side, distance] = _pre_calc_vector_product_segment(targets[target_index].current_position);
+        //if (line_side * targets[target_index].line_side >= 0) {
+        //    // Target crossed the detection line
+        //    targets[target_index].detection_segment_crossed_position = targets[target_index].current_position;
+        //}
+        //targets[target_index].line_side = line_side;
+        //targets[target_index].previous_distance = distance;
+        return true;
     }
     return false;
 }
@@ -239,10 +253,10 @@ detection_area_side Detection::get_crossed_side(point_t point)
     float min = 10; // This value needs to be higher than the maximum value of the vector product to work
     detection_area_side_t side = NONE;
 
-    float a = _pre_calc_vector_product(VEC_D0D1, POINT_D0, point, DETECTION_AREA).second; // Left
-    float b = _pre_calc_vector_product(VEC_D1D2, POINT_D1, point, DETECTION_AREA).second; // Top
-    float c = _pre_calc_vector_product(VEC_D2D3, POINT_D2, point, DETECTION_AREA).second; // Right
-    float d = _pre_calc_vector_product(VEC_D3D4, POINT_D3, point, DETECTION_AREA).second; // Bottom
+    float a = _pre_calc_vector_product_area(VEC_D0D1, POINT_D0, point).second; // Left
+    float b = _pre_calc_vector_product_area(VEC_D1D2, POINT_D1, point).second; // Top
+    float c = _pre_calc_vector_product_area(VEC_D2D3, POINT_D2, point).second; // Right
+    float d = _pre_calc_vector_product_area(VEC_D3D4, POINT_D3, point).second; // Bottom
 
     if(a <= min){min = a; side = LEFT;}
     if(b < min ) {min = b; side = TOP;}
