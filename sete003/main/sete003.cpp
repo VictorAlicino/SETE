@@ -61,8 +61,8 @@ void app_main(void)
 
     // Initialize WiFi
     //wifi = new WiFi_STA("CAMPOS_EXT", "salsicha");
-    wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
-    //wifi = new WiFi_STA("Farma A Filial", "Filial#2200");
+    //wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
+    wifi = new WiFi_STA("Farma A Filial", "Filial#2200");
 
     // Initialize Board
     sensor = new Sensor();
