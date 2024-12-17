@@ -77,7 +77,17 @@ typedef struct target{
     detection_area_side_t entered_side;         // Side where the target entered the detection area
     detection_area_side_t exited_side;          // Side where the target exited the detection area
     bool traversed;                             // Flag to indicate if the target traversed the detection area
+
+    bool timeout;                               // Flag to indicate if the target timed out
 }target_t;
+
+typedef struct payload_buffer{
+    std::string timestamp;
+    point_t entered_position;
+    point_t exited_position;
+    detection_area_side_t entered_side;
+    detection_area_side_t exited_side;
+}payload_buffer_t;
 
 class Detection{
 private:

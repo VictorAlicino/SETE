@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include "esp_log.h"
 #include "esp_task_wdt.h"
+#include "esp_timer.h"
 #include <string.h>
 #include "ld2461.hpp"
+
 
 #ifndef RED_LED
 #define RED_LED GPIO_NUM_45
@@ -31,6 +33,10 @@ void ld2461_setup_detection(ld2461_detection_t* detection)
         detection->target[i].y = 0;
     }
     detection->detected_targets = 0;
+    for(int i=0; i<MAX_TARGETS_DETECTION; i++)
+    {
+        detection->is_target_available[i] = 0;
+    }
 }
 
 void free_ld2461_frame(ld2461_frame_t* frame)
@@ -202,10 +208,16 @@ void LD2461::report_detections(ld2461_detection_t* detection)
     {
         this->read_data(&frame);
     }
-    for(int i=0; i<(frame.data_length-1)/2; i++)
+    float size = (frame.data_length-1)/2;
+    for(int i=0; i<size; i++)
     {
         detection->target[i].x = frame.command_value[2*i];
         detection->target[i].y = frame.command_value[2*i+1];
+        detection->is_target_available[i] = 1;
+    }
+    for(int i=size; i<MAX_TARGETS_DETECTION; i++)
+    {
+        detection->is_target_available[i] = 0;
     }
     detection->detected_targets = frame.data_length/2;
     (frame.data_length/2 > 0) ? gpio_set_level(GREEN_LED, 1) : gpio_set_level(GREEN_LED, 0);
@@ -329,3 +341,53 @@ const char* LD2461::detection_to_json(ld2461_frame_t* frame){
     return buffer;
 }
 
+void LD2461::filter_ghost_targets(ld2461_detection_t* detection)
+{
+    static ld2461_detection_t previous_detection;
+    static uint64_t timeout[MAX_TARGETS_DETECTION] = {0};
+
+    if (detection->detected_targets == 0) return;
+
+    for (int i = 0; i < MAX_TARGETS_DETECTION; i++)
+    {
+        if (detection->target[i].x == 0 && detection->target[i].y == 0)
+        {
+            detection->is_target_available[i] = 0;
+            continue;
+        }
+        // Verifica se o ponto atual é igual ao anterior
+        if (detection->target[i].x == previous_detection.target[i].x &&
+            detection->target[i].y == previous_detection.target[i].y)
+        {
+            if (timeout[i] == 0)
+            {
+                timeout[i] = esp_timer_get_time();
+            }
+            else if (esp_timer_get_time() - timeout[i] > GHOST_TARGETS_TIMEOUT)
+            {
+                // Marca o ponto como fantasma
+                detection->is_target_available[i] = 2;
+                detection->target[i].x = 0;
+                detection->target[i].y = 0;
+
+                // Não reseta o timeout aqui para que pontos reincidentes
+                // sejam imediatamente marcados como fantasmas.
+                continue;
+            }
+        }
+        else
+        {
+            // Se o ponto atual não é igual ao anterior, reseta o timeout
+            timeout[i] = 0;
+        }
+    }
+
+    // Atualiza previous_detection sem sobrescrever fantasmas
+    for (int i = 0; i < MAX_TARGETS_DETECTION; i++)
+    {
+        if (detection->is_target_available[i] != 2)
+        {
+            previous_detection.target[i] = detection->target[i];
+        }
+    }
+}

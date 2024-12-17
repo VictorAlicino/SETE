@@ -5,6 +5,7 @@
 #include "esp_log.h"
 #include "esp_wifi.h"
 #include "esp_event.h"
+#include "esp_netif_sntp.h"
 
 
 #include "lwip/err.h"
@@ -128,6 +129,10 @@ WiFi_STA::WiFi_STA(std::string ssid, std::string password)
     } else {
         ESP_LOGE(WIFI_TAG, "UNEXPECTED EVENT");
     }
+
+    esp_sntp_config_t config = ESP_NETIF_SNTP_DEFAULT_CONFIG("a.st1.ntp.br");
+    esp_netif_sntp_init(&config);
+
 }
 
 int8_t WiFi_STA::get_rssi()

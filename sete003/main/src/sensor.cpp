@@ -5,7 +5,12 @@
 
 #include "esp_log.h"
 #include "esp_wifi.h"
+#include "time.h"
 #include "freertos/timers.h"
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
 #include <string>
 
 const char* SENSOR_TAG = "Sensor";
@@ -76,7 +81,7 @@ Sensor::Sensor()
     this->name = "Sonare " + mac_str_s;
     this->designator = mac_str_s;
     #warning "Remember to change the MQTT root topic"
-    this->mqtt_root_topic = "SETE/sensors/test/sete003/" + mac_str_s;
+    this->mqtt_root_topic = "SETE/sensors/sete003/" + mac_str_s;
     this->mqtt_callback_topic = this->mqtt_root_topic + "/callback";
 
     int64_t nvs_buffer_time = storage->get_int64(SENSOR_BASIC_DATA, "BUFFER_TIME");
@@ -140,6 +145,42 @@ std::string Sensor::get_ota_update_uri()
 void Sensor::set_ota_update_uri(std::string uri)
 {
     this->ota_update_uri = uri;
+}
+
+char* Sensor::time_now()
+{
+    time_t now;
+    static char strftime_buf[64];
+    struct tm timeinfo;
+
+    time(&now);
+    setenv("TZ", "GMT0", 1);
+    tzset();
+    localtime_r(&now, &timeinfo);
+    strftime(strftime_buf, sizeof(strftime_buf), "%c", &timeinfo);
+    return strftime_buf;
+}
+
+std::string Sensor::get_current_timestamp()
+{
+    // Obtém o tempo atual
+    auto now = std::chrono::system_clock::now();
+    
+    // Converte para tempo do sistema
+    auto time_t_now = std::chrono::system_clock::to_time_t(now);
+    auto timeinfo = std::gmtime(&time_t_now); // Tempo em UTC (GMT)
+    
+    // Extrai os milissegundos/microsegundos
+    auto duration = now.time_since_epoch();
+    auto micros = std::chrono::duration_cast<std::chrono::microseconds>(duration).count() % 1000000;
+
+    // Formata a data e hora
+    std::ostringstream oss;
+    oss << std::put_time(timeinfo, "%Y-%m-%d %H:%M:%S"); // Data e hora
+    oss << "." << std::setfill('0') << std::setw(6) << micros; // Microssegundos
+    oss << "+00"; // UTC offset
+    
+    return oss.str();
 }
 
 void Sensor::dump_info()

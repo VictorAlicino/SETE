@@ -14,6 +14,10 @@ FRAME HEADER - DATA LENGHT - COMMAND WORD - COMMAND VALUE - CHECKSUM - FRAME END
 
 #define MAX_TARGETS_DETECTION 5
 
+#ifndef GHOST_TARGETS_TIMEOUT
+#define GHOST_TARGETS_TIMEOUT 6000000 // 5 seconds
+#endif
+
 
 enum ld2461_baudrate_t
 {
@@ -80,7 +84,8 @@ typedef struct ld2461_coordinate
 typedef struct ld2461_detection
 {
     struct ld2461_coordinate target[MAX_TARGETS_DETECTION];
-    int8_t detected_targets;
+    int8_t detected_targets; // Number of detected targets
+    int8_t is_target_available[MAX_TARGETS_DETECTION]; // ID of the detected targets (0 for not available, 1 for available)
 }ld2461_detection_t;
 
 /**
@@ -184,4 +189,6 @@ public:
      * @return const char* cstring with the JSON data
      */
     const char* detection_to_json(ld2461_frame_t* frame);
+
+    void filter_ghost_targets(ld2461_detection_t* detection);
 };

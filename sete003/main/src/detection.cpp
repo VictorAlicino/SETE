@@ -218,7 +218,7 @@ bool Detection::check_if_detected(uint8_t target_index)
     bool is_in_detection_area = _is_target_in_detection_area(targets[target_index].current_position);
     if (!was_in_detection_area && is_in_detection_area) {
         // Target entered in detection area
-        ESP_LOGI(DETECTION_TAG, "Target %u entered the detection area", target_index);
+        //ESP_LOGI(DETECTION_TAG, "Target %u entered the detection area", target_index);
         targets[target_index].entered_position = targets[target_index].current_position;
         auto [line_side, distance] = _pre_calc_vector_product_segment(targets[target_index].current_position);
         targets[target_index].line_side = line_side;
@@ -228,7 +228,7 @@ bool Detection::check_if_detected(uint8_t target_index)
     }
     else if (was_in_detection_area && !is_in_detection_area) {
         // Target exited detection area
-        ESP_LOGI(DETECTION_TAG, "Target %u exited the detection area", target_index);
+        //ESP_LOGI(DETECTION_TAG, "Target %u exited the detection area", target_index);
         targets[target_index].exited_position = targets[target_index].current_position;
         targets[target_index].exited_side = get_crossed_side(targets[target_index].current_position);
         targets[target_index].traversed = true;
@@ -584,6 +584,8 @@ void Detection::detect()
     ld2461_setup_detection(&detection_frame);
     ld2461->report_detections(&detection_frame);
 
+    ld2461->filter_ghost_targets(&detection_frame);
+
     if(detection_frame.detected_targets == 0)
     {
         //ESP_LOGI(DETECTION_TAG, "No targets detected");
@@ -594,14 +596,25 @@ void Detection::detect()
     std::string targets_str = "Target in Area: ";
     for(int i=0; i<MAX_TARGETS_DETECTION; i++)
     {
-        if(check_if_detected(i)) {
-            targets_str += std::to_string(i) + ", ";
-        }
-        count_detections(i);
         detection_payload += "\"t_" + std::to_string(i) + "\": {";
         detection_payload += "\"x\": " + std::to_string(targets[i].current_position.x) + ",";
         detection_payload += "\"y\": " + std::to_string(targets[i].current_position.y);
         detection_payload += "},";
+        switch(detection_frame.is_target_available[i])
+        {
+            case 0: // Target not available
+                break;
+            case 1: // Target available
+                if(check_if_detected(i)) {
+                    targets_str += std::to_string(i) + ", ";
+                }
+                break;
+            case 2: // Target available but is a ghost
+                break;
+            default:
+                break;
+            count_detections(i);
+        }
     }
     detection_payload.pop_back(); // Remove last comma
     detection_payload += "}";

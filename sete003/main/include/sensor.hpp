@@ -74,4 +74,8 @@ public:
 
     uint64_t start_free_memory;
     int64_t get_free_memory();
+
+    char* time_now();
+
+    std::string get_current_timestamp();
 };

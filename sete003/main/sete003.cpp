@@ -15,6 +15,8 @@
 #include "esp_log.h"
 #include "esp_timer.h"
 #include "cJSON.h"
+#include "time.h"
+#include "sys/time.h"
 #include <string>
 
 #include <cstdlib>
@@ -193,15 +195,17 @@ void app_main(void)
     detection->set_raw_data_sent(true);
     mqtt->subscribe(std::string(sensor->get_mqtt_root_topic() + "/command/#").c_str(), 0);
     {
-        ESP_LOGI(TAG, "Firmware downloaded from OTA | Compiled on [ %s @ %s ]", __DATE__, __TIME__);
+        ESP_LOGI(TAG, "Firmware downloaded from OTA | Compiled on [ %s @ %s (UTC -3)]", __DATE__, __TIME__);
         const esp_partition_t *running = esp_ota_get_running_partition();
         ESP_LOGI(TAG, "Running partition type %d subtype %d (offset 0x%lx)",
              running->type, running->subtype, running->address);
     }
     ESP_LOGI(TAG, "Finished initialization");
     sensor->start_free_memory = esp_get_free_heap_size();
+
     while(flag_0)
     {
+        //printf("%s\n", sensor->get_current_timestamp().c_str());
         time_now = esp_timer_get_time();
         detection->detect();
         sensor_state = (
