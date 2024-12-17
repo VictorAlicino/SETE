@@ -63,8 +63,8 @@ void app_main(void)
 
     // Initialize WiFi
     //wifi = new WiFi_STA("CAMPOS_EXT", "salsicha");
-    wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
-    //wifi = new WiFi_STA("Farma A Filial", "Filial#2200");
+   // wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
+    wifi = new WiFi_STA("Farma A Filial", "Filial#2200");
 
     // Initialize Board
     sensor = new Sensor();
@@ -157,22 +157,22 @@ void app_main(void)
         {
             ESP_LOGI(TAG, "Values for the detection area not found, using default values");
             detection = new Detection(
-                {-5, 2},    // D0
-                {-5, 1},    // D1
-                {5, 1},     // D2
-                {5, 2},     // D3
-                {-5, 1.2},   // S0
-                {5, 1.2}    // S1
+                {-2, 3},    // D0
+                {-2, 1.8},  // D1
+                {2, 1.8},   // D2
+                {2, 3},     // D3
+                {-1, 1.8},  // S0
+                {1, 1.8}    // S1
             );
 
             // Save the default values
             detection->set_detection_area(
-                {-5, 2},    // D0
-                {-5, 1},    // D1
-                {5, 1},     // D2
-                {5, 2},     // D3
-                {-5, 1.2},   // S0
-                {5, 1.2}    // S1
+                {-2, 3},    // D0
+                {-2, 1.8},  // D1
+                {2, 1.8},   // D2
+                {2, 3},     // D3
+                {-1, 1.8},  // S0
+                {1, 1.8}    // S1
             );
 
             ESP_LOGI(TAG, "Default values for the detection area stored");

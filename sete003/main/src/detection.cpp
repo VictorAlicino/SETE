@@ -216,34 +216,24 @@ bool Detection::check_if_detected(uint8_t target_index)
 {
     bool was_in_detection_area = _is_target_in_detection_area(targets_previous[target_index]);
     bool is_in_detection_area = _is_target_in_detection_area(targets[target_index].current_position);
+
     if (!was_in_detection_area && is_in_detection_area) {
-        // Target entered in detection area
-        //ESP_LOGI(DETECTION_TAG, "Target %u entered the detection area", target_index);
         targets[target_index].entered_position = targets[target_index].current_position;
-        auto [line_side, distance] = _pre_calc_vector_product_segment(targets[target_index].current_position);
-        targets[target_index].line_side = line_side;
-        targets[target_index].previous_distance = distance;
         targets[target_index].entered_side = get_crossed_side(targets[target_index].current_position);
+        // ESP_LOGI(DETECTION_TAG, "Target %u entered detection area at %s",
+        //     target_index,
+        //     detection_area_side_str[targets[target_index].entered_side]
+        // );
         return true;
-    }
-    else if (was_in_detection_area && !is_in_detection_area) {
-        // Target exited detection area
-        //ESP_LOGI(DETECTION_TAG, "Target %u exited the detection area", target_index);
+    } else if (was_in_detection_area && !is_in_detection_area) {
         targets[target_index].exited_position = targets[target_index].current_position;
         targets[target_index].exited_side = get_crossed_side(targets[target_index].current_position);
         targets[target_index].traversed = true;
+        // ESP_LOGI(DETECTION_TAG, "Target %u exited detection area at %s",
+        //     target_index,
+        //     detection_area_side_str[targets[target_index].exited_side]
+        // );
         return false;
-    } 
-    else if (was_in_detection_area && is_in_detection_area) {
-        // Target is still in detection area
-        //auto [line_side, distance] = _pre_calc_vector_product_segment(targets[target_index].current_position);
-        //if (line_side * targets[target_index].line_side >= 0) {
-        //    // Target crossed the detection line
-        //    targets[target_index].detection_segment_crossed_position = targets[target_index].current_position;
-        //}
-        //targets[target_index].line_side = line_side;
-        //targets[target_index].previous_distance = distance;
-        return true;
     }
     return false;
 }
@@ -596,25 +586,17 @@ void Detection::detect()
     std::string targets_str = "Target in Area: ";
     for(int i=0; i<MAX_TARGETS_DETECTION; i++)
     {
+        if(!(detection_frame.is_target_available[i] == 2)){
+            if(check_if_detected(i)) {
+                targets_str += std::to_string(i) + ", ";
+            }
+        }
+
+        count_detections(i);
         detection_payload += "\"t_" + std::to_string(i) + "\": {";
         detection_payload += "\"x\": " + std::to_string(targets[i].current_position.x) + ",";
         detection_payload += "\"y\": " + std::to_string(targets[i].current_position.y);
         detection_payload += "},";
-        switch(detection_frame.is_target_available[i])
-        {
-            case 0: // Target not available
-                break;
-            case 1: // Target available
-                if(check_if_detected(i)) {
-                    targets_str += std::to_string(i) + ", ";
-                }
-                break;
-            case 2: // Target available but is a ghost
-                break;
-            default:
-                break;
-            count_detections(i);
-        }
     }
     detection_payload.pop_back(); // Remove last comma
     detection_payload += "}";
