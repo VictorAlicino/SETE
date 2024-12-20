@@ -1,5 +1,13 @@
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 
+#define DEBUG 1
+
+#ifdef DEBUG
+#if DEBUG == 1
+#pragma message("DEBUG MODE ENABLED")
+#endif
+#endif
+
 // IDF Headers
 #include "esp_system.h"
 #include "freertos/FreeRTOS.h"
@@ -62,9 +70,12 @@ void app_main(void)
     storage = new Storage();
 
     // Initialize WiFi
-    //wifi = new WiFi_STA("CAMPOS_EXT", "salsicha");
+    #if DEBUG == 1
     wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
-    //wifi = new WiFi_STA("Farma A Filial", "Filial#2200");
+    #else
+    wifi = new WiFi_STA("Farma A Filial", "Filial#2200");
+    #endif
+    //wifi = new WiFi_STA("CAMPOS_EXT", "salsicha");
 
     // Initialize Board
     sensor = new Sensor();
@@ -157,22 +168,22 @@ void app_main(void)
         {
             ESP_LOGI(TAG, "Values for the detection area not found, using default values");
             detection = new Detection(
-                {-5, 2},    // D0
-                {-5, 1},    // D1
-                {5, 1},     // D2
-                {5, 2},     // D3
-                {-5, 1.2},   // S0
-                {5, 1.2}    // S1
+                {-2, 3},    // D0
+                {-2, 1.8},  // D1
+                {2, 1.8},   // D2
+                {2, 3},     // D3
+                {-2, 1.8},  // S0
+                {2, 1.8}    // S1
             );
 
             // Save the default values
             detection->set_detection_area(
-                {-5, 2},    // D0
-                {-5, 1},    // D1
-                {5, 1},     // D2
-                {5, 2},     // D3
-                {-5, 1.2},   // S0
-                {5, 1.2}    // S1
+                {-2, 3},    // D0
+                {-2, 1.8},  // D1
+                {2, 1.8},   // D2
+                {2, 3},     // D3
+                {-2, 1.8},  // S0
+                {2, 1.8}    // S1
             );
 
             ESP_LOGI(TAG, "Default values for the detection area stored");
@@ -195,7 +206,7 @@ void app_main(void)
     detection->set_raw_data_sent(true);
     mqtt->subscribe(std::string(sensor->get_mqtt_root_topic() + "/command/#").c_str(), 0);
     {
-        ESP_LOGI(TAG, "Firmware downloaded from OTA | Compiled on [ %s @ %s (UTC -3)]", __DATE__, __TIME__);
+        ESP_LOGI(TAG, "Firmware compiled on [ %s @ %s (UTC -3)]", __DATE__, __TIME__);
         const esp_partition_t *running = esp_ota_get_running_partition();
         ESP_LOGI(TAG, "Running partition type %d subtype %d (offset 0x%lx)",
              running->type, running->subtype, running->address);
@@ -203,6 +214,8 @@ void app_main(void)
     ESP_LOGI(TAG, "Finished initialization");
     sensor->start_free_memory = esp_get_free_heap_size();
 
+    ESP_LOGI(TAG, "Started on [%s (GMT +0)]", sensor->get_current_timestamp().c_str());
+    sensor->change_time_zone("GMT +3"); // Change to UTC-3
     while(flag_0)
     {
         //printf("%s\n", sensor->get_current_timestamp().c_str());

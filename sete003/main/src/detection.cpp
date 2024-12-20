@@ -214,27 +214,29 @@ bool Detection::_is_target_in_detection_area(point_t point_target)
 
 bool Detection::check_if_detected(uint8_t target_index)
 {
-    bool was_in_detection_area = _is_target_in_detection_area(targets_previous[target_index]);
-    bool is_in_detection_area = _is_target_in_detection_area(targets[target_index].current_position);
-    if (!was_in_detection_area && is_in_detection_area) {
+    bool was_in_detection_area = _is_target_in_detection_area(targets_previous[target_index]);                          // Check if the target was in the detection area
+    bool is_in_detection_area = _is_target_in_detection_area(targets[target_index].current_position);                   // Check if the target is in the detection area
+
+    if (!was_in_detection_area && is_in_detection_area) { // Target entered detection area
         // Target entered in detection area
         //ESP_LOGI(DETECTION_TAG, "Target %u entered the detection area", target_index);
-        targets[target_index].entered_position = targets[target_index].current_position;
-        auto [line_side, distance] = _pre_calc_vector_product_segment(targets[target_index].current_position);
-        targets[target_index].line_side = line_side;
-        targets[target_index].previous_distance = distance;
-        targets[target_index].entered_side = get_crossed_side(targets[target_index].current_position);
+        targets[target_index].entered_position = targets[target_index].current_position;                                // Save the entry point
+        auto [line_side, distance] = _pre_calc_vector_product_segment(targets[target_index].current_position);          // Calculate the side and distance from the detection line
+        targets[target_index].line_side = line_side;                                                                    // Save the side of the detection line
+        targets[target_index].previous_distance = distance;                                                             // Save the distance from the detection line
+        targets[target_index].entered_side = get_crossed_side(targets[target_index].current_position);                  // Save the side where the target entered
+        targets[target_index].trusted_vector = !_is_target_in_detection_area(targets[target_index].previous_position);   // Check previous point to see if was outside the detection area
         return true;
     }
-    else if (was_in_detection_area && !is_in_detection_area) {
+    else if (was_in_detection_area && !is_in_detection_area) { // Target exited detection area                                                   
         // Target exited detection area
         //ESP_LOGI(DETECTION_TAG, "Target %u exited the detection area", target_index);
-        targets[target_index].exited_position = targets[target_index].current_position;
-        targets[target_index].exited_side = get_crossed_side(targets[target_index].current_position);
-        targets[target_index].traversed = true;
+        targets[target_index].exited_position = targets[target_index].current_position;                                 // Save the exit point
+        targets[target_index].exited_side = get_crossed_side(targets[target_index].current_position);                   // Save the side where the target exited
+        targets[target_index].traversed = true;                                                                         // Flag the target as traversed
         return false;
     } 
-    else if (was_in_detection_area && is_in_detection_area) {
+    else if (was_in_detection_area && is_in_detection_area) { // Target is still in detection area
         // Target is still in detection area
         //auto [line_side, distance] = _pre_calc_vector_product_segment(targets[target_index].current_position);
         //if (line_side * targets[target_index].line_side >= 0) {
@@ -258,7 +260,7 @@ detection_area_side Detection::get_crossed_side(point_t point)
     float c = _pre_calc_vector_product_area(VEC_D2D3, POINT_D2, point).second; // Right
     float d = _pre_calc_vector_product_area(VEC_D3D4, POINT_D3, point).second; // Bottom
 
-    if(a <= min){min = a; side = LEFT;}
+    if(a <= min) {min = a; side = LEFT;}
     if(b < min ) {min = b; side = TOP;}
     if(c < min ) {min = c; side = RIGHT;}
     if(d < min ) {min = d; side = BOTTOM;}
@@ -286,7 +288,66 @@ void Detection::count_detections(int target_index)
     if(targets[target_index].traversed == false) return;
     if(targets[target_index].entered_side == NONE || targets[target_index].exited_side == NONE) return;
 
-    ESP_LOGI(DETECTION_TAG, "Target %u entry point: (%.2f, %.2f) | exit point: (%.2f, %.2f) | entered side: %s | exited side: %s",
+
+    if(targets[target_index].trusted_vector == 0) 
+    {
+        ESP_LOGI(DETECTION_TAG, "Target %u entry point: (%.2f, %.2f) | exit point: (%.2f, %.2f) | entered side: %s | exited side: %s | [UNTRUSTED]",
+            target_index,
+            targets[target_index].entered_position.x,
+            targets[target_index].entered_position.y,
+            targets[target_index].exited_position.x,
+            targets[target_index].exited_position.y,
+            detection_area_side_str[targets[target_index].entered_side],
+            detection_area_side_str[targets[target_index].exited_side]
+        );
+        switch(targets[target_index].exited_side)
+        {
+            case TOP:
+                if(!enter_exit_inverted)
+                {
+                    exited_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: #00",target_index);
+                }
+                else
+                {
+                    entered_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: #00!",target_index);
+                }
+                break;
+            case LEFT:
+                ESP_LOGW(DETECTION_TAG, "Target %u exited on LEFT but detection is not trusted | id: #10",target_index);
+                break;
+            case RIGHT:
+                ESP_LOGW(DETECTION_TAG, "Target %u exited on RIGHT but detection is not trusted | id: #11",target_index);
+                break;
+            case BOTTOM:
+                if(!enter_exit_inverted)
+                {
+                    entered_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: #20",target_index);
+                }
+                else
+                {
+                    exited_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: #21!",target_index);
+                }
+                break;
+            case NONE:
+                ESP_LOGW(DETECTION_TAG, "Target %u exited but exited_side is not defined | id: #30",target_index);
+                break;
+            default:
+                break;
+        }
+        targets[target_index].entered_side = NONE;
+        targets[target_index].exited_side = NONE;
+        targets[target_index].traversed = false;
+        targets[target_index].entered_position = {0, 0};
+        targets[target_index].exited_position = {0, 0};
+        targets[target_index].detection_segment_crossed_position = {0, 0};
+        return;
+    }
+
+    ESP_LOGI(DETECTION_TAG, "Target %u entry point: (%.2f, %.2f) | exit point: (%.2f, %.2f) | entered side: %s | exited side: %s | [ TRUSTED ]",
         target_index,
         targets[target_index].entered_position.x,
         targets[target_index].entered_position.y,
@@ -302,12 +363,12 @@ void Detection::count_detections(int target_index)
                 if(!enter_exit_inverted)
                 {
                     entered_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 00",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 00 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     exited_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 00!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 00! @ %s",target_index, sensor->time_now());
                 }
             }
             // User gave up
@@ -315,39 +376,39 @@ void Detection::count_detections(int target_index)
                 gave_up_detections++;
                 if(!enter_exit_inverted)
                 {
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 01",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 01 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 01!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 01! @ %s",target_index, sensor->time_now());
                 }
             }
             else if(targets[target_index].exited_side == LEFT){
                 if(!enter_exit_inverted)
                 {
                     exited_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 02",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 02 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     entered_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 02!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 02! @ %s",target_index, sensor->time_now());
                 }
             }
             else if(targets[target_index].exited_side == RIGHT){
                 if(!enter_exit_inverted)
                 {
-                    exited_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 03",target_index);
+                    entered_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 03 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
-                    entered_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 03!",target_index);
+                    exited_detections++;
+                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 03! @ %s",target_index, sensor->time_now());
                 }
             }
             else{
-                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 04",target_index);
+                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 04 @ %s",target_index, sensor->time_now());
             }
             break;
         case BOTTOM:
@@ -356,12 +417,12 @@ void Detection::count_detections(int target_index)
                 if(!enter_exit_inverted)
                 {
                     exited_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 10",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 10 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     entered_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 10!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 10! @ %s",target_index, sensor->time_now());
                 }
             }
             // User gave up
@@ -369,40 +430,40 @@ void Detection::count_detections(int target_index)
                 if(!enter_exit_inverted)
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 11",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 11 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 11!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 11! @ %s",target_index, sensor->time_now());
                 }
             }
             else if(targets[target_index].exited_side == LEFT){
                 if(!enter_exit_inverted)
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 12",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 12 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 12!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 12! @ %s",target_index, sensor->time_now());
                 }
             }
             else if(targets[target_index].exited_side == RIGHT){
                 if(!enter_exit_inverted)
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 12",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 12 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 12!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 12! @ %s",target_index, sensor->time_now());
                 }
             }
             else{
-                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 12",target_index);
+                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 12 @ %s",target_index, sensor->time_now());
             }
             break;
         case LEFT:
@@ -411,12 +472,12 @@ void Detection::count_detections(int target_index)
                 if(!enter_exit_inverted)
                 {
                     entered_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 20",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 20 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     exited_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 20!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 20! @ %s",target_index, sensor->time_now());
                 }
             }
             // User gave up
@@ -424,40 +485,40 @@ void Detection::count_detections(int target_index)
                 if(!enter_exit_inverted)
                 {
                     entered_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 21",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 21 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     exited_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 21!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 21! @ %s",target_index, sensor->time_now());
                 }
             }
             else if(targets[target_index].exited_side == LEFT){
                 if(!enter_exit_inverted)
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 22",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 22 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 22!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 22! @ %s",target_index, sensor->time_now());
                 }
             }
             else if(targets[target_index].exited_side == RIGHT){
                 if(!enter_exit_inverted)
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 22",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 22 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 22!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 22! @ %s",target_index, sensor->time_now());
                 }
             }
             else{
-                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 22",target_index);
+                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 22 @ %s",target_index, sensor->time_now());
             }
             break;
         case RIGHT:
@@ -466,12 +527,12 @@ void Detection::count_detections(int target_index)
                 if(!enter_exit_inverted)
                 {
                     exited_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 30",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u exited the room | id: 30 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     entered_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 30!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u entered the room | id: 30! @ %s",target_index, sensor->time_now());
                 }
             }
             // User gave up
@@ -479,52 +540,55 @@ void Detection::count_detections(int target_index)
                 if(!enter_exit_inverted)
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 31",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 31 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 31!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 31! @ %s",target_index, sensor->time_now());
                 }
             }
             else if(targets[target_index].exited_side == RIGHT){
                 if(!enter_exit_inverted)
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 32",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 32 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 32!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 32! @ %s",target_index, sensor->time_now());
                 }
             }
             else if(targets[target_index].exited_side == LEFT){
                 if(!enter_exit_inverted)
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 32",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up exiting the room | id: 32 @ %s",target_index, sensor->time_now());
                 }
                 else
                 {
                     gave_up_detections++;
-                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 32!",target_index);
+                    ESP_LOGI(DETECTION_TAG, "Target %u gave up entering the room | id: 32! @ %s",target_index, sensor->time_now());
                 }
             }
             else{
-                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 32",target_index);
+                ESP_LOGW(DETECTION_TAG, "Target %u traversed but exited_side is not defined | id: 32 @ %s",target_index, sensor->time_now());
             }
             break;
         case NONE:
-            ESP_LOGW(DETECTION_TAG, "Target %u traversed but entered_side is NONE | id: 40",target_index);
+            ESP_LOGW(DETECTION_TAG, "Target %u traversed but entered_side is NONE | id: 40 @ %s",target_index, sensor->time_now());
             break;
         default:
-            ESP_LOGW(DETECTION_TAG, "Target %u traversed but entered_side is not defined | 50",target_index);
+            ESP_LOGW(DETECTION_TAG, "Target %u traversed but entered_side is not defined | 50 @ %s",target_index, sensor->time_now());
             break;
     }
     targets[target_index].entered_side = NONE;
     targets[target_index].exited_side = NONE;
     targets[target_index].traversed = false;
+    targets[target_index].entered_position = {0, 0};
+    targets[target_index].exited_position = {0, 0};
+    targets[target_index].detection_segment_crossed_position = {0, 0};
     // ESP_LOGI(DETECTION_TAG, "Entered: %d, Exited: %d, Gave up: %d",
     //     entered_detections,
     //     exited_detections,

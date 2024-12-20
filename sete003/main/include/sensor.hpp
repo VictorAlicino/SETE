@@ -76,6 +76,7 @@ public:
     int64_t get_free_memory();
 
     char* time_now();
+    void change_time_zone(const char* time_zone);
 
     std::string get_current_timestamp();
 };

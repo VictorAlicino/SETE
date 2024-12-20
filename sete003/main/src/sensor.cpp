@@ -1,3 +1,11 @@
+#define DEBUG 1
+
+#ifdef DEBUG
+#if DEBUG == 1
+#pragma message("DEBUG MODE ENABLED")
+#endif
+#endif
+
 #include "sensor.hpp"
 #include "mqtt.hpp"
 #include "wifi.hpp"
@@ -80,8 +88,11 @@ Sensor::Sensor()
     
     this->name = "Sonare " + mac_str_s;
     this->designator = mac_str_s;
-    #warning "Remember to change the MQTT root topic"
+    #if DEBUG == 1
+    this->mqtt_root_topic = "SETE/sensors/debug/sete003/" + mac_str_s;
+    #else
     this->mqtt_root_topic = "SETE/sensors/sete003/" + mac_str_s;
+    #endif
     this->mqtt_callback_topic = this->mqtt_root_topic + "/callback";
 
     int64_t nvs_buffer_time = storage->get_int64(SENSOR_BASIC_DATA, "BUFFER_TIME");
@@ -154,11 +165,15 @@ char* Sensor::time_now()
     struct tm timeinfo;
 
     time(&now);
-    setenv("TZ", "GMT0", 1);
-    tzset();
     localtime_r(&now, &timeinfo);
     strftime(strftime_buf, sizeof(strftime_buf), "%c", &timeinfo);
     return strftime_buf;
+}
+
+void Sensor::change_time_zone(const char* time_zone)
+{
+    setenv("TZ", time_zone, 1);
+    tzset();
 }
 
 std::string Sensor::get_current_timestamp()

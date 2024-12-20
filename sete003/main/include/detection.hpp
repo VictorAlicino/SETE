@@ -77,8 +77,8 @@ typedef struct target{
     detection_area_side_t entered_side;         // Side where the target entered the detection area
     detection_area_side_t exited_side;          // Side where the target exited the detection area
     bool traversed;                             // Flag to indicate if the target traversed the detection area
-
     bool timeout;                               // Flag to indicate if the target timed out
+    uint8_t trusted_vector;                     // 0: First point is not trusted, 1: First point is trusted
 }target_t;
 
 typedef struct payload_buffer{
