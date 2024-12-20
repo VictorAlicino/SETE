@@ -220,12 +220,16 @@ bool Detection::check_if_detected(uint8_t target_index)
     if (!was_in_detection_area && is_in_detection_area) { // Target entered detection area
         // Target entered in detection area
         //ESP_LOGI(DETECTION_TAG, "Target %u entered the detection area", target_index);
+        targets[target_index].previous_position = targets_previous[target_index];                                       // Save the previous position
         targets[target_index].entered_position = targets[target_index].current_position;                                // Save the entry point
         auto [line_side, distance] = _pre_calc_vector_product_segment(targets[target_index].current_position);          // Calculate the side and distance from the detection line
         targets[target_index].line_side = line_side;                                                                    // Save the side of the detection line
         targets[target_index].previous_distance = distance;                                                             // Save the distance from the detection line
         targets[target_index].entered_side = get_crossed_side(targets[target_index].current_position);                  // Save the side where the target entered
-        targets[target_index].trusted_vector = !_is_target_in_detection_area(targets[target_index].previous_position);   // Check previous point to see if was outside the detection area
+        if(targets_previous[target_index].x == 0 && targets_previous[target_index].y == 0){                             // If the previous point is (0, 0) the vector is trusted
+            targets[target_index].trusted_vector = 0; 
+        }
+        else targets[target_index].trusted_vector = 1;
         return true;
     }
     else if (was_in_detection_area && !is_in_detection_area) { // Target exited detection area                                                   
@@ -272,6 +276,12 @@ void Detection::update_targets(ld2461_detection_t* report)
 {
     for(int i=0; i<MAX_TARGETS_DETECTION; i++)
     {
+        if(report->is_target_available[i] != 1) 
+        {
+            targets[i].current_position = {0, 0};
+            targets_previous[i] = {0, 0};
+            continue;
+        }
         targets_previous[i] = targets[i].current_position;
     }
     for(int i=0; i<MAX_TARGETS_DETECTION; i++)
@@ -291,8 +301,10 @@ void Detection::count_detections(int target_index)
 
     if(targets[target_index].trusted_vector == 0) 
     {
-        ESP_LOGI(DETECTION_TAG, "Target %u entry point: (%.2f, %.2f) | exit point: (%.2f, %.2f) | entered side: %s | exited side: %s | [UNTRUSTED]",
+        ESP_LOGI(DETECTION_TAG, "Target %u previous point: (%.2f, %.2f) | entry point: (%.2f, %.2f) | exit point: (%.2f, %.2f) | entered side: %s | exited side: %s | [UNTRUSTED]",
             target_index,
+            targets[target_index].previous_position.x,
+            targets[target_index].previous_position.y,
             targets[target_index].entered_position.x,
             targets[target_index].entered_position.y,
             targets[target_index].exited_position.x,
@@ -347,8 +359,10 @@ void Detection::count_detections(int target_index)
         return;
     }
 
-    ESP_LOGI(DETECTION_TAG, "Target %u entry point: (%.2f, %.2f) | exit point: (%.2f, %.2f) | entered side: %s | exited side: %s | [ TRUSTED ]",
+    ESP_LOGI(DETECTION_TAG, "Target %u previous point: (%.2f, %.2f) | entry point: (%.2f, %.2f) | exit point: (%.2f, %.2f) | entered side: %s | exited side: %s | [ TRUSTED ]",
         target_index,
+        targets[target_index].previous_position.x,
+        targets[target_index].previous_position.y,
         targets[target_index].entered_position.x,
         targets[target_index].entered_position.y,
         targets[target_index].exited_position.x,
@@ -660,25 +674,17 @@ void Detection::detect()
     std::string targets_str = "Target in Area: ";
     for(int i=0; i<MAX_TARGETS_DETECTION; i++)
     {
+        if(!(detection_frame.is_target_available[i] == 2)){
+            if(check_if_detected(i)) {
+                targets_str += std::to_string(i) + ", ";
+            }
+        }
+
+        count_detections(i);
         detection_payload += "\"t_" + std::to_string(i) + "\": {";
         detection_payload += "\"x\": " + std::to_string(targets[i].current_position.x) + ",";
         detection_payload += "\"y\": " + std::to_string(targets[i].current_position.y);
         detection_payload += "},";
-        switch(detection_frame.is_target_available[i])
-        {
-            case 0: // Target not available
-                break;
-            case 1: // Target available
-                if(check_if_detected(i)) {
-                    targets_str += std::to_string(i) + ", ";
-                }
-                break;
-            case 2: // Target available but is a ghost
-                break;
-            default:
-                break;
-            count_detections(i);
-        }
     }
     detection_payload.pop_back(); // Remove last comma
     detection_payload += "}";

@@ -24,6 +24,7 @@ void process_server_message(
     if(topic == "/reset")
     {
         ESP_LOGI("COMMS", "Resetting device by Server command");
+        sensor->shutdown();
         esp_restart();
     }
     else if(topic == "/update")

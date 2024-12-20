@@ -38,4 +38,6 @@ public:
      * @return esp_err_t ESP_OK if success
      */
     esp_err_t subscribe(const char* topic, int qos);
+
+    void shutdown();
 };

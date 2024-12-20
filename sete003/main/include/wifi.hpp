@@ -58,4 +58,6 @@ public:
      * @return false If the WiFi is not connected
      */
     bool is_connected();
+
+    void shutdown();
 };

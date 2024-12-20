@@ -1,4 +1,4 @@
-#define DEBUG 1
+#define DEBUG 0
 
 #ifdef DEBUG
 #if DEBUG == 1
@@ -249,4 +249,11 @@ void Sensor::dump_info()
 int64_t Sensor::get_free_memory()
 {
     return this->start_free_memory - esp_get_free_heap_size();
+}
+
+void Sensor::shutdown()
+{
+    ESP_LOGE(SENSOR_TAG, "Shutting down Sensor");
+    mqtt->shutdown();
+    wifi->shutdown();
 }

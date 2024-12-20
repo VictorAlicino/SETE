@@ -79,4 +79,6 @@ public:
     void change_time_zone(const char* time_zone);
 
     std::string get_current_timestamp();
+
+    void shutdown();
 };

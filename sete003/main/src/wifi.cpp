@@ -153,3 +153,13 @@ bool WiFi_STA::is_connected()
 {
     return xEventGroupGetBits(s_wifi_event_group) & WIFI_CONNECTED_BIT;
 }
+
+void WiFi_STA::shutdown()
+{
+    ESP_LOGW(WIFI_TAG, "Shutting down WiFi");
+    esp_wifi_disconnect();
+    esp_wifi_stop();
+    esp_wifi_deinit();
+    esp_event_loop_delete_default();
+    esp_netif_deinit();
+}
