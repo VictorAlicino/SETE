@@ -1,6 +1,6 @@
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 
-#define DEBUG 1
+#define DEBUG 0
 
 #ifdef DEBUG
 #if DEBUG == 1

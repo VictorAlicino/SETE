@@ -62,19 +62,20 @@ async def process_payload(message):
                 print(f"{datetime.now()} Target <{index}> traversed", end=" -> ")
                 if current_distance > 0:
                     if enter_exited_inverted:
-                        print(f"{datetime.now()} Target <{index}> exited", end="")
+                        print(f" Target <{index}> exited", end="")
                         exited_detection_count += 1
                     else:
-                        print(f"{datetime.now()} Target <{index}> entered", end="")
+                        print(f" Target <{index}> entered", end="")
                         entered_detection_count += 1
                 else:
                     if enter_exited_inverted:
-                        print(f"{datetime.now()} Target <{index}> entered", end="")
+                        print(f" Target <{index}> entered", end="")
                         entered_detection_count += 1
                     else:
-                        print(f"{datetime.now()} Target <{index}> exited", end="")
+                        print(f" Target <{index}> exited", end="")
                         exited_detection_count += 1
                 traversed_detection_count += 1
+                previous_distance = None
                 print()
         # Update previous distance
         previous_distances[index] = current_distance
@@ -84,19 +85,19 @@ async def send_buffer_to_db():
     while True:
         await asyncio.sleep(5)
         global traversed_detection_count, entered_detection_count, exited_detection_count
-        if traversed_detection_count == 0:
-            with database.get_db() as db:
-                continue
-        with database.get_db() as db:
-            data = DataByTwo()
-            data.sensor_id = "D80C"
-            data.traversed = traversed_detection_count
-            data.entered = entered_detection_count
-            data.exited = exited_detection_count
-            add_data_by_two(db, data)
-            traversed_detection_count = 0
-            entered_detection_count = 0
-            exited_detection_count = 0
+        #if traversed_detection_count == 0:
+        #    with database.get_db() as db:
+        #        continue
+        #with database.get_db() as db:
+        #    data = DataByTwo()
+        #    data.sensor_id = "D80C"
+        #    data.traversed = traversed_detection_count
+        #    data.entered = entered_detection_count
+        #    data.exited = exited_detection_count
+        #    add_data_by_two(db, data)
+        #    traversed_detection_count = 0
+        #    entered_detection_count = 0
+        #    exited_detection_count = 0
 
 async def _main():
     """Main function."""

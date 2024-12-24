@@ -14,6 +14,7 @@ from db.database import DB
 from db.sensor_internal_data import get_distinct_sensor
 
 detection_area = []
+detection_line = []
 
 # MQTT Async Guard
 if sys.platform.lower() == "win32" or os.name.lower() == "nt":
@@ -46,7 +47,7 @@ def update_graph(detections):
     ax.clear()
 
     # Definir o limite do gráfico
-    ax.set_xlim([-5, 5])
+    ax.set_xlim([-10, 10])
     ax.set_ylim([0, 8])
 
     ax.grid(True, which='both', linestyle='--', linewidth=0.5, color='gray')
@@ -55,6 +56,10 @@ def update_graph(detections):
     if len(detection_area) == 4:
         polygon = Polygon(detection_area, closed=True, edgecolor='red', facecolor='red', alpha=0.1)
         ax.add_patch(polygon)
+
+    # Adicionar linha de detecção
+    if len(detection_line) == 2:
+        ax.plot([detection_line[0][0], detection_line[1][0]], [detection_line[1][1], detection_line[0][1]], 'r-', linewidth=2)
 
     # Adicionar os pontos ao gráfico
     for detection in detections:
@@ -73,7 +78,7 @@ def update_graph(detections):
 # Função para conectar ao MQTT e receber dados
 async def mqtt_loop():
     await get_detection_area()
-    print(detection_area)
+    print(f"Detection Area: {detection_area}\nDetection Line: {detection_line}")
     try:
         async with aiomqtt.Client(env('MQTT'), 1883) as client:
             await client.subscribe(f"SETE/sensors/sete003/{selected_sensor}/raw")
@@ -129,11 +134,13 @@ async def get_detection_area():
             detection_area.append((float(payload['D1']['x']), float(payload['D1']['y'])))
             detection_area.append((float(payload['D2']['x']), float(payload['D2']['y'])))
             detection_area.append((float(payload['D3']['x']), float(payload['D3']['y'])))
+            detection_line.append((float(payload['S0']['x']), float(payload['S0']['y'])))
+            detection_line.append((float(payload['S1']['x']), float(payload['S1']['y'])))
             return
 
 async def exit():
     async with aiomqtt.Client(env('MQTT'), 1883) as client:
-        await client.publish(f"SETE/sensors/sete003/{selected_sensor}/command/raw_data", "false")
+        await client.publish(f"SETE/sensors/sete003/{selected_sensor}/command/raw_data", "true")
 
 # Função para rodar o loop MQTT em uma thread
 def run_mqtt():
