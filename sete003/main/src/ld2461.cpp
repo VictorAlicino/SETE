@@ -3,6 +3,7 @@
 #include "esp_task_wdt.h"
 #include "esp_timer.h"
 #include <string.h>
+#include <math.h>
 #include "ld2461.hpp"
 
 
@@ -355,7 +356,14 @@ void LD2461::filter_ghost_targets(ld2461_detection_t* detection)
             detection->is_target_available[i] = 0;
             continue;
         }
-        // Verifica se o ponto atual é igual ao anterior
+        if (fabs(detection->target[i].x - previous_detection.target[i].x) > MAX_THRESHOLD_DISTANCE_METERS ||
+            fabs(detection->target[i].y - previous_detection.target[i].y) > MAX_THRESHOLD_DISTANCE_METERS)
+        {
+            ESP_LOGW(RADAR_TAG, "Target %d exceeded the threshold.", i);
+            detection->is_target_available[i] = 0;
+            continue;
+        }
+        // Checks if the current point is equal to the previous one
         if (detection->target[i].x == previous_detection.target[i].x &&
             detection->target[i].y == previous_detection.target[i].y)
         {
@@ -365,24 +373,24 @@ void LD2461::filter_ghost_targets(ld2461_detection_t* detection)
             }
             else if (esp_timer_get_time() - timeout[i] > GHOST_TARGETS_TIMEOUT)
             {
-                // Marca o ponto como fantasma
+                // Set the point as a ghost
+                ESP_LOGW(RADAR_TAG, "Target %d marked as ghost.", i);
                 detection->is_target_available[i] = 2;
                 detection->target[i].x = 0;
                 detection->target[i].y = 0;
 
-                // Não reseta o timeout aqui para que pontos reincidentes
-                // sejam imediatamente marcados como fantasmas.
+                // Continue the loop to avoid overwriting ghosts
                 continue;
             }
         }
         else
         {
-            // Se o ponto atual não é igual ao anterior, reseta o timeout
+            // If the current point is different from the previous one, reset the timeout
             timeout[i] = 0;
         }
     }
 
-    // Atualiza previous_detection sem sobrescrever fantasmas
+    // Update previous_detection
     for (int i = 0; i < MAX_TARGETS_DETECTION; i++)
     {
         if (detection->is_target_available[i] != 2)
