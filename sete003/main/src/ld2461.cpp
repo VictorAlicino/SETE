@@ -36,7 +36,7 @@ void ld2461_setup_detection(ld2461_detection_t* detection)
     detection->detected_targets = 0;
     for(int i=0; i<MAX_TARGETS_DETECTION; i++)
     {
-        detection->is_target_available[i] = 0;
+        detection->is_target_available[i] = LD2461_TARGET_UNAVAILABLE;
     }
 }
 
@@ -214,11 +214,11 @@ void LD2461::report_detections(ld2461_detection_t* detection)
     {
         detection->target[i].x = frame.command_value[2*i];
         detection->target[i].y = frame.command_value[2*i+1];
-        detection->is_target_available[i] = 1;
+        detection->is_target_available[i] = LD2461_TARGET_AVAILABLE;
     }
     for(int i=size; i<MAX_TARGETS_DETECTION; i++)
     {
-        detection->is_target_available[i] = 0;
+        detection->is_target_available[i] = LD2461_TARGET_UNAVAILABLE;
     }
     detection->detected_targets = frame.data_length/2;
     (frame.data_length/2 > 0) ? gpio_set_level(GREEN_LED, 1) : gpio_set_level(GREEN_LED, 0);
@@ -347,22 +347,32 @@ void LD2461::filter_ghost_targets(ld2461_detection_t* detection)
     static ld2461_detection_t previous_detection;
     static uint64_t timeout[MAX_TARGETS_DETECTION] = {0};
 
-    if (detection->detected_targets == 0) return;
+    if (detection->detected_targets == 0) return; // If no targets are detected, return
 
+    // For each target, check if it is a ghost
     for (int i = 0; i < MAX_TARGETS_DETECTION; i++)
     {
+        // If target is already zero, skip
         if (detection->target[i].x == 0 && detection->target[i].y == 0)
         {
-            detection->is_target_available[i] = 0;
+            detection->is_target_available[i] = LD2461_TARGET_UNAVAILABLE; // Set the target as not available (id 0 is not available)
             continue;
         }
+
+        if (previous_detection.target[i].x == 0 && previous_detection.target[i].y == 0)
+        {
+            continue; // Skip if the previous target is zero
+        }
+
+        // Check if the target is too far from the previous one (probably error in the detection, people don't teleport)
         if (fabs(detection->target[i].x - previous_detection.target[i].x) > MAX_THRESHOLD_DISTANCE_METERS ||
             fabs(detection->target[i].y - previous_detection.target[i].y) > MAX_THRESHOLD_DISTANCE_METERS)
         {
-            ESP_LOGW(RADAR_TAG, "Target %d exceeded the threshold.", i);
-            detection->is_target_available[i] = 0;
+            ESP_LOGW(RADAR_TAG, "Target %d exceeded the threshold of %f meters.", i, MAX_THRESHOLD_DISTANCE_METERS);
+            detection->is_target_available[i] = LD2461_TARGET_TELEPORTED; // Set the target as teleported (id 3 is teleported)
             continue;
         }
+
         // Checks if the current point is equal to the previous one
         if (detection->target[i].x == previous_detection.target[i].x &&
             detection->target[i].y == previous_detection.target[i].y)
@@ -374,8 +384,8 @@ void LD2461::filter_ghost_targets(ld2461_detection_t* detection)
             else if (esp_timer_get_time() - timeout[i] > GHOST_TARGETS_TIMEOUT)
             {
                 // Set the point as a ghost
-                ESP_LOGW(RADAR_TAG, "Target %d marked as ghost.", i);
-                detection->is_target_available[i] = 2;
+                //ESP_LOGW(RADAR_TAG, "Target %d marked as ghost.", i);
+                detection->is_target_available[i] = LD2461_TARGET_GHOST;
                 detection->target[i].x = 0;
                 detection->target[i].y = 0;
 
@@ -393,7 +403,7 @@ void LD2461::filter_ghost_targets(ld2461_detection_t* detection)
     // Update previous_detection
     for (int i = 0; i < MAX_TARGETS_DETECTION; i++)
     {
-        if (detection->is_target_available[i] != 2)
+        if (detection->is_target_available[i] != LD2461_TARGET_GHOST)
         {
             previous_detection.target[i] = detection->target[i];
         }
