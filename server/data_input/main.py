@@ -21,6 +21,8 @@ if sys.platform.lower() == "win32" or os.name.lower() == "nt":
     set_event_loop_policy(WindowsSelectorEventLoopPolicy())
 
 async def store_sensor_log(payload, topic):
+    now = datetime.now()
+    today = now.strftime("%Y-%m-%d")
     # Define o caminho do diretório e do arquivo
     #db = next(database.get_db())
     #sensor_log = SensorLog(
@@ -30,16 +32,27 @@ async def store_sensor_log(payload, topic):
     #)
     # add_sensor_log(db, sensor_log)
     directory = f"sensor_log/{topic[2]}"
-    filepath = f"{directory}/{topic[3]}.log"
+    filepath = f"{directory}/{today}-{topic[3]}.log"
     
     # Cria o diretório se não existir
     os.makedirs(directory, exist_ok=True)  # Cria o diretório, se necessário
     
     # Abre o arquivo no modo append
     with open(filepath, "a") as f:
-        log_entry = f"{datetime.now()} {payload} \n"
+        log_entry = f"{now} {payload} \n"
         print(f"{topic[3]}: {log_entry[:-1]}")  # Imprime no console
         f.write(log_entry)  # Escreve no arquivo
+
+async def raw_to_jsonl(payload, topic):
+    """Saves the raw radar data into a JSON Lines"""
+    now = datetime.now()
+    today = now.strftime("%Y-%m-%d")
+    directory = f"radar_raw_data/{topic[3]}"
+    filepath = f"{directory}/{today}-ld2461.jsonl"
+    os.makedirs(directory, exist_ok=True)
+    with open(filepath, "a") as f:
+        f.write(f"{now};{payload}\n")
+    
 
 async def sensor003_payload(payload, topic: list[str]):
     #print(f"{topic[3]} | {topic[4]}: {payload.payload.decode()}")
@@ -55,6 +68,7 @@ async def sensor003_payload(payload, topic: list[str]):
             )
             with database.get_db() as db:
                 add_sensor_data(db, sensor_data)
+            #    print(f"{topic[3]} | {topic[4]}: {payload.payload.decode()}")
         case "info":
             data = json.loads(payload.payload.decode())
             sensor_internal_data = SensorInternalData(
@@ -68,6 +82,9 @@ async def sensor003_payload(payload, topic: list[str]):
             )
             with database.get_db() as db:
                 add_sensor_internal_data(db, sensor_internal_data)
+            #    print(f"{topic[3]} | {topic[4]}: {payload.payload.decode()}")
+        case "raw":
+            await raw_to_jsonl(payload.payload.decode(), topic)
         case "log":
             await store_sensor_log(payload.payload.decode(), topic)
         case _:
@@ -84,6 +101,9 @@ async def process_payload(payload):
 async def _main():
     # Start the database
     database.create_all()
+
+    print("Starting Data Input Service")
+    print(f"Started at {datetime.now()}")
 
     while True:
         try:

@@ -18,18 +18,33 @@ if sys.platform.lower() == "win32" or os.name.lower() == "nt":
 
 # ---------------------------------------------------------------------------------
 
+class Target:
+    id: int
+    previous_position: tuple[float, float]
+    current_position: tuple[float, float]
+    previous_distance: float
+    current_distance: float
+
+    def __init__(self, id: int, previous_position: tuple[float, float], current_position: tuple[float, float], previous_distance: float, current_distance: float):
+        self.id = id
+        self.previous_position = previous_position
+        self.current_position = current_position
+
+        self.previous_distance = previous_distance
+        self.current_distance = current_distance
+
 database = DB()
 monitoring_vector = [
     (float(env("D0_X")), float(env("D0_Y"))),
     (float(env("D1_X")), float(env("D1_Y")))
 ]  # Monitoring Line defined by two points
 enter_exited_inverted = bool(int(env('ENTER_EXIT_INVERTED')))  # Flag to invert enter and exit detection
-detected_indices = set()  # Indices of detected targets
 traversed_detection_count = 0  # Number of targets detected in the area
 entered_detection_count = 0  # Number of targets entered the area
 exited_detection_count = 0  # Number of targets exited the area
-previous_distances = {}  # Store previous distances for each target
-previous_positions = {}  # Store previous positions for each target
+
+detected_indices = set()  # Indices of detected targets
+targets: list[Target] = []
 
 def point_to_line_distance(x, y, line):
     """Calculate signed distance of a point to a line."""
@@ -38,62 +53,65 @@ def point_to_line_distance(x, y, line):
     denominator = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
     return numerator / denominator if denominator != 0 else 0
 
-def check_movement_threshold(cur_pos, prev_pos, threshold=1) -> bool:
+def check_threshold(cur_pos, prev_pos, threshold: float=1.0) -> bool:
     """Check if the difference between the current and previous position is greater than a threshold."""
     return abs(cur_pos - prev_pos) > threshold
 
 async def process_payload(message):
     """Process incoming MQTT payload."""
-    global traversed_detection_count, previous_distances, entered_detection_count, exited_detection_count, enter_exited_inverted
+    global traversed_detection_count, entered_detection_count, exited_detection_count, enter_exited_inverted
+    global targets
 
     try:
         payload = json.loads(message.payload.decode("utf-8"))
     except json.JSONDecodeError:
         print("Invalid JSON")
         return
+
     # Process each target
-    # TODO: For each new iteration, if the cur_pos is greater than prev by a certain threshold
-    # then consider it as a new target
-    for index, target in payload.items():
-        if (target['x'] == 0 and target['y'] == 0):
+    for index in range(0, 5):
+        targets[index].current_position = (float(payload[str(f't_{index}')]["x"]), float(payload[str(f't_{index}')]["y"]))
+
+        if targets[index].current_position == (0, 0):
             # Mark target as 0 in the previous distances
-            previous_positions[index] = 0
-            previous_distances[index] = 0
+            targets[index].previous_position = (0, 0)
+            targets[index].previous_distance = 0
             continue
-        t_x, t_y = float(target["x"]), float(target["y"])
-        current_distance = point_to_line_distance(t_x, t_y, monitoring_vector)
+
+        targets[index].current_distance = point_to_line_distance(targets[index].current_position[0], targets[index].current_position[1], monitoring_vector)
+
         # Check if target was previously detected
-        if index in previous_distances:
-            if check_movement_threshold(current_distance, previous_distances[index]):
-                print(f"{datetime.now()} Target <{index}> made an invalid movement")
-                previous_positions[index] = current_distance
-                previous_distances[index] = current_distance
-                break
-            change = current_distance * previous_distances[index]
-            # Detect crossing (sign change in distance)
-            if change == 0:
-                continue
-            if change < 0:
-                print(f"{datetime.now()} Target <{index}> traversed", end=" -> ")
-                if current_distance > 0:
-                    if enter_exited_inverted:
-                        print(f" Target <{index}> exited", end="")
-                        exited_detection_count += 1
-                    else:
-                        print(f" Target <{index}> entered", end="")
-                        entered_detection_count += 1
+        if check_threshold(targets[index].current_distance, targets[index].previous_distance, 1.2):
+            print(f"{datetime.now()} Target <{index}> made an invalid movement")
+            targets[index].previous_position = targets[index].current_position
+            targets[index].previous_distance = targets[index].current_distance
+            continue
+
+        change = targets[index].current_distance * targets[index].previous_distance
+        # Detect crossing (sign change in distance)
+        if change == 0:
+            continue
+        if change < 0:
+            print(f"{datetime.now()} Target <{index}> traversed", end=" -> ")
+            traversed_detection_count += 1
+            if targets[index].current_distance > 0:
+                if enter_exited_inverted:
+                    print(f"exited")
+                    exited_detection_count += 1
                 else:
-                    if enter_exited_inverted:
-                        print(f" Target <{index}> entered", end="")
-                        entered_detection_count += 1
-                    else:
-                        print(f" Target <{index}> exited", end="")
-                        exited_detection_count += 1
-                traversed_detection_count += 1
-                previous_distance = None
-                print()
-        # Update previous distance
-        previous_distances[index] = current_distance
+                    print(f"entered")
+                    entered_detection_count += 1
+            else:
+                if enter_exited_inverted:
+                    print(f"entered")
+                    entered_detection_count += 1
+                else:
+                    print(f"exited")
+                    exited_detection_count += 1
+        
+        targets[index].previous_position = targets[index].current_position
+        targets[index].previous_distance = targets[index].current_distance
+
 
 async def send_buffer_to_db():
     """Send accumulated data to the database periodically."""
@@ -112,10 +130,22 @@ async def send_buffer_to_db():
 
 async def _main():
     """Main function."""
+    global targets
     # Start the database
     database.create_all()
 
     asyncio.create_task(send_buffer_to_db())
+
+    for target_id in range(0, 5):
+        targets.append(
+            Target(
+                id=target_id,
+                previous_position=(0, 0),
+                current_position=(0, 0),
+                previous_distance=0,
+                current_distance=0
+            )
+        )
 
     while True:
         try:
