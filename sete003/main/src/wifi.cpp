@@ -5,6 +5,7 @@
 #include "esp_log.h"
 #include "esp_wifi.h"
 #include "esp_event.h"
+#include "esp_netif_sntp.h"
 
 
 #include "lwip/err.h"
@@ -65,6 +66,7 @@ void set_dynamic_hostname(esp_netif_t* netif)
 
 WiFi_STA::WiFi_STA(std::string ssid, std::string password)
 {
+    ESP_LOGD(WIFI_TAG, "Starting WiFi Station Mode");
 
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
@@ -101,6 +103,7 @@ WiFi_STA::WiFi_STA(std::string ssid, std::string password)
             .threshold = WIFI_AUTH_WPA_WPA2_PSK,
         },
     };
+    ESP_LOGI(WIFI_TAG, "Trying to connect to %s", ssid.c_str());
     strncpy((char*)wifi_config.sta.ssid, ssid.c_str(), sizeof(wifi_config.sta.ssid));
     strncpy((char*)wifi_config.sta.password, password.c_str(), sizeof(wifi_config.sta.password));
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
@@ -123,11 +126,15 @@ WiFi_STA::WiFi_STA(std::string ssid, std::string password)
         ESP_LOGI(WIFI_TAG, "connected to ap SSID: %s",
                  ssid.c_str());
     } else if (bits & WIFI_FAIL_BIT) {
-        ESP_LOGI(WIFI_TAG, "connected to ap SSID: %s",
+        ESP_LOGE(WIFI_TAG, "WiFi STA failed to connect to SSID: %s",
                  ssid.c_str());
     } else {
         ESP_LOGE(WIFI_TAG, "UNEXPECTED EVENT");
     }
+
+    esp_sntp_config_t config = ESP_NETIF_SNTP_DEFAULT_CONFIG("a.st1.ntp.br");
+    esp_netif_sntp_init(&config);
+
 }
 
 int8_t WiFi_STA::get_rssi()
@@ -147,4 +154,28 @@ wifi_ap_record_t WiFi_STA::get_ap_info()
 bool WiFi_STA::is_connected()
 {
     return xEventGroupGetBits(s_wifi_event_group) & WIFI_CONNECTED_BIT;
+}
+
+void WiFi_STA::shutdown()
+{
+    ESP_LOGW(WIFI_TAG, "Shutting down WiFi");
+    esp_wifi_disconnect();
+    esp_wifi_stop();
+    esp_wifi_deinit();
+    esp_event_loop_delete_default();
+    esp_netif_deinit();
+}
+
+std::string WiFi_STA::get_ssid()
+{
+    wifi_ap_record_t ap_info;
+    ESP_ERROR_CHECK(esp_wifi_sta_get_ap_info(&ap_info));
+    return std::string((char*)ap_info.ssid);
+}
+
+std::string WiFi_STA::get_password()
+{
+    wifi_config_t wifi_config;
+    ESP_ERROR_CHECK(esp_wifi_get_config(WIFI_IF_STA, &wifi_config));
+    return std::string((char*)wifi_config.sta.password);
 }

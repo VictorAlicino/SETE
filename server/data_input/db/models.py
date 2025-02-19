@@ -11,6 +11,7 @@ class SensorData(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)  # Identificador único
     timestamp = Column(DateTime(timezone=True), default=datetime.now())  # Data e hora do registro
+    mcu_timestamp = Column(DateTime(timezone=True))  # Data e hora do MCU
     sensor_id = Column(String, nullable=False)  # Identificador do sensor (ex: "sete003/D87C")
     entered = Column(Integer, default=0)  # Contador de entradas
     exited = Column(Integer, default=0)  # Contador de saídas
@@ -24,6 +25,7 @@ class SensorInternalData(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)  # Identificador único
     timestamp = Column(DateTime(timezone=True), default=datetime.now())  # Data e hora do registro em UTC
+    mcu_timestamp = Column(DateTime(timezone=True))  # Data e hora do MCU
     sensor_id = Column(String, nullable=False)  # Identificador do sensor (ex: "sete003/D87C")
     internal_temperature = Column(Float)  # Temperatura interna
     free_memory = Column(Integer)  # Memória livre
@@ -39,6 +41,7 @@ class SensorLog(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)  # Identificador único
     timestamp = Column(DateTime(timezone=True), default=datetime.now())  # Data e hora do registro em UTC
+    mcu_timestamp = Column(DateTime(timezone=True))  # Data e hora do MCU
     sensor_id = Column(String, nullable=False)  # Identificador do sensor (ex: "sete003/D87C")
     log = Column(String, nullable=False)  # Log
 

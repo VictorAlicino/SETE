@@ -2,6 +2,7 @@
 #include "sensor.hpp"
 
 #include "esp_log.h"
+#include "esp_task_wdt.h"
 #include "driver/gpio.h"
 
 #define HASH_LEN 32
@@ -131,7 +132,7 @@ void ota_update(std::string uri)
 
     if (ret == ESP_OK) {
         ESP_LOGI(OTA_TAG, "OTA Succeed, Rebooting...");
-        for(int i = 5; i > 0; i--)
+        for(int i = 5; i >= 0; i--)
         {
             ESP_LOGI(OTA_TAG, "Rebooting in %d seconds...", i);
             gpio_set_level(RED_LED, 0);
@@ -143,20 +144,12 @@ void ota_update(std::string uri)
             gpio_set_level(BLUE_LED, 0);
             vTaskDelay(500 / portTICK_PERIOD_MS);
         }
-        esp_restart();
+        sensor->shutdown();
+        ESP_LOGE(OTA_TAG, "Reboot failed");
+        ESP_LOGW(OTA_TAG, "Please reboot manually");
+        return;
     } else {
         ESP_LOGE(OTA_TAG, "Firmware upgrade failed");
-        for(int i = 5; i > 0; i--)
-        {
-            ESP_LOGE(OTA_TAG, "Be advised, OTA Upgrade Failed");
-            gpio_set_level(RED_LED, 1);
-            gpio_set_level(GREEN_LED, 0);
-            gpio_set_level(BLUE_LED, 0);
-            vTaskDelay(500 / portTICK_PERIOD_MS);
-            gpio_set_level(RED_LED, 0);
-            gpio_set_level(GREEN_LED, 0);
-            gpio_set_level(BLUE_LED, 0);
-            vTaskDelay(500 / portTICK_PERIOD_MS);
-        }
+        return;
     }
 }

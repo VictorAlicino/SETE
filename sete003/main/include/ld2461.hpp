@@ -14,6 +14,19 @@ FRAME HEADER - DATA LENGHT - COMMAND WORD - COMMAND VALUE - CHECKSUM - FRAME END
 
 #define MAX_TARGETS_DETECTION 5
 
+enum ld2461_flags : uint8_t
+{
+    LD2461_FLAG_GHOST_TIMER = 0,
+    LD2461_FLAG_MAX_THRESHOLD_DISTANCE = 1
+};
+
+enum ld2461_available_target : uint8_t
+{
+    LD2461_TARGET_UNAVAILABLE = 0,
+    LD2461_TARGET_AVAILABLE = 1,
+    LD2461_TARGET_GHOST = 2,
+    LD2461_TARGET_TELEPORTED = 3
+};
 
 enum ld2461_baudrate_t
 {
@@ -80,7 +93,8 @@ typedef struct ld2461_coordinate
 typedef struct ld2461_detection
 {
     struct ld2461_coordinate target[MAX_TARGETS_DETECTION];
-    int8_t detected_targets;
+    int8_t detected_targets; // Number of detected targets
+    int8_t is_target_available[MAX_TARGETS_DETECTION]; // ID of the detected targets (0 for not available, 1 for available)
 }ld2461_detection_t;
 
 /**
@@ -112,6 +126,13 @@ private:
      * @return uint8_t Sum of the checksum
      */
     uint8_t ld2461_generate_checksum(ld2461_frame_t* frame);
+
+    int64_t GHOST_TIMER_TIMEOUT = 4000000; // Microseconds
+    double MAX_THRESHOLD_DISTANCE_METERS = 2.5; // Meters
+
+    // Flags
+    uint8_t flag_ghost_timer = 1;
+    uint8_t flag_max_threshold_distance = 1;
 public:
     /**
      * @brief Construct a new LD2461 object
@@ -184,4 +205,15 @@ public:
      * @return const char* cstring with the JSON data
      */
     const char* detection_to_json(ld2461_frame_t* frame);
+
+    void filter_ghost_targets(ld2461_detection_t* detection);
+
+    void set_ghost_timer_timeout(int64_t timeout);
+    int64_t get_ghost_timer_timeout();
+
+    void set_max_threshold_distance(double distance);
+    double get_max_threshold_distance();
+
+    void set_flag(ld2461_flags flag, uint8_t value);
+    uint8_t get_flag(ld2461_flags flag);
 };

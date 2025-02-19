@@ -161,3 +161,10 @@ esp_err_t MQTT::subscribe(const char* topic, int qos)
 }
 
 esp_mqtt_client_handle_t MQTT::get_client(){return this->client;}
+
+void MQTT::shutdown()
+{
+    ESP_LOGW(MQTT_TAG, "Shutting down MQTT");
+    esp_mqtt_client_stop(this->client);
+    esp_mqtt_client_destroy(this->client);
+}

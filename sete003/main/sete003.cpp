@@ -1,5 +1,13 @@
 #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
 
+#define DEBUG 0
+
+#ifdef DEBUG
+#if DEBUG == 1
+#pragma message("DEBUG MODE ENABLED")
+#endif
+#endif
+
 // IDF Headers
 #include "esp_system.h"
 #include "freertos/FreeRTOS.h"
@@ -15,6 +23,8 @@
 #include "esp_log.h"
 #include "esp_timer.h"
 #include "cJSON.h"
+#include "time.h"
+#include "sys/time.h"
 #include <string>
 
 #include <cstdlib>
@@ -55,14 +65,18 @@ extern "C"
 
 void app_main(void)
 {
+    //esp_log_level_set("*", ESP_LOG_INFO);
     ESP_LOGI("SET003", "Firmware Compiled on [ %s @ %s ]", __DATE__, __TIME__);
     // Initialize Storage (NVS)
     storage = new Storage();
 
     // Initialize WiFi
+    #if DEBUG == 1
+    wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
+    #else
+    wifi = new WiFi_STA("UniFi SeteServicos", "6X.Pa1&bfF");
+    #endif
     //wifi = new WiFi_STA("CAMPOS_EXT", "salsicha");
-    //wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
-    wifi = new WiFi_STA("Farma A Filial", "Filial#2200");
 
     // Initialize Board
     sensor = new Sensor();
@@ -119,13 +133,21 @@ void app_main(void)
         char* D3_X = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D3_X");
         char* D3_Y = storage->get_str(SENSOR_BASIC_DATA, "LD2461_D3_Y");
 
+        char* S0_X = storage->get_str(SENSOR_BASIC_DATA, "LD2461_S0_X");
+        char* S0_Y = storage->get_str(SENSOR_BASIC_DATA, "LD2461_S0_Y");
+
+        char* S1_X = storage->get_str(SENSOR_BASIC_DATA, "LD2461_S1_X");
+        char* S1_Y = storage->get_str(SENSOR_BASIC_DATA, "LD2461_S1_Y");
+
         bool enter_exit_inverted = storage->get_uint8(SENSOR_BASIC_DATA, "ENTER_EXIT");
 
         // Test if the values are not NULL
         if(D0_X != NULL && D0_Y != NULL &&
             D1_X != NULL && D1_Y != NULL &&
             D2_X != NULL && D2_Y != NULL &&
-            D3_X != NULL && D3_Y != NULL)
+            D3_X != NULL && D3_Y != NULL &&
+            S0_X != NULL && S0_Y != NULL &&
+            S1_X != NULL && S1_Y != NULL)
         {
             ESP_LOGI(TAG, "Using stored values for the detection area");
             if(enter_exit_inverted == 0) enter_exit_inverted = false;
@@ -134,6 +156,8 @@ void app_main(void)
                 {std::stof(D1_X), std::stof(D1_Y)},    // D1
                 {std::stof(D2_X), std::stof(D2_Y)},    // D2
                 {std::stof(D3_X), std::stof(D3_Y)},    // D3
+                {std::stof(S0_X), std::stof(S0_Y)},    // S0
+                {std::stof(S1_X), std::stof(S1_Y)},    // S1
                 enter_exit_inverted
             );
             free(D0_X); free(D0_Y);
@@ -145,18 +169,22 @@ void app_main(void)
         {
             ESP_LOGI(TAG, "Values for the detection area not found, using default values");
             detection = new Detection(
-                {-5, 2},    // D0
-                {-5, 1},    // D1
-                {5, 1},     // D2
-                {5, 2}     // D3
+                {-2, 3},    // D0
+                {-2, 1.8},  // D1
+                {2, 1.8},   // D2
+                {2, 3},     // D3
+                {-2, 1.8},  // S0
+                {2, 1.8}    // S1
             );
 
             // Save the default values
             detection->set_detection_area(
-                {-5, 2},    // D0
-                {-5, 1},    // D1
-                {5, 1},     // D2
-                {5, 2}     // D3
+                {-2, 3},    // D0
+                {-2, 1.8},  // D1
+                {2, 1.8},   // D2
+                {2, 3},     // D3
+                {-2, 1.8},  // S0
+                {2, 1.8}    // S1
             );
 
             ESP_LOGI(TAG, "Default values for the detection area stored");
@@ -179,15 +207,34 @@ void app_main(void)
     detection->set_raw_data_sent(true);
     mqtt->subscribe(std::string(sensor->get_mqtt_root_topic() + "/command/#").c_str(), 0);
     {
-        ESP_LOGI(TAG, "Firmware downloaded from OTA | Compiled on [ %s @ %s ]", __DATE__, __TIME__);
+        ESP_LOGI(TAG, "Firmware compiled on [ %s @ %s (UTC -3)]", __DATE__, __TIME__);
         const esp_partition_t *running = esp_ota_get_running_partition();
         ESP_LOGI(TAG, "Running partition type %d subtype %d (offset 0x%lx)",
              running->type, running->subtype, running->address);
     }
     ESP_LOGI(TAG, "Finished initialization");
     sensor->start_free_memory = esp_get_free_heap_size();
+
+    ESP_LOGI(TAG, "Started on [%s (GMT +0)]", sensor->get_current_timestamp().c_str());
+    sensor->change_time_zone("GMT +3"); // Change to UTC-3
+
+    ////esp_log_level_set("*", ESP_LOG_WARN);
+
+    ////esp_log_level_set("COMMS", ESP_LOG_INFO);
+    ////esp_log_level_set("DETECTION", ESP_LOG_INFO);
+    ////esp_log_level_set("LD2461", ESP_LOG_INFO);
+    ////esp_log_level_set("MQTT", ESP_LOG_INFO);
+    ////esp_log_level_set("Over-The-Air Update", ESP_LOG_INFO);
+    ////esp_log_level_set("Sensor", ESP_LOG_INFO);
+    ////esp_log_level_set("STORAGE", ESP_LOG_INFO);
+    ////esp_log_level_set("WiFi Station", ESP_LOG_INFO);
+    
+    storage->store_data_str(WIFI_BASIC_DATA, "SSID", wifi->get_ssid().c_str());
+    storage->store_data_str(WIFI_BASIC_DATA, "PASSWORD", wifi->get_password().c_str());
+
     while(flag_0)
     {
+        //printf("%s\n", sensor->get_current_timestamp().c_str());
         time_now = esp_timer_get_time();
         detection->detect();
         sensor_state = (

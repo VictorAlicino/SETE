@@ -58,4 +58,20 @@ public:
      * @return false If the WiFi is not connected
      */
     bool is_connected();
+
+    /**
+     * @brief Get the SSID
+     * 
+     * @return std::string SSID
+     */
+    std::string get_ssid();
+
+    /**
+     * @brief Get the Password
+     * 
+     * @return std::string Password
+     */
+    std::string get_password();
+
+    void shutdown();
 };

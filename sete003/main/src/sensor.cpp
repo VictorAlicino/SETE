@@ -1,3 +1,11 @@
+#define DEBUG 0
+
+#ifdef DEBUG
+#if DEBUG == 1
+#pragma message("DEBUG MODE ENABLED")
+#endif
+#endif
+
 #include "sensor.hpp"
 #include "mqtt.hpp"
 #include "wifi.hpp"
@@ -5,7 +13,12 @@
 
 #include "esp_log.h"
 #include "esp_wifi.h"
+#include "time.h"
 #include "freertos/timers.h"
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
 #include <string>
 
 const char* SENSOR_TAG = "Sensor";
@@ -75,15 +88,20 @@ Sensor::Sensor()
     
     this->name = "Sonare " + mac_str_s;
     this->designator = mac_str_s;
-    #warning "Remember to change the MQTT root topic"
+
+    #if DEBUG == 1
+    this->mqtt_root_topic = "SETE/sensors/debug/sete003/" + mac_str_s;
+    #else
     this->mqtt_root_topic = "SETE/sensors/sete003/" + mac_str_s;
+    #endif
+  
     this->mqtt_callback_topic = this->mqtt_root_topic + "/callback";
 
     int64_t nvs_buffer_time = storage->get_int64(SENSOR_BASIC_DATA, "BUFFER_TIME");
     if(nvs_buffer_time == NULL)
     {
         ESP_LOGI(SENSOR_TAG, "BUFFER_TIME not found in NVS, setting default value");
-        this->payload_buffer_time = 30000000; // 30 seconds
+        this->payload_buffer_time = 10000000; // 30 seconds
         storage->store_data_int64(SENSOR_BASIC_DATA, "BUFFER_TIME", this->payload_buffer_time);
     }
     else
@@ -142,6 +160,46 @@ void Sensor::set_ota_update_uri(std::string uri)
     this->ota_update_uri = uri;
 }
 
+char* Sensor::time_now()
+{
+    time_t now;
+    static char strftime_buf[64];
+    struct tm timeinfo;
+
+    time(&now);
+    localtime_r(&now, &timeinfo);
+    strftime(strftime_buf, sizeof(strftime_buf), "%c", &timeinfo);
+    return strftime_buf;
+}
+
+void Sensor::change_time_zone(const char* time_zone)
+{
+    setenv("TZ", time_zone, 1);
+    tzset();
+}
+
+std::string Sensor::get_current_timestamp()
+{
+    // Obtém o tempo atual
+    auto now = std::chrono::system_clock::now();
+    
+    // Converte para tempo do sistema
+    auto time_t_now = std::chrono::system_clock::to_time_t(now);
+    auto timeinfo = std::gmtime(&time_t_now); // Tempo em UTC (GMT)
+    
+    // Extrai os milissegundos/microsegundos
+    auto duration = now.time_since_epoch();
+    auto micros = std::chrono::duration_cast<std::chrono::microseconds>(duration).count() % 1000000;
+
+    // Formata a data e hora
+    std::ostringstream oss;
+    oss << std::put_time(timeinfo, "%Y-%m-%d %H:%M:%S"); // Data e hora
+    oss << "." << std::setfill('0') << std::setw(6) << micros; // Microssegundos
+    oss << "+00"; // UTC offset
+    
+    return oss.str();
+}
+
 void Sensor::dump_info()
 {
     ESP_LOGI(SENSOR_TAG, "Sensor Name: %s", this->name.c_str());
@@ -193,4 +251,11 @@ void Sensor::dump_info()
 int64_t Sensor::get_free_memory()
 {
     return this->start_free_memory - esp_get_free_heap_size();
+}
+
+void Sensor::shutdown()
+{
+    ESP_LOGE(SENSOR_TAG, "Shutting down Sensor");
+    mqtt->shutdown();
+    wifi->shutdown();
 }
