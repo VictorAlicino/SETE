@@ -88,11 +88,13 @@ Sensor::Sensor()
     
     this->name = "Sonare " + mac_str_s;
     this->designator = mac_str_s;
+
     #if DEBUG == 1
     this->mqtt_root_topic = "SETE/sensors/debug/sete003/" + mac_str_s;
     #else
     this->mqtt_root_topic = "SETE/sensors/sete003/" + mac_str_s;
     #endif
+  
     this->mqtt_callback_topic = this->mqtt_root_topic + "/callback";
 
     int64_t nvs_buffer_time = storage->get_int64(SENSOR_BASIC_DATA, "BUFFER_TIME");
