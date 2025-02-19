@@ -14,13 +14,11 @@ FRAME HEADER - DATA LENGHT - COMMAND WORD - COMMAND VALUE - CHECKSUM - FRAME END
 
 #define MAX_TARGETS_DETECTION 5
 
-#ifndef GHOST_TARGETS_TIMEOUT
-#define GHOST_TARGETS_TIMEOUT 4000000 // Microseconds
-#endif
-
-#ifndef MAX_THRESHOLD_DISTANCE_METERS
-#define MAX_THRESHOLD_DISTANCE_METERS 2.0 // Meters
-#endif
+enum ld2461_flags : uint8_t
+{
+    LD2461_FLAG_GHOST_TIMER = 0,
+    LD2461_FLAG_MAX_THRESHOLD_DISTANCE = 1
+};
 
 enum ld2461_available_target : uint8_t
 {
@@ -128,6 +126,13 @@ private:
      * @return uint8_t Sum of the checksum
      */
     uint8_t ld2461_generate_checksum(ld2461_frame_t* frame);
+
+    int64_t GHOST_TIMER_TIMEOUT = 4000000; // Microseconds
+    double MAX_THRESHOLD_DISTANCE_METERS = 2.5; // Meters
+
+    // Flags
+    uint8_t flag_ghost_timer = 1;
+    uint8_t flag_max_threshold_distance = 1;
 public:
     /**
      * @brief Construct a new LD2461 object
@@ -202,4 +207,13 @@ public:
     const char* detection_to_json(ld2461_frame_t* frame);
 
     void filter_ghost_targets(ld2461_detection_t* detection);
+
+    void set_ghost_timer_timeout(int64_t timeout);
+    int64_t get_ghost_timer_timeout();
+
+    void set_max_threshold_distance(double distance);
+    double get_max_threshold_distance();
+
+    void set_flag(ld2461_flags flag, uint8_t value);
+    uint8_t get_flag(ld2461_flags flag);
 };

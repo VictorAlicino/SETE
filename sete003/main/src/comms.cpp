@@ -1,5 +1,6 @@
 #include "comms.hpp"
 #include "detection.hpp"
+#include "ld2461.hpp"
 #include "mqtt.hpp"
 #include "wifi.hpp"
 #include "ota_update.hpp"
@@ -13,6 +14,7 @@ extern Detection* detection;
 extern MQTT* mqtt;
 extern WiFi_STA* wifi;
 extern Sensor* sensor;
+extern LD2461* ld2461;
 
 const char* COMMS_TAG = "COMMS";
 
@@ -181,6 +183,42 @@ void process_server_message(
         ESP_LOGI(COMMS_TAG, "Sending payload buffer time to callback topic by Server command");
         cJSON* root = cJSON_CreateObject();
         cJSON_AddItemToObject(root, "buffer_time", cJSON_CreateNumber(sensor->get_payload_buffer_time()));
+        char* data = cJSON_Print(root);
+        mqtt->publish(
+            sensor->get_mqtt_callback_topic().c_str(),
+            data
+        );
+        cJSON_Delete(root);
+    }
+    else if(topic == "/ghost_timer/set")
+    {
+        ESP_LOGI(COMMS_TAG, "Setting ghost timer by Server command");
+        int64_t ghost_timer = std::stoll(data);
+        ld2461->set_ghost_timer_timeout(ghost_timer);
+    }
+    else if(topic == "/ghost_timer/get")
+    {
+        ESP_LOGI(COMMS_TAG, "Sending ghost timer to callback topic by Server command");
+        cJSON* root = cJSON_CreateObject();
+        cJSON_AddItemToObject(root, "ghost_timer", cJSON_CreateNumber(ld2461->get_ghost_timer_timeout()));
+        char* data = cJSON_Print(root);
+        mqtt->publish(
+            sensor->get_mqtt_callback_topic().c_str(),
+            data
+        );
+        cJSON_Delete(root);
+    }
+    else if(topic == "/threshold_distance/set")
+    {
+        ESP_LOGI(COMMS_TAG, "Setting threshold distance by Server command");
+        double threshold_distance = std::stod(data);
+        ld2461->set_max_threshold_distance(threshold_distance);
+    }
+    else if(topic == "/threshold_distance/get")
+    {
+        ESP_LOGI(COMMS_TAG, "Sending threshold distance to callback topic by Server command");
+        cJSON* root = cJSON_CreateObject();
+        cJSON_AddItemToObject(root, "threshold_distance", cJSON_CreateNumber(ld2461->get_max_threshold_distance()));
         char* data = cJSON_Print(root);
         mqtt->publish(
             sensor->get_mqtt_callback_topic().c_str(),

@@ -99,7 +99,7 @@ Sensor::Sensor()
     if(nvs_buffer_time == NULL)
     {
         ESP_LOGI(SENSOR_TAG, "BUFFER_TIME not found in NVS, setting default value");
-        this->payload_buffer_time = 30000000; // 30 seconds
+        this->payload_buffer_time = 10000000; // 30 seconds
         storage->store_data_int64(SENSOR_BASIC_DATA, "BUFFER_TIME", this->payload_buffer_time);
     }
     else

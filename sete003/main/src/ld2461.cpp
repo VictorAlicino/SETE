@@ -345,7 +345,7 @@ const char* LD2461::detection_to_json(ld2461_frame_t* frame){
 void LD2461::filter_ghost_targets(ld2461_detection_t* detection)
 {
     static ld2461_detection_t previous_detection;
-    static uint64_t timeout[MAX_TARGETS_DETECTION] = {0};
+    static int64_t timeout[MAX_TARGETS_DETECTION] = {0};
 
     if (detection->detected_targets == 0) return; // If no targets are detected, return
 
@@ -364,39 +364,43 @@ void LD2461::filter_ghost_targets(ld2461_detection_t* detection)
             continue; // Skip if the previous target is zero
         }
 
-        // Check if the target is too far from the previous one (probably error in the detection, people don't teleport)
-        if (fabs(detection->target[i].x - previous_detection.target[i].x) > MAX_THRESHOLD_DISTANCE_METERS ||
-            fabs(detection->target[i].y - previous_detection.target[i].y) > MAX_THRESHOLD_DISTANCE_METERS)
-        {
-            ESP_LOGW(RADAR_TAG, "Target %d exceeded the threshold of %f meters.", i, MAX_THRESHOLD_DISTANCE_METERS);
-            detection->is_target_available[i] = LD2461_TARGET_TELEPORTED; // Set the target as teleported (id 3 is teleported)
-            continue;
-        }
-
-        // Checks if the current point is equal to the previous one
-        if (detection->target[i].x == previous_detection.target[i].x &&
-            detection->target[i].y == previous_detection.target[i].y)
-        {
-            if (timeout[i] == 0)
+        //// Check if the target is too far from the previous one (probably error in the detection, people don't teleport)
+        if (this->flag_max_threshold_distance) {
+            if (fabs(detection->target[i].x - previous_detection.target[i].x) > MAX_THRESHOLD_DISTANCE_METERS ||
+                fabs(detection->target[i].y - previous_detection.target[i].y) > MAX_THRESHOLD_DISTANCE_METERS)
             {
-                timeout[i] = esp_timer_get_time();
-            }
-            else if (esp_timer_get_time() - timeout[i] > GHOST_TARGETS_TIMEOUT)
-            {
-                // Set the point as a ghost
-                //ESP_LOGW(RADAR_TAG, "Target %d marked as ghost.", i);
-                detection->is_target_available[i] = LD2461_TARGET_GHOST;
-                detection->target[i].x = 0;
-                detection->target[i].y = 0;
-
-                // Continue the loop to avoid overwriting ghosts
+                ESP_LOGW(RADAR_TAG, "Target %d exceeded the threshold of %f meters.", i, MAX_THRESHOLD_DISTANCE_METERS);
+                detection->is_target_available[i] = LD2461_TARGET_TELEPORTED; // Set the target as teleported (id 3 is teleported)
                 continue;
             }
         }
-        else
-        {
-            // If the current point is different from the previous one, reset the timeout
-            timeout[i] = 0;
+
+        // Checks if the current point is equal to the previous one
+        if (this->flag_ghost_timer){
+            if (detection->target[i].x == previous_detection.target[i].x &&
+                detection->target[i].y == previous_detection.target[i].y)
+            {
+                if (timeout[i] == 0)
+                {
+                    timeout[i] = esp_timer_get_time();
+                }
+                else if (esp_timer_get_time() - timeout[i] > this->GHOST_TIMER_TIMEOUT)
+                {
+                    // Set the point as a ghost
+                    //ESP_LOGW(RADAR_TAG, "Target %d marked as ghost.", i);
+                    detection->is_target_available[i] = LD2461_TARGET_GHOST;
+                    detection->target[i].x = 0;
+                    detection->target[i].y = 0;
+
+                    // Continue the loop to avoid overwriting ghosts
+                    continue;
+                }
+            }
+            else
+            {
+                // If the current point is different from the previous one, reset the timeout
+                timeout[i] = 0;
+            }
         }
     }
 
@@ -407,5 +411,55 @@ void LD2461::filter_ghost_targets(ld2461_detection_t* detection)
         {
             previous_detection.target[i] = detection->target[i];
         }
+    }
+}
+
+void LD2461::set_ghost_timer_timeout(int64_t timeout)
+{
+    this->GHOST_TIMER_TIMEOUT = timeout;
+    ESP_LOGI(RADAR_TAG, "Ghost timer timeout set to %lld microseconds.", timeout);
+}
+
+int64_t LD2461::get_ghost_timer_timeout()
+{
+    return this->GHOST_TIMER_TIMEOUT;
+}
+
+void LD2461::set_max_threshold_distance(double distance)
+{
+    this->MAX_THRESHOLD_DISTANCE_METERS = distance;
+    ESP_LOGI(RADAR_TAG, "Threshold distance set to %f meters.", distance);
+}
+
+double LD2461::get_max_threshold_distance()
+{
+    return this->MAX_THRESHOLD_DISTANCE_METERS;
+}
+
+void LD2461::set_flag(ld2461_flags flag, uint8_t value)
+{
+    switch(flag){
+        case LD2461_FLAG_GHOST_TIMER:
+            this->flag_ghost_timer = value;
+            ESP_LOGI(RADAR_TAG, "Ghost timer flag set to %d.", value);
+            break;
+        case LD2461_FLAG_MAX_THRESHOLD_DISTANCE:
+            this->flag_max_threshold_distance = value;
+            ESP_LOGI(RADAR_TAG, "Max threshold distance flag set to %d.", value);
+            break;
+        default:
+            break;
+    }
+}
+
+uint8_t LD2461::get_flag(ld2461_flags flag)
+{
+    switch(flag){
+        case LD2461_FLAG_GHOST_TIMER:
+            return this->flag_ghost_timer;
+        case LD2461_FLAG_MAX_THRESHOLD_DISTANCE:
+            return this->flag_max_threshold_distance;
+        default:
+            return 0;
     }
 }

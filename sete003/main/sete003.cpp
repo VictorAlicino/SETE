@@ -65,6 +65,7 @@ extern "C"
 
 void app_main(void)
 {
+    //esp_log_level_set("*", ESP_LOG_INFO);
     ESP_LOGI("SET003", "Firmware Compiled on [ %s @ %s ]", __DATE__, __TIME__);
     // Initialize Storage (NVS)
     storage = new Storage();
@@ -73,7 +74,7 @@ void app_main(void)
     #if DEBUG == 1
     wifi = new WiFi_STA("50 centavos a hora", "duzentoseoito");
     #else
-    wifi = new WiFi_STA("Farma A Filial", "Filial#2200");
+    wifi = new WiFi_STA("UniFi SeteServicos", "6X.Pa1&bfF");
     #endif
     //wifi = new WiFi_STA("CAMPOS_EXT", "salsicha");
 
@@ -216,6 +217,21 @@ void app_main(void)
 
     ESP_LOGI(TAG, "Started on [%s (GMT +0)]", sensor->get_current_timestamp().c_str());
     sensor->change_time_zone("GMT +3"); // Change to UTC-3
+
+    ////esp_log_level_set("*", ESP_LOG_WARN);
+
+    ////esp_log_level_set("COMMS", ESP_LOG_INFO);
+    ////esp_log_level_set("DETECTION", ESP_LOG_INFO);
+    ////esp_log_level_set("LD2461", ESP_LOG_INFO);
+    ////esp_log_level_set("MQTT", ESP_LOG_INFO);
+    ////esp_log_level_set("Over-The-Air Update", ESP_LOG_INFO);
+    ////esp_log_level_set("Sensor", ESP_LOG_INFO);
+    ////esp_log_level_set("STORAGE", ESP_LOG_INFO);
+    ////esp_log_level_set("WiFi Station", ESP_LOG_INFO);
+    
+    storage->store_data_str(WIFI_BASIC_DATA, "SSID", wifi->get_ssid().c_str());
+    storage->store_data_str(WIFI_BASIC_DATA, "PASSWORD", wifi->get_password().c_str());
+
     while(flag_0)
     {
         //printf("%s\n", sensor->get_current_timestamp().c_str());

@@ -298,7 +298,7 @@ void Detection::count_detections(int target_index)
     if(targets[target_index].traversed == false) return;
     if(targets[target_index].entered_side == NONE || targets[target_index].exited_side == NONE) return;
 
-
+    //TODO: Isolar a lógica das saídas ou entradas, dependendo da mais problemática
     if(targets[target_index].trusted_vector == 0) 
     {
         ESP_LOGI(DETECTION_TAG, "Target %u previous point: (%.2f, %.2f) | entry point: (%.2f, %.2f) | exit point: (%.2f, %.2f) | entered side: %s | exited side: %s | [UNTRUSTED]",
