@@ -55,4 +55,9 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Uso: python clean_logs.py <arquivo_de_log>")
     else:
-        process_log_file(sys.argv[1])
+        if sys.argv[1] == ".":
+            for file in os.listdir():
+                if file.endswith(".log"):
+                    process_log_file(file)
+        else:
+            process_log_file(sys.argv[1])
